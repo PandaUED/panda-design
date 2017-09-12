@@ -1,12 +1,37 @@
-import { Route, Router, Switch } from 'dva/router';
+import {Route, Router, Switch} from 'dva/router';
 import React from 'react';
+import {connect} from 'dva';
+import NProgress from 'nprogress';
+import 'nprogress/nprogress.css';
 
-const PrimaryLayout = () => {
-	return (
-		<div>
-		</div>
-	);
-};
+function mapStateToProps(state) {
+	return {
+		loading: state.loading.global
+	};
+}
+
+const PrimaryLayout = connect(mapStateToProps)(class extends React.Component {
+	
+	constructor(props) {
+		super(props);
+	}
+	
+	componentWillMount() {
+		NProgress.start();
+	}
+	
+	componentDidMount() {
+		NProgress.done();
+	}
+	
+	render() {
+		const {loading} = this.props;
+		if (loading) NProgress.start();
+		if (!loading) NProgress.done();
+		
+		return <div>Pandora</div>
+	}
+});
 
 export default ({history}) => {
 	history.listen((location, action) => window.scrollTo(0, 0));

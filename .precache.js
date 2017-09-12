@@ -7,5 +7,5 @@ module.exports = {
 		'dist/*common*'
 	],
 	dontCacheBustUrlsMatching: /./,
-	swFilePath: 'dist/sw-precache.js'
+	swFilePath: 'dist/precache.js'
 };

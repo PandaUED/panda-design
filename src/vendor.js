@@ -8,3 +8,4 @@ import 'react';
 import 'react-dom';
 import 'react-lazyload';
 import 'styled-components'
+import 'prop-types'

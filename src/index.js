@@ -1,6 +1,7 @@
 import dva from 'dva';
 import createLoading from 'dva-loading';
 import createHistory from 'history/createBrowserHistory';
+import 'normalize.css'
 
 const ERROR_MSG_DURATION = 3; // 3 秒
 
