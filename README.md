@@ -1,3 +1,3 @@
 # Pandora
 
-An React-based implementation.
+Pandora React UI Components
