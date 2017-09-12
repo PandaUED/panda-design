@@ -1,4 +1,5 @@
 import {Route, Router, Switch} from 'dva/router';
+import {Example} from './routes';
 import React from 'react';
 import {connect} from 'dva';
 import NProgress from 'nprogress';
@@ -29,7 +30,7 @@ const PrimaryLayout = connect(mapStateToProps)(class extends React.Component {
 		if (loading) NProgress.start();
 		if (!loading) NProgress.done();
 		
-		return <div>Pandora</div>
+		return <Route component={Example} />
 	}
 });
 

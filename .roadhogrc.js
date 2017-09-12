@@ -5,7 +5,7 @@ export default {
 	},
 	multipage        : true,
 	publicPath       : '/',
-	disableCSSModules: false,
+	disableCSSModules: true,
 	hash             : true,
 	sass             : {
 		sourceMap   : process.env.NODE_ENV === 'development',
