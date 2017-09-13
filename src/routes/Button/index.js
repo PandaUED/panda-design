@@ -8,6 +8,7 @@ export default () => {
 			margin-bottom: 1rem;
 		}
 	`
+
 	return (
 		<View>
 			<Button round color="primary">This is Button</Button>
