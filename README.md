@@ -10,7 +10,7 @@ Pandora React UI Components
 
 组件池 -> 编写组件库 -> API Doc -> Done
 
-## TODO
+## Todo
 
 - [] Gulp编译器
 - [] XMUED更新
@@ -23,10 +23,10 @@ Pandora React UI Components
 **styled**: 一些扩展方法,如颜色运算等
 - [polished](https://polished.js.org/docs/)
 
-**prop类型检测*: 方便Debug和文档书写
+**prop类型检测**: 方便Debug和文档书写
 - [prop-types](https://github.com/facebook/prop-types)
 
-**js常用工具库*:
+**js常用工具库**:
 - [lodash](http://lodashjs.com/docs/)
 
 **参考组件写法:**
