@@ -11,10 +11,10 @@ export default () => {
 
 	return (
 		<View>
-			<Button round color="primary">This is Button</Button>
-			<Button round color="primary" deg={-45}>This is Button</Button>
-			<Button round ghost>This is Button</Button>
-			<Button round size="small" color="primary" deg={45}>This is Button</Button>
+			<Button round color="primary">按钮标题</Button>
+			<Button round color="primary" deg={-45}>按钮标题</Button>
+			<Button round ghost>按钮标题</Button>
+			<Button round size="small" color="primary" deg={45}>按钮标题</Button>
 		</View>
 	);
 }

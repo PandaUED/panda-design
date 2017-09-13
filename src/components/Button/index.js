@@ -33,6 +33,7 @@ const Button = ({
 		border: 1px solid transparent;
 		height: ${{large: 54, default: 48, small: 36}[size]}px;
 		font-size: ${{large: 18, default: 16, small: 14}[size]}px;
+		font-weight: 500;
 		border-radius: ${round ? {large: 54, default: 48, small: 36}[size] / 2 : 0}px;
 	`;
 

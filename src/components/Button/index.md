@@ -1,0 +1,20 @@
+# 按钮
+
+点击后会触发一个操作。
+
+## API
+
+| 属性        | 说明                                |   类型   |   默认值   |
+| :-------- | --------------------------------- | :----: | :-----: |
+| color     | 按钮颜色，值可从/color页面选取                | string | primary |
+| deg       | 渐变角度，如果deg存在，按钮将自动变为渐变色           | number |    -    |
+| size      | 按钮大小，可选值为 large , defualt , small | string | default |
+| round     | 是否为圆角按钮                           |  bool  |  fasle  |
+| ghost     | 是否为线框按钮                           |  bool  |  fasle  |
+| border    | 在线框按钮的情况下是否显示描边                   |  bool  |  true   |
+| **TODO**  |                                   |        |         |
+| disable   | 设置禁用                              |  bool  |  false  |
+| **OTHER** |                                   |        |         |
+| classname | 样式类名                              | string |    -    |
+| style     | 自定义样式                             | Object |    -    |
+| onClick   | 点击按钮的点击回调函数                       |  func  |    -    |
