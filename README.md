@@ -8,7 +8,31 @@ Pandora React UI Components
 
 <https://trello.com/b/Ae62EniM/fe>
 
+组件池 -> 编写组件库 -> API Doc -> Done
+
 ## TODO
 
-[] Gulp编译器
-[] XMUED更新
+- [] Gulp编译器
+- [] XMUED更新
+
+## Link
+
+**样式:** 需安装WebStorm插件
+- [styled-components](https://www.styled-components.com/docs/basics)
+
+**styled**: 一些扩展方法,如颜色运算等
+- [polished](https://polished.js.org/docs/)
+
+**prop类型检测*: 方便Debug和文档书写
+- [prop-types](https://github.com/facebook/prop-types)
+
+**js常用工具库*:
+- [lodash](http://lodashjs.com/docs/)
+
+**参考组件写法:**
+- [ant-design-mobile](https://github.com/canisminor1990/ant-design-mobile)
+
+**框架:**
+- [roadhog](https://github.com/sorrycc/roadhog)
+- [dva](https://github.com/dvajs/dva)
+
