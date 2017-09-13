@@ -17,7 +17,13 @@ export default () => {
 		flex-direction: column;
 		align-items: center;
 `;
-	const Color        = styled.div`
+	const Ball         = styled.div`
+		width: 72px;
+		height: 72px;
+		border-radius: 50%;
+		margin: .8rem 0;
+`;
+	const Color        = Ball.extend`
 		width: 72px;
 		height: 72px;
 		border-radius: 50%;
@@ -25,7 +31,7 @@ export default () => {
 		box-shadow: 0 8px 24px 0 ${porp => rgba(porp.color, 0.5)};
 		margin: .8rem 0;
 `;
-	const Gradient     = Color.extend`
+	const Gradient     = Ball.extend`
 		background: ${porp => porp.gradient};	
 		box-shadow: 0 8px 24px 0 ${porp => rgba(porp.color, 0.5)};
 `;
@@ -41,9 +47,9 @@ export default () => {
 		margin-bottom: .4rem;
 `;
 	const GradientHex  = Hex.extend`
-		&:before{
 		width: 72px;
 		text-align: left;
+		&:before{
 				content:"●";
 				color:${porp => porp.color};
 		}
@@ -77,13 +83,13 @@ export default () => {
 
 	return (
 		<View>
-			<h1>Color</h1>
-			<Card>
-				{ColorDisplay}
-			</Card>
 			<h1>Gradient</h1>
 			<Card>
 				{GradientDisplay}
+			</Card>
+			<h1>Color</h1>
+			<Card>
+				{ColorDisplay}
 			</Card>
 		</View>
 	);

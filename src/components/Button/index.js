@@ -4,14 +4,22 @@ import styled from 'styled-components';
 import style from '../../style';
 
 const props = {
-	type    : PropTypes.oneOf(['primary']),
-	size    : PropTypes.oneOf(['large', 'middle', 'small']),
+	color   : PropTypes.string,
+	deg     : PropTypes.number,
+	size    : PropTypes.oneOf(['large', 'default', 'small']),
+	round   : PropTypes.bool,
+	ghost   : PropTypes.bool,
+	border  : PropTypes.bool,
 	disabled: PropTypes.bool
 };
 
 const Button = ({
-	                type = 'primary',
-	                size = 'large',
+	                color = 'primary',
+	                deg,
+	                size = 'default',
+	                round = false,
+	                ghost = false,
+	                border = true,
 	                disabled = false,
 	                children,
 	                ...other
@@ -21,13 +29,24 @@ const Button = ({
 		align-items: center;
 		justify-content: center;
 		box-sizing: border-box;
-		height: ${{large: 54, small: 44}[size]}px;
-`;
+		background: transparent;
+		border: 1px solid transparent;
+		height: ${{large: 54, default: 48, small: 36}[size]}px;
+		font-size: ${{large: 18, default: 16, small: 14}[size]}px;
+		border-radius: ${round ? {large: 54, default: 48, small: 36}[size] / 2 : 0}px;
+	`;
 
-	Btn = Btn.extend`
-		background: ${style.gradient.primary(45)};
-`;
-
+	if (ghost) {
+		Btn = Btn.extend`
+		border-color: ${border ? style.color[color] : 'transparent'};
+		color:${style.color[color]};
+	`;
+	} else {
+		Btn = Btn.extend`
+		background: ${deg ? style.gradient[color](deg) : style.color[color]};
+		color:#fff;
+	`;
+	}
 	return (
 		<Btn role="button" {...other}>{children}</Btn>
 	);
