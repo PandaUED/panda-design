@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import { rgba } from 'polished';
 import styled from 'styled-components';
-import style from '../../style';
+import { style } from '../../components';
 
 export default () => {
 	const View         = styled.div`

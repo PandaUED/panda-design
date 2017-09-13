@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import styled from 'styled-components';
-import style from '../../style';
+import {style} from '../';
 
 const props = {
 	color   : PropTypes.string,
