@@ -1,5 +1,6 @@
 import { Link } from 'dva/router';
-import { style, View } from 'pand';
+import _ from 'lodash';
+import { style, View, WhiteSpace } from 'pand';
 import styled from 'styled-components';
 
 export default () => {
@@ -12,10 +13,23 @@ export default () => {
 		${style.split.bottom}
 	}
 	`;
+
+	// url链接驼峰转中划线
+	const MakeLink = ({to}) => <Link to={_.kebabCase(to)}>{to}</Link>;
+
 	return (
 		<PageView>
-			<Link to="/color">Color</Link>
-			<Link to="/button">Button</Link>
+
+			<WhiteSpace>Style</WhiteSpace>
+			<MakeLink to="Color" />
+
+			<WhiteSpace>Layout</WhiteSpace>
+			<MakeLink to="WhiteSpace" />
+			<MakeLink to="WingBlank" />
+
+			<WhiteSpace>Data Entry</WhiteSpace>
+			<MakeLink to="Button" />
+
 		</PageView>
 	);
 }

@@ -1,21 +1,25 @@
+import dynamic from 'dva/dynamic';
 import { Route, Switch } from 'dva/router';
+import _ from 'lodash';
+import { View } from 'pand';
 import App from './App';
 import Button from './Button';
-import Color from './Color';
 import Home from './Home';
-import { View } from 'pand';
-//import dynamic from 'dva/dynamic';
-//const Home = dynamic({component: () => import('./Home')});
-//const Color = dynamic({component: () => import('./Color')});
-//const Button = dynamic({component: () => import('./Button')});
+
+const MakeRoute = (page) => <Route
+	path={'/' + _.kebabCase(page)}
+	component={dynamic({component: () => import(`./${page}`)})}
+/>;
 
 export default () => (
 	<View>
 		<Route path="/" component={App}/>
 		<Switch>
 			<Route exact path="/" component={Home}/>
-			<Route path="/button" component={Button}/>
-			<Route path="/color" component={Color}/>
+			{MakeRoute('Color')}
+			{MakeRoute('WhiteSpace')}
+			{MakeRoute('WingBlank')}
+			{MakeRoute('Button')}
 		</Switch>
 	</View>
 )

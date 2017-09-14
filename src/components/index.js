@@ -2,6 +2,7 @@
 export { default as style } from './style';
 
 // Layout
+export { default as Example } from './Example';
 export { default as View } from './View';
 export { default as WhiteSpace } from './WhiteSpace';
 export { default as WingBlank } from './WingBlank';

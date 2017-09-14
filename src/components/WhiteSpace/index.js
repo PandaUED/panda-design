@@ -20,6 +20,7 @@ const WhiteSpack = ({
 
 	if (children) {
 		WhiteSpace = WhiteSpace.extend`
+		font-size: 14px;
 		padding: ${children ? `10px 16px` : 0};
 		`
 	}else {
