@@ -1,6 +1,7 @@
-import { rgba } from 'polished';
+import { darken, rgba } from 'polished';
 import PropTypes from 'prop-types';
 import React from 'react';
+import TouchFeedback from 'rmc-feedback';
 import styled from 'styled-components';
 import { style } from '../';
 
@@ -13,7 +14,8 @@ const props = {
 	border   : PropTypes.bool,
 	shadow   : PropTypes.bool,
 	highlight: PropTypes.bool,
-	disabled : PropTypes.bool
+	disabled : PropTypes.bool,
+	onClick  : PropTypes.func
 };
 
 const Button = ({
@@ -26,11 +28,17 @@ const Button = ({
 	                shadow = false,
 	                highlight = false,
 	                disabled = false,
+	                onClick,
 	                children,
 	                ...other
                 }) => {
 	let Btn = styled.a`
 		cursor: pointer;
+		user-select: none;
+		text-overflow: ellipsis;
+    word-break: break-word;
+    text-align: center;
+    white-space: nowrap;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -42,33 +50,46 @@ const Button = ({
 		border-radius: ${round ? {large: 54, default: 48, small: 36}[size] / 2 : 0}px;
 		position: relative;
 		overflow:hidden;
-		:before {
-			content:"";
-			display: none;
-			background: rgba(0,0,0,.05);
-			width: 100%;
-			height: 100%;
-			position: absolute;
-			top:0;
-			left:0;
-		}
-		&:active{
-			&:before{
-				display: block;
-			}
-		}
+		-webkit-appearance: none;
 	`;
 
-	if (ghost && !deg) {
-		Btn = Btn.extend`
-		border: 1px solid ${style.color[color]};
-		color:${style.color[color]};
-	`;
-	} else {
-		Btn = Btn.extend`
-		background: ${deg ? style.gradient[color](deg) : style.color[color]};
+	if (ghost) {
+		const theme = style.color[color];
+		Btn         = Btn.extend`
+		color:${theme};
+		${(border) ? `border: 1px solid ${theme}` : ``};
+		`;
+		if (!disabled) Btn = Btn.extend`
+		&:active{
+		color:${darken(0.08, theme)};
+		${(border) ? `border-color:${darken(0.08, theme)}` : ``};
+		}
+`;
+	} else if (deg) {
+		const theme       = style.gradient[color](deg);
+		const themeActive = `linear-gradient(rgba(0,0,0,.08) 0%,rgba(0,0,0,.08) 100%)`;
+		Btn               = Btn.extend`
+		background: ${theme};
 		color:#fff;
-	`;
+		`;
+		if (!disabled) Btn = Btn.extend`
+		&:active{
+		background: ${themeActive},${theme};
+		color:rgba(255,255,255,.7)
+		}
+		`;
+	} else {
+		const theme = style.color[color];
+		Btn         = Btn.extend`
+		background: ${theme};
+		color:#fff;
+		`;
+		if (!disabled) Btn = Btn.extend`
+		&:active{
+		background:${darken(0.05, theme)};
+		color:rgba(255,255,255,.7)
+		}
+		`;
 	}
 
 	if (shadow) {
@@ -100,8 +121,20 @@ const Button = ({
 			}
 		`;
 	}
+
+	if (disabled) {
+		Btn = Btn.extend`
+			opacity: .5;
+			cursor: not-allowed;
+    `;
+	}
+
 	return (
-		<Btn role="button" {...other}>{children}</Btn>
+		<TouchFeedback disabled={disabled}>
+			<Btn role="button" onClick={disabled ? undefined : onClick} {...other}>
+				{children}
+			</Btn>
+		</TouchFeedback>
 	);
 };
 

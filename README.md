@@ -35,6 +35,9 @@ $ yarn build
 **styled**: 一些扩展方法,如颜色运算等
 - [polished](https://polished.js.org/docs/)
 
+**react点击反馈:** 应用于Button之类的组件
+- [rmc-feedback](https://github.com/react-component/m-feedback)
+
 **prop类型检测**: 方便Debug和文档书写
 - [prop-types](https://github.com/facebook/prop-types)
 

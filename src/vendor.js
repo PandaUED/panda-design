@@ -11,4 +11,5 @@ import 'react-lazyload';
 import 'styled-components'
 import 'polished' // styled-components 方法库
 import 'prop-types'
+import 'rmc-feedback'
 import 'normalize.css'
