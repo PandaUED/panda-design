@@ -1,8 +1,9 @@
 {
-  "name": "pandora",
+  "name": "pand",
   "version": "1.0.0",
   "main": "src/components/index.js",
-  "repository": "git@git.coding.net:canisminor1990/pandora.git",
+  "files":["src/compoents"],
+  "repository": "git@git.coding.net:canisminor1990/panda-design.git",
   "license": "MIT",
   "scripts": {
     "start": "roadhog server",
