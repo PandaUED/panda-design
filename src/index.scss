@@ -1,4 +1,3 @@
-$c-primary: #ff6700;
 * {
 	-webkit-font-smoothing: antialiased
 }
@@ -10,13 +9,4 @@ body {
 }
 a {
 	text-decoration: none
-}
-#nprogress {
-	.bar {
-		background: $c-primary !important;
-	}
-	.spinner-icon {
-		border-top-color: $c-primary !important;
-		border-left-color: $c-primary !important;
-	}
 }
