@@ -5,8 +5,8 @@ Pandora React UI Components
 ![](http://on-img.com/chart_image/59b8e5c5e4b06f66982e9c68.png)
 
 ```bash
-# 安装依赖
-$ yarn
+# 安装依赖,配置环境和link
+$ yarn run root
 
 # 生成 roadhog.dll 并启动项目，有新包需要重新build
 $ yarn build:dll

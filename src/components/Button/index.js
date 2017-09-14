@@ -10,6 +10,7 @@ const props = {
 	round   : PropTypes.bool,
 	ghost   : PropTypes.bool,
 	border  : PropTypes.bool,
+	shadow  : PropTypes.bool,
 	disabled: PropTypes.bool
 };
 
@@ -20,6 +21,7 @@ const Button = ({
 	                round = false,
 	                ghost = false,
 	                border = true,
+	                shadow = false,
 	                disabled = false,
 	                children,
 	                ...other
@@ -48,6 +50,14 @@ const Button = ({
 		color:#fff;
 	`;
 	}
+
+	if(shadow){
+		const shadowColor = style.color[color]
+		Btn = Btn.extend`
+		box-shadow: 0 8px 24px 0 ${porp => rgba(shadowColor, 0.3)};
+	`;
+	}
+
 	return (
 		<Btn role="button" {...other}>{children}</Btn>
 	);

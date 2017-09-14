@@ -1,4 +1,4 @@
-import { Button } from '../../components';
+import { Button } from 'pand';
 import styled from 'styled-components'
 
 export default () => {
