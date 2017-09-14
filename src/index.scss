@@ -1,10 +1,29 @@
-
+* {
+	-webkit-font-smoothing: antialiased;
+	box-sizing: border-box;
+	outline: none !important;
+}
+*,
+*:before,
+*:after {
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+*[contenteditable] {
+	-webkit-user-select: auto !important;
+}
+*:focus {
+	outline: none;
+}
 html, body, :global(#root) {
 	height: 100%;
+}
+html {
+	background: #f8f8f8;
 }
 body {
 	font-family: system, -apple-system, ".SFNSDisplay-Regular", HelveticaNeue, LucidaGrande, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
 	font-size: 16px;
+	user-select: none;
 }
 a {
 	background: transparent;
@@ -12,22 +31,3 @@ a {
 	outline: none;
 }
 
-* {
-	-webkit-font-smoothing: antialiased;
-	outline: none !important;
-}
-
-*,
-*:before,
-*:after {
-	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-
-*[contenteditable] {
-	-webkit-user-select: auto !important;
-}
-
-*:focus {
-	outline: none;
-}

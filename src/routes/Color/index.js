@@ -1,12 +1,9 @@
 import _ from 'lodash';
+import { style, View,WhiteSpace } from 'pand';
 import { rgba } from 'polished';
 import styled from 'styled-components';
-import { style } from 'pand';
 
 export default () => {
-	const View         = styled.div`
-	padding:.5rem;
-`;
 	const Card         = styled.div`
 		display: flex;
 		flex-wrap: wrap;
@@ -87,6 +84,7 @@ export default () => {
 			<Card>
 				{GradientDisplay}
 			</Card>
+			<WhiteSpace>dsafsdafdsafsa</WhiteSpace>
 			<h1>Color</h1>
 			<Card>
 				{ColorDisplay}

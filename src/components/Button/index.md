@@ -19,3 +19,4 @@
 | classname | 样式类名                              | string |    -    |
 | style     | 自定义样式                             | Object |    -    |
 | onClick   | 点击按钮的点击回调函数                       |  func  |    -    |
+| children     | 填写在按钮中内容，如文字，iconfont                | any | - |

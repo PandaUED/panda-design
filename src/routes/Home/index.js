@@ -1,9 +1,9 @@
 import { Link } from 'dva/router';
-import {style} from 'pand';
+import { style, View } from 'pand';
 import styled from 'styled-components';
 
 export default () => {
-	const Home = styled.div`
+	const PageView = styled(View)`
 	> a {
 		display: block;
 		padding: 1rem;
@@ -13,9 +13,9 @@ export default () => {
 	}
 	`;
 	return (
-		<Home>
+		<PageView>
 			<Link to="/color">Color</Link>
 			<Link to="/button">Button</Link>
-		</Home>
+		</PageView>
 	);
 }

@@ -1,6 +1,5 @@
 import { darken, rgba } from 'polished';
 import PropTypes from 'prop-types';
-import React from 'react';
 import TouchFeedback from 'rmc-feedback';
 import styled from 'styled-components';
 import { style } from '../';
@@ -32,9 +31,8 @@ const Button = ({
 	                children,
 	                ...other
                 }) => {
-	let Btn = styled.a`
+	let Button = styled.a`
 		cursor: pointer;
-		user-select: none;
     text-align: center;
 		display: flex;
 		align-items: center;
@@ -53,11 +51,11 @@ const Button = ({
 
 	if (ghost) {
 		const theme = style.color[color];
-		Btn         = Btn.extend`
+		Button         = Button.extend`
 		color:${theme};
 		${(border) ? `border: 1px solid ${theme}` : ``};
 		`;
-		if (!disabled) Btn = Btn.extend`
+		if (!disabled) Button = Button.extend`
 		&:active{
 		color:${darken(0.08, theme)};
 		${(border) ? `border-color:${darken(0.08, theme)}` : ``};
@@ -66,11 +64,11 @@ const Button = ({
 	} else if (deg) {
 		const theme       = style.gradient[color](deg);
 		const themeActive = `linear-gradient(rgba(0,0,0,.08) 0%,rgba(0,0,0,.08) 100%)`;
-		Btn               = Btn.extend`
+		Button               = Button.extend`
 		background: ${theme};
 		color:#fff;
 		`;
-		if (!disabled) Btn = Btn.extend`
+		if (!disabled) Button = Button.extend`
 		&:active{
 		background: ${themeActive},${theme};
 		color:rgba(255,255,255,.7)
@@ -78,11 +76,11 @@ const Button = ({
 		`;
 	} else {
 		const theme = style.color[color];
-		Btn         = Btn.extend`
+		Button         = Button.extend`
 		background: ${theme};
 		color:#fff;
 		`;
-		if (!disabled) Btn = Btn.extend`
+		if (!disabled) Button = Button.extend`
 		&:active{
 		background:${darken(0.05, theme)};
 		color:rgba(255,255,255,.7)
@@ -92,7 +90,7 @@ const Button = ({
 
 	if (shadow) {
 		const shadowColor = style.color[color];
-		Btn               = Btn.extend`
+		Button               = Button.extend`
 		box-shadow: 0 ${{
 			large  : `10px 30px`,
 			default: `8px 24px`,
@@ -103,7 +101,7 @@ const Button = ({
 
 	if (highlight) {
 		const hightlightSize = {large: 6, default: 5, small: 4}[size];
-		Btn                  = Btn.extend`
+		Button                  = Button.extend`
 		:after{
 				content:"";
 				display: block;
@@ -121,7 +119,7 @@ const Button = ({
 	}
 
 	if (disabled) {
-		Btn = Btn.extend`
+		Button = Button.extend`
 			opacity: .5;
 			cursor: not-allowed;
     `;
@@ -129,9 +127,9 @@ const Button = ({
 
 	return (
 		<TouchFeedback disabled={disabled}>
-			<Btn role="button" onClick={disabled ? undefined : onClick} {...other}>
+			<Button role="button" onClick={disabled ? undefined : onClick} {...other}>
 				{children}
-			</Btn>
+			</Button>
 		</TouchFeedback>
 	);
 };
