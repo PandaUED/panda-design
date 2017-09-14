@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { style } from '../';
 
 const props = {
-	color    : PropTypes.string,
+	color    : PropTypes.oneOf(Object.keys(style.color)),
 	deg      : PropTypes.number,
 	size     : PropTypes.oneOf(['large', 'default', 'small']),
 	round    : PropTypes.bool,
@@ -35,10 +35,7 @@ const Button = ({
 	let Btn = styled.a`
 		cursor: pointer;
 		user-select: none;
-		text-overflow: ellipsis;
-    word-break: break-word;
     text-align: center;
-    white-space: nowrap;
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -51,6 +48,7 @@ const Button = ({
 		position: relative;
 		overflow:hidden;
 		-webkit-appearance: none;
+		${style.text.ellipsis}
 	`;
 
 	if (ghost) {

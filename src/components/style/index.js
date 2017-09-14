@@ -1,8 +1,10 @@
 import { color, gradient } from './color';
-import { split } from './split';
+import split from './split';
+import text from './text';
 
 export default {
 	color   : color,
 	gradient: gradient,
-	split   : split
+	split   : split,
+	text    : text
 };

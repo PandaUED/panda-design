@@ -1,6 +1,6 @@
 import { color } from './color';
 
-const split = {
+export default  {
 	all   : `border: .5px solid ${color.split}`,
 	top   : `border-top: .5px solid ${color.split}`,
 	bottom: `border-bottom: .5px solid ${color.split}`,
@@ -8,4 +8,3 @@ const split = {
 	right : `border-right: .5px solid ${color.split}`
 };
 
-export { split } ;
