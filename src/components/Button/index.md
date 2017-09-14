@@ -13,6 +13,7 @@
 | ghost     | 是否为线框按钮                           |  bool  |  fasle  |
 | border    | 在线框按钮的情况下是否显示描边                   |  bool  |  true   |
 | shadow    | 是否显示按钮阴影(和按钮颜色相同)                 |  bool  |  false  |
+| highlight | 是否显示右上角高光                         |  bool  |  false  |
 | **TODO**  |                                   |        |         |
 | disable   | 设置禁用                              |  bool  |  false  |
 | **OTHER** |                                   |        |         |

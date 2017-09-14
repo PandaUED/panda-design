@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const color   = {
 	redbag      : '#FF5F5F',
 	red         : '#FF5F5F',
@@ -39,5 +41,7 @@ const gradient = {
 gradient.primary = gradient.orange;
 
 const gradientBuild = (deg = 45, color) => `linear-gradient(${deg}deg, ${color[0]} 0%, ${color[1]} 100%)`;
+
+gradientBuild.propTypes = {deg: PropTypes.number};
 
 export { color, gradient };
