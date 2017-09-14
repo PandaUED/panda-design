@@ -8,4 +8,4 @@
 | :------- | -------------- | ------ | ---------------------------------------- |
 | color    | 颜色             | string | `style.color.type`               |
 | gradient | 渐变色,支持自定义deg角度 | func   | `style.gradient.type(deg:number)` |
-
+| split | 真实1px分割线 | string   | `style.split.direction` |

@@ -1,4 +1,5 @@
 import { Link } from 'dva/router';
+import {style} from 'pand';
 import styled from 'styled-components';
 
 export default () => {
@@ -7,8 +8,8 @@ export default () => {
 		display: block;
 		padding: 1rem;
 		background:#fff;
-		border-bottom:1px solid #f8f8f8;
 		color:#444;
+		${style.split.bottom}
 	}
 	`;
 	return (

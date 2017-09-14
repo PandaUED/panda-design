@@ -1,6 +1,8 @@
-import {color,gradient} from './color';
+import { color, gradient } from './color';
+import { split } from './split';
 
 export default {
 	color   : color,
-	gradient: gradient
+	gradient: gradient,
+	split   : split
 };
