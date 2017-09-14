@@ -3,10 +3,11 @@ import styled from 'styled-components';
 import { style } from '../';
 
 const props      = {
+	size: PropTypes.number,
 	transparent: PropTypes.bool
 };
 const WhiteSpack = ({
-	                    height = 10,
+	                    size = 10,
 	                    transparent = false,
 	                    children,
 	                    ...other
@@ -23,7 +24,7 @@ const WhiteSpack = ({
 		`
 	}else {
 		WhiteSpace = WhiteSpace.extend`
-		height: ${height}px;
+		height: ${size}px;
 		`
 	}
 

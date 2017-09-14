@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { style, View,WhiteSpace } from 'pand';
+import { style, View, WhiteSpace, WingBlank } from 'pand';
 import { rgba } from 'polished';
 import styled from 'styled-components';
 
@@ -9,7 +9,7 @@ export default () => {
 		flex-wrap: wrap;
 `;
 	const Item         = styled.div`
-		margin:.5rem;
+		margin:.4rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
@@ -80,15 +80,21 @@ export default () => {
 
 	return (
 		<View>
-			<h1>Gradient</h1>
-			<Card>
-				{GradientDisplay}
-			</Card>
-			<WhiteSpace>dsafsdafdsafsa</WhiteSpace>
-			<h1>Color</h1>
-			<Card>
-				{ColorDisplay}
-			</Card>
+			<WhiteSpace/>
+			<WingBlank>
+				<h1>Gradient</h1>
+				<Card>
+					{GradientDisplay}
+				</Card>
+			</WingBlank>
+			<WhiteSpace/>
+			<WingBlank>
+				<h1>Color</h1>
+				<Card>
+					{ColorDisplay}
+				</Card>
+			</WingBlank>
+			<WhiteSpace/>
 		</View>
 	);
 }
