@@ -11,14 +11,15 @@ const Example = ({children = 'example', ...other}) => {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		color: ${style.color.placeholder};
-		background: ${transparent ? `transparent` : style.color.bgNotice};
+		height:44px;
+		line-hegiht:44px;
+		text-align: center;
+		color: ${style.color.textDeactive};
+		background: ${style.color.bgDeactive};
 	`;
 
 	return (
-		<Example {...other}>
-			{children}
-		</Example>
+		<Example {...other}>{children}</Example>
 	);
 };
 
