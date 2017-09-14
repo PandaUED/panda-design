@@ -40,15 +40,18 @@ export default () => {
 `;
 	const Hex          = Title.extend`
 		color: ${style.color.textLight};
-		font-size: .4rem;
+		font-size: .7rem;
 		margin-bottom: .4rem;
 `;
 	const GradientHex  = Hex.extend`
 		width: 72px;
-		text-align: left;
+		position: relative;
+		widows: 100%;
 		&:before{
 				content:"●";
 				color:${porp => porp.color};
+				position: absolute;
+				left: 0;
 		}
 `;
 	const ColorDisplay = [];
