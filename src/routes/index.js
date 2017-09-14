@@ -1,7 +1,12 @@
-import { Route, Router, Switch } from 'dva/router';
-import Home from './Home';
+import { Route, Switch } from 'dva/router';
 import Button from './Button';
 import Color from './Color';
+import Home from './Home';
+
+//import dynamic from 'dva/dynamic';
+//const Home = dynamic({component: () => import('./Home')});
+//const Color = dynamic({component: () => import('./Color')});
+//const Button = dynamic({component: () => import('./Button')});
 
 export default () => (
 	<Switch>
