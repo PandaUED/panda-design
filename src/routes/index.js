@@ -1,4 +1,5 @@
 import { Route, Switch } from 'dva/router';
+import App from './App';
 import Button from './Button';
 import Color from './Color';
 import Home from './Home';
@@ -9,9 +10,12 @@ import Home from './Home';
 //const Button = dynamic({component: () => import('./Button')});
 
 export default () => (
-	<Switch>
-		<Route exact path="/" component={Home}/>
-		<Route path="/button" component={Button}/>
-		<Route path="/color" component={Color}/>
-	</Switch>
+	<div>
+		<Route path="/" component={App}/>
+		<Switch>
+			<Route exact path="/" component={Home}/>
+			<Route path="/button" component={Button}/>
+			<Route path="/color" component={Color}/>
+		</Switch>
+	</div>
 )
