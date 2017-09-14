@@ -20,6 +20,7 @@ export default () => (
 			{MakeRoute('WhiteSpace')}
 			{MakeRoute('WingBlank')}
 			{MakeRoute('Button')}
+			{MakeRoute('Card')}
 		</Switch>
 	</View>
 )

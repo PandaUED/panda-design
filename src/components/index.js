@@ -11,6 +11,7 @@ export { default as WingBlank } from './WingBlank';
 
 // Data Entry
 export { default as Button } from './Button';
+export { default as Card } from './Card';
 
 // Data Display
 

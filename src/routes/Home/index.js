@@ -29,7 +29,7 @@ export default () => {
 
 			<WhiteSpace>Data Entry</WhiteSpace>
 			<MakeLink to="Button" />
-
+			<MakeLink to="Card" />
 		</PageView>
 	);
 }
