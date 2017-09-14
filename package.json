@@ -12,7 +12,7 @@
 		"start"    : "yarn trello, roadhog server",
 		"build"    : "roadhog build; sw-precache --config=.precache.js",
 		"build:dll": "roadhog buildDll",
-		"trello"   : "open https://trello.com/b/Ae62EniM/fe",
+		"trello"   : "open https://trello.com/b/Ae62EniM/fe"
 	},
 	"engines"        : {
 		"install-node": "6.9.2"
