@@ -10,5 +10,5 @@
 | transparent | 分割是否为透明，默认为页面背景色`bgPage` | bool | false |
 | **OTHER** |                                   |        |         |
 | classname | 样式类名                              | string |    -    |
-| style     | 自定义样式                             | Object |    -    |
+| style     | 自定义样式                             | object |    -    |
 | children     | 填写在分割中的内容，如文字等                | any | - |

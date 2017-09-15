@@ -9,4 +9,4 @@
 | color     | 页面背景颜色               | string | transparent |
 | **OTHER** |                                   |        |         |
 | classname | 样式类名                              | string |    -    |
-| style     | 自定义样式                             | Object |    -    |
+| style     | 自定义样式                             | object |    -    |

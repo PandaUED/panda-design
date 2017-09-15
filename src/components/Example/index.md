@@ -9,5 +9,5 @@
 | props     | 说明                | - | - |
 | **OTHER** |                                   |        |         |
 | classname | 样式类名                              | string |    -    |
-| style     | 自定义样式                             | Object |    -    |
+| style     | 自定义样式                             | object |    -    |
 | onClick   | 点击按钮的点击回调函数                       |  func  |    -    |
