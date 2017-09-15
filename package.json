@@ -10,7 +10,7 @@
 	"scripts": {
 		"root": "yarn; yarn build:dll; yarn link",
 		"start": "yarn trello; yarn link pand; roadhog server",
-		"build": "roadhog build; sw-precache --config=.precache.js",
+		"build": "yarn link pand; roadhog build",
 		"build:dll": "roadhog buildDll",
 		"trello": "open https://trello.com/b/Ae62EniM/fe",
 		"ssh": "ssh root@172.20.200.10"
@@ -52,7 +52,6 @@
 		"normalize.css": "^7.0.0",
 		"redbox-react": "^1.3.2",
 		"roadhog": "^1.2.2",
-		"sass-loader": "^6.0.6",
-		"sw-precache": "^5.2.0"
+		"sass-loader": "^6.0.6"
 	}
 }
