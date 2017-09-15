@@ -1,0 +1,39 @@
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+  outline: none !important; }
+
+*,
+*:before,
+*:after {
+  -webkit-tap-highlight-color: transparent; }
+
+*[contenteditable] {
+  -webkit-user-select: auto !important; }
+
+*:focus {
+  outline: none; }
+
+html, body, #root {
+  height: 100%; }
+
+html {
+  background: #f8f8f8; }
+
+body {
+  font-family: system, -apple-system, ".SFNSDisplay-Regular", HelveticaNeue, LucidaGrande, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  font-size: 16px;
+  -webkit-user-select: none;
+          user-select: none;
+  color: #444; }
+
+a {
+  background: transparent;
+  text-decoration: none;
+  outline: none; }
+#nprogress .bar {
+  background: #ff6700 !important; }
+
+#nprogress .spinner-icon {
+  border-top-color: #ff6700 !important;
+  border-left-color: #ff6700 !important; }
