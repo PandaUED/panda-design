@@ -20,7 +20,7 @@ const CardHeader = ({
 	padding:0 16px;
 	font-weight: 600;
 	${style.text.ellipsis};
-	${split ? `border-bottom: 1px solid ${style.color.split}` : ``};
+	${split ? style.split.bottom : ``};
 	`;
 
 	return (
