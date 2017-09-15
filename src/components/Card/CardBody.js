@@ -1,20 +1,23 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { style } from '../';
 
-const props   = {
-
+const props = {
+	padding: PropTypes.bool
 };
 
-const CardBody = ({children,...other}) =>{
+const CardBody = ({
+	                  padding = false,
+	                  children,
+	                  ...other
+                  }) => {
 	let CardBody = styled.div`
-	background: #fff;
+			padding: ${padding?16:0}px;
 	`;
 	return (
 		<CardBody {...other}>{children}</CardBody>
 	);
-}
+};
 
-CardBody.propTypes = props
+CardBody.propTypes = props;
 
 export default CardBody;

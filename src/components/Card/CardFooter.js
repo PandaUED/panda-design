@@ -2,19 +2,24 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { style } from '../';
 
-const props   = {
-
+const props = {
+	split: PropTypes.bool
 };
 
-const CardFooter = ({children,...other}) =>{
+const CardFooter = ({
+	                    split = false,
+	                    children,
+	                    ...other
+                    }) => {
 	let CardFooter = styled.div`
-	background: #fff;
+	min-height: 44px;
+	${split ? `border-top: 1px solid ${style.color.split}` : ``};
 	`;
 	return (
 		<CardFooter {...other}>{children}</CardFooter>
 	);
-}
+};
 
-CardFooter.propTypes = props
+CardFooter.propTypes = props;
 
 export default CardFooter;

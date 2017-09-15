@@ -1,16 +1,19 @@
-import {View,WhiteSpace,Card} from 'pand'
+import { Button, Card, View, WhiteSpace } from 'pand';
 
-export default () =>{
+const {Header, Body, Footer} = Card;
+export default () => {
 
 	return (
 		<View>
 			<WhiteSpace/>
 			<Card>
-				<Card.Header>Header</Card.Header>
-				<Card.Body>Body</Card.Body>
-				<Card.Footer>Footer</Card.Footer>
+				<Header split>Header</Header>
+				<Body padding>Body</Body>
+				<Footer split>
+					<Button color="blue" size="large" ghost border={false}>Footer</Button>
+				</Footer>
 			</Card>
 			<WhiteSpace/>
 		</View>
-	)
+	);
 }
