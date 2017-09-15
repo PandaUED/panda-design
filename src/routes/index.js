@@ -16,7 +16,7 @@ export default () => (
 		<Route path="/" component={App}/>
 		<Switch>
 			<Route exact path="/" component={Home}/>
-			{MakeRoute('Color')}
+			{MakeRoute('style')}
 			{MakeRoute('WhiteSpace')}
 			{MakeRoute('WingBlank')}
 			{MakeRoute('Button')}

@@ -12,6 +12,7 @@
 		"start": "yarn trello; yarn link pand; roadhog server",
 		"build": "yarn link pand; roadhog build",
 		"build:dll": "roadhog buildDll",
+		"build:doc": "gulp build; gulp build:toc",
 		"trello": "open https://trello.com/b/Ae62EniM/fe",
 		"ssh": "ssh root@172.20.200.10"
 	},
@@ -46,6 +47,10 @@
 		"expect": "^1.20.2",
 		"fs-extra": "^4.0.1",
 		"gulp": "^3.9.1",
+		"del": "^3.0.0",
+		"front-matter": "^2.2.0",
+		"fs-extra": "^4.0.2",
+		"run-sequence": "^2.1.0",
 		"husky": "^0.12.0",
 		"lodash": "^4.17.4",
 		"node-sass": "^4.5.3",

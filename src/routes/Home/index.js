@@ -15,13 +15,13 @@ export default () => {
 	`;
 
 	// url链接驼峰转中划线
-	const MakeLink = ({to}) => <Link to={_.kebabCase(to)}>{to}</Link>;
+	const MakeLink = ({to}) => <Link to={_.kebabCase(to)}>{_.startCase(to)}</Link>;
 
 	return (
 		<PageView>
 
 			<WhiteSpace>Style</WhiteSpace>
-			<MakeLink to="Color" />
+			<MakeLink to="style" />
 
 			<WhiteSpace>Layout</WhiteSpace>
 			<MakeLink to="WhiteSpace" />
