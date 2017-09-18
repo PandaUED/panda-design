@@ -1,7 +1,7 @@
 import frontMatter from 'front-matter';
 import fs from 'fs-extra';
 import path from 'path';
-
+import _ from 'lodash';
 const pathSrc  = './src/components';
 const pathJs   = './src/routes';
 const pathDist = './data';
@@ -32,6 +32,6 @@ export default () => {
 			console.error(`- 缺少 [${item}] - Example页面`);
 		}
 
-		fs.writeFileSync(path.join(pathDist, item), JSON.stringify(json));
+		fs.writeFileSync(path.join(pathDist, _.kebabCase(item)), JSON.stringify(json));
 	});
 }
