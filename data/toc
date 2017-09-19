@@ -1,1 +1,1 @@
-[{"name":"Button","title":"按钮"},{"name":"Card","title":"卡片"},{"name":"style","title":"样式变量"},{"name":"View","title":"View"},{"name":"WhiteSpace","title":"上下留白"},{"name":"WingBlank","title":"两翼留白"}]
+{"Variable":[{"name":"style","title":"样式变量"}],"Layout":[{"name":"View","title":"View"},{"name":"WhiteSpace","title":"上下留白"},{"name":"WingBlank","title":"两翼留白"}],"Navigation":[],"Data Entry":[{"name":"Button","title":"按钮"}],"Data Display":[{"name":"Card","title":"卡片"}],"Feedback":[],"Gesture":[],"Combination":[],"Other":[]}

@@ -15,6 +15,7 @@ export default () => {
 		const parsed = frontMatter(data);
 		const json   = {...parsed.attributes};
 		json.name    = item;
+		json.class = _.startCase(json.class)
 		json.body    = parsed.body.replace(/^`````([\w\:]+)$/gm, '`````$1-').replace(/(\n){3,}/g, '\n\n');
 		json.body    = json.body.replace(/(#(.*))\n/, (m, m1) => {
 			json.title = m1.replace('#', '').replace(/^ /, '');

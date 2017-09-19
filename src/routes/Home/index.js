@@ -24,6 +24,7 @@ export default () => {
 			<MakeLink to="style" />
 
 			<WhiteSpace>Layout</WhiteSpace>
+			<MakeLink to="View" />
 			<MakeLink to="WhiteSpace" />
 			<MakeLink to="WingBlank" />
 
