@@ -21,16 +21,16 @@ export default () => {
 		<PageView>
 
 			<WhiteSpace>Style</WhiteSpace>
-			<MakeLink to="style" />
+			<MakeLink to="style"/>
 
 			<WhiteSpace>Layout</WhiteSpace>
-			<MakeLink to="View" />
-			<MakeLink to="WhiteSpace" />
-			<MakeLink to="WingBlank" />
+			<MakeLink to="View"/>
+			<MakeLink to="WhiteSpace"/>
+			<MakeLink to="WingBlank"/>
 
 			<WhiteSpace>Data Entry</WhiteSpace>
-			<MakeLink to="Button" />
-			<MakeLink to="Card" />
+			<MakeLink to="Button"/>
+			<MakeLink to="Card"/>
 		</PageView>
 	);
 }

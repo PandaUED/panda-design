@@ -1,15 +1,15 @@
-import {View,WhiteSpace,Example} from 'pand'
+import { Example, View, WhiteSpace } from 'pand';
 
-export default () =>{
+export default () => {
 
 	return (
 		<View>
 			<WhiteSpace/>
-			<Example />
+			<Example/>
 			<WhiteSpace size={15}/>
-			<Example />
+			<Example/>
 			<WhiteSpace size={20}/>
-			<Example />
+			<Example/>
 		</View>
-	)
+	);
 }
