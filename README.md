@@ -2,6 +2,11 @@
 
 Pandora React UI Components
 
+<img src="https://o4j4l4n7h.qnssl.com/2017-09-20-icon.png" width="360" />
+
+- **Panda UED:** <http://ued.xiongmaojinku.com/>
+- **Panda Design:** <http://xmui.xiongmaojinku.com/>
+
 ![](http://on-img.com/chart_image/59b8e5c5e4b06f66982e9c68.png)
 
 ```bash
