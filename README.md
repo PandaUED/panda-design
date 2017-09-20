@@ -31,10 +31,6 @@ $ yarn build
 
 组件池 -> 编写组件库 -> API Doc -> Done
 
-## Todo
-
-- [] Gulp编译器
-- [] XMUED更新
 
 ## Link
 
