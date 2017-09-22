@@ -17,7 +17,7 @@
 		"build:doc"     : "gulp build; gulp build:toc",
 		"trello"        : "open https://trello.com/b/Ae62EniM/fe",
 		"ssh"           : "ssh root@172.20.200.10",
-		"eslint"        : "eslint --fix --ext .js src test",
+		"eslint"        : "eslint --fix --ext .js src",
 		"lint"          : "lint-staged"
 	},
 	"pre-commit"     : [
