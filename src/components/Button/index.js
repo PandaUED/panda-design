@@ -1,26 +1,26 @@
-import { darken, rgba } from "polished";
-import PropTypes from "prop-types";
-import TouchFeedback from "rmc-feedback";
-import styled from "styled-components";
-import { style } from "../";
+import { darken, rgba } from 'polished';
+import PropTypes from 'prop-types';
+import TouchFeedback from 'rmc-feedback';
+import styled from 'styled-components';
+import { style } from '../';
 
 const props = {
   color: PropTypes.oneOf(Object.keys(style.color)),
   deg: PropTypes.number,
-  size: PropTypes.oneOf(["large", "default", "small"]),
+  size: PropTypes.oneOf(['large', 'default', 'small']),
   round: PropTypes.bool,
   ghost: PropTypes.bool,
   border: PropTypes.bool,
   shadow: PropTypes.bool,
   highlight: PropTypes.bool,
   disabled: PropTypes.bool,
-  onClick: PropTypes.func
+  onClick: PropTypes.func,
 };
 
 const Button = ({
-  color = "primary",
+  color = 'primary',
   deg,
-  size = "default",
+  size = 'default',
   round = false,
   ghost = false,
   border = true,
@@ -55,20 +55,20 @@ const Button = ({
     const theme = style.color[color];
     Button = Button.extend`
       color: ${theme};
-      ${border ? `border: 1px solid ${theme}` : ""};
+      ${border ? `border: 1px solid ${theme}` : ''};
     `;
     if (!disabled) {
       Button = Button.extend`
         &:active {
           color: ${darken(0.08, theme)};
-          ${border ? `border-color:${darken(0.08, theme)}` : ""};
+          ${border ? `border-color:${darken(0.08, theme)}` : ''};
         }
       `;
     }
   } else if (deg) {
     const theme = style.gradient[color](deg);
     const themeActive =
-      "linear-gradient(rgba(0,0,0,.08) 0%,rgba(0,0,0,.08) 100%)";
+      'linear-gradient(rgba(0,0,0,.08) 0%,rgba(0,0,0,.08) 100%)';
     Button = Button.extend`
       background: ${theme};
       color: #fff;
@@ -102,9 +102,9 @@ const Button = ({
     Button = Button.extend`
       box-shadow: 0
         ${{
-          large: "10px 30px",
-          default: "8px 24px",
-          small: "6px 18px"
+          large: '10px 30px',
+          default: '8px 24px',
+          small: '6px 18px',
         }[size]}
         0 ${rgba(shadowColor, 0.3)};
     `;
@@ -114,7 +114,7 @@ const Button = ({
     const hightlightSize = { large: 6, default: 5, small: 4 }[size];
     Button = Button.extend`
       :after {
-        content: "";
+        content: '';
         display: block;
         width: ${hightlightSize * 2}px;
         height: ${hightlightSize * 2}px;

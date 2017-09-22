@@ -1,5 +1,5 @@
-import { Button, Card, View, WhiteSpace } from "pand";
-import styled from "styled-components";
+import { Button, Card, View, WhiteSpace } from 'pand';
+import styled from 'styled-components';
 
 let { Header, Body } = Card;
 

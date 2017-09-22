@@ -21,7 +21,7 @@
 		"lint": "lint-staged"
 	},
 	"pre-commit": [
-		"lint"
+		"lint-staged"
 	],
 	"engines": {
 		"install-node": "6.9.2"

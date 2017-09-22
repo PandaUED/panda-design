@@ -1,4 +1,4 @@
-import { Example, View } from "pand";
+import { Example, View } from 'pand';
 
 export default () => {
   return (

@@ -1,7 +1,7 @@
-import { Link } from "dva/router";
-import _ from "lodash";
-import { style, View, WhiteSpace } from "pand";
-import styled from "styled-components";
+import { Link } from 'dva/router';
+import _ from 'lodash';
+import { style, View, WhiteSpace } from 'pand';
+import styled from 'styled-components';
 
 export default () => {
   const PageView = styled(View)`

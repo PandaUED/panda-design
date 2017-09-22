@@ -1,7 +1,7 @@
-import { connect } from "dva";
-import NProgress from "nprogress";
-import React from "react";
-import "./index.scss";
+import { connect } from 'dva';
+import NProgress from 'nprogress';
+import React from 'react';
+import './index.scss';
 
 const mapStateToProps = state => {
   return { loading: state.loading.global };

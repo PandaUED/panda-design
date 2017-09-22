@@ -1,12 +1,12 @@
-import PropTypes from "prop-types";
-import styled from "styled-components";
-import { style } from "../";
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
+import { style } from '../';
 
 const props = {
-  children: PropTypes.string
+  children: PropTypes.string,
 };
 
-const Example = ({ children = "example", ...other }) => {
+const Example = ({ children = 'example', ...other }) => {
   const Example = styled.div`
     display: flex;
     align-items: center;

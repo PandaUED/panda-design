@@ -1,4 +1,4 @@
-import { Example, View, WhiteSpace, WingBlank } from "pand";
+import { Example, View, WhiteSpace, WingBlank } from 'pand';
 
 export default () => {
   return (

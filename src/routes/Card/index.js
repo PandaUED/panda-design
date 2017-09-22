@@ -1,4 +1,4 @@
-import { Button, Card, View, WhiteSpace } from "pand";
+import { Button, Card, View, WhiteSpace } from 'pand';
 
 const { Header, Body, Footer } = Card;
 export default () => {

@@ -1,11 +1,11 @@
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const props = {
-  color: PropTypes.string
+  color: PropTypes.string,
 };
 
-const View = ({ color = "transparent", ...other }) => {
+const View = ({ color = 'transparent', ...other }) => {
   const View = styled.div`
     overflow-x: hidden;
     width: 100%;

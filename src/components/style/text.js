@@ -1,4 +1,4 @@
 export default {
   ellipsis:
-    "text-overflow: ellipsis;word-break: break-word;white-space: nowrap;"
+    'text-overflow: ellipsis;word-break: break-word;white-space: nowrap;',
 };

@@ -1,7 +1,7 @@
-import _ from "lodash";
-import { Card, style, View, WhiteSpace } from "pand";
-import { rgba } from "polished";
-import styled from "styled-components";
+import _ from 'lodash';
+import { Card, style, View, WhiteSpace } from 'pand';
+import { rgba } from 'polished';
+import styled from 'styled-components';
 
 let { Header, Body } = Card;
 
@@ -46,7 +46,7 @@ export default () => {
     position: relative;
     widows: 100%;
     &:before {
-      content: "●";
+      content: '●';
       color: ${porp => porp.color};
       position: absolute;
       left: 0;
@@ -75,8 +75,8 @@ export default () => {
   _.forEach(style.gradient, (color, key) => {
     color = color(45);
     const ColorArray = color
-      .replace(/(.*)\(|\)|[0-9]+%|[0-9]+deg/g, "")
-      .split(",");
+      .replace(/(.*)\(|\)|[0-9]+%|[0-9]+deg/g, '')
+      .split(',');
     GradientDisplay.push(
       <Item key={key}>
         <Gradient color={style.color[key]} gradient={color} />

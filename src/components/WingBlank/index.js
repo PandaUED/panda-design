@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const props = {
-  size: PropTypes.number
+  size: PropTypes.number,
 };
 
 const WingBlank = ({ size = 16, ...other }) => {

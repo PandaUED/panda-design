@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
-import styled from "styled-components";
+import PropTypes from 'prop-types';
+import styled from 'styled-components';
 
 const props = {
-  padding: PropTypes.bool
+  padding: PropTypes.bool,
 };
 
 const CardBody = ({ padding = false, children, ...other }) => {
