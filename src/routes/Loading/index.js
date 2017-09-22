@@ -1,12 +1,11 @@
 import { connect } from 'dva';
 import NProgress from 'nprogress';
-import 'nprogress/nprogress.css';
 import React from 'react';
 import "./index.scss"
 
 const mapStateToProps = (state) => {return {loading: state.loading.global};};
 
-class App extends React.Component {
+class Loading extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -16,16 +15,29 @@ class App extends React.Component {
 		NProgress.start();
 	}
 
+	componentWillUnmount() {
+		NProgress.start();
+	}
+
 	componentDidMount() {
 		NProgress.done();
 	}
 
+	componentWillReceiveProps(nextProps) {
+		const {loading} = nextProps;
+		(loading)
+			? NProgress.start()
+			: NProgress.done();
+	}
+
 	render() {
 		const {loading} = this.props;
-		if (loading) NProgress.start();
-		if (!loading) NProgress.done();
-		return <div/>;
+		(loading)
+			? NProgress.start()
+			: NProgress.done();
+
+		return null;
 	}
 }
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps)(Loading);

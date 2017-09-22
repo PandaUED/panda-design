@@ -15,10 +15,10 @@
 	<meta name="apple-touch-fullscreen" content="yes">
 	<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
 	<!--favicon-->
+	<link rel="manifest" href="/manifest.json">
 	<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
 	<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
 	<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
-	<link rel="manifest" href="/favicons/manifest.json">
 	<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#ff6700">
 	<meta name="apple-mobile-web-app-title" content="PandaDesign">
 	<meta name="application-name" content="PandaDesign">
@@ -27,9 +27,15 @@
 	<!--progressive-web-app-->
 	<script type="text/javascript" src="/precache.js"></script>
 	
-<link href="/common.270abe5b.css" rel="stylesheet"><link href="/index.4e486c2d.css" rel="stylesheet"></head>
+<link href="/common.7b772220.css" rel="stylesheet"><link href="/index.3dc85dd6.css" rel="stylesheet"></head>
 <body>
 <div id="root"></div>
 
-<script type="text/javascript" src="/common.ea9e2a486477b8783812.js"></script><script type="text/javascript" src="/index.621d29a1.js"></script></body>
+<script>
+	if ('serviceWorker' in navigator) navigator.serviceWorker.register('/precache.js');
+</script>
+
+
+
+<script type="text/javascript" src="/common.b18c20f75d97a691e83c.js"></script><script type="text/javascript" src="/index.972e2cac.js"></script></body>
 </html>

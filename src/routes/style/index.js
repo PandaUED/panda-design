@@ -3,26 +3,22 @@ import { Card, style, View, WhiteSpace } from 'pand';
 import { rgba } from 'polished';
 import styled from 'styled-components';
 
-export default () => {
-	let {Header, Body} = Card;
-	Body               = styled(Body)`
-		display: flex;
-		flex-wrap: wrap;
-  `;
+let {Header, Body} = Card;
 
-	const Item         = styled.div`
+export default () => {
+	const Item        = styled.div`
 		margin:.4rem;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 `;
-	const Ball         = styled.div`
+	const Ball        = styled.div`
 		width: 72px;
 		height: 72px;
 		border-radius: 50%;
 		margin: .8rem 0;
 `;
-	const Color        = Ball.extend`
+	const Color       = Ball.extend`
 		width: 72px;
 		height: 72px;
 		border-radius: 50%;
@@ -30,22 +26,22 @@ export default () => {
 		box-shadow: 0 8px 24px 0 ${porp => rgba(porp.color, 0.5)};
 		margin: .8rem 0;
 `;
-	const Gradient     = Ball.extend`
+	const Gradient    = Ball.extend`
 		background: ${porp => porp.gradient};	
 		box-shadow: 0 8px 24px 0 ${porp => rgba(porp.color, 0.5)};
 `;
-	const Title        = styled.div`
+	const Title       = styled.div`
 		text-align: center;
 		color: ${style.color.textNoraml};
 		margin-bottom: .6rem;
 		font-size: .8rem;
 `;
-	const Hex          = Title.extend`
+	const Hex         = Title.extend`
 		color: ${style.color.textLight};
 		font-size: .7rem;
 		margin-bottom: .4rem;
 `;
-	const GradientHex  = Hex.extend`
+	const GradientHex = Hex.extend`
 		width: 72px;
 		position: relative;
 		widows: 100%;
@@ -56,6 +52,12 @@ export default () => {
 				left: 0;
 		}
 `;
+
+	Body = styled(Body)`
+		display: flex;
+		flex-wrap: wrap;
+  `;
+
 	const ColorDisplay = [];
 
 	_.forEach(style.color, (color, key) => {
