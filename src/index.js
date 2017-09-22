@@ -10,7 +10,7 @@ const ERROR_MSG_DURATION = 3; // 3 秒
 const app = dva({
   history: createHistory(),
   onError(e) {
-    console.error(e.message, ERROR_MSG_DURATION);
+    console.error(e.message, ERROR_MSG_DURATION); // eslint-disable-line
   },
 });
 

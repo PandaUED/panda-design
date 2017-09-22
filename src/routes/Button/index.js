@@ -1,10 +1,10 @@
 import { Button, Card, View, WhiteSpace } from 'pand';
 import styled from 'styled-components';
 
-let { Header, Body } = Card;
+const { Header } = Card;
 
 export default () => {
-  Body = styled(Body)`
+  const Body = styled(Card.Body)`
     > a {
       margin-bottom: 1rem;
     }

@@ -3,7 +3,7 @@ import { Card, style, View, WhiteSpace } from 'pand';
 import { rgba } from 'polished';
 import styled from 'styled-components';
 
-let { Header, Body } = Card;
+const { Header } = Card;
 
 export default () => {
   const Item = styled.div`
@@ -53,7 +53,7 @@ export default () => {
     }
   `;
 
-  Body = styled(Body)`
+  const Body = styled(Card.Body)`
     display: flex;
     flex-wrap: wrap;
   `;
