@@ -8,15 +8,7 @@ const mapStateToProps = state => {
 };
 
 class Loading extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentWillMount() {
-    NProgress.start();
-  }
-
-  componentWillUnmount() {
     NProgress.start();
   }
 
@@ -25,13 +17,15 @@ class Loading extends React.Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    const { loading } = nextProps;
-    loading ? NProgress.start() : NProgress.done();
+    nextProps.loading ? NProgress.start() : NProgress.done();
+  }
+
+  componentWillUnmount() {
+    NProgress.start();
   }
 
   render() {
-    const { loading } = this.props;
-    loading ? NProgress.start() : NProgress.done();
+    this.props.loading ? NProgress.start() : NProgress.done();
 
     return null;
   }

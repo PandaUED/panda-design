@@ -73,13 +73,13 @@ export default () => {
   const GradientDisplay = [];
 
   _.forEach(style.gradient, (color, key) => {
-    color = color(45);
-    const ColorArray = color
-      .replace(/(.*)\(|\)|[0-9]+%|[0-9]+deg/g, '')
-      .split(',');
+    const Color = color(45);
+    const ColorArray = Color.replace(/(.*)\(|\)|[0-9]+%|[0-9]+deg/g, '').split(
+      ','
+    );
     GradientDisplay.push(
       <Item key={key}>
-        <Gradient color={style.color[key]} gradient={color} />
+        <Gradient color={style.color[key]} gradient={Color} />
         <Title>{key}</Title>
         <GradientHex color={ColorArray[1]}>{ColorArray[1]}</GradientHex>
         <GradientHex color={ColorArray[2]}>{ColorArray[2]}</GradientHex>
@@ -96,7 +96,7 @@ export default () => {
       </Card>
       <WhiteSpace />
       <Card>
-        <Card.Header split>Color</Card.Header>
+        <Header split>Color</Header>
         <Body padding>{ColorDisplay}</Body>
       </Card>
     </View>

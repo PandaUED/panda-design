@@ -1,9 +1,7 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import CardHeader from './CardHeader';
 import CardBody from './CardBody';
 import CardFooter from './CardFooter';
-import { style } from '../';
+import CardHeader from './CardHeader';
 
 const props = {};
 

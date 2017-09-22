@@ -3,7 +3,6 @@ import { Route, Switch } from 'dva/router';
 import _ from 'lodash';
 import { View } from 'pand';
 import Loading from './Loading';
-import Button from './Button';
 import Home from './Home';
 
 const MakeRoute = page => (
