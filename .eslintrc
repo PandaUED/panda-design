@@ -1,15 +1,8 @@
 {
 	"parser": "babel-eslint",
 	"extends": "airbnb",
-	"env": { // http://eslint.org/docs/user-guide/configuring#specifying-environments
-		// 支持一些特定环境的全局变量支持，例如window、document
-		"browser": true,
-		"node": true,
-		"jasmine": true,
-		"jquery": true
-	},
 	"rules": {
-		// rule属性值的含义 http://eslint.org/docs/user-guide/getting-started#configuration
+		// http://eslint.org/docs/user-guide/getting-started#configuration
 		// "off" or 0  "warn" or 1 "error" or 2
 		"react/react-in-jsx-scope": [0],
 		"react/require-default-props": [0],
