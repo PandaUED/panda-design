@@ -1,29 +1,22 @@
-import PropTypes from 'prop-types';
-import styled from 'styled-components';
-import CardHeader from './CardHeader'
-import CardBody from './CardBody'
-import CardFooter from './CardFooter'
-import { style } from '../';
+import PropTypes from "prop-types";
+import styled from "styled-components";
+import CardHeader from "./CardHeader";
+import CardBody from "./CardBody";
+import CardFooter from "./CardFooter";
+import { style } from "../";
 
-const props   = {
+const props = {};
 
-};
+const Card = ({ children = "example", ...other }) => {
+  const Card = styled.div`background: #fff;`;
 
-const Card = ({children = 'example', ...other}) => {
-	let Card = styled.div`
-	background: #fff;
-	`;
-
-	return (
-		<Card {...other}>{children}</Card>
-	);
+  return <Card {...other}>{children}</Card>;
 };
 
 Card.propTypes = props;
 
-Card.Header = CardHeader
-Card.Body = CardBody
-Card.Footer = CardFooter
-
+Card.Header = CardHeader;
+Card.Body = CardBody;
+Card.Footer = CardFooter;
 
 export default Card;

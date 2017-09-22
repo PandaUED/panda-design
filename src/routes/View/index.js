@@ -1,10 +1,9 @@
-import { Example, View } from 'pand';
+import { Example, View } from "pand";
 
 export default () => {
-
-	return (
-		<View color="#fff">
-			<Example/>
-		</View>
-	);
-}
+  return (
+    <View color="#fff">
+      <Example />
+    </View>
+  );
+};
