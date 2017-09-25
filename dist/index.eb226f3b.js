@@ -2756,10 +2756,10 @@ webpackJsonp(
         './Loading/index': [63],
         './Loading/index.js': [63],
         './Loading/index.scss': [242],
-        './Navigation': [89, 4],
-        './Navigation/': [89, 4],
-        './Navigation/index': [89, 4],
-        './Navigation/index.js': [89, 4],
+        './NavBar': [89, 4],
+        './NavBar/': [89, 4],
+        './NavBar/index': [89, 4],
+        './NavBar/index.js': [89, 4],
         './View': [90, 3],
         './View/': [90, 3],
         './View/index': [90, 3],
@@ -2910,7 +2910,7 @@ webpackJsonp(
           s.default.createElement(t, { to: 'WhiteSpace' }),
           s.default.createElement(t, { to: 'WingBlank' }),
           s.default.createElement(v.WhiteSpace, null, 'Navigation'),
-          s.default.createElement(t, { to: 'Navigation' }),
+          s.default.createElement(t, { to: 'NavBar' }),
           s.default.createElement(v.WhiteSpace, null, 'Data Entry'),
           s.default.createElement(t, { to: 'Button' }),
           s.default.createElement(t, { to: 'Card' })
@@ -2964,7 +2964,7 @@ webpackJsonp(
             y('WingBlank'),
             y('Button'),
             y('Card'),
-            y('Navigation')
+            y('NavBar')
           )
         );
       }),

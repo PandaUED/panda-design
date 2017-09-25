@@ -19,12 +19,12 @@ webpackJsonp([4], {
       _ = a(m),
       E = (0, d.default)(
         [
-          '\n\t\tpadding-top: 44px;\n    > a {\n      display: block;\n      padding: 1rem;\n      background: #fff;\n      color: #444;\n      ',
-          ';\n    }\n  ',
+          '\n      padding-top: 44px;\n      > a {\n        display: block;\n        padding: 1rem;\n        background: #fff;\n        color: #444;\n        ',
+          ';\n      }\n    ',
         ],
         [
-          '\n\t\tpadding-top: 44px;\n    > a {\n      display: block;\n      padding: 1rem;\n      background: #fff;\n      color: #444;\n      ',
-          ';\n    }\n  ',
+          '\n      padding-top: 44px;\n      > a {\n        display: block;\n        padding: 1rem;\n        background: #fff;\n        color: #444;\n        ',
+          ';\n      }\n    ',
         ]
       ),
       k = n(28),

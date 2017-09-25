@@ -22,7 +22,7 @@ export default () => (
       {MakeRoute('WingBlank')}
       {MakeRoute('Button')}
       {MakeRoute('Card')}
-      {MakeRoute('Navigation')}
+      {MakeRoute('NavBar')}
     </Switch>
   </View>
 );

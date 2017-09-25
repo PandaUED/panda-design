@@ -30,7 +30,7 @@ export default () => {
       <MakeLink to="WingBlank" />
 
       <WhiteSpace>Navigation</WhiteSpace>
-      <MakeLink to="Navigation" />
+      <MakeLink to="NavBar" />
 
       <WhiteSpace>Data Entry</WhiteSpace>
       <MakeLink to="Button" />
