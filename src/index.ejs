@@ -5,6 +5,24 @@
 	<meta name="viewport"
 	      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0, minimal-ui">
 	<title>PanD - Panda Design</title>
+	<meta name="description" itemprop="description" content="PanD React UI Components">
+	<meta name="keywords" content="PanD pand react ui ux 熊猫金库">
+	<!--qq-share-->
+	<meta itemprop="name" content="PandaDesign">
+	<meta itemprop="image" content="favicons/share.png">
+	<!--ios-config-->
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="apple-touch-fullscreen" content="yes">
+	<meta name="apple-mobile-web-app-status-bar-style" content="default"/>
+	<!--favicon-->
+	<link rel="manifest" href="/manifest.json">
+	<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="/favicons/favicon-16x16.png">
+	<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#ff6700">
+	<meta name="apple-mobile-web-app-title" content="PandaDesign">
+	<meta name="application-name" content="PandaDesign">
+	<meta name="theme-color" content="#ffffff">
 	<% if (process.env.NODE_ENV !== 'development') { %>
 	<!--progressive-web-app-->
 	<script type="text/javascript" src="/precache.js"></script>
@@ -12,8 +30,14 @@
 </head>
 <body>
 <div id="root"></div>
+<% if (process.env.NODE_ENV === 'production') { %>
+<script>
+	if ('serviceWorker' in navigator) navigator.serviceWorker.register('/precache.js');
+</script>
+<% } %>
 <% if (process.env.NODE_ENV === 'development') { %>
 <script type="text/javascript" src="/roadhog.dll.js"></script>
 <% } %>
+
 </body>
 </html>

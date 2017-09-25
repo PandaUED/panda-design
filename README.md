@@ -1,8 +1,17 @@
 # Pandora
 
-Pandora React UI Components
+PanD React UI Components
+
+<img src="https://o4j4l4n7h.qnssl.com/2017-09-20-icon.png" width="360" />
+
+- **Panda UED:** <http://ued.xiongmaojinku.com/>
+- **Panda Design:** <http://xmui.xiongmaojinku.com/>
+
+## RoadMap
 
 ![](http://on-img.com/chart_image/59b8e5c5e4b06f66982e9c68.png)
+
+## Usage
 
 ```bash
 # 安装依赖,配置环境和link
@@ -22,10 +31,6 @@ $ yarn build
 
 组件池 -> 编写组件库 -> API Doc -> Done
 
-## Todo
-
-- [] Gulp编译器
-- [] XMUED更新
 
 ## Link
 
