@@ -30,6 +30,8 @@ export default () => {
 			<WhiteSpace>Data Entry</WhiteSpace>
 			<MakeLink to="Button" />
 
+			<WhiteSpace>Navigation</WhiteSpace>
+			<MakeLink to="Navigation"/>
 		</PageView>
 	);
 }
