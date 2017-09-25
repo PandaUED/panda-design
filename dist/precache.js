@@ -38,8 +38,8 @@
 'use strict';
 
 var precacheConfig = [
+  ['common.005f0165265422d146d1.js', '6e7fc47461fbd792f4f59629a658a06f'],
   ['common.7b772220.css', '7b77222043cae83c3177ed8e9fd8b963'],
-  ['common.b7a7a0aa853509f4ece4.js', '25978cf236d7e60b6c1dcd15a8e334d0'],
   ['favicons/android-chrome-192x192.png', '280c89ed617f58481dfc121b05472c14'],
   ['favicons/android-chrome-512x512.png', '7b27cdb35afd026d7fab6531619255bd'],
   ['favicons/apple-touch-icon.png', '8539ef8c557479f15ee9f60aede1da25'],
