@@ -1,31 +1,36 @@
-import { Link } from 'dva/router';
-import _ from 'lodash';
-import { style, View, WhiteSpace } from 'pand';
+import { NavBar, NAVBAR_MODE, style, View, WhiteSpace } from 'pand';
+import React from 'react';
 import styled from 'styled-components';
-import { whiteNav } from './whiteNav';
-import { transNav } from './transNav';
 
-const Navigation = () => {
-  const PageView = styled(View)`
-    > a {
-      display: block;
-      padding: 1rem;
-      background: #fff;
-      color: #444;
-      ${style.split.bottom};
-    }
-  `;
+export default class extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { mode: NAVBAR_MODE.WHITE };
+  }
 
-  // url链接驼峰转中划线
-  const MakeLink = ({ to, title }) => <Link to={_.kebabCase(to)}>{title}</Link>;
+  render() {
+    const PageView = styled(View)`
+      padding-top: 44px;
+      > a {
+        display: block;
+        padding: 1rem;
+        background: #fff;
+        color: #444;
+        ${style.split.bottom};
+      }
+    `;
 
-  return (
-    <PageView>
-      <WhiteSpace>Navigation</WhiteSpace>
-      <MakeLink to="/navigation-trans" title="trans" />
-      <MakeLink to="/navigation-white" title="white" />
-    </PageView>
-  );
-};
-
-export { whiteNav, transNav, Navigation };
+    return (
+      <PageView>
+        <NavBar mode={this.state.mode} />
+        <WhiteSpace>Type</WhiteSpace>
+        <a onClick={() => this.setState({ mode: NAVBAR_MODE.WHITE })}>
+          White Mode
+        </a>
+        <a onClick={() => this.setState({ mode: NAVBAR_MODE.TRANS })}>
+          Trans Mode
+        </a>
+      </PageView>
+    );
+  }
+}
