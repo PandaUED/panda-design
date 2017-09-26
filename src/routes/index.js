@@ -4,7 +4,7 @@ import _ from 'lodash';
 import { View } from 'pand';
 import Loading from './Loading';
 import Home from './Home';
-import { whiteNav, transNav, Navigation } from './Navigation/index';
+import { Navigation, transNav, whiteNav } from './Navigation/index';
 
 const MakeRoute = page => (
   <Route
@@ -32,6 +32,8 @@ export default () => (
       <Route exact path="/navigation-white" component={whiteNav} />
       <Route exact path="/navigation-trans" component={transNav} />
       {/* navigation end */}
+
+      {MakeRoute('Showcase')}
     </Switch>
   </View>
 );

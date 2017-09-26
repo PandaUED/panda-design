@@ -14,6 +14,7 @@ export { default as Button } from './Button';
 export { default as Card } from './Card';
 
 // Data Display
+export { default as Showcase } from './Showcase';
 
 // Feedback
 

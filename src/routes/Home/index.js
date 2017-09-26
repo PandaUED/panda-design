@@ -35,6 +35,9 @@ export default () => {
 
       <WhiteSpace>Navigation</WhiteSpace>
       <MakeLink to="Navigation" />
+
+      <WhiteSpace>Data Display</WhiteSpace>
+      <MakeLink to="Showcase" />
     </PageView>
   );
 };
