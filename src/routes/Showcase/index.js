@@ -1,33 +1,26 @@
 /**
  * Created by lichenguang on 2017/9/18.
  */
-import { Card, View, WhiteSpace, Showcase } from 'pand';
-import styled from 'styled-components';
+import { Card, Showcase, View, WhiteSpace } from 'pand';
 
-let { Header, Body } = Card;
+const { Body, Header } = Card;
 
 export default () => {
-  Body = styled(Body)`
-    > a {
-      margin-bottom: 1rem;
-    }
-  `;
-
   return (
     <View>
       <WhiteSpace />
       <Card>
         <Header split>White Showcase</Header>
         <Body>
-        <Showcase
-          title="35,125.28"
-          desc="持有总资产 (元)"
-          titleColor="primary"
-          leftDesc="昨日收益（元）"
-          leftTitle="82.14"
-          rightDesc="累计收益（元）"
-          rightTitle="1,776.20"
-        />
+          <Showcase
+            title="35,125.28"
+            desc="持有总资产 (元)"
+            titleColor="primary"
+            leftDesc="昨日收益（元）"
+            leftTitle="82.14"
+            rightDesc="累计收益（元）"
+            rightTitle="1,776.20"
+          />
         </Body>
       </Card>
       <WhiteSpace />
