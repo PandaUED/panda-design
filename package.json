@@ -21,9 +21,20 @@
 		"lint"          : "lint-staged"
 	},
 	"pre-commit"     : [
-		"eslint",
 		"lint"
 	],
+	"lint-staged"    : {
+		"scr/**/*.scss": [
+			"eslint --fix",
+			"prettier --trailing-comma es5 --single-quote --write",
+			"git add"
+		],
+		"scr/**/*.js": [
+			"eslint --fix",
+			"prettier --trailing-comma es5 --single-quote --write",
+			"git add"
+		]
+	},
 	"engines"        : {
 		"install-node": "6.9.2"
 	},
@@ -76,11 +87,5 @@
 		"run-sequence"                  : "^2.1.0",
 		"sass-loader"                   : "^6.0.6",
 		"sw-precache"                   : "^5.2.0"
-	},
-	"lint-staged"    : {
-		"*.js": [
-			"prettier --trailing-comma es5 --single-quote --write",
-			"git add"
-		]
 	}
 }

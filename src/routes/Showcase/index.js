@@ -17,8 +17,23 @@ export default () => {
     <View>
       <WhiteSpace />
       <Card>
-        <Header split>Showcase</Header>
-        <Body padding>
+        <Header split>White Showcase</Header>
+        <Body>
+        <Showcase
+          title="35,125.28"
+          desc="持有总资产 (元)"
+          titleColor="primary"
+          leftDesc="昨日收益（元）"
+          leftTitle="82.14"
+          rightDesc="累计收益（元）"
+          rightTitle="1,776.20"
+        />
+        </Body>
+      </Card>
+      <WhiteSpace />
+      <Card>
+        <Header split>Color Showcase</Header>
+        <Body>
           <Showcase
             title="125.28"
             desc="昨日收益（元）"
@@ -66,15 +81,6 @@ export default () => {
             backgroundColor="blue"
             deg={-225}
             backgroundText="DING"
-          />
-          <Showcase
-            title="35,125.28"
-            desc="持有总资产 (元)"
-            titleColor="primary"
-            leftDesc="昨日收益（元）"
-            leftTitle="82.14"
-            rightDesc="累计收益（元）"
-            rightTitle="1,776.20"
           />
         </Body>
       </Card>
