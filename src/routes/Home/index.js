@@ -29,12 +29,12 @@ export default () => {
       <MakeLink to="WhiteSpace" />
       <MakeLink to="WingBlank" />
 
+      <WhiteSpace>Navigation</WhiteSpace>
+      <MakeLink to="NavBar" />
+
       <WhiteSpace>Data Entry</WhiteSpace>
       <MakeLink to="Button" />
       <MakeLink to="Card" />
-
-      <WhiteSpace>Navigation</WhiteSpace>
-      <MakeLink to="Navigation" />
 
       <WhiteSpace>Data Display</WhiteSpace>
       <MakeLink to="Showcase" />
