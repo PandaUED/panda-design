@@ -1,6 +1,3 @@
-/**
- * Created by lichenguang on 2017/9/18.
- */
 import { Card, Showcase, View, WhiteSpace } from 'pand';
 
 const { Body, Header } = Card;

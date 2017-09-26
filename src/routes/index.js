@@ -20,10 +20,10 @@ export default () => (
       {MakeRoute('style')}
       {MakeRoute('WhiteSpace')}
       {MakeRoute('WingBlank')}
+      {MakeRoute('View')}
       {MakeRoute('Button')}
       {MakeRoute('Card')}
       {MakeRoute('NavBar')}
-
       {MakeRoute('Showcase')}
     </Switch>
   </View>
