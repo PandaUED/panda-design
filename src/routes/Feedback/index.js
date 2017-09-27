@@ -124,7 +124,27 @@ class PageFeedback extends React.Component {
         >
           confirm new
         </a>
-        <a href="javascript:;">alert new with icon TODO</a>
+        <a
+          href="javascript:;"
+          onClick={() => {
+            const IconTest = styled.div`
+              width: 80px;
+              height: 80px;
+              background: ${style.color.orange};
+            `;
+            Dialog.sharedInstance.confirm({
+              title: '开启新网存管',
+              message: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
+              callback: result => {
+                console.log(`callback: ${result}`);
+              },
+              theme: 'new',
+              icon: <IconTest />,
+            });
+          }}
+        >
+          alert new with icon TODO
+        </a>
         <a href="javascript:;">Toast TODO</a>
         <a href="javascript:;">ActionSheet TODO</a>
         <DialogSharedInstance /> {/* TODO: 需在跟节点初始化 */}

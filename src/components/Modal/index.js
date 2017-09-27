@@ -138,9 +138,10 @@ class Dialog extends React.Component {
     theme = 'classic',
     children = null,
     callback,
+    icon = null,
   }) {
     this.setState(
-      { title, message, buttons, theme, children, callback },
+      { title, message, buttons, theme, children, callback, icon },
       () => {
         this.refDialogView.show();
       }
@@ -154,9 +155,10 @@ class Dialog extends React.Component {
     children = null,
     callback,
     theme = 'classic',
+    icon = null,
   }) {
     this.setState(
-      { title, message, buttons, children, callback, theme },
+      { title, message, buttons, children, callback, theme, icon },
       () => {
         this.refDialogView.show();
       }
@@ -170,13 +172,14 @@ class Dialog extends React.Component {
   }
 
   render() {
-    const { title, message, buttons, theme, children } = this.state;
+    const { title, message, buttons, theme, children, icon } = this.state;
     const DialogWrapper = styled.div`
       width: 280px;
       background: #fff;
       border-radius: 8px;
       text-align: center;
       overflow: auto;
+      position: relative;
     `;
     const DContent = styled.div`padding: 24px 16px;`;
     const DTitle = styled.div`
@@ -244,13 +247,20 @@ class Dialog extends React.Component {
         })}
       </div>
     );
+
+    const DIcon = styled.div`
+      position: absolute;
+      //top: 50%;
+      margin: 0 auto;
+    `;
     return (
       <Modal
         ref={c => {
           this.refDialogView = c;
         }}
       >
-        <DialogWrapper>
+        <DialogWrapper className="DialogWrapper">
+          {theme === 'new' && icon && <DIcon className="DIcon">{icon}</DIcon>}
           <DContent>
             <DTitle>{title}</DTitle>
             <DMessage>{message}</DMessage>
