@@ -1,0 +1,31 @@
+:global {
+  .fade {
+    transition: all 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .fade-exited {
+    opacity: 0.01;
+    display: none;
+    z-index: -10;
+  }
+
+  .fade-entering {
+    display: flex;
+    opacity: 0.01;
+  }
+
+  .fade-entering.fade-enter-active {
+    opacity: 1;
+    z-index: 10;
+  }
+
+  .fade-exiting {
+    z-index: 10;
+    opacity: 1;
+  }
+
+  .fade-exiting.fade-exit-active {
+    opacity: 0.01;
+    z-index: -10;
+  }
+}

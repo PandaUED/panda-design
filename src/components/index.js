@@ -17,6 +17,7 @@ export { default as Card } from './Card';
 export { default as Showcase } from './Showcase';
 
 // Feedback
+export { Modal, Dialog, DialogSharedInstance } from './Modal';
 
 // Gesture
 

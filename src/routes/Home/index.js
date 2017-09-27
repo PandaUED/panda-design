@@ -38,6 +38,9 @@ export default () => {
 
       <WhiteSpace>Data Display</WhiteSpace>
       <MakeLink to="Showcase" />
+
+      <WhiteSpace>Feedback</WhiteSpace>
+      <MakeLink to="Feedback" />
     </PageView>
   );
 };

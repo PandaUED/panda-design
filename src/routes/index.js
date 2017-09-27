@@ -25,6 +25,7 @@ export default () => (
       {MakeRoute('Card')}
       {MakeRoute('NavBar')}
       {MakeRoute('Showcase')}
+      {MakeRoute('Feedback')}
     </Switch>
   </View>
 );
