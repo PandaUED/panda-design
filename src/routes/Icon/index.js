@@ -9,8 +9,9 @@ export default () => {
     flex-wrap: wrap;
   `;
   const Box = styled.div`
-    width: 72px;
-    height: 72px;
+    max-width: 25%;
+    width: 88px;
+    height: 88px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -67,6 +68,7 @@ export default () => {
           ))}
         </Body>
       </Card>
+      <WhiteSpace />
     </View>
   );
 };
