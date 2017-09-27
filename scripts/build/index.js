@@ -2,6 +2,7 @@ import frontMatter from 'front-matter';
 import fs from 'fs-extra';
 import path from 'path';
 import _ from 'lodash';
+import Config from '../../src/config'
 const pathSrc = './src/components';
 const pathJs = './src/routes';
 const pathDist = './data';
@@ -19,7 +20,10 @@ export default () => {
     const parsed = frontMatter(data);
     const json = { ...parsed.attributes };
     json.name = item;
-    json.class = _.startCase(json.class);
+
+		_.forEach(Config,(array,key) => {
+		  if (array.indexOf(item) !== -1) json.class = _.startCase(key)
+    })
     json.body = parsed.body
       .replace(/^`````([\w\:]+)$/gm, '`````$1-')
       .replace(/(\n){3,}/g, '\n\n');

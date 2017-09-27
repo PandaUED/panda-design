@@ -17,7 +17,7 @@ export default ({ history }) => {
   history.listen(() => window.scrollTo(0, 0));
   let list = [];
   _.forEach(Config, item => (list = list.concat(item)));
-  console.log(list);
+
   return (
     <Router history={history}>
       <App>

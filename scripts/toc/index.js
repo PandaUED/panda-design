@@ -1,22 +1,17 @@
 import fs from 'fs-extra';
 import path from 'path';
-
+import _ from 'lodash';
+import Config from '../../src/config'
 const pathDist = './data';
 
 export default cb => {
-  let tocData = {
-    Variable: [],
-    Layout: [],
-    Navigation: [],
-    'Data Entry': [],
-    'Data Display': [],
-    Feedback: [],
-    Gesture: [],
-    Combination: [],
-    Other: [],
-  };
+
+  let tocData = {}
+
+	_.forEach(Config, (item,key) => tocData[_.startCase(key)] = []);
+
   const files = fs.readdirSync(pathDist);
-  files.forEach(item => {
+	files.forEach(item => {
     if (item === 'toc') return;
     let data = JSON.parse(fs.readFileSync(path.join(pathDist, item)));
     tocData[data.class].push({
