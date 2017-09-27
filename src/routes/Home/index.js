@@ -1,7 +1,8 @@
-import { Link } from 'dva/router';
 import _ from 'lodash';
 import { style, View, WhiteSpace } from 'pand';
 import styled from 'styled-components';
+import { MakeLink } from '../../utils/router';
+import Config from '../../config';
 
 export default () => {
   const PageView = styled(View)`
@@ -14,33 +15,14 @@ export default () => {
     }
   `;
 
-  // url链接驼峰转中划线
-  const MakeLink = ({ to }) => (
-    <Link to={_.kebabCase(to)}>{_.startCase(to)}</Link>
-  );
+  const list = [];
 
-  return (
-    <PageView>
-      <WhiteSpace>Style</WhiteSpace>
-      <MakeLink to="style" />
+  _.forEach(Config, (item, key) => {
+    list.push(<WhiteSpace key={key}>{key}</WhiteSpace>);
+    item.forEach(link => {
+      list.push(<MakeLink key={link} to={link} />);
+    });
+  });
 
-      <WhiteSpace>Layout</WhiteSpace>
-      <MakeLink to="View" />
-      <MakeLink to="WhiteSpace" />
-      <MakeLink to="WingBlank" />
-
-      <WhiteSpace>Navigation</WhiteSpace>
-      <MakeLink to="NavBar" />
-
-      <WhiteSpace>Data Entry</WhiteSpace>
-      <MakeLink to="Button" />
-      <MakeLink to="Card" />
-
-      <WhiteSpace>Data Display</WhiteSpace>
-      <MakeLink to="Showcase" />
-
-      <WhiteSpace>Feedback</WhiteSpace>
-      <MakeLink to="Feedback" />
-    </PageView>
-  );
+  return <PageView>{list}</PageView>;
 };

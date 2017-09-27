@@ -1,12 +1,30 @@
-import { Router } from 'dva/router';
-import React from 'react';
-import Routes from './routes';
+import dynamic from 'dva/dynamic';
+import { Route, Router } from 'dva/router';
+import _ from 'lodash';
+import Config from './config';
+import App from './routes/App';
+import Home from './routes/Home';
+
+const MakeRoute = to => (
+  <Route
+    key={to}
+    path={`/${_.kebabCase(to)}`}
+    component={dynamic({ component: () => import(`./routes/${to}`) })}
+  />
+);
 
 export default ({ history }) => {
   history.listen(() => window.scrollTo(0, 0));
+  let list = [];
+  _.forEach(Config, item => (list = list.concat(item)));
+  console.log(list);
   return (
     <Router history={history}>
-      <Routes />
+      <App>
+        <Route exact path="/" component={Home} />
+        {MakeRoute('style')}
+        {list.map(link => MakeRoute(link))}
+      </App>
     </Router>
   );
 };
