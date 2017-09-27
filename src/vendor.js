@@ -7,6 +7,7 @@ import 'path';
 import 'react';
 import 'react-dom';
 import 'react-lazyload';
+import 'react-transition-group';
 import 'styled-components';
 import 'polished'; // styled-components 方法库
 import 'prop-types';
