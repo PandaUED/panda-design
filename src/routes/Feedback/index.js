@@ -132,7 +132,7 @@ class PageFeedback extends React.Component {
               height: 80px;
               background: ${style.color.orange};
             `;
-            Dialog.sharedInstance.confirm({
+            Dialog.sharedInstance.alert({
               title: '开启新网存管',
               message: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
               callback: result => {

@@ -178,8 +178,9 @@ class Dialog extends React.Component {
       background: #fff;
       border-radius: 8px;
       text-align: center;
-      overflow: auto;
       position: relative;
+      padding: 1px;
+      padding-top: ${icon && '40px'};
     `;
     const DContent = styled.div`padding: 24px 16px;`;
     const DTitle = styled.div`
@@ -250,8 +251,9 @@ class Dialog extends React.Component {
 
     const DIcon = styled.div`
       position: absolute;
-      //top: 50%;
-      margin: 0 auto;
+      top: 0;
+      transform: translate(-50%, -50%);
+      left: 50%;
     `;
     return (
       <Modal
