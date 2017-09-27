@@ -22,6 +22,8 @@
 		"react/no-array-index-key": [0],
 		"react/no-multi-comp": [0],
 		// no
+		"no-mixed-spaces-and-tabs": [0],
+		"no-prototype-builtins": [0],
 		"no-unused-expressions": [0],
 		"no-plusplus": [0],
 		"no-shadow": [0],
@@ -45,10 +47,11 @@
 		"generator-star-spacing": [0],
 		"consistent-return": [0],
 		"global-require": [1],
+		"arrow-parens": [0],
 		"arrow-body-style": [0],
 		"require-yield": [1],
-		"object-curly-spacing": ["error", "never"],
-		"camelcase": [0],
+		"object-curly-spacing": [0],
+		"camelcase": [1],
 		"class-methods-use-this": [0],
 		"dot-notation": [0]
 	},
@@ -59,6 +62,7 @@
 	},
 	"globals": {
 		"window": true,
-		"document": true
+		"document": true,
+		"navigator": true
 	}
 }

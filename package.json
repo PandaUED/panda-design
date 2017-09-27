@@ -26,7 +26,6 @@
 	],
 	"lint-staged"    : {
 		"src/**/*.scss": [
-			"eslint --fix",
 			"prettier --trailing-comma es5 --single-quote --write",
 			"git add"
 		],
