@@ -7,17 +7,17 @@ import styled from 'styled-components';
 import React from 'react';
 import './../../components/Modal/_modal.scss';
 
-const MaskContentTest = styled.div`
-  height: 200px;
-  width: 200px;
-  background: #fff;
-`;
 class PageFeedback extends React.Component {
   state = {
     maskVisible: false,
     modalVisible: false,
   };
   render() {
+    const MaskContentTest = styled.div`
+      height: 200px;
+      width: 200px;
+      background: #fff;
+    `;
     const Feedback = styled.div`
       > a {
         display: block;
@@ -143,7 +143,7 @@ class PageFeedback extends React.Component {
             });
           }}
         >
-          alert new with icon TODO
+          alert new with icon
         </a>
         <a href="javascript:;">Toast TODO</a>
         <a href="javascript:;">ActionSheet TODO</a>

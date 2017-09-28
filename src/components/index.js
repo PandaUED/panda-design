@@ -18,6 +18,7 @@ export { default as Showcase } from './Showcase';
 
 // Feedback
 export { Modal, Dialog, DialogSharedInstance } from './Modal';
+export { Toast, ToastSharedInstance } from './Toast';
 
 // Gesture
 

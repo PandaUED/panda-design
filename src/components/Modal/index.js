@@ -88,10 +88,14 @@ class Modal extends React.Component {
       font-size: 24px;
     `;
     return (
-      <CSSTransition timeout={400} classNames="fade" in={this.state.isVisible}>
+      <CSSTransition
+        timeout={400}
+        classNames="modal-fade"
+        in={this.state.isVisible}
+      >
         {status => {
           return (
-            <div className={`fade fade-${status}`}>
+            <div className={`modal-fade modal-fade-${status}`}>
               <ModalStyled
                 className={classnames('xm-mask', maskCls)}
                 ref={c => {

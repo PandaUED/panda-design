@@ -4,7 +4,7 @@ export default {
   Navigation: ['NavBar'],
   DataEntry: ['Button', 'Card'],
   DataDisplay: ['Showcase'],
-  Feedback: ['Modal'],
+  Feedback: ['Modal', 'Toast'],
   Gesture: [],
   Combination: [],
   Other: [],
