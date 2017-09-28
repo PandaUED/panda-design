@@ -21,40 +21,4 @@
     bottom: 65px;
     opacity: 1;
   }
-
-  ////原始状态
-  //.toast-fade-exited {
-  //  bottom: 0;
-  //  opacity: 0;
-  //}
-  //
-  ////show 起点值
-  //.toast-fade-entering {
-  //  bottom: 0;
-  //  opacity: 0;
-  //}
-  //
-  ////show 终点值
-  //.toast-fade-entering.toast-fade-enter-active {
-  //  bottom: 65px;
-  //  opacity: 1;
-  //}
-  //
-  ////show 中间状态
-  //.toast-fade-entered {
-  //  bottom: 65px;
-  //  opacity: 1;
-  //}
-  //
-  ////hide 起点值
-  //.toast-fade-exiting {
-  //  bottom: 65px;
-  //  opacity: 1;
-  //}
-  //
-  ////hide 终点值
-  //.toast-fade-exiting.toast-fade-exit-active {
-  //  bottom: 0;
-  //  opacity: 0;
-  //}
 }
