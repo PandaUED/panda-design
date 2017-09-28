@@ -49,7 +49,7 @@ class Modal extends React.Component {
       },
       () => {
         onClose && onClose();
-      },
+      }
     );
   }
 

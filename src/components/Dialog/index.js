@@ -32,7 +32,7 @@ class Dialog extends React.Component {
       { title, message, buttons, theme, children, callback, icon },
       () => {
         this.refDialogView.show();
-      },
+      }
     );
   }
 
@@ -49,7 +49,7 @@ class Dialog extends React.Component {
       { title, message, buttons, children, callback, theme, icon },
       () => {
         this.refDialogView.show();
-      },
+      }
     );
   }
 

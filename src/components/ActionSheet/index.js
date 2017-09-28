@@ -33,7 +33,7 @@ class ActionSheet extends React.Component {
         // this.setState({
         //     ASVisible: true
         // });
-      },
+      }
     );
   }
 
