@@ -1,7 +1,3 @@
----
-class: Navigation
----
-
 # View
 
 导航栏

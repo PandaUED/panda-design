@@ -1,7 +1,3 @@
----
-class: Layout
----
-
 # View
 
 初始化页面容器

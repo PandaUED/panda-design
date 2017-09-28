@@ -1,6 +1,3 @@
----
-class: Data Display
----
 # 展示窗
 
 用来展示产品信息
