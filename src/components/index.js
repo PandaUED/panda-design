@@ -18,7 +18,8 @@ export { default as Card } from './Card';
 export { default as Showcase } from './Showcase';
 
 // Feedback
-export { Modal, Dialog, DialogSharedInstance } from './Modal';
+export { Modal } from './Modal';
+export { Dialog, DialogSharedInstance } from './Dialog';
 export { Toast, ToastSharedInstance } from './Toast';
 
 // Gesture
