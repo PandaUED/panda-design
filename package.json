@@ -10,14 +10,14 @@
 	"scripts"        : {
 		"root"          : "yarn && yarn build:dll && yarn link",
 		"start"         : "yarn trello && yarn link pand && roadhog server",
-		"build"         : "yarn prettier && yarn build:roadhog && yarn build:precache && yarn build:doc",
+		"build"         : "yarn lint:prettier && yarn build:roadhog && yarn build:precache && yarn build:doc",
 		"build:roadhog" : "yarn link pand && roadhog build",
 		"build:precache": "sw-precache --config=.precache.js",
 		"build:dll"     : "yarn && roadhog buildDll",
 		"build:doc"     : "gulp build && gulp build:toc",
 		"trello"        : "open https://trello.com/b/Ae62EniM/fe",
 		"ssh"           : "ssh root@172.20.200.10",
-		"prettier"      : "prettier --trailing-comma es5 --single-quote --write src/**/**/*.js",
+		"lint:prettier"      : "prettier --trailing-comma es5 --single-quote --write src/**/**/*.js",
 		"eslint"        : "eslint --fix --ext .js src",
 		"lint"          : "lint-staged"
 	},
@@ -26,12 +26,12 @@
 	],
 	"lint-staged"    : {
 		"src/**/*.scss": [
-			"prettier --trailing-comma es5 --single-quote --write",
+			"prettier --trailing-comma all --single-quote --write",
 			"git add"
 		],
 		"src/**/*.js"  : [
 			"eslint --fix",
-			"prettier --trailing-comma es5 --single-quote --write",
+			"prettier --trailing-comma all --single-quote --write",
 			"git add"
 		]
 	},

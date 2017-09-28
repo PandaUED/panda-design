@@ -21,6 +21,7 @@ export { default as Showcase } from './Showcase';
 export { Modal } from './Modal';
 export { Dialog, DialogSharedInstance } from './Dialog';
 export { Toast, ToastSharedInstance } from './Toast';
+export { ActionSheet, ActionSheetSharedInstance } from './ActionSheet';
 
 // Gesture
 

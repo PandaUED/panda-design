@@ -2,6 +2,7 @@
  * Created by Liqi on 17/9/27.
  */
 import React from 'react';
+import { Icon } from 'pand';
 // import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classnames from 'classnames';
@@ -20,6 +21,7 @@ class Modal extends React.Component {
     maskBgCls: null,
     childrenCls: null,
     onClose: null,
+    animation: true,
   };
 
   constructor(props) {
@@ -47,7 +49,7 @@ class Modal extends React.Component {
       },
       () => {
         onClose && onClose();
-      }
+      },
     );
   }
 
@@ -59,6 +61,7 @@ class Modal extends React.Component {
       maskCls,
       maskBgCls,
       childrenCls,
+      animation,
     } = this.props;
     const ModalStyled = styled.div`
       position: fixed;
@@ -68,7 +71,6 @@ class Modal extends React.Component {
       bottom: 0;
       overflow: auto;
       background: rgba(0, 0, 0, 0.4);
-      ${style.mixins.xmFlexCenter('column')};
     `;
     const ModalBg = styled.div`
       position: absolute;
@@ -76,6 +78,7 @@ class Modal extends React.Component {
       height: 100%;
       z-index: -1;
     `;
+    const ModalContent = styled.div`display: inline-block;`;
     const CloseBtn = styled.div`
       height: 48px;
       width: 48px;
@@ -83,43 +86,64 @@ class Modal extends React.Component {
       background: #999999;
       color: #fff;
       line-height: 48px;
-      margin: 60px auto 20px;
       font-size: 24px;
+      ${style.mixins.xmFlexCenter('column')};
+      position: absolute;
+    bottom: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
     `;
-    return (
-      <CSSTransition
-        timeout={400}
-        classNames="modal-fade"
-        in={this.state.isVisible}
-      >
-        {status => {
-          return (
-            <div className={`modal-fade modal-fade-${status}`}>
-              <ModalStyled
-                className={classnames('xm-mask', maskCls)}
-                ref={c => {
-                  this.refMask = c;
-                }}
-              >
-                <ModalBg
-                  className={classnames('xm-mask-bg', maskBgCls)}
-                  onClick={() => {
-                    console.log('点击bg');
-                    if (maskClosable) {
-                      this.hide();
-                    }
-                  }}
-                />
-                <div className={classnames('xm-mask-content', childrenCls)}>
-                  {children}
-                  {closable && <CloseBtn onClick={this.hide}>X</CloseBtn>}
-                </div>
-              </ModalStyled>
-            </div>
-          );
+
+    const ModalBase = (
+      <ModalStyled
+        className={classnames('xm-mask', maskCls)}
+        onClick={e => {
+          console.log(e.target);
         }}
-      </CSSTransition>
+        ref={c => {
+          this.refMask = c;
+        }}
+      >
+        <ModalBg
+          className={classnames('xm-mask-bg', maskBgCls)}
+          onClick={() => {
+            console.log('点击bg');
+            if (maskClosable) {
+              this.hide();
+            }
+          }}
+        />
+        <ModalContent className={classnames('xm-mask-content', childrenCls)}>
+          {children}
+        </ModalContent>
+        {closable && (
+          <CloseBtn onClick={this.hide} className="xm-mask-close-btn">
+            <Icon size={24} type="Close" />
+          </CloseBtn>
+        )}
+      </ModalStyled>
     );
+    if (animation) {
+      return (
+        <CSSTransition
+          timeout={400}
+          classNames="modal-fade"
+          in={this.state.isVisible}
+        >
+          {status => {
+            return (
+              <div className={`modal-fade modal-fade-${status}`}>
+                {ModalBase}
+              </div>
+            );
+          }}
+        </CSSTransition>
+      );
+    } else {
+      return ModalBase; // TODO
+    }
   }
 }
 
