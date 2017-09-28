@@ -61,7 +61,7 @@ class Dialog extends React.Component {
 
   render() {
     const { title, message, buttons, theme, children, icon } = this.state;
-    const DialogWrapper = styled.div`
+    const DialogContainer = styled.div`
       width: 280px;
       background: #fff;
       border-radius: 8px;
@@ -143,22 +143,30 @@ class Dialog extends React.Component {
       transform: translate(-50%, -50%);
       left: 50%;
     `;
+    const DWrapper = styled.div`
+      .DialogMask-content {
+        ${style.mixins.xmFlexCenter('column')};
+      }
+    `;
     return (
-      <Modal
-        ref={c => {
-          this.refDialogView = c;
-        }}
-      >
-        <DialogWrapper className="DialogWrapper">
-          {theme === 'new' && icon && <DIcon className="DIcon">{icon}</DIcon>}
-          <DContent>
-            <DTitle>{title}</DTitle>
-            <DMessage>{message}</DMessage>
-            {children}
-          </DContent>
-          {theme === 'classic' ? DClassicBtnGroup : DNewBtnGroup}
-        </DialogWrapper>
-      </Modal>
+      <DWrapper>
+        <Modal
+          ref={c => {
+            this.refDialogView = c;
+          }}
+          childrenCls="DialogMask-content"
+        >
+          <DialogContainer className="DialogContainer">
+            {theme === 'new' && icon && <DIcon className="DIcon">{icon}</DIcon>}
+            <DContent>
+              <DTitle>{title}</DTitle>
+              <DMessage>{message}</DMessage>
+              {children}
+            </DContent>
+            {theme === 'classic' ? DClassicBtnGroup : DNewBtnGroup}
+          </DialogContainer>
+        </Modal>
+      </DWrapper>
     );
   }
 }

@@ -22,6 +22,7 @@ export { default as Carousel } from './Carousel';
 export { Modal } from './Modal';
 export { Dialog, DialogSharedInstance } from './Dialog';
 export { Toast, ToastSharedInstance } from './Toast';
+export { ActionSheet, ActionSheetSharedInstance } from './ActionSheet';
 
 // Gesture
 
