@@ -7,7 +7,6 @@ import React from 'react';
 // import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { style } from '../';
-import './_dialog.scss';
 
 class Dialog extends React.Component {
   state = {
