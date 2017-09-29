@@ -19,7 +19,6 @@ const Badge = ({ type = 'number', children = null, overflowNum = 99 }) => {
   const BNumber = styled.div`
     display: inline-block;
     height: 22px;
-    width: 22px;
     line-height: 22px;
     text-align: center;
     font-family: PingFangSC-Medium;
@@ -28,14 +27,9 @@ const Badge = ({ type = 'number', children = null, overflowNum = 99 }) => {
     letter-spacing: 0.34px;
     background: #ff6700;
     border: 1px solid #ffffff;
-    border-radius: 50%;
     transform: scale(0.9);
-  `;
-
-  const BNumberPlus = BNumber.extend`
-    padding: 0 5px;
+    padding: 0 6px;
     border-radius: 11px;
-    width: initial;
   `;
 
   const BText = styled.div`
@@ -56,16 +50,13 @@ const Badge = ({ type = 'number', children = null, overflowNum = 99 }) => {
     case 'dot':
       return <BDot />;
     case 'number':
-      if (overflowNum && parseInt(children, 10) > overflowNum) {
-        return (
-          <BNumberPlus className="BNumberPlus">{overflowNum}+</BNumberPlus>
-        );
-      } else {
-        if (parseInt(children, 10) > 10) {
-          return <BNumberPlus className="BNumberPlus">{children}</BNumberPlus>;
-        }
-        return <BNumber className="BNumber">{children}</BNumber>;
-      }
+      return (
+        <BNumber className="BNumber">
+          {overflowNum && parseInt(children, 10) > overflowNum
+            ? `${overflowNum}+`
+            : children}
+        </BNumber>
+      );
     case 'text':
       return <BText>{children}</BText>;
     default:
