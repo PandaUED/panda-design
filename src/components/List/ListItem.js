@@ -7,10 +7,18 @@ import { style } from '../';
 const props = {
   split: PropTypes.bool,
   onClick: PropTypes.func,
-  padding: PropTypes.bool,
+  padding: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
+  border: PropTypes.bool,
 };
 
-const ListItem = ({ children, split = false, onClick, padding, ...other }) => {
+const ListItem = ({
+  children,
+  split = false,
+  onClick,
+  border,
+  padding,
+  ...other
+}) => {
   let ListItem = styled.div`
     background: #fff;
     width: 100%;
@@ -19,15 +27,21 @@ const ListItem = ({ children, split = false, onClick, padding, ...other }) => {
     line-height: 16px;
     align-items: center;
     box-shadow: inset 0 0 0 0 #f8f8f8;
-    ${padding ? 'padding: 16px;' : ''};
+    ${padding ? `padding: 16px ${padding}px;` : 'padding: 0;'};
   `;
+  if (padding && typeof padding === 'number') {
+    ListItem = ListItem.extend`${`padding: 16px ${padding}px;`};`;
+  } else if (padding) {
+    ListItem = ListItem.extend`padding: 16px 0;`;
+  }
   if (split) {
     ListItem = ListItem.extend`
       margin-bottom: 10px;
       box-shadow: inset 0 0 0 0 #f8f8f8;
       ${style.split.bottom};
     `;
-  } else {
+  }
+  if (border) {
     ListItem = ListItem.extend`border-bottom: #f8f8f8 1px solid;`;
   }
 

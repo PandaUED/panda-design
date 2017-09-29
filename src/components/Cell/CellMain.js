@@ -7,6 +7,7 @@ const props = {
   marginLeft: PropTypes.number,
   desc: PropTypes.node,
   descSize: PropTypes.number,
+  descMargin: PropTypes.number,
 };
 
 const CellMain = ({
@@ -15,6 +16,7 @@ const CellMain = ({
   marginLeft,
   desc,
   descSize,
+  descMargin,
   children,
   ...other
 }) => {
@@ -26,9 +28,9 @@ const CellMain = ({
   `;
 
   const CellMainDesc = styled.div`
-    ${descSize ? `font-size: ${descSize}px;` : 'font-size: 12px;'};
     color: #999999;
-    margin-top: 13px;
+    ${descSize ? `font-size: ${descSize}px;` : 'font-size: 12px;'};
+    ${descMargin ? `margin-top: ${descMargin}px;` : 'margin-top: 8px;'};
   `;
 
   return (

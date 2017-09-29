@@ -35,13 +35,13 @@ const Cell = ({
     ${fontSize ? `font-size: ${fontSize}px;` : 'font-size: 14px;'};
     align-items: center;
     ${color ? `color:${color};` : 'color: #444444;'};
-    ${margin ? `margin:${margin}px;` : ''};
+    ${margin ? `margin:0 ${margin}px;` : ''};
   `;
 
   if (along) {
     Cell = Cell.extend`
       border-bottom: #f8f8f8 1px solid;
-      ${padding ? `padding:${padding}px;` : ''};
+      ${padding ? `padding:${padding}px;` : 'padding:16px;'};
     `;
   }
 
