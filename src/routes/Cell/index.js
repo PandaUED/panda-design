@@ -1,5 +1,14 @@
 import React from 'react';
-import { Button, Badge, Icon, Image, Cell, List, View, WhiteSpace } from 'pand';
+import {
+  Button,
+  Badge,
+  Icon,
+  Avatar,
+  Cell,
+  List,
+  View,
+  WhiteSpace,
+} from 'pand';
 
 export default () => {
   return (
@@ -7,7 +16,7 @@ export default () => {
       <WhiteSpace>单独使用-Avatar</WhiteSpace>
       <Cell className="CellCls" along padding={24}>
         <Cell.Left>
-          <Image
+          <Avatar
             shape="circle"
             url="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3360175613,2775433479&fm=58&u_exp_0=2793141998,2442128069&fm_exp_0=86&bpow=870&bpoh=1280"
           />

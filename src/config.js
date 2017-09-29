@@ -5,7 +5,7 @@ export default {
   Variable: ['style'],
   Layout: ['View', 'WhiteSpace', 'WingBlank'],
   Navigation: ['NavBar'],
-  DataEntry: ['Icon', 'Button', 'Card', 'Image'],
+  DataEntry: ['Icon', 'Button', 'Card', 'Avatar'],
   DataDisplay: ['Showcase', 'Carousel', 'List', 'Cell', 'Badge'],
   Feedback: ['Modal', 'Dialog', 'Toast', 'ActionSheet'],
   Gesture: [],
