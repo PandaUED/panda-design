@@ -2,15 +2,16 @@
  * Created by Liqi on 17/9/27.
  */
 
-import { Modal, style, WhiteSpace } from 'pand';
+import { Modal, style, WhiteSpace, ModalNoState } from 'pand';
 import styled from 'styled-components';
 import React from 'react';
 import './../../components/Modal/_modal.scss';
 
 class PageModal extends React.Component {
   state = {
-    maskVisible: false,
+    // maskVisible: false,
     modalVisible: false,
+    // ModalNoState
   };
   render() {
     const MaskContentTest = styled.div`
@@ -66,6 +67,25 @@ class PageModal extends React.Component {
         >
           Modal
         </a>
+
+        <a
+          href="javascript:;"
+          onClick={() => {
+            this.setState({ ModalNoState: true });
+          }}
+        >
+          ModalNoState
+        </a>
+        {this.state.ModalNoState && (
+          <ModalNoState
+            handleBgClick={e => {
+              console.log(e.target);
+              this.setState({ ModalNoState: false });
+            }}
+          >
+            <MaskContentTest>ModalNoState</MaskContentTest>
+          </ModalNoState>
+        )}
       </ModalDemo>
     );
   }

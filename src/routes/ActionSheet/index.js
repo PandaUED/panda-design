@@ -34,7 +34,7 @@ const PageActionSheet = () => {
             title: '选择排序方式',
             content: <IconTest />,
             onClose: () => {
-              console.log('close');
+              console.log('close 应用层回调');
             },
           });
         }}
@@ -46,7 +46,7 @@ const PageActionSheet = () => {
           ActionSheet.sharedInstance.show({
             content: <IconTest />,
             onClose: () => {
-              console.log('close');
+              console.log('close 应用层回调');
             },
             closeBtnPosition: 'bottom',
           });

@@ -1,7 +1,3 @@
-/**
- * Created by lichenguang on 2017/9/21.
- */
-
 import { Card, Carousel, View, WhiteSpace } from 'pand';
 import styled from 'styled-components';
 
@@ -13,6 +9,27 @@ export default () => {
       margin-bottom: 1rem;
     }
   `;
+  const CarouselHeader = styled.div`
+    padding-top: 16px;
+    padding-bottom: 16px;
+    width: 100%;
+  `;
+  const Title = styled.div`
+    font-family: PingFangSC-Medium;
+    font-size: 13px;
+    color: #5bb547;
+    line-height: 13px;
+  `;
+  const Wrapper = styled.div`
+    text-align: center;
+    padding-bottom: 16px;
+  `;
+  const Text = styled.div`
+    font-family: PingFangSC-Medium;
+    font-size: 13px;
+    color: #999999;
+  `;
+
   return (
     <View>
       <WhiteSpace />
@@ -34,23 +51,17 @@ export default () => {
             <div>banner</div>
           </Carousel>
           <WhiteSpace />
-          <Header split>Carousel Card</Header>
-          <Carousel
-            type="card"
-            cardTitle="活动名称"
-            color="red"
-            deg={45}
-            style={{ height: 116 }}
-          >
-            <div>card</div>
-          </Carousel>
-          <WhiteSpace />
           <Header split>Carousel Safe</Header>
-          <Carousel type="safe" autoplay infinite>
-            <div key={0}>153****300转入活宝 12,000元 41秒前</div>
-            <div key={1}>Carousel 2</div>
-            <div key={2}>Carousel 3</div>
-          </Carousel>
+          <Wrapper>
+            <CarouselHeader>
+              <Title>新网银行资金存管</Title>
+            </CarouselHeader>
+            <Carousel vertical autoplay infinite>
+              <Text key={0}>153****300转入活宝 12,000元 41秒前</Text>
+              <Text key={1}>Carousel 2</Text>
+              <Text key={2}>Carousel 3</Text>
+            </Carousel>
+          </Wrapper>
         </Body>
       </Card>
       <WhiteSpace />

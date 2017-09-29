@@ -20,9 +20,10 @@ export { default as Showcase } from './Showcase';
 export { default as Carousel } from './Carousel';
 export { default as List } from './List';
 export { default as Cell } from './Cell';
+export { default as Badge } from './Badge';
 
 // Feedback
-export { Modal } from './Modal';
+export { Modal, ModalNoState } from './Modal';
 export { Dialog, DialogSharedInstance } from './Dialog';
 export { Toast, ToastSharedInstance } from './Toast';
 export { ActionSheet, ActionSheetSharedInstance } from './ActionSheet';
