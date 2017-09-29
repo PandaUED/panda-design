@@ -12,7 +12,7 @@ const CellRight = ({ size, color, right, children, ...other }) => {
     position: absolute;
     display: flex;
     align-items: center;
-    ${size ? `font-size: ${size}px;` : 'font-size: 14px;'};
+    ${size ? `font-size: ${size}px;` : 'font-size: 13px;'};
     ${color ? `color: ${color};` : 'color: #666D78;'};
     ${right ? `right: ${right}px;` : 'right: 16px;'};
   `;

@@ -16,6 +16,11 @@ const Image = ({ className, size, shape, url, ...other }) => {
         ? `width:${size}px;height:${size}px;border-radius:${size / 2}px`
         : 'width:48px;height:48px;border-radius:24px'};
     `;
+  } else if (shape === 'square') {
+    Image = Image.extend`
+      border-radius: 5px;
+      ${size ? `width:${size}px;height:${size}px;` : 'width:48px;height:48px;'};
+    `;
   }
 
   return (
