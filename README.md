@@ -21,8 +21,8 @@ $ yarn run root
 $ yarn build:dll
 $ yarn start
 
-# 输出dist
-$ yarn build
+# 创建合并请求
+$ yarn merge
 ```
 
 ## Trello
