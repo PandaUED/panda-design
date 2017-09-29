@@ -6,7 +6,7 @@ export default {
   Layout: ['View', 'WhiteSpace', 'WingBlank'],
   Navigation: ['NavBar'],
   DataEntry: ['Icon', 'Button', 'Card'],
-  DataDisplay: ['Showcase', 'Carousel'],
+  DataDisplay: ['Showcase', 'Carousel', 'List'],
   Feedback: ['Modal', 'Dialog', 'Toast', 'ActionSheet'],
   Gesture: [],
   Combination: [],
