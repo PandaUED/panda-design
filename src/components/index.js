@@ -13,6 +13,7 @@ export { NavBar, NAVBAR_MODE } from './NavBar';
 export { default as Icon } from './Icon';
 export { default as Button } from './Button';
 export { default as Card } from './Card';
+export { default as Image } from './Image';
 
 // Data Display
 export { default as Showcase } from './Showcase';
