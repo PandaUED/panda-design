@@ -24,6 +24,9 @@ const PageBadge = () => {
         text <Badge type="text">+2个</Badge>
       </a>
       <a>
+        number 9 <Badge>9</Badge>
+      </a>
+      <a>
         number 55 <Badge>55</Badge>
       </a>
       <a>
