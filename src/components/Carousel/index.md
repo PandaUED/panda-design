@@ -1,7 +1,7 @@
 ---
 class: Data Display
 ---
-# Carousel
+# 轮播图
 轮播图
 ## API
 | 属性               | 说明        | 类型      | 默认值   |
@@ -12,8 +12,7 @@ class: Data Display
 | dots             | 是否显示面板指示点 | Boolean | false |
 | autoplay         | 是否自动切换    | Boolean | false |
 | infinite         | 是否循环播放    | Boolean | false |
-| type         | 类型，可选值banner,card,safe    | string | banner |
-| cardTitle         | card标题    | string | - |
+| vertical         | 垂直显示    | Boolean | false |
 | **OTHER**            |           |         |       |
 | classname | 样式类名                              | string |    -    |
 | style     | 自定义样式                             | object |    -    |
