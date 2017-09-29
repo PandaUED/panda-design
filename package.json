@@ -18,7 +18,7 @@
 		"trello"        : "open https://trello.com/b/Ae62EniM/fe",
 		"ssh"           : "ssh root@172.20.200.10",
 		"lint:prettier"      : "prettier --trailing-comma es5 --single-quote --write src/**/**/*.js",
-		"eslint"        : "eslint --fix --ext .js src",
+		"eslint"        : "eslint --fix --ext .js src; yarn lint:prettier",
 		"lint"          : "lint-staged"
 	},
 	"pre-commit"     : [
