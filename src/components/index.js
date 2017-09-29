@@ -13,11 +13,13 @@ export { NavBar, NAVBAR_MODE } from './NavBar';
 export { default as Icon } from './Icon';
 export { default as Button } from './Button';
 export { default as Card } from './Card';
+export { default as Avatar } from './Avatar';
 
 // Data Display
 export { default as Showcase } from './Showcase';
 export { default as Carousel } from './Carousel';
 export { default as List } from './List';
+export { default as Cell } from './Cell';
 export { default as Badge } from './Badge';
 
 // Feedback

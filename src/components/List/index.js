@@ -6,20 +6,20 @@ import ListItem from './ListItem';
 
 const props = {
   className: PropTypes.string,
-  renderHeader: PropTypes.node,
-  renderFooter: PropTypes.node,
+  header: PropTypes.node,
+  footer: PropTypes.node,
   split: PropTypes.bool,
 };
 
 const List = ({
   className,
   children,
-  renderHeader,
-  renderFooter,
-  split,
+  header,
+  footer,
+  split = true,
   ...other
 }) => {
-  const List = styled.a`
+  const List = styled.div`
     background: transparent;
     display: flex;
     flex-direction: column;
@@ -27,12 +27,12 @@ const List = ({
 
   const ListHeader = styled.div`
     background: #fff;
-    height: 54px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 16px;
     font-weight: 600;
+    height: 54px;
     ${style.text.ellipsis};
     ${split ? style.split.bottom : ''};
   `;
@@ -44,9 +44,9 @@ const List = ({
 
   return (
     <List className={className} {...other}>
-      <ListHeader>{renderHeader}</ListHeader>
+      {header && <ListHeader>{header}</ListHeader>}
       {children}
-      <ListFooter>{renderFooter}</ListFooter>
+      {footer && <ListFooter>{footer}</ListFooter>}
     </List>
   );
 };
