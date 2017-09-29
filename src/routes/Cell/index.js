@@ -1,29 +1,42 @@
 import React from 'react';
-import { Cell, List, View, WhiteSpace } from 'pand';
+import { Button, Cell, List, View, WhiteSpace } from 'pand';
 
 export default () => {
   return (
     <View>
       <WhiteSpace>单独使用</WhiteSpace>
-      <Cell className="CellCls" split>
+      <Cell className="CellCls" padding={16}>
         123
       </Cell>
       <WhiteSpace>结合List使用</WhiteSpace>
-      <List className="listCls">
+      <List
+        className="listCls"
+        header="Cell + List"
+        split
+        footer={
+          <Button
+            onClick={() => {
+              window.history.go(-1);
+            }}
+          >
+            close
+          </Button>
+        }
+      >
         <List.Item>
-          <Cell>123</Cell>
+          <Cell margin={16}>123</Cell>
         </List.Item>
         <List.Item>
-          <Cell>123</Cell>
+          <Cell margin={16}>123</Cell>
         </List.Item>
         <List.Item split>
-          <Cell>123</Cell>
+          <Cell margin={16}>123</Cell>
         </List.Item>
         <List.Item>
-          <Cell>123</Cell>
+          <Cell margin={16}>123</Cell>
         </List.Item>
         <List.Item split>
-          <Cell>123</Cell>
+          <Cell margin={16}>123</Cell>
         </List.Item>
       </List>
     </View>

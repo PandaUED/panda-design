@@ -3,14 +3,18 @@ import styled from 'styled-components';
 
 const props = {
   className: PropTypes.string,
-  padding: PropTypes.num,
+  padding: PropTypes.number,
+  margin: PropTypes.number,
+  style: PropTypes.oneOf(['large', 'default', 'small']),
+  type: PropTypes.string,
 };
 
-const Cell = ({ className, children, ...other }) => {
-  const Cell = styled.a`
+const Cell = ({ className, children, padding, margin, ...other }) => {
+  const Cell = styled.div`
     background: #fff;
     display: -webkit-box;
-    padding: 16px;
+    ${padding ? `padding:${padding}px;` : ''};
+    ${margin ? `margin:${margin}px;` : ''};
   `;
 
   return (

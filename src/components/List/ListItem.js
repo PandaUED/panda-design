@@ -11,7 +11,7 @@ const props = {
 };
 
 const ListItem = ({ children, split = false, onClick, padding, ...other }) => {
-  let ListItem = styled.a`
+  let ListItem = styled.div`
     background: #fff;
     width: 100%;
     font-size: 16px;
