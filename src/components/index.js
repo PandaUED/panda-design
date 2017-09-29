@@ -17,6 +17,7 @@ export { default as Card } from './Card';
 // Data Display
 export { default as Showcase } from './Showcase';
 export { default as Carousel } from './Carousel';
+export { default as List } from './List';
 
 // Feedback
 export { Modal, ModalNoState } from './Modal';

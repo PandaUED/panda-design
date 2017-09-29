@@ -11,6 +11,7 @@
 		"root"          : "yarn && yarn build:dll && yarn link",
 		"start"         : "yarn trello && yarn link pand && roadhog server",
 		"build"         : "yarn lint:prettier && yarn build:roadhog && yarn build:precache && yarn build:doc",
+		"merge": "open https://coding.net/u/canisminor1990/p/panda-design/git/merge/create?endWith=master",
 		"build:roadhog" : "yarn link pand && roadhog build",
 		"build:precache": "sw-precache --config=.precache.js",
 		"build:dll"     : "yarn && roadhog buildDll",
@@ -18,7 +19,7 @@
 		"trello"        : "open https://trello.com/b/Ae62EniM/fe",
 		"ssh"           : "ssh root@172.20.200.10",
 		"lint:prettier"      : "prettier --trailing-comma es5 --single-quote --write src/**/**/*.js",
-		"eslint"        : "eslint --fix --ext .js src",
+		"eslint"        : "eslint --fix --ext .js src; yarn lint:prettier",
 		"lint"          : "lint-staged"
 	},
 	"pre-commit"     : [
