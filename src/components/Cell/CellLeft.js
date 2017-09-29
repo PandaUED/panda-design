@@ -9,6 +9,10 @@ const props = {
 const CellLeft = ({ size, color, children, ...other }) => {
   const CellLeft = styled.div`
     display: flex;
+    align-items: center;
+    .xmjkIcon {
+      margin-right: 6px;
+    }
     ${size ? `font-size: ${size}px;` : 'font-size: 14px;'};
     ${color ? `color: ${color};` : 'color: #999999;'};
   `;

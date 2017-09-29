@@ -6,25 +6,35 @@ const props = {
   color: PropTypes.string,
   marginLeft: PropTypes.number,
   desc: PropTypes.node,
+  descSize: PropTypes.number,
 };
 
-const CellMain = ({ size, color, marginLeft, desc, children, ...other }) => {
+const CellMain = ({
+  size,
+  color,
+  marginLeft,
+  desc,
+  descSize,
+  children,
+  ...other
+}) => {
   const CellMain = styled.div`
     text-align: justify;
     ${size ? `font-size: ${size}px;` : 'font-size: 16px;'};
     ${color ? `color: ${color};` : 'color: #444444;'};
-    ${marginLeft ? `margin-left: ${marginLeft}px;` : 'margin-left: 13px;'};
+    ${marginLeft ? `margin-left: ${marginLeft}px;` : 'margin-left: 12px;'};
   `;
 
   const CellMainDesc = styled.div`
-    ${size ? `font-size: ${size}px;` : 'font-size: 12px;'};
-    ${color ? `color: ${color};` : 'color: #999999;'};
+    ${descSize ? `font-size: ${descSize}px;` : 'font-size: 12px;'};
+    color: #999999;
+    margin-top: 13px;
   `;
 
   return (
     <CellMain {...other}>
       {children}
-      <CellMainDesc>{desc}</CellMainDesc>
+      {desc && <CellMainDesc>{desc}</CellMainDesc>}
     </CellMain>
   );
 };

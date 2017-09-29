@@ -10,6 +10,10 @@ const props = {
   margin: PropTypes.number,
   along: PropTypes.bool,
   type: PropTypes.oneOf(['avatar', 'note', 'timeList']),
+  center: PropTypes.bool,
+  color: PropTypes.string,
+  fontSize: PropTypes.number,
+  bold: PropTypes.bool,
 };
 
 const Cell = ({
@@ -17,6 +21,10 @@ const Cell = ({
   children,
   padding,
   margin,
+  color,
+  center,
+  fontSize,
+  bold,
   along = false,
   type,
   ...other
@@ -24,6 +32,9 @@ const Cell = ({
   let Cell = styled.div`
     background: #fff;
     display: flex;
+    ${fontSize ? `font-size: ${fontSize}px;` : 'font-size: 14px;'};
+    align-items: center;
+    ${color ? `color:${color};` : 'color: #444444;'};
     ${margin ? `margin:${margin}px;` : ''};
   `;
 
@@ -32,6 +43,19 @@ const Cell = ({
       border-bottom: #f8f8f8 1px solid;
       ${padding ? `padding:${padding}px;` : ''};
     `;
+  }
+
+  if (center) {
+    Cell = Cell.extend`
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    `;
+  }
+
+  if (bold) {
+    Cell = Cell.extend`font-weight: bold;`;
   }
 
   return (

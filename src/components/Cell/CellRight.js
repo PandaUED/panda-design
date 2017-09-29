@@ -11,6 +11,7 @@ const CellRight = ({ size, color, right, children, ...other }) => {
   const CellRight = styled.div`
     position: absolute;
     display: flex;
+    align-items: center;
     ${size ? `font-size: ${size}px;` : 'font-size: 14px;'};
     ${color ? `color: ${color};` : 'color: #666D78;'};
     ${right ? `right: ${right}px;` : 'right: 16px;'};
