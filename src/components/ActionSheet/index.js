@@ -3,22 +3,20 @@
  */
 
 import React from 'react';
-import { Icon, WhiteSpace, Modal } from 'pand';
+import { Icon, WhiteSpace, ModalNoState } from 'pand';
 // import PropTypes from 'prop-types';
 import styled from 'styled-components';
-// import {CSSTransition} from 'react-transition-group';
-// import {style} from '../';
+import { CSSTransition } from 'react-transition-group';
+import './_actionSheet.scss';
 
 class ActionSheet extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      ASVisible: false,
+      asVisible: false,
     };
     this.hide = this.hide.bind(this);
   }
-
-  refActionSheet = null;
 
   show({ title, content, onClose, closeBtnPosition = 'top' }) {
     this.setState(
@@ -29,29 +27,20 @@ class ActionSheet extends React.Component {
         closeBtnPosition,
       },
       () => {
-        this.refActionSheet.show();
-        // this.setState({
-        //     ASVisible: true
-        // });
+        this.setState({ asVisible: true });
       }
     );
   }
 
   hide() {
+    this.setState({ asVisible: false });
     const { onClose } = this.state;
-
-    console.log('hide');
-    this.refActionSheet.hide();
     onClose && onClose();
-    //
-    // this.setState({
-    //     ASVisible: false,
-    // });
   }
 
   render() {
-    console.log(this.state);
-    const { title, content, closeBtnPosition } = this.state;
+    const { title, content, closeBtnPosition, asVisible } = this.state;
+
     const ASContainer = styled.div`
       position: fixed;
       bottom: 0;
@@ -86,28 +75,36 @@ class ActionSheet extends React.Component {
     `;
 
     return (
-      <Modal
-        ref={c => {
-          this.refActionSheet = c;
-        }}
-        maskClosable
-      >
-        <ASContainer>
-          {closeBtnPosition === 'top' && (
-            <ASCloseBtnTop onClick={this.hide}>
-              <Icon size={24} type="Close" />
-            </ASCloseBtnTop>
-          )}
-          {title && <ASTitle>{title}</ASTitle>}
-          <div className="actionSheet-content">{content}</div>
-          {closeBtnPosition === 'bottom' && (
-            <div>
-              <WhiteSpace />
-              <ASCloseBtnBottom onClick={this.hide}>取消</ASCloseBtnBottom>
-            </div>
-          )}
-        </ASContainer>
-      </Modal>
+      <div>
+        {asVisible && <ModalNoState handleBgClick={this.hide} />}
+        <CSSTransition
+          timeout={400}
+          classNames="actionSheet-fade"
+          in={asVisible}
+        >
+          {status => {
+            return (
+              <ASContainer
+                className={`actionSheet-fade actionSheet-fade-${status} actionSheet-container`}
+              >
+                {closeBtnPosition === 'top' && (
+                  <ASCloseBtnTop onClick={this.hide}>
+                    <Icon size={24} type="Close" />
+                  </ASCloseBtnTop>
+                )}
+                {title && <ASTitle>{title}</ASTitle>}
+                <div className="actionSheet-content">{content}</div>
+                {closeBtnPosition === 'bottom' && (
+                  <div>
+                    <WhiteSpace />
+                    <ASCloseBtnBottom onClick={this.hide}>取消</ASCloseBtnBottom>
+                  </div>
+                )}
+              </ASContainer>
+            );
+          }}
+        </CSSTransition>
+      </div>
     );
   }
 }

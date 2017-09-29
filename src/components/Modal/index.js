@@ -10,6 +10,58 @@ import { CSSTransition } from 'react-transition-group';
 import { style } from '../';
 import './_modal.scss';
 
+const ModalStyled = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  background: rgba(0, 0, 0, 0.4);
+`;
+const ModalBg = styled.div`
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+`;
+const ModalContent = styled.div`display: inline-block;`;
+
+class ModalNoState extends React.Component {
+  static defaultProps = {
+    children: null,
+    maskCls: null,
+    maskBgCls: null,
+    childrenCls: null,
+    handleBgClick: null,
+  };
+
+  render() {
+    const {
+      children,
+      maskCls,
+      maskBgCls,
+      childrenCls,
+      handleBgClick,
+    } = this.props;
+
+    return (
+      <ModalStyled className={classnames('xm-mask', maskCls)}>
+        <ModalBg
+          className={classnames('xm-mask-bg', maskBgCls)}
+          onClick={e => {
+            console.log('点击bg');
+            handleBgClick && handleBgClick(e);
+          }}
+        />
+        <ModalContent className={classnames('xm-mask-content', childrenCls)}>
+          {children}
+        </ModalContent>
+      </ModalStyled>
+    );
+  }
+}
+
 class Modal extends React.Component {
   static propTypes = {
     // TODO
@@ -21,7 +73,6 @@ class Modal extends React.Component {
     maskBgCls: null,
     childrenCls: null,
     onClose: null,
-    animation: true,
   };
 
   constructor(props) {
@@ -48,6 +99,7 @@ class Modal extends React.Component {
         isVisible: false,
       },
       () => {
+        // console.log(46+": onClose");
         onClose && onClose();
       }
     );
@@ -61,24 +113,8 @@ class Modal extends React.Component {
       maskCls,
       maskBgCls,
       childrenCls,
-      animation,
     } = this.props;
-    const ModalStyled = styled.div`
-      position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      overflow: auto;
-      background: rgba(0, 0, 0, 0.4);
-    `;
-    const ModalBg = styled.div`
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    `;
-    const ModalContent = styled.div`display: inline-block;`;
+
     const CloseBtn = styled.div`
       height: 48px;
       width: 48px;
@@ -93,58 +129,49 @@ class Modal extends React.Component {
     left: 50%;
     transform: translateX(-50%);
 }
-
     `;
 
-    const ModalBase = (
-      <ModalStyled
-        className={classnames('xm-mask', maskCls)}
-        onClick={e => {
-          console.log(e.target);
-        }}
-        ref={c => {
-          this.refMask = c;
-        }}
+    return (
+      <CSSTransition
+        timeout={400}
+        classNames="modal-fade"
+        in={this.state.isVisible}
       >
-        <ModalBg
-          className={classnames('xm-mask-bg', maskBgCls)}
-          onClick={() => {
-            console.log('点击bg');
-            if (maskClosable) {
-              this.hide();
-            }
-          }}
-        />
-        <ModalContent className={classnames('xm-mask-content', childrenCls)}>
-          {children}
-        </ModalContent>
-        {closable && (
-          <CloseBtn onClick={this.hide} className="xm-mask-close-btn">
-            <Icon size={24} type="Close" />
-          </CloseBtn>
-        )}
-      </ModalStyled>
+        {status => {
+          return (
+            <div className={`modal-fade modal-fade-${status}`}>
+              <ModalStyled
+                className={classnames('xm-mask', maskCls)}
+                ref={c => {
+                  this.refMask = c;
+                }}
+              >
+                <ModalBg
+                  className={classnames('xm-mask-bg', maskBgCls)}
+                  onClick={() => {
+                    console.log('点击bg');
+                    if (maskClosable) {
+                      this.hide();
+                    }
+                  }}
+                />
+                <ModalContent
+                  className={classnames('xm-mask-content', childrenCls)}
+                >
+                  {children}
+                </ModalContent>
+                {closable && (
+                  <CloseBtn onClick={this.hide} className="xm-mask-close-btn">
+                    <Icon size={24} type="Close" />
+                  </CloseBtn>
+                )}
+              </ModalStyled>
+            </div>
+          );
+        }}
+      </CSSTransition>
     );
-    if (animation) {
-      return (
-        <CSSTransition
-          timeout={400}
-          classNames="modal-fade"
-          in={this.state.isVisible}
-        >
-          {status => {
-            return (
-              <div className={`modal-fade modal-fade-${status}`}>
-                {ModalBase}
-              </div>
-            );
-          }}
-        </CSSTransition>
-      );
-    } else {
-      return ModalBase; // TODO
-    }
   }
 }
 
-export { Modal };
+export { Modal, ModalNoState };

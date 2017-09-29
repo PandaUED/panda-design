@@ -19,7 +19,7 @@ export { default as Showcase } from './Showcase';
 export { default as Carousel } from './Carousel';
 
 // Feedback
-export { Modal } from './Modal';
+export { Modal, ModalNoState } from './Modal';
 export { Dialog, DialogSharedInstance } from './Dialog';
 export { Toast, ToastSharedInstance } from './Toast';
 export { ActionSheet, ActionSheetSharedInstance } from './ActionSheet';
