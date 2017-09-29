@@ -10,13 +10,14 @@
 | 属性        | 说明                                |   类型   |   默认值   |
 | :-------- | --------------------------------- | :----: | :-----: |
 | classname | 样式类名                              | string |    -    |
-| renderHeader     | 是否渲染列表头                      | object |    -    |
-| renderFooter     | 是否渲染列表尾                      | object |    -    |
+| renderHeader     | 是否渲染列表头                   | object |    -    |
+| renderFooter     | 是否渲染列表尾                   | object |    -    |
 
 
 ### List.Item
 
 | 属性         | 说明                                |   类型   |   默认值   |
 | :--------   | ---------------------------------   | :----: | :-----: |
-| margin      | 是否向下分割                          | bool |    false    |
+| split      | 是否向下分割                          | bool |    false    |
 | onClick     | 点击时的处理                          | func |    -    |
+| padding     | 是否需要16px边距,适用于内层元素是cell时 | bool |    -    |

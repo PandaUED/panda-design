@@ -5,11 +5,12 @@ import TouchFeedback from 'rmc-feedback';
 import { style } from '../';
 
 const props = {
-  margin: PropTypes.bool,
+  split: PropTypes.bool,
   onClick: PropTypes.func,
+  padding: PropTypes.bool,
 };
 
-const ListItem = ({ children, margin = false, onClick, ...other }) => {
+const ListItem = ({ children, split = false, onClick, padding, ...other }) => {
   let ListItem = styled.a`
     background: #fff;
     width: 100%;
@@ -17,10 +18,10 @@ const ListItem = ({ children, margin = false, onClick, ...other }) => {
     color: #444444;
     line-height: 16px;
     align-items: center;
-    padding: 16px;
     box-shadow: inset 0 0 0 0 #f8f8f8;
+    ${padding ? 'padding: 16px;' : ''};
   `;
-  if (margin) {
+  if (split) {
     ListItem = ListItem.extend`
       margin-bottom: 10px;
       box-shadow: inset 0 0 0 0 #f8f8f8;

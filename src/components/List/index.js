@@ -27,12 +27,12 @@ const List = ({
 
   const ListHeader = styled.div`
     background: #fff;
-    height: 54px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 0 16px;
     font-weight: 600;
+    ${renderHeader ? 'height: 54px;' : ''};
     ${style.text.ellipsis};
     ${split ? style.split.bottom : ''};
   `;

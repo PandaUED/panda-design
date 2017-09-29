@@ -11,12 +11,14 @@ export default () => {
         renderFooter={<Button>close</Button>}
         renderHeader="ListHeader123"
       >
-        <List.Item>1</List.Item>
-        <List.Item>2</List.Item>
-        <List.Item margin>3</List.Item>
+        <List.Item padding>1</List.Item>
+        <List.Item padding>2</List.Item>
+        <List.Item split padding>
+          3
+        </List.Item>
         <List.Item>4</List.Item>
-        <List.Item margin>5</List.Item>
-        <List.Item>6</List.Item>
+        <List.Item split>5</List.Item>
+        <List.Item padding>6</List.Item>
       </List>
       <WhiteSpace />
     </View>
