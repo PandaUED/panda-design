@@ -17,7 +17,7 @@ export default () => {
           descMargin={13}
           desc={
             <div>
-              <Icon size={16} type="phone" color="#999999" />
+              <Icon size={16} type="phone" color="#999" />
               153****3008
             </div>
           }
@@ -35,7 +35,7 @@ export default () => {
         <Cell.Main size={15} marginLeft={8}>
           新手福利
         </Cell.Main>
-        <Cell.Right color="#999999">查看更多</Cell.Right>
+        <Cell.Right color="#999">查看更多</Cell.Right>
       </Cell>
       <WhiteSpace />
       <Cell className="CellCls" along>
@@ -66,7 +66,7 @@ export default () => {
       <WhiteSpace />
       <Cell className="CellCls" along>
         <Cell.Left>账单说明</Cell.Left>
-        <Cell.Right size={14} color="#444444">
+        <Cell.Right size={14} color="#444">
           银行卡-转入-定存宝
         </Cell.Right>
       </Cell>
@@ -75,7 +75,7 @@ export default () => {
         「6月期」年化9.5%
       </Cell>
       <WhiteSpace />
-      <Cell className="CellCls" along center color="#999999">
+      <Cell className="CellCls" along center color="#999">
         「3月期」年化8.5% (已售罄)
       </Cell>
       <WhiteSpace />
@@ -142,7 +142,7 @@ export default () => {
         <Cell.Left>
           <Icon size={16} type="point" color="#85B2FF" />
         </Cell.Left>
-        <Cell.Main size={12} color="#999999">
+        <Cell.Main size={12} color="#999">
           通用余额转入是指将通过绑定银行卡转账至存管账户的余额转移至熊猫金库存管电子e账户，从而完成出借。
         </Cell.Main>
       </Cell>

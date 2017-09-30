@@ -25,18 +25,18 @@ const CellMain = ({
   const CellMain = styled.div`
     text-align: justify;
     ${size ? `font-size: ${size}px;` : 'font-size: 16px;'};
-    ${color ? `color: ${color};` : 'color: #444444;'};
+    ${color ? `color: ${color};` : 'color: #444;'};
     ${marginLeft ? `margin-left: ${marginLeft}px;` : 'margin-left: 12px;'};
   `;
 
   const CellMainDesc = styled.div`
-    color: #999999;
+    color: #999;
+    ${descSize ? `font-size: ${descSize}px;` : 'font-size: 12px;'};
+    ${descMargin ? `margin-top: ${descMargin}px;` : 'margin-top: 8px;'};
     div {
       display: flex;
       align-items: flex-end;
     }
-    ${descSize ? `font-size: ${descSize}px;` : 'font-size: 12px;'};
-    ${descMargin ? `margin-top: ${descMargin}px;` : 'margin-top: 8px;'};
   `;
 
   return (

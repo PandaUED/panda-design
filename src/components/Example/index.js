@@ -12,7 +12,7 @@ const Example = ({ children = 'example', ...other }) => {
     align-items: center;
     justify-content: center;
     height: 44px;
-    line-hegiht: 44px;
+    line-height: 44px;
     text-align: center;
     color: ${style.color.textDeactive};
     background: ${style.color.bgDeactive};
