@@ -22,6 +22,6 @@
 | split      | 是否向下分割(加下margin)                          | bool |    false    |
 | border     | 是否向下分割(加下border)  | bool |    false    |
 | onClick     | 点击时的处理                          | func |    -    |
-| padding     | 左右padding值(设置后上下padding默认16px)。不加或false表示完全无padding。 | bool或number |    true   |
+| padding     | 左右padding值(设置后上下padding默认16px)。不加或false表示完全无padding。 | bool或number |    false   |
 | **OTHER** |                                   |        |         |
 | className | 样式类名                              | string |    -    |

@@ -17,7 +17,7 @@ const ListItem = ({
   split = false,
   onClick,
   border,
-  padding = true,
+  padding = false,
   ...other
 }) => {
   let ListItem = styled.div`
