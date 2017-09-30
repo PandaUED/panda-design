@@ -48,7 +48,7 @@ class Modal extends React.Component {
       },
       () => {
         onClose && onClose();
-      }
+      },
     );
   }
 
@@ -143,7 +143,7 @@ class Dialog extends React.Component {
       { title, message, buttons, theme, children, callback },
       () => {
         this.refDialogView.show();
-      }
+      },
     );
   }
 
@@ -159,7 +159,7 @@ class Dialog extends React.Component {
       { title, message, buttons, children, callback, theme },
       () => {
         this.refDialogView.show();
-      }
+      },
     );
   }
 

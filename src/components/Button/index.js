@@ -43,8 +43,8 @@ const Button = ({
     font-size: ${{ large: 16, default: 16, small: 14 }[size]}px;
     font-weight: 500;
     border-radius: ${round
-      ? { large: 54, default: 48, small: 36 }[size] / 2
-      : 0}px;
+    ? { large: 54, default: 48, small: 36 }[size] / 2
+    : 0}px;
     position: relative;
     overflow: hidden;
     -webkit-appearance: none;
@@ -102,10 +102,10 @@ const Button = ({
     Button = Button.extend`
       box-shadow: 0
         ${{
-          large: '10px 30px',
-          default: '8px 24px',
-          small: '6px 18px',
-        }[size]}
+    large: '10px 30px',
+    default: '8px 24px',
+    small: '6px 18px',
+  }[size]}
         0 ${rgba(shadowColor, 0.3)};
     `;
   }

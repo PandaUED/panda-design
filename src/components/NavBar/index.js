@@ -50,7 +50,7 @@ class NavBar extends React.Component {
       setTimeout(() => {
         this.$scrollDom = getScrollDom(scrollDom).on(
           'scroll',
-          this.handleScroll
+          this.handleScroll,
         );
         // 主动调用一次scroll事件以便更新navbar
         this.$scrollDom.trigger('scroll');

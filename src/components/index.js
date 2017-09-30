@@ -16,7 +16,7 @@ export { default as Card } from './Card';
 
 // Data Display
 export { default as Showcase } from './Showcase';
-
+export { Tag, TAG_TYPE } from './Tag';
 // Feedback
 export { Modal, Dialog, DialogSharedInstance } from './Modal';
 

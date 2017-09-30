@@ -66,7 +66,7 @@ export default () => {
         <Color color={color} />
         <Title>{key}</Title>
         <Hex>{color}</Hex>
-      </Item>
+      </Item>,
     );
   });
 
@@ -75,7 +75,7 @@ export default () => {
   _.forEach(style.gradient, (color, key) => {
     const Color = color(45);
     const ColorArray = Color.replace(/(.*)\(|\)|[0-9]+%|[0-9]+deg/g, '').split(
-      ','
+      ',',
     );
     GradientDisplay.push(
       <Item key={key}>
@@ -83,7 +83,7 @@ export default () => {
         <Title>{key}</Title>
         <GradientHex color={ColorArray[1]}>{ColorArray[1]}</GradientHex>
         <GradientHex color={ColorArray[2]}>{ColorArray[2]}</GradientHex>
-      </Item>
+      </Item>,
     );
   });
 

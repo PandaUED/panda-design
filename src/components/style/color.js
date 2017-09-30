@@ -8,6 +8,7 @@ const color = {
   green: '#07CF93',
   blue: '#5891EF',
   purple: '#DA59E9',
+  darkGrey: '#828994',
   textDark: '#444',
   textNoraml: '#666666',
   textLight: '#999999',
@@ -43,6 +44,6 @@ gradient.primary = gradient.orange;
 const gradientBuild = (deg = 45, color) =>
   `linear-gradient(${deg}deg, ${color[0]} 0%, ${color[1]} 100%)`;
 
-gradientBuild.propTypes = { deg: PropTypes.number };
+gradientBuild.propTypes = {deg: PropTypes.number};
 
-export { color, gradient };
+export {color, gradient};
