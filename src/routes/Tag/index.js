@@ -9,6 +9,7 @@ export default class extends React.Component {
       background: white;
       justify-content: space-around;
       padding: 8px;
+      height: 54px;
     `;
 
     return (
