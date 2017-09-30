@@ -17,6 +17,7 @@ export { default as Avatar } from './Avatar';
 
 // Data Display
 export { default as Showcase } from './Showcase';
+export { Tag, TAG_TYPE } from './Tag';
 export { default as Carousel } from './Carousel';
 export { default as List } from './List';
 export { default as Cell } from './Cell';

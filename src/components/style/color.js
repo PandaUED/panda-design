@@ -8,6 +8,7 @@ const color = {
   green: '#07CF93',
   blue: '#5891EF',
   purple: '#DA59E9',
+  darkGrey: '#828994',
   textDark: '#444',
   textNoraml: '#666666',
   textLight: '#999999',
