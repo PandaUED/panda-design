@@ -5,6 +5,7 @@ import TouchFeedback from 'rmc-feedback';
 import { style } from '../';
 
 const props = {
+  className: PropTypes.string,
   split: PropTypes.bool,
   onClick: PropTypes.func,
   padding: PropTypes.oneOfType([PropTypes.bool, PropTypes.number]),
@@ -12,11 +13,12 @@ const props = {
 };
 
 const ListItem = ({
+  className,
   children,
   split = false,
   onClick,
   border,
-  padding,
+  padding = true,
   ...other
 }) => {
   let ListItem = styled.div`
@@ -46,8 +48,8 @@ const ListItem = ({
   }
 
   return (
-    <TouchFeedback disabled={onClick}>
-      <ListItem onClick={onClick} {...other}>
+    <TouchFeedback>
+      <ListItem onClick={onClick} className={className} {...other}>
         {children}
       </ListItem>
     </TouchFeedback>

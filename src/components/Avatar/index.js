@@ -8,7 +8,7 @@ const props = {
   url: PropTypes.string,
 };
 
-const Image = ({ className, size, shape, url, ...other }) => {
+const Image = ({ className, size, shape = 'circle', url, ...other }) => {
   let Image = styled.img`background: transparent;`;
   if (shape === 'circle') {
     Image = Image.extend`

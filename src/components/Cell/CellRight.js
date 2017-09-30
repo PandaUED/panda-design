@@ -2,12 +2,13 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const props = {
+  className: PropTypes.string,
   size: PropTypes.number,
   color: PropTypes.string,
   right: PropTypes.number,
 };
 
-const CellRight = ({ size, color, right, children, ...other }) => {
+const CellRight = ({ className, size, color, right, children, ...other }) => {
   const CellRight = styled.div`
     position: absolute;
     display: flex;
@@ -17,7 +18,11 @@ const CellRight = ({ size, color, right, children, ...other }) => {
     ${right ? `right: ${right}px;` : 'right: 16px;'};
   `;
 
-  return <CellRight {...other}>{children}</CellRight>;
+  return (
+    <CellRight className={className} {...other}>
+      {children}
+    </CellRight>
+  );
 };
 
 CellRight.propTypes = props;
