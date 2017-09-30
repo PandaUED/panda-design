@@ -16,5 +16,4 @@ TODO 图标变色
 | **OTHER** |                                   |        |         |
 | classname | 样式类名                              | string |    -    |
 | style     | 自定义样式                             | object |    -    |
-| children     | 文案                             | object or string |    -    |
 
