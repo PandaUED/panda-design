@@ -143,6 +143,8 @@ class Dialog extends Component {
     `;
     const DWrapper = styled.div`
       .DialogMask-content {
+        width: 100%;
+        height: 100%;
         ${style.mixins.xmFlexCenter('column')};
       }
     `;
