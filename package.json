@@ -32,8 +32,7 @@
 			"git add"
 		],
 		"src/**/*.js": [
-			"eslint --fix",
-			"lint:style",
+			// "eslint --fix",
 			"git add"
 		]
 	},
