@@ -1,9 +1,9 @@
 /**
  * Created by lichenguang on 2017/9/21.
  */
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import ReactCarousel from './ReactCarousel';
+import PropTypes from 'prop-types';
 import { style } from '../';
 
 const props = {

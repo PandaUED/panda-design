@@ -2,8 +2,8 @@
  * Created by lichenguang on 2017/9/15.
  */
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { rgba } from 'polished';
 import { style } from '../';
 

@@ -1,7 +1,6 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import TouchFeedback from 'rmc-feedback';
+import PropTypes from 'prop-types';
 import { style } from '../';
 
 const props = {

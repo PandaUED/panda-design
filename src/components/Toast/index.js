@@ -1,15 +1,14 @@
 /**
  * Created by Liqi on 17/9/27.
  */
-
-import React from 'react';
-// import PropTypes from 'prop-types';
+import { Component } from 'react';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
+import PropTypes from 'prop-types';
 import { style } from '../';
 import './_toast.scss';
 
-class Toast extends React.Component {
+class Toast extends Component {
   constructor(props) {
     super(props);
     this.state = {

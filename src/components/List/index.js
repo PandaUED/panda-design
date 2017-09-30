@@ -1,6 +1,5 @@
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
-// import classnames from 'classnames';
+import PropTypes from 'prop-types';
 import { style } from '../';
 import ListItem from './ListItem';
 

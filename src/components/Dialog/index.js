@@ -1,14 +1,12 @@
 /**
  * Created by Liqi on 17/9/28.
  */
-
-import { Modal, Button } from 'pand';
-import React from 'react';
-// import PropTypes from 'prop-types';
+import { Component } from 'react';
+import { style, Modal, Button } from '../';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { style } from '../';
 
-class Dialog extends React.Component {
+class Dialog extends Component {
   state = {
     title: '',
     message: '',

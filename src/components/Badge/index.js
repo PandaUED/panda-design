@@ -1,9 +1,9 @@
 /**
  * Created by Liqi on 17/9/29.
  */
-import React from 'react';
-// import PropTypes from 'prop-types';
+
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { style } from '../';
 
 const BadgeProps = {};
