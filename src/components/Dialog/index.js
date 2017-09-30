@@ -70,14 +70,14 @@ class Dialog extends Component {
     `;
     const DContent = styled.div`padding: 24px 16px;`;
     const DTitle = styled.div`
-      color: #444444;
+      color: #444;
       margin-bottom: 16px;
       font-size: ${theme === 'classic' ? '18px' : '22px'};
       line-height: ${theme === 'classic' ? '18px' : '22px'};
     `;
     const DMessage = styled.div`
       font-size: 14px;
-      color: #999999;
+      color: #999;
       line-height: 21px;
     `;
     const DClassicBtnWrapper = styled.div`

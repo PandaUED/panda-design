@@ -32,7 +32,7 @@ const Cell = ({
     display: flex;
     ${fontSize ? `font-size: ${fontSize}px;` : 'font-size: 14px;'};
     align-items: center;
-    ${color ? `color:${color};` : 'color: #444444;'};
+    ${color ? `color:${color};` : 'color: #444;'};
     ${margin ? `margin:0 ${margin}px;` : ''};
   `;
 

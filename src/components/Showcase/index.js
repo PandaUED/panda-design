@@ -66,7 +66,7 @@ const Showcase = ({
   const Subtitle = Title.extend`
     font-size: 16px;
     margin-top: 6px;
-    color: ${backgroundColor === 'white' ? '#444444' : null};
+    color: ${backgroundColor === 'white' ? '#444' : null};
   `;
   const Button = styled.div`
     background-color: rgba(255, 255, 255, 0.25);

@@ -27,7 +27,7 @@ export default () => {
   const Text = styled.div`
     font-family: PingFangSC-Medium;
     font-size: 13px;
-    color: #999999;
+    color: #999;
   `;
 
   return (

@@ -50,7 +50,7 @@ class Toast extends Component {
       width: calc(100% - 32px);
       padding: 16px;
       margin: 16px;
-      box-shadow: 0px 0px 8px 2px #eee;
+      box-shadow: 0 0 8px 2px #eee;
       background: #fff;
       ${style.mixins.xmFlexCenter()};
     `;
@@ -58,7 +58,7 @@ class Toast extends Component {
     const TTitle = styled.div`
       font-family: PingFangSC-Medium;
       font-size: 16px;
-      color: #444444;
+      color: #444;
       line-height: 16px;
       font-weight: bold;
       margin-bottom: 9px;
@@ -67,7 +67,7 @@ class Toast extends Component {
     const TDesc = styled.div`
       font-family: PingFangSC-Regular;
       font-size: 12px;
-      color: #999999;
+      color: #999;
       line-height: 18px;
       text-align: justify;
     `;

@@ -52,7 +52,7 @@ class ActionSheet extends Component {
       line-height: 54px;
       font-family: .PingFangSC-Regular;
       font-size: 17px;
-      color: #666666;
+      color: #666;
       text-align: center;
       position: relative;
     `;
@@ -69,7 +69,7 @@ class ActionSheet extends Component {
       text-align: center;
       font-family: PingFangSC-Regular;
       font-size: 16px;
-      color: #444444;
+      color: #444;
       font-weight: bold;
     `;
 

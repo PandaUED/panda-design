@@ -1,6 +1,3 @@
-/**
- * Created by Liqi on 17/9/27.
- */
 import styled from 'styled-components';
 import classnames from 'classnames';
 import PropTypes from 'prop-types';
@@ -118,16 +115,15 @@ class Modal extends Component {
       height: 48px;
       width: 48px;
       border-radius: 50%;
-      background: #999999;
+      background: #999;
       color: #fff;
       line-height: 48px;
       font-size: 24px;
       ${style.mixins.xmFlexCenter('column')};
       position: absolute;
-    bottom: 32px;
-    left: 50%;
-    transform: translateX(-50%);
-}
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
     `;
 
     return (
