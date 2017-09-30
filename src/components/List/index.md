@@ -6,19 +6,22 @@
 
 ### List
 
-
 | 属性        | 说明                                |   类型   |   默认值   |
 | :-------- | --------------------------------- | :----: | :-----: |
-| classname | 样式类名                              | string |    -    |
-| header     | 列表头部，false可以不渲染                   | object |    false    |
-| footer     | 列表尾部，false可以不渲染                    | object |    false    |
+| header     | 列表头部，不设置表示不渲染                   | node | - |
+| footer     | 列表尾部，不设置表示不渲染                   | node | - |
 | split      | 列表头尾是否有分界线                          | bool |    true    |
+| **OTHER** |                                   |        |         |
+| className | 样式类名                              | string |    -    |
 
 
 ### List.Item
 
 | 属性         | 说明                                |   类型   |   默认值   |
 | :--------   | ---------------------------------   | :----: | :-----: |
-| split      | 是否向下分割                          | bool |    false    |
+| split      | 是否向下分割(加下margin)                          | bool |    false    |
+| border     | 是否向下分割(加下border)  | bool |    false    |
 | onClick     | 点击时的处理                          | func |    -    |
-| padding     | 是否需要16px边距,适用于内层元素是cell时 | bool |    -    |
+| padding     | 左右padding值(设置后上下padding默认16px)。不加或false表示完全无padding。 | bool或number |    true   |
+| **OTHER** |                                   |        |         |
+| className | 样式类名                              | string |    -    |

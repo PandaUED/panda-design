@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const props = {
+  className: PropTypes.string,
   size: PropTypes.number,
   color: PropTypes.string,
   marginLeft: PropTypes.number,
@@ -11,6 +12,7 @@ const props = {
 };
 
 const CellMain = ({
+  className,
   size,
   color,
   marginLeft,
@@ -29,14 +31,20 @@ const CellMain = ({
 
   const CellMainDesc = styled.div`
     color: #999999;
+    div {
+      display: flex;
+      align-items: flex-end;
+    }
     ${descSize ? `font-size: ${descSize}px;` : 'font-size: 12px;'};
     ${descMargin ? `margin-top: ${descMargin}px;` : 'margin-top: 8px;'};
   `;
 
   return (
-    <CellMain {...other}>
+    <CellMain className={className} {...other}>
       {children}
-      {desc && <CellMainDesc>{desc}</CellMainDesc>}
+      {desc && (
+        <CellMainDesc className={`${className}-desc`}>{desc}</CellMainDesc>
+      )}
     </CellMain>
   );
 };

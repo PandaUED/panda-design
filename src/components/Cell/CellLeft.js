@@ -2,11 +2,12 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
 const props = {
+  className: PropTypes.string,
   size: PropTypes.number,
   color: PropTypes.string,
 };
 
-const CellLeft = ({ size, color, children, ...other }) => {
+const CellLeft = ({ className, size, color, children, ...other }) => {
   const CellLeft = styled.div`
     display: flex;
     align-items: center;
@@ -17,7 +18,11 @@ const CellLeft = ({ size, color, children, ...other }) => {
     ${color ? `color: ${color};` : 'color: #999999;'};
   `;
 
-  return <CellLeft {...other}>{children}</CellLeft>;
+  return (
+    <CellLeft className={className} {...other}>
+      {children}
+    </CellLeft>
+  );
 };
 
 CellLeft.propTypes = props;

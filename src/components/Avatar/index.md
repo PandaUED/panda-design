@@ -1,13 +1,13 @@
 # 头像
 
-就是头像，可方可圆
+就是头像，可方可圆。大概也可以用于处理图片icon。
 
 ## API
 
 | 属性        | 说明                                |   类型   |   默认值   |
 | :-------- | --------------------------------- | :----: | :-----: |
-| props     | 说明                | - | - |
+| size     | 头像大小                | number | 48 |
+| shape     | 形状,圆形方形                | ['circle' / 'square'] | 'circle' |
+| url     | 图片资源地址               | string | 无 |
 | **OTHER** |                                   |        |         |
-| classname | 样式类名                              | string |    -    |
-| style     | 自定义样式                             | object |    -    |
-| onClick   | 点击按钮的点击回调函数                       |  func  |    -    |
+| className | 样式类名                              | string |    -    |

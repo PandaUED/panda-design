@@ -9,7 +9,6 @@ const props = {
   padding: PropTypes.number,
   margin: PropTypes.number,
   along: PropTypes.bool,
-  type: PropTypes.oneOf(['avatar', 'note', 'timeList']),
   center: PropTypes.bool,
   color: PropTypes.string,
   fontSize: PropTypes.number,
@@ -26,7 +25,6 @@ const Cell = ({
   fontSize,
   bold,
   along = false,
-  type,
   ...other
 }) => {
   let Cell = styled.div`
