@@ -1,4 +1,4 @@
-import React from 'react';
+import { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -29,7 +29,7 @@ function getScrollDom(selector = '.scroll') {
 
 const defaultTitle = <div style={{ margin: '0 auto' }}>熊猫金库</div>;
 
-class NavBar extends React.Component {
+class NavBar extends Component {
   static defaultProps = {
     mode: NAVBAR_MODE.WHITE,
     leftView: <div>返回</div>,

@@ -31,3 +31,6 @@ export { ActionSheet, ActionSheetSharedInstance } from './ActionSheet';
 // Gesture
 
 // Combination
+
+// Utils
+export { default as Component } from './utlis/Component';

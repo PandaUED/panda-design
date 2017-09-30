@@ -1,13 +1,12 @@
 /**
  * Created by Liqi on 17/9/27.
  */
-import React from 'react';
-import { Icon } from 'pand';
-// import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classnames from 'classnames';
+import PropTypes from 'prop-types';
+import { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { style } from '../';
+import { style, Icon } from '../';
 import './_modal.scss';
 
 const ModalStyled = styled.div`
@@ -27,7 +26,7 @@ const ModalBg = styled.div`
 `;
 const ModalContent = styled.div`display: inline-block;`;
 
-class ModalNoState extends React.Component {
+class ModalNoState extends Component {
   static defaultProps = {
     children: null,
     maskCls: null,
@@ -62,7 +61,7 @@ class ModalNoState extends React.Component {
   }
 }
 
-class Modal extends React.Component {
+class Modal extends Component {
   static propTypes = {
     // TODO
   };
