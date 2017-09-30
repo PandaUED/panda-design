@@ -2,8 +2,8 @@
  * Created by lichenguang on 2017/9/15.
  */
 
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import { rgba } from 'polished';
 import { style } from '../';
 
@@ -37,7 +37,6 @@ const Showcase = ({
 }) => {
   let Showcase = styled.div`
     height: ${backgroundColor === 'white' ? '162px' : '152px'};
-    width: ${backgroundColor === 'white' ? '375px' : '343px'};
     border-radius: 6px;
     margin: ${backgroundColor === 'white' ? null : '8px 15px 14px 17px'};
     box-shadow: 0 4px 4px 0 ${rgba(style.color[backgroundColor], 0.41)};
@@ -83,10 +82,9 @@ const Showcase = ({
     opacity: 0.08;
     font-family: SFUIDisplay-Black;
     font-size: 100px;
-    position: absolute;
     float: right;
     margin-top: -62px;
-    margin-left: 69px;
+    margin-right: -46px;
   `;
 
   return (

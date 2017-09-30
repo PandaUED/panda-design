@@ -44,6 +44,6 @@ gradient.primary = gradient.orange;
 const gradientBuild = (deg = 45, color) =>
   `linear-gradient(${deg}deg, ${color[0]} 0%, ${color[1]} 100%)`;
 
-gradientBuild.propTypes = {deg: PropTypes.number};
+gradientBuild.propTypes = { deg: PropTypes.number };
 
-export {color, gradient};
+export { color, gradient };

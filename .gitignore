@@ -4,6 +4,8 @@ npm-debug.log*
 .idea/
 yarn.lock
 *.sketch
+/dist
+/data
 
 # 不要把/dist加在里面，服务器build有时候会出问题
 # 本地build好再上传

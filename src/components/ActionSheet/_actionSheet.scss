@@ -1,0 +1,20 @@
+:global {
+  .actionSheet-fade {
+    transition: all 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  .actionSheet-fade-exited,
+  .actionSheet-fade-exiting.actionSheet-fade-exit-active {
+    transform: translateY(100%);
+    opacity: 0.01;
+  }
+
+  .actionSheet-fade-entering {
+    transform: translateY(100%);
+  }
+
+  .actionSheet-fade-entering.actionSheet-fade-enter-active,
+  .actionSheet-fade-exiting {
+    transform: translateY(0);
+  }
+}

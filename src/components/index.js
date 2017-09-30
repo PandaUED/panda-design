@@ -13,13 +13,25 @@ export { NavBar, NAVBAR_MODE } from './NavBar';
 export { default as Icon } from './Icon';
 export { default as Button } from './Button';
 export { default as Card } from './Card';
+export { default as Avatar } from './Avatar';
 
 // Data Display
 export { default as Showcase } from './Showcase';
 export { Tag, TAG_TYPE } from './Tag';
+export { default as Carousel } from './Carousel';
+export { default as List } from './List';
+export { default as Cell } from './Cell';
+export { default as Badge } from './Badge';
+
 // Feedback
-export { Modal, Dialog, DialogSharedInstance } from './Modal';
+export { Modal, ModalNoState } from './Modal';
+export { Dialog, DialogSharedInstance } from './Dialog';
+export { Toast, ToastSharedInstance } from './Toast';
+export { ActionSheet, ActionSheetSharedInstance } from './ActionSheet';
 
 // Gesture
 
 // Combination
+
+// Utils
+export { default as Component } from './utlis/Component';
