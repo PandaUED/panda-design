@@ -15,7 +15,7 @@
 		"build:roadhog": "yarn link pand && roadhog build",
 		"build:precache": "sw-precache --config=.precache.js",
 		"build:dll": "yarn && roadhog buildDll",
-		"build:doc": "gulp build && gulp build:toc",
+		"build:doc": "rm -r data && mkdir data && gulp build && gulp build:toc",
 		"trello": "open https://trello.com/b/Ae62EniM/fe",
 		"ssh": "ssh root@172.20.200.10",
 		"lint": "lint-staged",

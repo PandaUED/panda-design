@@ -2,20 +2,17 @@ import frontMatter from 'front-matter';
 import fs from 'fs-extra';
 import _ from 'lodash';
 import path from 'path';
-import Config from '../../src/config';
+import Config, { Ignore } from '../../src/config';
 
 const pathSrc  = './src/components';
 const pathJs   = './src/routes';
 const pathDist = './data';
 export default () => {
+	console.log('[Ignore]',Ignore.join(','))
 	const files = fs.readdirSync(pathSrc);
 	return files.forEach(item => {
-		if (
-			item === 'Example' ||
-			!fs.statSync(path.join(pathSrc, item)).isDirectory()
-		)
-			return;
-
+		if (Ignore.indexOf(item) !== -1 ||
+				!fs.statSync(path.join(pathSrc, item)).isDirectory()) return;
 		// 读取md
 		const data   = fs.readFileSync(path.join(pathSrc, item, 'index.md'), 'utf-8');
 		const parsed = frontMatter(data);

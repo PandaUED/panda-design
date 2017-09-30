@@ -12,3 +12,5 @@ export default {
   Combination: [],
   Other: [],
 };
+const Ignore = ['Example', 'utlis'];
+export { Ignore };
