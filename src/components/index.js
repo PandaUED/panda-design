@@ -9,6 +9,7 @@ export { default as WingBlank } from './WingBlank';
 
 // Navigation
 export { NavBar, NAVBAR_MODE } from './NavBar';
+export { default as Tabs } from './tabs';
 // Data Entry
 export { default as Icon } from './Icon';
 export { default as Button } from './Button';

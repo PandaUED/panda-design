@@ -1,5 +1,5 @@
 import dynamic from 'dva/dynamic';
-import { Route, Router } from 'dva/router';
+import { Route, Router, Switch } from 'dva/router';
 import _ from 'lodash';
 import Config from './config';
 import App from './routes/App';
@@ -23,7 +23,7 @@ export default ({ history }) => {
       <App>
         <Route exact path="/" component={Home} />
         {MakeRoute('style')}
-        {list.map(link => MakeRoute(link))}
+        <Switch>{list.map(link => MakeRoute(link))}</Switch>
       </App>
     </Router>
   );
