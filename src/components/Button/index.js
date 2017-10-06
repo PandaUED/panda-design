@@ -21,7 +21,8 @@ const sizeFn = (sizeObject, size) => sizeObject[size];
 
 const heightSizeFn = size => sizeFn(heightSize, size);
 const fontSizeFn = size => sizeFn(fontSize, size);
-const borderRadiusSizeFn = (round, size) => (round ? sizeFn(borderRadiusSize, size) / 2 : 0);
+const borderRadiusSizeFn = (round, size) =>
+  round ? sizeFn(borderRadiusSize, size) / 2 : 0;
 const shadowSizeFn = size => sizeFn(shadowSize, size);
 const hightlightSizeFn = size => sizeFn(hightlightSize, size);
 
@@ -57,10 +58,8 @@ const Button = ({
     background: ${gradientColorFn(color, deg)};
     color: #fff;
     &:active {
-      background: 'linear-gradient(rgba(0,0,0,.08) 0%,rgba(0,0,0,.08) 100%)', ${gradientColorFn(
-        color,
-        deg
-      )};
+      background: 'linear-gradient(rgba(0,0,0,.08) 0%,rgba(0,0,0,.08) 100%)',
+        ${gradientColorFn(color, deg)};
       color: rgba(255, 255, 255, 0.7);
     }
   `;
@@ -111,10 +110,11 @@ const Button = ({
     }
     ${style.text.ellipsis};
     // 线框
-    ${!disabled && ghost ? ghostStyleSheet : ''} ;
-    ${!(disabled || ghost || deg === null) ? degStyleSheet : ''}
-    ${shadow ? shadowStyleSheet : ''}
-    ${highlight ? highlightStyleSheet : ''} ${disabled && disabledStyleSheet}
+    ${!disabled && ghost ? ghostStyleSheet : ''};
+    ${!(disabled || ghost || deg === null) ? degStyleSheet : ''} ${shadow
+        ? shadowStyleSheet
+        : ''} ${highlight ? highlightStyleSheet : ''} ${disabled &&
+        disabledStyleSheet};
   `;
   return (
     <TouchFeedback disabled={disabled}>

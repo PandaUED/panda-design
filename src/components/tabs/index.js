@@ -21,9 +21,11 @@ class Tabs extends React.Component {
     // eslint-disable-next-line
     const container = ReactDOM.findDOMNode(this.instance);
     // scrollIntoView 方法兼容到ie8
-    container.querySelector(`:nth-child(${this.state.activeIndex + 1})`).scrollIntoView({
-      behavior: 'auto',
-    });
+    container
+      .querySelector(`:nth-child(${this.state.activeIndex + 1})`)
+      .scrollIntoView({
+        behavior: 'auto',
+      });
   }
 
   render() {
@@ -70,7 +72,8 @@ class Tabs extends React.Component {
       font-weight: 500;
       color: #666;
       cursor: pointer;
-      ${({ index }) => (index === activeIndex ? activeStyleSheet : '')} ${style.text.ellipsis};
+      ${({ index }) => (index === activeIndex ? activeStyleSheet : '')} ${style
+          .text.ellipsis};
     `;
     /**
      * Tab的容器，固定宽度和高度
@@ -92,7 +95,9 @@ class Tabs extends React.Component {
     `;
     return (
       <TabContainer ref={i => (this.instance = i)} {...other}>
-        {tabsData.map((tabData, index) => <Tab key={index} index={index} {...tabData} />)}
+        {tabsData.map((tabData, index) => (
+          <Tab key={index} index={index} {...tabData} />
+        ))}
       </TabContainer>
     );
   }

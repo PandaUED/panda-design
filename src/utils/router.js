@@ -10,8 +10,6 @@ const MakeRoute = to => (
   />
 );
 
-const MakeLink = ({ to }) => (
-  <Link to={_.kebabCase(to)}>{_.startCase(to)}</Link>
-);
+const MakeLink = ({ to }) => <Link to={_.kebabCase(to)}>{_.startCase(to)}</Link>;
 
 export { MakeRoute, MakeLink };
