@@ -4,6 +4,7 @@ import { Component } from 'react';
 import { Icon } from 'pand';
 
 const props = {
+  className: PropTypes.string,
   closable: PropTypes.bool,
   marquee: PropTypes.bool,
   center: PropTypes.bool,
@@ -13,6 +14,7 @@ const props = {
 };
 
 const NoticeBar = ({
+  className,
   closable,
   marquee,
   center,
@@ -72,7 +74,7 @@ const NoticeBar = ({
   `;
   if (visible) {
     return (
-      <NoticeBar {...other}>
+      <NoticeBar className={className} {...other}>
         <NoticeBarIcon>{icon}</NoticeBarIcon>
         {marquee && (
           <marquee behavior="scroll" direction="left">

@@ -18,26 +18,34 @@ export default () => {
 
     show(index, duration) {
       let data = this.state.data;
-      data[index] = true;
-      this.setState({ data });
-      if (duration) {
-        window.setTimeout(() => {
-          this.hide(index);
-        }, duration * 1000);
+      if (!data[index]) {
+        data[index] = true;
+        this.setState({ data });
+        if (duration) {
+          window.setTimeout(() => {
+            this.hide(index);
+          }, duration * 1000);
+        }
       }
     }
 
     hide(index) {
       let data = this.state.data;
-      data[index] = false;
-      this.setState({ data });
+      if (data[index]) {
+        data[index] = false;
+        this.setState({ data });
+      }
     }
 
     render() {
       return (
         <List>
           <WhiteSpace>居中显示</WhiteSpace>
-          <NoticeBar center visible={this.state.data['notice1']}>
+          <NoticeBar
+            center
+            visible={this.state.data['notice1']}
+            className="NoticeBarExample"
+          >
             短信验证码已发至153****3008，请查收
           </NoticeBar>
           <Button

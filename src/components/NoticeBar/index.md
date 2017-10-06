@@ -6,8 +6,11 @@
 
 | 属性        | 说明                                |   类型   |   默认值   |
 | :-------- | --------------------------------- | :----: | :-----: |
-| props     | 说明                | - | - |
+| closable     | 是否显示右侧关闭按钮                | bool | false |
+| marquee     | 文字是否滚动显示                | bool | false |
+| center     | 文字是否居中显示                | bool | false |
+| visible     | 是否可见，用于控制notice展示                | bool | false |
 | **OTHER** |                                   |        |         |
 | classname | 样式类名                              | string |    -    |
-| style     | 自定义样式                             | object |    -    |
-| onClick   | 点击按钮的点击回调函数                       |  func  |    -    |
+| icon     | 可添加左侧icon                             | node |    -    |
+| onClose   | 点击右侧关闭按钮的回调函数                       |  func  |    -    |
