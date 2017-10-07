@@ -45,6 +45,7 @@ const mode0 = css`
 const mode2_1 = css`
   // information
   &:nth-child(1){
+  position: relative;
     width: 255px;
     font-size: 10px;
     font-weight: 400;
