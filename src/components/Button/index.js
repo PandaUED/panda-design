@@ -63,11 +63,9 @@ const Button = ({
       color: rgba(255, 255, 255, 0.7);
     }
   `;
-
   const shadowStyleSheet = css`
     box-shadow: 0 ${shadowSizeFn(size)} 0 ${rgba(singleColorFn(color), 0.3)};
   `;
-
   const highlightStyleSheet = css`
     :after {
       content: '';
@@ -88,6 +86,7 @@ const Button = ({
     cursor: not-allowed;
   `;
   const BasicButton = styled.a`
+    // display
     position: relative;
     display: flex;
     box-sizing: border-box;
@@ -111,10 +110,14 @@ const Button = ({
     ${style.text.ellipsis};
     // 线框
     ${!disabled && ghost ? ghostStyleSheet : ''};
-    ${!(disabled || ghost || deg === null) ? degStyleSheet : ''} ${shadow
-        ? shadowStyleSheet
-        : ''} ${highlight ? highlightStyleSheet : ''} ${disabled &&
-        disabledStyleSheet};
+    
+    ${!(disabled || ghost || deg === null) ? degStyleSheet : ''}
+    
+    ${shadow ? shadowStyleSheet : ''} 
+    
+    ${highlight ? highlightStyleSheet : ''} 
+    
+    ${disabled && disabledStyleSheet};
   `;
   return (
     <TouchFeedback disabled={disabled}>
