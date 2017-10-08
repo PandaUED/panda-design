@@ -83,7 +83,7 @@ const VerticalStepItem = ({
   let PlaceHolder = styled.div`
     width: 1px;
     height: 16px;
-    margin-left: 12px;
+    margin-left: 11px;
   `;
   let StepIcon = styled.div`
     height: 24px;
@@ -146,55 +146,89 @@ const VerticalStepItem = ({
 };
 
 // 横版进度
-const ProgressStepItem = ({
-  data,
-  isFirst = false,
-  isLast = false,
-  ...other
-}) => {
-  const StepItem = styled.div`
+const ProgressStepItem = ({ data, color, deg, isLast = false, ...other }) => {
+  let StepItem = styled.div`
     margin: 0;
     color: #cacaca;
     display: flex;
+    flex-direction: column;
+    background-color: #ffffff;
+    ${data.rate ? `width: ${data.rate}` : ''};
   `;
 
   let PlaceHolder = styled.div`
     width: 48px;
-    height: 1px;
+    height: 15px;
     margin-top: 12px;
+    border-color: #d6d9e0;
+    border-left: 1px solid;
+    border-top: 1px solid;
   `;
-  let StepIcon = styled.div`
-    height: 24px;
-    width: 24px;
-    font-size: 14px;
-    border-radius: 12px;
+  let PlaceHolderRight = PlaceHolder.extend`
+    border-left: 0;
+    border-right: 1px solid;
+    border-top: 1px solid;
+  `;
+  let StepInfo = styled.div`
+    display: flex;
+    justify-content: space-between;
+  `;
+  let StepContent = styled.div`
+    background-color: #d6d9e0;
+    color: white;
+    font-size: 12px;
+    line-height: 20px;
     text-align: center;
-    line-height: 24px;
-    margin: 0 auto;
   `;
   let StepName = styled.div`
     font-size: 12px;
     line-height: 12px;
     margin-top: 6px;
+    color: #828994;
+  `;
+  let StepRight = styled.div`
+    div + div {
+      float: right;
+    }
   `;
 
   if (data.status === 'active') {
-    PlaceHolder = PlaceHolder.extend`background-color: #5891ef;`;
-    StepName = StepName.extend`color: #5891ef;`;
-    StepIcon = StepIcon.extend`
-      color: white;
-      background-color: #5891ef;
+    PlaceHolder = PlaceHolder.extend`
+      ${color ? `border-color: ${color}` : 'border-color: #5891EF'};
     `;
+    StepName = StepName.extend`
+      ${color ? `color: ${color}` : 'color: #5891EF'};
+    `;
+    StepContent = StepContent.extend`
+      ${color
+        ? `background-image: linear-gradient(-45deg, ${deg} 0%, ${color} 100%);`
+        : 'background-image: linear-gradient(-45deg, #00B6FF 0%, #3F94F7 100%)'};
+    `;
+  }
+
+  if (!isLast) {
+    StepItem = StepItem.extend`margin-right: 2px;`;
   }
 
   return (
     <StepItem {...other}>
-      {!isFirst && <PlaceHolder />}
-      <div {...other}>
-        <StepIcon>{data.num}</StepIcon>
-        <StepName>{data.name}</StepName>
-      </div>
-      {!isLast && <PlaceHolder />}
+      <StepInfo>
+        <div>
+          <StepName>{data.time}</StepName>
+          <StepName>{data.desc}</StepName>
+        </div>
+        {data.right && (
+          <StepRight>
+            <StepName>{data.right.time}</StepName>
+            <StepName>{data.right.desc}</StepName>
+          </StepRight>
+        )}
+      </StepInfo>
+      <StepInfo>
+        <PlaceHolder />
+        {data.right && <PlaceHolderRight />}
+      </StepInfo>
+      <StepContent>{data.name}</StepContent>
     </StepItem>
   );
 };

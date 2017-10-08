@@ -12,9 +12,11 @@ const props = {
   className: PropTypes.string,
   type: PropTypes.string,
   data: PropTypes.array,
+  color: PropTypes.string,
+  deg: PropTypes.string,
 };
 
-const Steps = ({ type, data = [], ...other }) => {
+const Steps = ({ type, data = [], color, deg, rate, ...other }) => {
   let Steps = styled.div`
     display: flex;
     align-items: center;
@@ -34,7 +36,7 @@ const Steps = ({ type, data = [], ...other }) => {
           return (
             <HorizontalStepItem
               type={type}
-              key={item.num}
+              key={item.name}
               data={item}
               isFirst={data.indexOf(item) === 0}
               isLast={data.indexOf(item) === data.length - 1}
@@ -46,7 +48,7 @@ const Steps = ({ type, data = [], ...other }) => {
           return (
             <VerticalStepItem
               type={type}
-              key={item.num}
+              key={item.name}
               data={item}
               isFirst={data.indexOf(item) === 0}
               isLast={data.indexOf(item) === data.length - 1}
@@ -58,8 +60,11 @@ const Steps = ({ type, data = [], ...other }) => {
           return (
             <ProgressStepItem
               type={type}
-              key={item.num}
+              key={item.name}
               data={item}
+              color={color}
+              deg={deg}
+              rate={rate}
               isFirst={data.indexOf(item) === 0}
               isLast={data.indexOf(item) === data.length - 1}
             />
