@@ -19,4 +19,4 @@ const TabContainer = styled.div`
     display: none;
   }
 `;
-export {TabContainer};
+export { TabContainer };

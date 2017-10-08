@@ -110,14 +110,11 @@ const Button = ({
     ${style.text.ellipsis};
     // 线框
     ${!disabled && ghost ? ghostStyleSheet : ''};
-    
-    ${!(disabled || ghost || deg === null) ? degStyleSheet : ''}
-    
-    ${shadow ? shadowStyleSheet : ''} 
-    
-    ${highlight ? highlightStyleSheet : ''} 
-    
-    ${disabled && disabledStyleSheet};
+
+    ${!(disabled || ghost || deg === null) ? degStyleSheet : ''} ${shadow
+        ? shadowStyleSheet
+        : ''} ${highlight ? highlightStyleSheet : ''} ${disabled &&
+        disabledStyleSheet};
   `;
   return (
     <TouchFeedback disabled={disabled}>
