@@ -30,7 +30,7 @@ const activeStyleSheet = css`
 `;
 
 class Tabs extends React.Component {
-  constructor( props ) {
+  constructor(props) {
     super(props);
     this.state = {
       activeIndex: props.activeIndex || 0,
@@ -41,14 +41,17 @@ class Tabs extends React.Component {
     // eslint-disable-next-line
     const container = ReactDOM.findDOMNode(this.instance);
     // scrollIntoView 方法兼容到ie8
-    container.querySelector(`:nth-child(${this.state.activeIndex + 1})`)
-    .scrollIntoView({ behavior: 'auto', });
+    container
+      .querySelector(`:nth-child(${this.state.activeIndex + 1})`)
+      .scrollIntoView({ behavior: 'auto' });
   }
 
   getChildContext() {
     const t = this;
     return {
-      handleSync( index ) {t.setState({ activeIndex: index });},
+      handleSync(index) {
+        t.setState({ activeIndex: index });
+      },
     };
   }
 
@@ -57,8 +60,8 @@ class Tabs extends React.Component {
     const { activeIndex } = this.state;
 
     const BasicTab = Tab.extend`
-      ${( { index } ) => (index === activeIndex ? activeStyleSheet : '')}
-      ${style.text.ellipsis};
+      ${({ index }) => (index === activeIndex ? activeStyleSheet : '')} ${style
+          .text.ellipsis};
     `;
     const BasicTabContainer = TabContainer.extend`
       justify-content: ${tabsData.length > 5 ? 'flex-start' : 'space-around'};
@@ -67,7 +70,7 @@ class Tabs extends React.Component {
 
     return (
       <BasicTabContainer ref={i => (this.instance = i)} {...other}>
-        {tabsData.map(( tabData, index ) => (
+        {tabsData.map((tabData, index) => (
           <BasicTab key={index} index={index} {...tabData} />
         ))}
       </BasicTabContainer>

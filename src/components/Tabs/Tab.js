@@ -8,7 +8,7 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Icon } from 'pand';
 
-const BasicTab = ( props, context ) => {
+const BasicTab = (props, context) => {
   const handleOnClick = () => {
     const { onClick, index } = props;
     onClick instanceof Function && onClick();
@@ -17,7 +17,7 @@ const BasicTab = ( props, context ) => {
   const { key, title, content, icon, ...rest } = props;
   return (
     <a key={key} onClick={handleOnClick} {...rest}>
-      {icon && <Icon {...icon}/>}
+      {icon && <Icon {...icon} />}
       {title && <span>{title}</span>}
       <span>{content}</span>
     </a>

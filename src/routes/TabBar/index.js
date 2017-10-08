@@ -10,7 +10,7 @@ import './../../components/Modal/_modal.scss';
 
 export default () => {
   class PageTabBar extends React.Component {
-    constructor( props ) {
+    constructor(props) {
       super(props);
       this.state = {
         tabsDataA: [
@@ -60,10 +60,7 @@ export default () => {
           },
           { content: '标题' },
         ],
-        tabsDataC: [
-          { content: '标题' },
-          { content: '标题' },
-        ],
+        tabsDataC: [{ content: '标题' }, { content: '标题' }],
         tabsDataD: [
           {
             content: '标题',
@@ -88,28 +85,37 @@ export default () => {
     }
 
     render() {
-      const { tabsDataA, tabsDataB, tabsDataC, tabsDataD, activeIndexA, activeIndexB, activeIndexC, activeIndexD } = this.state;
+      const {
+        tabsDataA,
+        tabsDataB,
+        tabsDataC,
+        tabsDataD,
+        activeIndexA,
+        activeIndexB,
+        activeIndexC,
+        activeIndexD,
+      } = this.state;
       return (
         <div>
           <Card>
-            <TabBar tabsData={tabsDataA} activeIndex={activeIndexA}/>
+            <TabBar tabsData={tabsDataA} activeIndex={activeIndexA} />
           </Card>
-          <WhiteSpace/>
+          <WhiteSpace />
           <Card>
-            <TabBar mode={2} tabsData={tabsDataB} activeIndex={activeIndexB}/>
+            <TabBar mode={2} tabsData={tabsDataB} activeIndex={activeIndexB} />
           </Card>
-          <WhiteSpace/>
+          <WhiteSpace />
           <Card>
-            <TabBar mode={2} tabsData={tabsDataC} activeIndex={activeIndexC}/>
+            <TabBar mode={2} tabsData={tabsDataC} activeIndex={activeIndexC} />
           </Card>
-          <WhiteSpace/>
+          <WhiteSpace />
           <Card>
-            <TabBar mode={3} tabsData={tabsDataD} activeIndex={activeIndexD}/>
+            <TabBar mode={3} tabsData={tabsDataD} activeIndex={activeIndexD} />
           </Card>
         </div>
       );
     }
   }
 
-  return <PageTabBar/>;
+  return <PageTabBar />;
 };
