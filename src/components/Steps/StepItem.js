@@ -7,6 +7,8 @@ const props = {
   data: PropTypes.object,
   isFirst: PropTypes.bool,
   isLast: PropTypes.bool,
+  color: PropTypes.string,
+  deg: PropTypes.string,
 };
 
 // 横版步骤

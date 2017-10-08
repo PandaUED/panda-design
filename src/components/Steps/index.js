@@ -16,7 +16,7 @@ const props = {
   deg: PropTypes.string,
 };
 
-const Steps = ({ type, data = [], color, deg, rate, ...other }) => {
+const Steps = ({ type, data = [], color, deg, ...other }) => {
   let Steps = styled.div`
     display: flex;
     align-items: center;
@@ -64,7 +64,6 @@ const Steps = ({ type, data = [], color, deg, rate, ...other }) => {
               data={item}
               color={color}
               deg={deg}
-              rate={rate}
               isFirst={data.indexOf(item) === 0}
               isLast={data.indexOf(item) === data.length - 1}
             />

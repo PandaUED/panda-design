@@ -18,7 +18,6 @@ const progressData = [
   {
     time: '07月13日 当日',
     desc: '之前转入',
-    num: 1,
     status: 'active',
     rate: '50%',
     name: '当日计息',
@@ -26,7 +25,6 @@ const progressData = [
   {
     time: '07月13日 当日',
     desc: '之前转入',
-    num: 2,
     status: 'holding',
     rate: '50%',
     name: '次日计息',
@@ -37,7 +35,6 @@ const progressData2 = [
   {
     time: '07月13日 当日',
     desc: '之前转入',
-    num: 1,
     status: 'active',
     rate: '25%',
     name: '锁定期30天',
@@ -45,7 +42,6 @@ const progressData2 = [
   {
     time: '07月13日 当日',
     desc: '之前转入',
-    num: 2,
     status: 'holding',
     rate: '75%',
     name: '逐月涨0.30%，最高达10.50%',
@@ -57,7 +53,6 @@ const progressData3 = [
   {
     time: '07月13日 当日',
     desc: '之前转入',
-    num: 1,
     status: 'active',
     rate: '30%',
     name: '匹配完成开始计息',
@@ -65,7 +60,6 @@ const progressData3 = [
   {
     time: '07月13日 当日',
     desc: '之前转入',
-    num: 2,
     status: 'holding',
     rate: '70%',
     name: '3个月持续计息',
