@@ -34,7 +34,7 @@ const highLightButton = css`
   color: #fff;
 `;
 // 模式0，四列等宽
-const mode0 = css`
+const commonMode = css`
   flex-direction: column;
   font-size: 10px;
   font-weight: 400;
@@ -42,7 +42,7 @@ const mode0 = css`
   padding: 25px 13.5px 20px;
 `;
 // 模式2，两列不等宽
-const mode2_1 = css`
+const notiseMode = css`
   // information
   &:nth-child(1) {
     position: relative;
@@ -86,18 +86,18 @@ const mode2_1 = css`
   }
 `;
 // 模式2，两列等宽
-const mode2_2 = css`
+const cancelConfirmMode = css`
   font-size: 16px;
   &:nth-child(2) {
     ${highLightButton};
   }
 `;
-// 模式3，两列等宽
-const mode3 = css`
+// 模式3，三列，右侧宽度大
+const toolMode = css`
   font-size: 16px;
   &:nth-child(1),
   &:nth-child(2) {
-    ${mode0};
+    ${commonMode};
   }
   &:nth-child(3) {
     width: 247px;
@@ -111,10 +111,10 @@ class TabBar extends React.Component {
   };
   static defaultProps = {
     /**
-     * 0/4:4列等比宽布局           |     |     |     |     |
-     * 2:两列等比布局              |           |           |
-     * 若第二个元素有title子元素    |                 |     |
-     * 3:三个元素                  |     |     |           |
+     * 0/4 - common:4列等比宽布局                  |     |     |     |     |
+     * 2 - cancelConfirm:两列等比布局              |           |           |
+     *   - confirm:若第二个元素有title子元素        |                 |     |
+     * 3 - tool：三个元素                          |     |     |           |
      */
     mode: 0,
   };
@@ -153,9 +153,9 @@ class TabBar extends React.Component {
       & > .xmjkIcon {
         display: block;
       }
-      ${mode === 0 || mode === 4 ? mode0 : ''} ${mode === 2
-          ? tabsData[0].icon ? mode2_1 : mode2_2
-          : ''} ${mode === 3 ? mode3 : ''} ${({ index }) =>
+      ${mode === 0 || mode === 4 ? commonMode : ''} ${mode === 2
+          ? tabsData[0].icon ? notiseMode : cancelConfirmMode
+          : ''} ${mode === 3 ? toolMode : ''} ${({ index }) =>
           index === activeIndex ? activeStyleSheet : ''} ${style.text.ellipsis};
     `;
     const BasicTabContainer = TabContainer.extend`
