@@ -98,6 +98,7 @@ class Input extends React.Component {
       margin-left: 24px;
       font-size: 16px;
       line-height: 16px;
+      border: none;
       ::-moz-placeholder {
         color: #cacaca;
       }
