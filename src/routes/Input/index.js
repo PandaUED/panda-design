@@ -8,6 +8,7 @@ export default () => {
       <WhiteSpace>small（默认）</WhiteSpace>
       <Input
         placeholder="请输入手机号"
+        type="tel"
         onChange={e => {
           console.log(e.target.value);
         }}
@@ -15,7 +16,8 @@ export default () => {
       <WhiteSpace>large</WhiteSpace>
       <Input
         placeholder="请输入金额"
-        type="large"
+        type="money"
+        size="large"
         right={
           <div
             onClick={() => {
@@ -26,9 +28,12 @@ export default () => {
           </div>
         }
         left={<Icon color="#666666" size={24} type="Money" />}
+        onChange={e => {
+          console.log(e.target.value);
+        }}
       />
       <WhiteSpace>square（应配合键盘使用）</WhiteSpace>
-      <Input type="square" value="23248" />
+      <Input size="square" value="23248" />
     </View>
   );
 };
