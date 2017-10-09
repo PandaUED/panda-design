@@ -84,11 +84,21 @@ export default () => {
         activeIndexA: 1,
         activeIndexB: 0,
         activeIndexC: 0,
+        activeIndexD: 0,
       };
     }
 
     render() {
-      const { tabsDataA, tabsDataB, tabsDataC, tabsDataD, activeIndexA, activeIndexB, activeIndexC, activeIndexD } = this.state;
+      const {
+        tabsDataA,
+        tabsDataB,
+        tabsDataC,
+        tabsDataD,
+        activeIndexA,
+        activeIndexB,
+        activeIndexC,
+        activeIndexD,
+      } = this.state;
       return (
         <div>
           <Card>

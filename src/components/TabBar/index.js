@@ -1,13 +1,13 @@
 /**
  * Author: Ruo
  * Create: 2017-09-28
- * Description:
+ * Description: 底部导航/按钮组 有3中布局类型
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import { Tab, TabContainer } from 'pand';
-import styled, { css } from 'styled-components';
+import { css } from 'styled-components';
 import { darken, lighten } from 'polished';
 
 import { style } from '../';
