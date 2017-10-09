@@ -15,3 +15,4 @@
 | **OTHER**       |                                      |        |         |
 | classname       | 样式类名                              | string |    -    |
 | onChange        | 输入框值变化的回调函数                  |  func  |    -    |
+| onClick         | 输入框点击事件的回调函数，以实现如开启键盘等功能                 |  func  |    -    |
