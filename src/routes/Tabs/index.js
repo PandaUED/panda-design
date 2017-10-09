@@ -39,7 +39,7 @@ export default () => {
       };
     }
     render() {
-      const { tabsDataA, tabsDataB, activeIndexA, activeIndexB} = this.state;
+      const { tabsDataA, tabsDataB, activeIndexA, activeIndexB } = this.state;
       return (
         <div>
           <Tabs tabsData={tabsDataA} activeIndex={activeIndexA} />
