@@ -21,6 +21,7 @@ export { default as Avatar } from './Avatar';
 export { default as Input } from './Input';
 export { default as Switch } from './Switch';
 export { default as CheckBox } from './CheckBox';
+export { default as Radio } from './Radio';
 
 // Data Display
 export { default as Showcase } from './Showcase';
