@@ -28,6 +28,7 @@ export { Modal, ModalNoState } from './Modal';
 export { Dialog, DialogSharedInstance } from './Dialog';
 export { Toast, ToastSharedInstance } from './Toast';
 export { ActionSheet, ActionSheetSharedInstance } from './ActionSheet';
+export { Keyboard } from './Keyboard';
 
 // Gesture
 
