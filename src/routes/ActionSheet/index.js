@@ -21,7 +21,6 @@ const PageActionSheet = () => {
     }
   `;
   const IconTest = styled.div`
-    width: 200px;
     height: 200px;
     background: ${style.color.orange};
   `;

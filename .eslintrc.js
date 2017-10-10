@@ -31,7 +31,12 @@ module.exports = {
 		'node': true
 	},
 	rules        : {
-		'prettier/prettier'       : [2, {'singleQuote': true, 'trailingComma': 'es5', 'parser': 'flow'}],
+		'prettier/prettier'       : [2, {
+		  'singleQuote': true,
+      'trailingComma': 'es5',
+      'parser': 'flow',
+      'printWidth': 100,
+		}],
 		'react/react-in-jsx-scope': [0],
 		'react/prop-types'        : [1],
 		'react/display-name'      : [0],

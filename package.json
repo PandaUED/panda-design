@@ -20,6 +20,7 @@
 		"ssh": "ssh root@172.20.200.10",
 		"lint": "lint-staged",
 		"lint:prettier": "prettier --trailing-comma es5 --single-quote --write src/**/**/*.js",
+		"lint:style": "stylelint 'src/**/*.js'",
 		"lint:eslint": "eslint --fix --ext .js src"
 	},
 	"pre-commit": [
@@ -31,7 +32,6 @@
 			"git add"
 		],
 		"src/**/*.js": [
-			"eslint --fix",
 			"git add"
 		]
 	},
@@ -94,6 +94,10 @@
 		"roadhog": "^1.2.2",
 		"run-sequence": "^2.1.0",
 		"sass-loader": "^6.0.6",
-		"sw-precache": "^5.2.0"
+		"sw-precache": "^5.2.0",
+		"stylelint": "^8.1.1",
+		"stylelint-config-standard": "^17.0.0",
+		"stylelint-config-styled-components": "^0.1.1",
+		"stylelint-processor-styled-components": "^1.0.0"
 	}
 }

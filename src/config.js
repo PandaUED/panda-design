@@ -4,9 +4,9 @@
 export default {
   Variable: ['style'],
   Layout: ['View', 'WhiteSpace', 'WingBlank'],
-  Navigation: ['NavBar'],
-  DataEntry: ['Icon', 'Button', 'Card', 'Avatar'],
-  DataDisplay: ['Showcase', 'Carousel', 'List', 'Cell', 'Badge', 'Tag'],
+  Navigation: ['NavBar', 'Tabs', 'TabBar', 'Steps'],
+  DataEntry: ['Icon', 'Button', 'Card', 'Avatar', 'Input', 'Switch', 'CheckBox'],
+  DataDisplay: ['Showcase', 'Carousel', 'List', 'Cell', 'Badge', 'Tag', 'NoticeBar'],
   Feedback: ['Modal', 'Dialog', 'Toast', 'ActionSheet', 'Keyboard'],
   Gesture: [],
   Combination: [],

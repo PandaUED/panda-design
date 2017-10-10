@@ -24,7 +24,7 @@ const ListItem = ({
     background: #fff;
     width: 100%;
     font-size: 16px;
-    color: #444444;
+    color: #444;
     line-height: 16px;
     align-items: center;
     box-shadow: inset 0 0 0 0 #f8f8f8;

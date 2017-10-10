@@ -48,7 +48,7 @@ export default () => {
               descMargin={13}
               desc={
                 <div>
-                  <Icon size={16} type="phone" color="#999999" />
+                  <Icon size={16} type="phone" color="#999" />
                   153****3008
                 </div>
               }

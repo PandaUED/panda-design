@@ -9,11 +9,18 @@ export { default as WingBlank } from './WingBlank';
 
 // Navigation
 export { NavBar, NAVBAR_MODE } from './NavBar';
+export { Tabs, Tab, TabContainer } from './Tabs';
+export { TabBar } from './TabBar';
+export { default as Steps } from './Steps';
+
 // Data Entry
 export { default as Icon } from './Icon';
 export { default as Button } from './Button';
 export { default as Card } from './Card';
 export { default as Avatar } from './Avatar';
+export { default as Input } from './Input';
+export { default as Switch } from './Switch';
+export { default as CheckBox } from './CheckBox';
 
 // Data Display
 export { default as Showcase } from './Showcase';
@@ -22,6 +29,7 @@ export { default as Carousel } from './Carousel';
 export { default as List } from './List';
 export { default as Cell } from './Cell';
 export { default as Badge } from './Badge';
+export { default as NoticeBar } from './NoticeBar';
 
 // Feedback
 export { Modal, ModalNoState } from './Modal';

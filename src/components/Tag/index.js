@@ -68,6 +68,7 @@ const Tag = ({
       font-size: 14px;
       line-height: 16px;
       padding: 11px 16px;
+      height: 38px;
       > span {
         margin-right: 6px;
       }
