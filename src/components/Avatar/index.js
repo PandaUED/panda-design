@@ -23,15 +23,7 @@ const Image = ({ className, size, shape = 'circle', url, ...other }) => {
     `;
   }
 
-  return (
-    <Image
-      className={className}
-      {...other}
-      src={url}
-      width={size}
-      height={size}
-    />
-  );
+  return <Image className={className} {...other} src={url} width={size} height={size} />;
 };
 
 Image.propTypes = props;

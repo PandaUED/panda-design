@@ -37,14 +37,7 @@ const Carousel = ({
     Carousel = Carousel.extend`background: ${style.gradient[color](deg)};`;
   }
 
-  return (
-    <Carousel
-      {...other}
-      dots={dots}
-      autoplay={autoplay}
-      wrapAround={infinite}
-    />
-  );
+  return <Carousel {...other} dots={dots} autoplay={autoplay} wrapAround={infinite} />;
 };
 
 Carousel.propTypes = props;

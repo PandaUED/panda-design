@@ -24,12 +24,8 @@ export default class extends React.Component {
       <PageView>
         <NavBar mode={this.state.mode} />
         <WhiteSpace>Type</WhiteSpace>
-        <a onClick={() => this.setState({ mode: NAVBAR_MODE.WHITE })}>
-          White Mode
-        </a>
-        <a onClick={() => this.setState({ mode: NAVBAR_MODE.TRANS })}>
-          Trans Mode
-        </a>
+        <a onClick={() => this.setState({ mode: NAVBAR_MODE.WHITE })}>White Mode</a>
+        <a onClick={() => this.setState({ mode: NAVBAR_MODE.TRANS })}>Trans Mode</a>
       </PageView>
     );
   }

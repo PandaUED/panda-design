@@ -21,8 +21,9 @@ const TabLinkBar = styled.span`
   display: block;
   width: 24px;
   height: 2px;
-  background-color: ${( { theme } ) => (theme.activeColor )};
-  transition: transform .3s cubic-bezier(.645,.045,.355,1), width .3s cubic-bezier(.645,.045,.355,1);
+  background-color: ${({ theme }) => theme.activeColor};
+  transition: transform 0.3s cubic-bezier(0.645, 0.045, 0.355, 1),
+    width 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
 `;
 
 const EmptyTab = styled.div`
@@ -30,9 +31,7 @@ const EmptyTab = styled.div`
   width: 100%;
   text-align: center;
 `;
-const ErrorTab = EmptyTab.extend`
-  color: red;
-`;
+const ErrorTab = EmptyTab.extend`color: red;`;
 
 class Tabs extends React.Component {
   static defaultProps = {
@@ -50,21 +49,25 @@ class Tabs extends React.Component {
     activeColor: PropTypes.string,
   };
 
-  constructor( props ) {
+  constructor(props) {
     super(props);
     this.state = {
       activeIndex: props.activeIndex || 0,
     };
   }
 
-  componentDidMount() {this.animation();}
+  componentDidMount() {
+    this.animation();
+  }
 
-  componentDidUpdate() {this.animation();}
+  componentDidUpdate() {
+    this.animation();
+  }
 
   getChildContext() {
     const t = this;
     return {
-      handleSync( index ) {
+      handleSync(index) {
         t.setState({ activeIndex: index });
       },
       activeIndex: t.state.activeIndex,
@@ -72,6 +75,7 @@ class Tabs extends React.Component {
   }
 
   animation() {
+    // eslint-disable-next-line
     const container = ReactDOM.findDOMNode(this.instance);
     const activeTab = container.querySelector(`a:nth-child(${this.state.activeIndex + 1})`);
     // scrollIntoView 方法兼容到ie8
@@ -91,16 +95,16 @@ class Tabs extends React.Component {
   }
 
   isEmpty() {
-    return (this.props.tabsData.length === 0 && this.props.children.length === 0)
+    return this.props.tabsData.length === 0 && this.props.children.length === 0;
   }
 
   hasError() {
-    return this.props.children.length > 0 && this.props.tabsData.length > 0 ;
+    return this.props.children.length > 0 && this.props.tabsData.length > 0;
   }
 
   render() {
     const { tabsData, children, activeColor, hasLinkBar, ...other } = this.props;
-    const tabs = tabsData.map(( tabData, index ) => (<Tab key={index} index={index} {...tabData} />));
+    const tabs = tabsData.map((tabData, index) => <Tab key={index} index={index} {...tabData} />);
     const isEmpty = this.isEmpty();
     const hasError = this.hasError();
     return (
@@ -109,7 +113,7 @@ class Tabs extends React.Component {
           {!hasError && !isEmpty && children}
           {!hasError && !isEmpty && tabs}
           {hasError && <ErrorTab>Error: Both attribute and embedded data</ErrorTab>}
-          {!hasError && !isEmpty && hasLinkBar && <TabLinkBar className={'tab-link-bar'}/>}
+          {!hasError && !isEmpty && hasLinkBar && <TabLinkBar className={'tab-link-bar'} />}
           {isEmpty && <EmptyTab>None Tab Data</EmptyTab>}
         </TabContainer>
       </ThemeProvider>

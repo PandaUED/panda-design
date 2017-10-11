@@ -41,11 +41,7 @@ export default () => {
       return (
         <List>
           <WhiteSpace>居中显示</WhiteSpace>
-          <NoticeBar
-            center
-            visible={this.state.data['notice1']}
-            className="NoticeBarExample"
-          >
+          <NoticeBar center visible={this.state.data['notice1']} className="NoticeBarExample">
             短信验证码已发至153****3008，请查收
           </NoticeBar>
           <Button

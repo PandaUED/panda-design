@@ -76,11 +76,7 @@ class ActionSheet extends Component {
     return (
       <div>
         {asVisible && <ModalNoState handleBgClick={this.hide} />}
-        <CSSTransition
-          timeout={400}
-          classNames="actionSheet-fade"
-          in={asVisible}
-        >
+        <CSSTransition timeout={400} classNames="actionSheet-fade" in={asVisible}>
           {status => {
             return (
               <ASContainer

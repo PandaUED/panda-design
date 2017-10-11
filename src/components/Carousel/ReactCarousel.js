@@ -67,9 +67,7 @@ class ReactCarousel extends React.Component {
             }
             const dotDom = arr.map(index => {
               return (
-                <DotWrapper key={index}>
-                  {index === current ? <ActiveDot /> : <Dot />}
-                </DotWrapper>
+                <DotWrapper key={index}>{index === current ? <ActiveDot /> : <Dot />}</DotWrapper>
               );
             });
             return <Dots>{dotDom}</Dots>;

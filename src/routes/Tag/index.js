@@ -23,12 +23,7 @@ export default class extends React.Component {
 
         <WhiteSpace>small</WhiteSpace>
         <TagRow>
-          <Tag
-            type={TAG_TYPE.SMALL}
-            backgroundColor={'textDark'}
-            img={'VipSmall'}
-            color={'gold'}
-          >
+          <Tag type={TAG_TYPE.SMALL} backgroundColor={'textDark'} img={'VipSmall'} color={'gold'}>
             尊享
           </Tag>
           <Tag type={TAG_TYPE.SMALL} backgroundColor={'red'} deg={-180}>

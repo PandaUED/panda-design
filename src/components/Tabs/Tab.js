@@ -9,7 +9,7 @@ import styled from 'styled-components';
 import classNames from 'classnames';
 import { Icon } from 'pand';
 
-const BasicTab = ( props, context ) => {
+const BasicTab = (props, context) => {
   const { onClick, index, key, title, content, icon, className, ...rest } = props;
   const { activeIndex } = context;
   const handleOnClick = () => {
@@ -18,7 +18,7 @@ const BasicTab = ( props, context ) => {
   };
   const activeClass = classNames(className, activeIndex === index ? 'active' : '');
   return (
-    <a key={key} onClick={handleOnClick} className={activeClass} {...rest} >
+    <a key={key} onClick={handleOnClick} className={activeClass} {...rest}>
       {icon && <Icon {...icon} />}
       {title && <span>{title}</span>}
       <span>{content}</span>
@@ -45,9 +45,9 @@ export const Tab = styled(BasicTab)`
   font-weight: 500;
   color: #666;
   cursor: pointer;
-  transition: color .15s ease-in-out;
+  transition: color 0.15s ease-in-out;
   &.active {
-    color: ${( { theme } ) => theme.activeColor};
+    color: ${({ theme }) => theme.activeColor};
     position: relative;
   }
 `;

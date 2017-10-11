@@ -57,14 +57,7 @@ class Input extends React.Component {
   }
 
   render() {
-    const {
-      className,
-      size = 'small',
-      left,
-      right,
-      placeholder,
-      value,
-    } = this.props;
+    const { className, size = 'small', left, right, placeholder, value } = this.props;
     if (size === 'square') {
       const InputWrap = styled.div`
         display: flex;

@@ -24,12 +24,7 @@ const Icon = ({ size, className, type, double = false, color, ...other }) => {
 
   if (!double) {
     const IconSingle = IconBase.extend`${color ? `color:${color}` : ''};`;
-    return (
-      <IconSingle
-        className={classnames('xmjkIcon', Name, className)}
-        {...other}
-      />
-    );
+    return <IconSingle className={classnames('xmjkIcon', Name, className)} {...other} />;
   } else {
     const IconDouble = IconBase.extend`position: relative;`;
     const First = IconBase.extend`

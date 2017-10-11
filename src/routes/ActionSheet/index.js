@@ -2,12 +2,7 @@
  * Created by Liqi on 17/9/28.
  */
 
-import {
-  WhiteSpace,
-  ActionSheet,
-  ActionSheetSharedInstance,
-  style,
-} from 'pand';
+import { WhiteSpace, ActionSheet, ActionSheetSharedInstance, style } from 'pand';
 import styled from 'styled-components';
 
 const PageActionSheet = () => {

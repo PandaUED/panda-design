@@ -11,15 +11,7 @@ const props = {
   onChange: PropTypes.func,
 };
 
-const CheckBox = ({
-  name = 'example',
-  className,
-  active,
-  disable,
-  onChange,
-  desc,
-  ...other
-}) => {
+const CheckBox = ({ name = 'example', className, active, disable, onChange, desc, ...other }) => {
   const CheckBoxWrap = styled.div`
     display: flex;
     align-items: center;

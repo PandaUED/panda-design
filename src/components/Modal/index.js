@@ -33,13 +33,7 @@ class ModalNoState extends Component {
   };
 
   render() {
-    const {
-      children,
-      maskCls,
-      maskBgCls,
-      childrenCls,
-      handleBgClick,
-    } = this.props;
+    const { children, maskCls, maskBgCls, childrenCls, handleBgClick } = this.props;
 
     return (
       <ModalStyled className={classnames('xm-mask', maskCls)}>
@@ -102,14 +96,7 @@ class Modal extends Component {
   }
 
   render() {
-    const {
-      maskClosable,
-      closable,
-      children,
-      maskCls,
-      maskBgCls,
-      childrenCls,
-    } = this.props;
+    const { maskClosable, closable, children, maskCls, maskBgCls, childrenCls } = this.props;
 
     const CloseBtn = styled.div`
       height: 48px;
@@ -127,11 +114,7 @@ class Modal extends Component {
     `;
 
     return (
-      <CSSTransition
-        timeout={400}
-        classNames="modal-fade"
-        in={this.state.isVisible}
-      >
+      <CSSTransition timeout={400} classNames="modal-fade" in={this.state.isVisible}>
         {status => {
           return (
             <div className={`modal-fade modal-fade-${status}`}>
@@ -150,9 +133,7 @@ class Modal extends Component {
                     }
                   }}
                 />
-                <ModalContent
-                  className={classnames('xm-mask-content', childrenCls)}
-                >
+                <ModalContent className={classnames('xm-mask-content', childrenCls)}>
                   {children}
                 </ModalContent>
                 {closable && (

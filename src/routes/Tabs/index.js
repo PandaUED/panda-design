@@ -43,34 +43,34 @@ export default () => {
         <div>
           <WhiteSpace>无数据时的样式</WhiteSpace>
           <Card>
-            <Tabs/>
+            <Tabs />
           </Card>
-          <WhiteSpace></WhiteSpace>
+          <WhiteSpace />
           <Card>
-            <Tabs tabsData={tabsDataA} activeIndex={activeIndexB} >
-              {tabsDataA.map((tabData, index) => (<Tab key={index} index={index} {...tabData} />))}
+            <Tabs tabsData={tabsDataA} activeIndex={activeIndexB}>
+              {tabsDataA.map((tabData, index) => <Tab key={index} index={index} {...tabData} />)}
             </Tabs>
           </Card>
           <WhiteSpace>有数据时的默认样式</WhiteSpace>
           <Card>
-            <Tabs tabsData={tabsDataA}/>
+            <Tabs tabsData={tabsDataA} />
           </Card>
           <WhiteSpace>定制 hasLinkBar = false</WhiteSpace>
           <Card>
             <Tabs hasLinkBar={false}>
-              {tabsDataB.map((tabData, index) => (<Tab key={index} index={index} {...tabData} />))}
+              {tabsDataB.map((tabData, index) => <Tab key={index} index={index} {...tabData} />)}
             </Tabs>
           </Card>
           <WhiteSpace>定制 activeColor</WhiteSpace>
           <Card>
             <Tabs activeColor={'orange'}>
-              {tabsDataB.map((tabData, index) => (<Tab key={index} index={index} {...tabData} />))}
+              {tabsDataB.map((tabData, index) => <Tab key={index} index={index} {...tabData} />)}
             </Tabs>
           </Card>
           <WhiteSpace>定制 activeIndex</WhiteSpace>
           <Card>
-            <Tabs activeIndex={activeIndexB} >
-              {tabsDataB.map((tabData, index) => (<Tab key={index} index={index} {...tabData} />))}
+            <Tabs activeIndex={activeIndexB}>
+              {tabsDataB.map((tabData, index) => <Tab key={index} index={index} {...tabData} />)}
             </Tabs>
           </Card>
         </div>
