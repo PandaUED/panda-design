@@ -4,7 +4,6 @@
 import { Component } from 'react';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
-import PropTypes from 'prop-types';
 import { style } from '../';
 import './_toast.scss';
 
