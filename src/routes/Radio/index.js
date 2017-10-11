@@ -18,9 +18,28 @@ export default () => {
       </List>
       <WhiteSpace />
       <List>
-        <Radio group="color3" value="blue" name="蓝色" desc="detail" />
-        <Radio group="color3" value="green" name="绿色" desc="detail" />
-        <Radio group="color3" value="red" name="红色" checked desc="detail" />
+        <Radio
+          group="color3"
+          value="blue"
+          name="蓝色"
+          desc="detail"
+          onClick={e => console.log(e.target.value)}
+        />
+        <Radio
+          group="color3"
+          value="green"
+          name="绿色"
+          desc="detail"
+          onClick={e => console.log(e.target.value)}
+        />
+        <Radio
+          group="color3"
+          value="red"
+          name="红色"
+          checked
+          desc="detail"
+          onClick={e => console.log(e.target.value)}
+        />
       </List>
       <WhiteSpace />
     </View>

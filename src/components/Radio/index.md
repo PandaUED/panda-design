@@ -1,13 +1,17 @@
-# 单选框
+# 单选按钮
 
-说明用途
+单选
 
 ## API
 
 | 属性        | 说明                                |   类型   |   默认值   |
 | :-------- | --------------------------------- | :----: | :-----: |
-| props     | 说明                | - | - |
+| value     | 单选框的值                | string | 'example' |
+| group     | 单选框所在组，同一组内只能单选               | string | - |
+| name     | 单选框的名称               | string | - |
+| desc     | 单选框的详细介绍                | string | - |
+| checked   | 按钮初始值             |  bool  |   false   |
+| disable   | 是否禁用               |  bool  |   false   |
 | **OTHER** |                                   |        |         |
 | classname | 样式类名                              | string |    -    |
-| style     | 自定义样式                             | object |    -    |
-| onClick   | 点击按钮的点击回调函数                       |  func  |    -    |
+| onClick   | 点击按钮的点击回调函数，对于单选框来说同change函数                       |  func  |    -    |

@@ -1,18 +1,22 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { style } from '../';
+import { noop } from 'lodash';
 
 const props = {
+  className: PropTypes.string,
   value: PropTypes.string,
   name: PropTypes.string,
   desc: PropTypes.string,
   group: PropTypes.string,
   checked: PropTypes.bool,
   disable: PropTypes.bool,
+  onClick: PropTypes.func,
 };
 
 const Radio = ({
+  className,
   group,
+  onClick = noop,
   checked,
   disabled,
   desc,
@@ -74,13 +78,14 @@ const Radio = ({
   `;
 
   return (
-    <RadioWrap>
+    <RadioWrap className={className}>
       <RadioInput
         type="radio"
-        checked={checked}
+        defaultChecked={checked}
         disabled={disabled}
         name={group}
         value={value}
+        onClick={e => onClick(e)}
       />
       <Radio>
         <RadioContent>
