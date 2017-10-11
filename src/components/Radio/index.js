@@ -9,7 +9,7 @@ const props = {
   desc: PropTypes.string,
   group: PropTypes.string,
   checked: PropTypes.bool,
-  disable: PropTypes.bool,
+  disabled: PropTypes.bool,
   onClick: PropTypes.func,
 };
 
