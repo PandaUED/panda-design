@@ -10,14 +10,7 @@ const props = {
   name: PropTypes.string,
 };
 
-const Avatar = ({
-  className,
-  size = 48,
-  shape = 'circle',
-  url,
-  name = ' ',
-  ...other
-}) => {
+const Avatar = ({ className, size = 48, shape = 'circle', url, name = ' ', ...other }) => {
   let circleStyle = css`border-radius: ${size / 2}px;`;
   let squareStyle = css`border-radius: 5px;`;
 
@@ -42,13 +35,7 @@ const Avatar = ({
 
   return (
     <AvatarWrap>
-      <Avatar
-        className={className}
-        {...other}
-        src={url}
-        width={size}
-        height={size}
-      />
+      <Avatar className={className} {...other} src={url} width={size} height={size} />
       {!url && <AvatarName>{name[0].toUpperCase()}</AvatarName>}
     </AvatarWrap>
   );
