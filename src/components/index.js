@@ -19,6 +19,9 @@ export { default as Button } from './Button';
 export { default as Card } from './Card';
 export { default as Avatar } from './Avatar';
 export { default as Input } from './Input';
+export { default as Switch } from './Switch';
+export { default as CheckBox } from './CheckBox';
+export { default as Radio } from './Radio';
 
 // Data Display
 export { default as Showcase } from './Showcase';
@@ -34,6 +37,7 @@ export { Modal, ModalNoState } from './Modal';
 export { Dialog, DialogSharedInstance } from './Dialog';
 export { Toast, ToastSharedInstance } from './Toast';
 export { ActionSheet, ActionSheetSharedInstance } from './ActionSheet';
+export { Keyboard } from './Keyboard';
 
 // Gesture
 

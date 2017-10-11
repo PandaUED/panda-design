@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
+import { noop } from 'lodash';
 
 class Input extends React.Component {
   static propTypes = {
@@ -11,7 +12,12 @@ class Input extends React.Component {
     right: PropTypes.node,
     value: PropTypes.string,
     onChange: PropTypes.func,
+    onClick: PropTypes.func,
     size: PropTypes.string,
+  };
+  static defaultProps = {
+    onChange: noop,
+    onClick: noop,
   };
 
   checkValue(value) {
@@ -76,7 +82,7 @@ class Input extends React.Component {
         margin-right: 6px;
       `;
       return (
-        <InputWrap className={className}>
+        <InputWrap className={className} onClick={e => this.props.onClick(e)}>
           <InputBlock>{value[0]}</InputBlock>
           <InputBlock>{value[1]}</InputBlock>
           <InputBlock>{value[2]}</InputBlock>
@@ -98,6 +104,7 @@ class Input extends React.Component {
       margin-left: 24px;
       font-size: 16px;
       line-height: 16px;
+      border: none;
       ::-moz-placeholder {
         color: #cacaca;
       }
@@ -123,6 +130,7 @@ class Input extends React.Component {
       <InputWrap>
         {left && <InputLeft>{left}</InputLeft>}
         <Input
+          onClick={e => this.props.onClick(e)}
           className={className}
           placeholder={placeholder}
           value={value}
