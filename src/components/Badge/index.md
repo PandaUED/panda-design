@@ -1,13 +1,14 @@
 # 徽标
 
-说明用途
+图标右上角的红点、数字或者文字。用于告知用户，该区域的状态变化或者待处理任务的数量。
+
 
 ## API
 
-| 属性        | 说明                                |   类型   |   默认值   |
-| :-------- | --------------------------------- | :----: | :-----: |
-| props     | 说明                | - | - |
-| **OTHER** |                                   |        |         |
-| classname | 样式类名                              | string |    -    |
-| style     | 自定义样式                             | object |    -    |
-| onClick   | 点击按钮的点击回调函数                       |  func  |    -    |
+
+| 属性   | 说明      |   类型   |   默认值   |
+| :-------- | ------ | :----: | :-----: |
+| type | 类型 | number/dot/text | number |
+| children | 文字 | string | null |
+| overflowNum | 溢出数字 (number only) | number | 99 |
+| className | 样式类名	 | string | null |

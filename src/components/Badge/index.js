@@ -6,8 +6,20 @@ import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { style } from '../';
 
-const BadgeProps = {};
-const Badge = ({ type = 'number', children = null, overflowNum = 99 }) => {
+const BADGE_TYPE = {
+    NUMBER: 'number',
+    DOT: 'dot',
+    TEXT: 'text'
+};
+
+const BadgeProps = {
+    type: PropTypes.string,
+    children: PropTypes.node,
+    overflowNum: PropTypes.number,
+    className: PropTypes.string,
+};
+
+const Badge = ({ type = 'number', children = null, overflowNum = 99, className=null }) => {
   const BDot = styled.div`
     display: inline-block;
     width: 8px;
@@ -47,16 +59,16 @@ const Badge = ({ type = 'number', children = null, overflowNum = 99 }) => {
   `;
 
   switch (type) {
-    case 'dot':
-      return <BDot />;
-    case 'number':
+    case BADGE_TYPE.DOT:
+      return <BDot className={className}/>;
+    case BADGE_TYPE.NUMBER:
       return (
-        <BNumber className="BNumber">
+        <BNumber className={className}>
           {overflowNum && parseInt(children, 10) > overflowNum ? `${overflowNum}+` : children}
         </BNumber>
       );
-    case 'text':
-      return <BText>{children}</BText>;
+    case BADGE_TYPE.TEXT:
+      return <BText className={className}>{children}</BText>;
     default:
       break;
   }
