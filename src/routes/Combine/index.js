@@ -2,7 +2,7 @@
  * Created by Liqi on 17/10/10.
  */
 
-import { WhiteSpace, Combine, style, NoticeBar } from 'pand';
+import { WhiteSpace, Combine, style, NoticeBar, Toast } from 'pand';
 import styled from 'styled-components';
 
 const PageCombine = () => {
@@ -49,6 +49,9 @@ const PageCombine = () => {
         }
         onPasswordFinish={value => {
           console.log(`input finished, value: ${value}`);
+            Toast.sharedInstance.show({
+                desc: `input finished, value: ${value}`,
+            });
           refCombinePassword.close();
         }}
       />
