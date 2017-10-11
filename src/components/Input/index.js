@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { noop } from 'lodash';
+import { style } from '../';
 
 class Input extends React.Component {
   static propTypes = {
@@ -14,10 +15,12 @@ class Input extends React.Component {
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     size: PropTypes.string,
+    readOnly: PropTypes.bool,
   };
   static defaultProps = {
     onChange: noop,
     onClick: noop,
+    readOnly: false,
   };
 
   checkValue(value) {
@@ -57,7 +60,7 @@ class Input extends React.Component {
   }
 
   render() {
-    const { className, size = 'small', left, right, placeholder, value } = this.props;
+    const { className, size = 'small', left, right, placeholder, value, readOnly } = this.props;
     if (size === 'square') {
       const InputWrap = styled.div`
         display: flex;
@@ -96,7 +99,7 @@ class Input extends React.Component {
       padding: 19px 8px;
     `;
     let Input = styled.input`
-      color: #cacaca;
+      color: ${style.color.textNormal};
       width: 100%;
       margin-left: 24px;
       font-size: 16px;
@@ -134,6 +137,7 @@ class Input extends React.Component {
           onChange={e => {
             this.onChange(e);
           }}
+          readOnly={readOnly && 'readonly'}
         />
         {right && <InputRight>{right}</InputRight>}
       </InputWrap>

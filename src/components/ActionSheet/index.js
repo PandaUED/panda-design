@@ -20,7 +20,6 @@ class ActionSheet extends Component {
 
   static defaultProps = {
     title: null,
-    // content: null,
     onClose: noop,
     closeBtnPosition: 'top',
   };
@@ -31,12 +30,11 @@ class ActionSheet extends Component {
 
   hide() {
     this.setState({ asVisible: false });
-    const { onClose } = this.state;
+    const { onClose } = this.props;
     onClose && onClose();
   }
 
   render() {
-    // const { title, content, closeBtnPosition, asVisible } = this.state;
     const { asVisible } = this.state;
     const { title, children, closeBtnPosition } = this.props;
 
