@@ -15,6 +15,12 @@ export default () => {
             url="https://ss2.baidu.com/6ONYsjip0QIZ8tyhnq/it/u=3360175613,2775433479&fm=58&u_exp_0=2793141998,2442128069&fm_exp_0=86&bpow=870&bpoh=1280"
           />
         </List.Item>
+        <List.Item padding={16} split>
+          <Avatar name="kikooo" />
+        </List.Item>
+        <List.Item padding={16} split>
+          <Avatar name="番薯哥哥" />
+        </List.Item>
       </List>
       <WhiteSpace />
     </View>
