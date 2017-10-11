@@ -5,16 +5,16 @@
 
   .actionSheet-fade-exited,
   .actionSheet-fade-exiting.actionSheet-fade-exit-active {
-    transform: translateY(100%);
+    transform: translate3D(0, 100%, 0);
     opacity: 0.01;
   }
 
   .actionSheet-fade-entering {
-    transform: translateY(100%);
+    transform: translate3D(0, 100%, 0);
   }
 
   .actionSheet-fade-entering.actionSheet-fade-enter-active,
   .actionSheet-fade-exiting {
-    transform: translateY(0);
+    transform: translate3D(0, 0, 0);
   }
 }
