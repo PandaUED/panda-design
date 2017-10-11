@@ -4,7 +4,7 @@
  * Description: 这是演示页面，展示组件的功能
  */
 
-import { Tabs } from 'pand';
+import { Tabs, Tab, TabLinkBar, WhiteSpace, Card } from 'pand';
 import React from 'react';
 import './../../components/Modal/_modal.scss';
 
@@ -34,16 +34,45 @@ export default () => {
           { content: 'TITLE3' },
           { content: 'TITLE4' },
         ],
-        activeIndexA: 2,
         activeIndexB: 3,
       };
     }
     render() {
-      const { tabsDataA, tabsDataB, activeIndexA, activeIndexB } = this.state;
+      const { tabsDataA, tabsDataB, activeIndexB } = this.state;
       return (
         <div>
-          <Tabs tabsData={tabsDataA} activeIndex={activeIndexA} />
-          <Tabs tabsData={tabsDataB} activeIndex={activeIndexB} />
+          <WhiteSpace>无数据时的样式</WhiteSpace>
+          <Card>
+            <Tabs/>
+          </Card>
+          <WhiteSpace></WhiteSpace>
+          <Card>
+            <Tabs tabsData={tabsDataA} activeIndex={activeIndexB} >
+              {tabsDataA.map((tabData, index) => (<Tab key={index} index={index} {...tabData} />))}
+            </Tabs>
+          </Card>
+          <WhiteSpace>有数据时的默认样式</WhiteSpace>
+          <Card>
+            <Tabs tabsData={tabsDataA}/>
+          </Card>
+          <WhiteSpace>定制 hasLinkBar = false</WhiteSpace>
+          <Card>
+            <Tabs hasLinkBar={false}>
+              {tabsDataB.map((tabData, index) => (<Tab key={index} index={index} {...tabData} />))}
+            </Tabs>
+          </Card>
+          <WhiteSpace>定制 activeColor</WhiteSpace>
+          <Card>
+            <Tabs activeColor={'orange'}>
+              {tabsDataB.map((tabData, index) => (<Tab key={index} index={index} {...tabData} />))}
+            </Tabs>
+          </Card>
+          <WhiteSpace>定制 activeIndex</WhiteSpace>
+          <Card>
+            <Tabs activeIndex={activeIndexB} >
+              {tabsDataB.map((tabData, index) => (<Tab key={index} index={index} {...tabData} />))}
+            </Tabs>
+          </Card>
         </div>
       );
     }

@@ -9,7 +9,7 @@ export { default as WingBlank } from './WingBlank';
 
 // Navigation
 export { NavBar, NAVBAR_MODE } from './NavBar';
-export { Tabs, Tab, TabContainer } from './Tabs';
+export { Tabs, Tab, TabContainer, TabLinkBar } from './Tabs';
 export { TabBar } from './TabBar';
 export { default as Steps } from './Steps';
 

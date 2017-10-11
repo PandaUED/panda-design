@@ -15,6 +15,7 @@ const TabContainer = styled.div`
   align-items: center;
   text-align: center;
   appearance: none;
+  overflow: auto;
   &::-webkit-scrollbar {
     display: none;
   }

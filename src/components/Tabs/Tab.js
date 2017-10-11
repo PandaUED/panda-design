@@ -6,17 +6,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import classNames from 'classnames';
 import { Icon } from 'pand';
 
-const BasicTab = (props, context) => {
+const BasicTab = ( props, context ) => {
+  const { onClick, index, key, title, content, icon, className, ...rest } = props;
+  const { activeIndex } = context;
   const handleOnClick = () => {
-    const { onClick, index } = props;
     onClick instanceof Function && onClick();
     context.handleSync(index);
   };
-  const { key, title, content, icon, ...rest } = props;
+  const activeClass = classNames(className, activeIndex === index ? 'active' : '');
   return (
-    <a key={key} onClick={handleOnClick} {...rest}>
+    <a key={key} onClick={handleOnClick} className={activeClass} {...rest} >
       {icon && <Icon {...icon} />}
       {title && <span>{title}</span>}
       <span>{content}</span>
@@ -25,6 +27,7 @@ const BasicTab = (props, context) => {
 };
 BasicTab.contextTypes = {
   handleSync: PropTypes.func,
+  activeIndex: PropTypes.number,
 };
 export const Tab = styled(BasicTab)`
   display: flex;
@@ -42,4 +45,9 @@ export const Tab = styled(BasicTab)`
   font-weight: 500;
   color: #666;
   cursor: pointer;
+  transition: color .15s ease-in-out;
+  &.active {
+    color: ${( { theme } ) => theme.activeColor};
+    position: relative;
+  }
 `;
