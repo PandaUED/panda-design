@@ -33,7 +33,7 @@ const CheckBox = ({ name = 'example', className, active, disable, onChange, desc
       }
     }
   `;
-  let CheckBoxContent = styled.div``;
+  let CheckBoxContent = styled.div`color: #444;`;
   const CheckBoxDesc = styled.div`
     color: #999;
     font-size: 14px;

@@ -18,7 +18,7 @@ const PageCombine = () => {
   const Timer = styled.div`
     font-family: PingFangSC-Regular;
     font-size: 12px;
-    color: #999999;
+    color: #999;
     line-height: 16px;
     margin-left: 30px;
   `;

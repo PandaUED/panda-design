@@ -38,7 +38,7 @@ class Keyboard extends Component {
   KeyboardItem = styled.div`
     font-family: SFUIDisplay-Regular;
     font-size: 26px;
-    color: #444444;
+    color: #444;
     flex: 1;
     border-right: 1px solid #f8f8f8;
     border-bottom: 1px solid #f8f8f8;

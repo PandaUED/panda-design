@@ -88,14 +88,14 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
   `;
   let StepName = styled.div`
     font-size: 15px;
-    color: #666666;
+    color: #666;
     line-height: 15px;
     margin-left: 16px;
   `;
   let StepDesc = styled.div`
     margin-top: 3px;
     font-size: 12px;
-    color: #999999;
+    color: #999;
     line-height: 12px;
     margin-left: 16px;
   `;
@@ -144,7 +144,7 @@ const ProgressStepItem = ({ data, color, deg, isLast = false, ...other }) => {
     color: #cacaca;
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
+    background-color: #fff;
     ${data.rate ? `width: ${data.rate}` : ''};
   `;
 

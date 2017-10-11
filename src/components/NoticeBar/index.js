@@ -33,7 +33,7 @@ const NoticeBar = ({
     display: flex;
     flex-direction: row;
   `;
-  let NoticeBarContent = styled.div``;
+  let NoticeBarContent = styled.div`display: block;`;
   if (center) {
     NoticeBarContent = NoticeBarContent.extend`
       flex-grow: 1;
@@ -47,6 +47,7 @@ const NoticeBar = ({
     span {
       line-height: 36px;
     }
+
     padding: 0 8px;
     display: inline-block;
     background: #fafbfb;
