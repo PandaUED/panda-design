@@ -130,11 +130,9 @@ class TabBar extends React.Component {
     // eslint-disable-next-line
     const container = ReactDOM.findDOMNode(this.instance);
     // scrollIntoView 方法兼容到ie8
-    container
-      .querySelector(`:nth-child(${this.state.activeIndex + 1})`)
-      .scrollIntoView({
-        behavior: 'auto',
-      });
+    container.querySelector(`:nth-child(${this.state.activeIndex + 1})`).scrollIntoView({
+      behavior: 'auto',
+    });
   }
 
   getChildContext() {
@@ -167,9 +165,7 @@ class TabBar extends React.Component {
       <BasicTabContainer ref={i => (this.instance = i)} {...other}>
         {tabsData
           .slice(0, 4)
-          .map((tabData, index) => (
-            <BasicTab key={index} index={index} {...tabData} />
-          ))}
+          .map((tabData, index) => <BasicTab key={index} index={index} {...tabData} />)}
       </BasicTabContainer>
     );
   }

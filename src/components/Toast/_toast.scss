@@ -12,6 +12,7 @@
   .toast-fade-exiting.toast-fade-exit-active {
     bottom: 0;
     opacity: 0;
+    z-index: -1;
   }
 
   //show 终点值, show 中间状态, hide 起点值
@@ -20,5 +21,6 @@
   .toast-fade-entering.toast-fade-enter-active {
     bottom: 65px;
     opacity: 1;
+    z-index: 100;
   }
 }

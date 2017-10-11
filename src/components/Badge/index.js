@@ -52,9 +52,7 @@ const Badge = ({ type = 'number', children = null, overflowNum = 99 }) => {
     case 'number':
       return (
         <BNumber className="BNumber">
-          {overflowNum && parseInt(children, 10) > overflowNum
-            ? `${overflowNum}+`
-            : children}
+          {overflowNum && parseInt(children, 10) > overflowNum ? `${overflowNum}+` : children}
         </BNumber>
       );
     case 'text':

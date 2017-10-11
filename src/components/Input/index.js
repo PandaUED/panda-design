@@ -57,29 +57,26 @@ class Input extends React.Component {
   }
 
   render() {
-    const {
-      className,
-      size = 'small',
-      left,
-      right,
-      placeholder,
-      value,
-    } = this.props;
+    const { className, size = 'small', left, right, placeholder, value } = this.props;
     if (size === 'square') {
       const InputWrap = styled.div`
         display: flex;
         justify-content: center;
+        padding: 0 30px;
       `;
       const InputBlock = styled.div`
+        flex: 1;
         background: #ffffff;
-        border: 0 solid #eeeeee;
+        border: 1px solid #eeeeee;
         font-size: 36px;
         color: #444444;
         line-height: 54px;
         height: 54px;
-        width: 48px;
         text-align: center;
         margin-right: 6px;
+        &:last-child {
+          margin-right: 0;
+        }
       `;
       return (
         <InputWrap className={className} onClick={e => this.props.onClick(e)}>

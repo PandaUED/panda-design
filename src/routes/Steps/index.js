@@ -72,11 +72,7 @@ export default () => {
     <View>
       <WhiteSpace>Steps-横版步骤</WhiteSpace>
       <WhiteSpace />
-      <Steps
-        className="HorizentalCls"
-        data={horizontalData}
-        type="horizontal"
-      />
+      <Steps className="HorizentalCls" data={horizontalData} type="horizontal" />
       <WhiteSpace />
       <WhiteSpace>Steps-竖版步骤</WhiteSpace>
       <WhiteSpace />

@@ -12,12 +12,7 @@ const props = {
 };
 
 // 横版步骤
-const HorizontalStepItem = ({
-  data,
-  isFirst = false,
-  isLast = false,
-  ...other
-}) => {
+const HorizontalStepItem = ({ data, isFirst = false, isLast = false, ...other }) => {
   const StepItem = styled.div`
     margin: 0;
     color: #cacaca;
@@ -66,12 +61,7 @@ const HorizontalStepItem = ({
 };
 
 // 竖版步骤
-const VerticalStepItem = ({
-  data,
-  isFirst = false,
-  isLast = false,
-  ...other
-}) => {
+const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) => {
   const StepItem = styled.div`
     margin: 0;
     color: #cacaca;
@@ -198,9 +188,7 @@ const ProgressStepItem = ({ data, color, deg, isLast = false, ...other }) => {
     PlaceHolder = PlaceHolder.extend`
       ${color ? `border-color: ${color}` : 'border-color: #5891EF'};
     `;
-    StepName = StepName.extend`
-      ${color ? `color: ${color}` : 'color: #5891EF'};
-    `;
+    StepName = StepName.extend`${color ? `color: ${color}` : 'color: #5891EF'};`;
     StepContent = StepContent.extend`
       ${color
         ? `background-image: linear-gradient(-45deg, ${deg} 0%, ${color} 100%);`

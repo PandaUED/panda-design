@@ -17,14 +17,7 @@ class Toast extends Component {
     this.hide = this.hide.bind(this);
   }
 
-  show({
-    title = '温馨提示',
-    desc,
-    icon = null,
-    button = null,
-    onClose = null,
-    duration = null,
-  }) {
+  show({ title = '温馨提示', desc, icon = null, button = null, onClose = null, duration = null }) {
     this.setState({ title, desc, icon, button, onClose }, () => {
       this.setState({ toastVisible: true });
     });
@@ -81,11 +74,7 @@ class Toast extends Component {
     `;
 
     return (
-      <CSSTransition
-        timeout={400}
-        classNames="toast-fade"
-        in={this.state.toastVisible}
-      >
+      <CSSTransition timeout={400} classNames="toast-fade" in={this.state.toastVisible}>
         {status => {
           return (
             <div className={`toast-fade toast-fade-${status}`}>

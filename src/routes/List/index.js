@@ -1,14 +1,5 @@
 import React from 'react';
-import {
-  Icon,
-  Avatar,
-  Badge,
-  Button,
-  List,
-  Cell,
-  View,
-  WhiteSpace,
-} from 'pand';
+import { Icon, Avatar, Badge, Button, List, Cell, View, WhiteSpace } from 'pand';
 
 export default () => {
   return (

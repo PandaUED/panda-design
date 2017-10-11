@@ -10,14 +10,7 @@ const props = {
   split: PropTypes.bool,
 };
 
-const List = ({
-  className,
-  children,
-  header,
-  footer,
-  split = true,
-  ...other
-}) => {
+const List = ({ className, children, header, footer, split = true, ...other }) => {
   const List = styled.div`
     background: transparent;
     display: flex;

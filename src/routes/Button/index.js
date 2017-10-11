@@ -27,11 +27,7 @@ export default () => {
           <Button round ghost>
             按钮标题
           </Button>
-          <Button
-            round
-            disabled={disabled}
-            onClick={() => this.setState({ disabled: !disabled })}
-          >
+          <Button round disabled={disabled} onClick={() => this.setState({ disabled: !disabled })}>
             按钮标题
           </Button>
           <Button round color="primary" deg={-45} shadow>

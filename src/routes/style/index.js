@@ -74,9 +74,7 @@ export default () => {
 
   _.forEach(style.gradient, (color, key) => {
     const Color = color(45);
-    const ColorArray = Color.replace(/(.*)\(|\)|[0-9]+%|[0-9]+deg/g, '').split(
-      ','
-    );
+    const ColorArray = Color.replace(/(.*)\(|\)|[0-9]+%|[0-9]+deg/g, '').split(',');
     GradientDisplay.push(
       <Item key={key}>
         <Gradient color={style.color[key]} gradient={Color} />
