@@ -26,12 +26,9 @@ class Dialog extends Component {
     callback,
     icon = null,
   }) {
-    this.setState(
-      { title, message, buttons, theme, children, callback, icon },
-      () => {
-        this.refDialogView.show();
-      }
-    );
+    this.setState({ title, message, buttons, theme, children, callback, icon }, () => {
+      this.refDialogView.show();
+    });
   }
 
   confirm({
@@ -43,12 +40,9 @@ class Dialog extends Component {
     theme = 'classic',
     icon = null,
   }) {
-    this.setState(
-      { title, message, buttons, children, callback, theme, icon },
-      () => {
-        this.refDialogView.show();
-      }
-    );
+    this.setState({ title, message, buttons, children, callback, theme, icon }, () => {
+      this.refDialogView.show();
+    });
   }
 
   closeDialog(result) {

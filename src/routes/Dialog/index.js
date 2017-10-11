@@ -108,7 +108,8 @@ class PageDialog extends React.Component {
         >
           alert new with icon
         </a>
-        <DialogSharedInstance /> {/* TODO: 需在跟节点初始化 */}
+        {/* <DialogSharedInstance /> */}
+        {/* TODO: 需在跟节点初始化 */}
       </DialogDemo>
     );
   }

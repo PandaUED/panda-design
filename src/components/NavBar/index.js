@@ -48,10 +48,7 @@ class NavBar extends Component {
     const { scrollDom } = this.props;
     if (scrollDom) {
       setTimeout(() => {
-        this.$scrollDom = getScrollDom(scrollDom).on(
-          'scroll',
-          this.handleScroll
-        );
+        this.$scrollDom = getScrollDom(scrollDom).on('scroll', this.handleScroll);
         // 主动调用一次scroll事件以便更新navbar
         this.$scrollDom.trigger('scroll');
       }, 100);

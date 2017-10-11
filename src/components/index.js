@@ -35,8 +35,9 @@ export { default as NoticeBar } from './NoticeBar';
 export { Modal, ModalNoState } from './Modal';
 export { Dialog, DialogSharedInstance } from './Dialog';
 export { Toast, ToastSharedInstance } from './Toast';
-export { ActionSheet, ActionSheetSharedInstance } from './ActionSheet';
+export { ActionSheet } from './ActionSheet';
 export { Keyboard } from './Keyboard';
+export { Combine } from './Combine';
 
 // Gesture
 

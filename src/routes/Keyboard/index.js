@@ -5,17 +5,8 @@ import { WhiteSpace, Keyboard, style, Icon } from 'pand';
 import styled from 'styled-components';
 
 const PageKeyboard = () => {
-  const KeyboardDemo = styled.div`
-    > a {
-      display: block;
-      padding: 1rem;
-      background: #fff;
-      color: #444;
-      ${style.split.bottom};
-    }
-  `;
   return (
-    <KeyboardDemo>
+    <div>
       <WhiteSpace>Keyboard password</WhiteSpace>
       <Keyboard
         type="password"
@@ -34,7 +25,7 @@ const PageKeyboard = () => {
           console.log(`confirm`);
         }}
       />
-    </KeyboardDemo>
+    </div>
   );
 };
 

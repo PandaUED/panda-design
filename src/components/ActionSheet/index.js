@@ -7,6 +7,7 @@ import { Icon, WhiteSpace, ModalNoState } from '../';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 import './_actionSheet.scss';
+import { noop } from 'lodash';
 
 class ActionSheet extends Component {
   constructor(props) {
@@ -17,18 +18,15 @@ class ActionSheet extends Component {
     this.hide = this.hide.bind(this);
   }
 
-  show({ title, content, onClose, closeBtnPosition = 'top' }) {
-    this.setState(
-      {
-        title,
-        content,
-        onClose,
-        closeBtnPosition,
-      },
-      () => {
-        this.setState({ asVisible: true });
-      }
-    );
+  static defaultProps = {
+    title: null,
+    // content: null,
+    onClose: noop,
+    closeBtnPosition: 'top',
+  };
+
+  show() {
+    this.setState({ asVisible: true });
   }
 
   hide() {
@@ -38,7 +36,9 @@ class ActionSheet extends Component {
   }
 
   render() {
-    const { title, content, closeBtnPosition, asVisible } = this.state;
+    // const { title, content, closeBtnPosition, asVisible } = this.state;
+    const { asVisible } = this.state;
+    const { title, children, closeBtnPosition } = this.props;
 
     const ASContainer = styled.div`
       position: fixed;
@@ -76,11 +76,7 @@ class ActionSheet extends Component {
     return (
       <div>
         {asVisible && <ModalNoState handleBgClick={this.hide} />}
-        <CSSTransition
-          timeout={400}
-          classNames="actionSheet-fade"
-          in={asVisible}
-        >
+        <CSSTransition timeout={400} classNames="actionSheet-fade" in={asVisible}>
           {status => {
             return (
               <ASContainer
@@ -92,7 +88,7 @@ class ActionSheet extends Component {
                   </ASCloseBtnTop>
                 )}
                 {title && <ASTitle>{title}</ASTitle>}
-                <div className="actionSheet-content">{content}</div>
+                <div className="actionSheet-content">{children}</div>
                 {closeBtnPosition === 'bottom' && (
                   <div>
                     <WhiteSpace />
@@ -108,14 +104,4 @@ class ActionSheet extends Component {
   }
 }
 
-function ActionSheetSharedInstance() {
-  return (
-    <ActionSheet
-      ref={c => {
-        ActionSheet.sharedInstance = c;
-      }}
-    />
-  );
-}
-
-export { ActionSheet, ActionSheetSharedInstance };
+export { ActionSheet };

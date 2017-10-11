@@ -21,8 +21,7 @@ const sizeFn = (sizeObject, size) => sizeObject[size];
 
 const heightSizeFn = size => sizeFn(heightSize, size);
 const fontSizeFn = size => sizeFn(fontSize, size);
-const borderRadiusSizeFn = (round, size) =>
-  round ? sizeFn(borderRadiusSize, size) / 2 : 0;
+const borderRadiusSizeFn = (round, size) => (round ? sizeFn(borderRadiusSize, size) / 2 : 0);
 const shadowSizeFn = size => sizeFn(shadowSize, size);
 const hightlightSizeFn = size => sizeFn(hightlightSize, size);
 
@@ -113,8 +112,7 @@ const Button = ({
 
     ${!(disabled || ghost || deg === null) ? degStyleSheet : ''} ${shadow
         ? shadowStyleSheet
-        : ''} ${highlight ? highlightStyleSheet : ''} ${disabled &&
-        disabledStyleSheet};
+        : ''} ${highlight ? highlightStyleSheet : ''} ${disabled && disabledStyleSheet};
   `;
   return (
     <TouchFeedback disabled={disabled}>

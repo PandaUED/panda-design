@@ -20,6 +20,7 @@ class Keyboard extends Component {
     children: null,
     KeyboardCls: null,
     handleChange: null,
+    numLimit: 6,
     type: 'password', // calculator / password
     icon: <Icon size={24} type="Coin" />,
     onHide: null,
@@ -54,6 +55,7 @@ class Keyboard extends Component {
 
   concatString(value) {
     const { currValue } = this.state;
+    const { numLimit } = this.props;
     let _value = currValue + value.toString();
 
     if (this.props.type === 'calculator') {
@@ -63,6 +65,10 @@ class Keyboard extends Component {
         } else {
           _value = value.toString();
         }
+      }
+    } else {
+      if (currValue.length >= numLimit) {
+        return;
       }
     }
 

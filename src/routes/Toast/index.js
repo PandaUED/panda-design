@@ -54,7 +54,7 @@ const ToastDemo = () => {
       >
         Toast Set Time (5s)
       </a>
-      <ToastSharedInstance />
+      {/* <ToastSharedInstance /> */}
     </ToastD>
   );
 };

@@ -42,9 +42,7 @@ const CellMain = ({
   return (
     <CellMain className={className} {...other}>
       {children}
-      {desc && (
-        <CellMainDesc className={`${className}-desc`}>{desc}</CellMainDesc>
-      )}
+      {desc && <CellMainDesc className={`${className}-desc`}>{desc}</CellMainDesc>}
     </CellMain>
   );
 };

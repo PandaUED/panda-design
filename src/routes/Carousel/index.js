@@ -36,14 +36,7 @@ export default () => {
       <Card>
         <Header split>Carousel Banner</Header>
         <Body>
-          <Carousel
-            color="primary"
-            deg={45}
-            autoplay
-            infinite
-            dots
-            style={{ height: 192 }}
-          >
+          <Carousel color="primary" deg={45} autoplay infinite dots style={{ height: 192 }}>
             {['1', '2', '3'].map(i => <div key={i}>Carousel {i}</div>)}
           </Carousel>
           <WhiteSpace />

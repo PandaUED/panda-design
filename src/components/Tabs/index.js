@@ -60,8 +60,7 @@ class Tabs extends React.Component {
     const { activeIndex } = this.state;
 
     const BasicTab = Tab.extend`
-      ${({ index }) => (index === activeIndex ? activeStyleSheet : '')} ${style
-          .text.ellipsis};
+      ${({ index }) => (index === activeIndex ? activeStyleSheet : '')} ${style.text.ellipsis};
     `;
     const BasicTabContainer = TabContainer.extend`
       justify-content: ${tabsData.length > 5 ? 'flex-start' : 'space-around'};
@@ -70,9 +69,7 @@ class Tabs extends React.Component {
 
     return (
       <BasicTabContainer ref={i => (this.instance = i)} {...other}>
-        {tabsData.map((tabData, index) => (
-          <BasicTab key={index} index={index} {...tabData} />
-        ))}
+        {tabsData.map((tabData, index) => <BasicTab key={index} index={index} {...tabData} />)}
       </BasicTabContainer>
     );
   }

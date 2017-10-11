@@ -47,9 +47,7 @@ const Showcase = ({
   `;
 
   if (deg) {
-    Showcase = Showcase.extend`
-      background: ${style.gradient[backgroundColor](deg)};
-    `;
+    Showcase = Showcase.extend`background: ${style.gradient[backgroundColor](deg)};`;
   }
 
   const Title = styled.div`
@@ -106,9 +104,7 @@ const Showcase = ({
           <Subtitle>{rightTitle}</Subtitle>
         </Cell>
       </ShowcaseContent>
-      {backgroundText ? (
-        <ShowcaseBackground>{backgroundText}</ShowcaseBackground>
-      ) : null}
+      {backgroundText ? <ShowcaseBackground>{backgroundText}</ShowcaseBackground> : null}
     </Showcase>
   );
 };

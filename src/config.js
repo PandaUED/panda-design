@@ -7,7 +7,7 @@ export default {
   Navigation: ['NavBar', 'Tabs', 'TabBar', 'Steps'],
   DataEntry: ['Icon', 'Button', 'Card', 'Avatar', 'Input', 'Switch', 'CheckBox'],
   DataDisplay: ['Showcase', 'Carousel', 'List', 'Cell', 'Badge', 'Tag', 'NoticeBar'],
-  Feedback: ['Modal', 'Dialog', 'Toast', 'ActionSheet', 'Keyboard'],
+  Feedback: ['Modal', 'Dialog', 'Toast', 'ActionSheet', 'Keyboard', 'Combine'],
   Gesture: [],
   Combination: [],
   Other: [],
