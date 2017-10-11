@@ -43,14 +43,15 @@ const commonMode = css`
 `;
 // 模式2，两列不等宽
 const notiseMode = css`
-  // information
+  /* information */
   &:nth-child(1) {
     position: relative;
     width: 255px;
     font-size: 10px;
     font-weight: 400;
     color: #333;
-    // icon
+
+    /* icon */
     & > span:nth-child(1) {
       position: absolute;
       right: 16px;
@@ -61,7 +62,8 @@ const notiseMode = css`
         color: ${lighten(0.58, '#333')};
       }
     }
-    // title
+
+    /* title */
     & > span:nth-child(2),
     & > span:nth-child(3) {
       position: absolute;
@@ -73,7 +75,8 @@ const notiseMode = css`
       left: 16px;
       top: 9px;
     }
-    // content
+
+    /* content */
     & > span:nth-child(3) {
       left: 16px;
       bottom: 7px;
@@ -151,10 +154,12 @@ class TabBar extends React.Component {
       & > .xmjkIcon {
         display: block;
       }
-      ${mode === 0 || mode === 4 ? commonMode : ''} ${mode === 2
-          ? tabsData[0].icon ? notiseMode : cancelConfirmMode
-          : ''} ${mode === 3 ? toolMode : ''} ${({ index }) =>
-          index === activeIndex ? activeStyleSheet : ''} ${style.text.ellipsis};
+
+      ${mode === 0 || mode === 4 ? commonMode : ''};
+      ${mode === 2 ? (tabsData[0].icon ? notiseMode : cancelConfirmMode) : ''};
+      ${mode === 3 ? toolMode : ''};
+      ${({ index }) => (index === activeIndex ? activeStyleSheet : '')};
+      ${style.text.ellipsis};
     `;
     const BasicTabContainer = TabContainer.extend`
       justify-content: ${tabsData.length > 5 ? 'flex-start' : 'space-around'};

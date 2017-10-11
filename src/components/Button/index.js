@@ -75,10 +75,11 @@ const Button = ({
       border-right: ${hightlightSizeFn(size) - 2}px solid;
       border-color: rgba(255, 255, 255, 0.3);
       position: absolute;
+      border-radius: 0 100% 0 0;
       right: ${hightlightSizeFn(size) * 1.25}px;
       top: ${hightlightSizeFn(size) * 1.25}px;
-      border-radius: 0 100% 0 0;
     }
+    /* 有一个报错在下面那行。。stylelint可能是智障？ */
   `;
   const disabledStyleSheet = css`
     opacity: 0.5;

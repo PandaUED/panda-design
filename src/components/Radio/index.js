@@ -70,7 +70,7 @@ const Radio = ({
       position: absolute;
       border-style: solid;
       border-width: 0 2px 2px 0;
-      border-color: #ffffff;
+      border-color: #fff;
       transform: rotate(45deg);
       top: 13px;
       right: 36px;

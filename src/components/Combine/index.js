@@ -67,7 +67,7 @@ class CombineCalculator extends Component {
 
   render({ notice, calculateFunc, onHide, onConfirm }, { currValue }) {
     const Output = styled.div`
-      background: #ffffff;
+      background: #fff;
       box-shadow: 0 2px 6px 0 #e3e3e3;
       height: 54px;
       margin: 0 16px 16px;

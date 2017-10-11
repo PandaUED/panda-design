@@ -69,10 +69,10 @@ class Input extends React.Component {
       `;
       const InputBlock = styled.div`
         flex: 1;
-        background: #ffffff;
-        border: 1px solid #eeeeee;
+        background: #fff;
+        border: 1px solid #eee;
         font-size: 36px;
-        color: #444444;
+        color: #444;
         line-height: 54px;
         height: 54px;
         text-align: center;
