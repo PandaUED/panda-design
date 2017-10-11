@@ -7,9 +7,9 @@ export default {
   Navigation: ['NavBar', 'Tabs', 'TabBar', 'Steps'],
   DataEntry: ['Icon', 'Button', 'Card', 'Avatar', 'Input', 'Switch', 'CheckBox', 'Radio'],
   DataDisplay: ['Showcase', 'Carousel', 'List', 'Cell', 'Badge', 'Tag', 'NoticeBar'],
-  Feedback: ['Modal', 'Dialog', 'Toast', 'ActionSheet', 'Keyboard', 'Combine'],
+  Feedback: ['Modal', 'Dialog', 'Toast', 'ActionSheet', 'Keyboard'],
+  Combination: ['Combine'],
   Gesture: [],
-  Combination: [],
   Other: [],
 };
 const Ignore = ['Example', 'utlis'];
