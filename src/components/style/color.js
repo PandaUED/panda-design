@@ -10,7 +10,7 @@ const color = {
   purple: '#DA59E9',
   darkGrey: '#828994',
   textDark: '#444',
-  textNoraml: '#666',
+  textNormal: '#666',
   textLight: '#999',
   textDeactive: '#BBBFC8',
   placeholder: '#CACACA',

@@ -7,6 +7,7 @@ import { Icon, WhiteSpace, ModalNoState } from '../';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 import './_actionSheet.scss';
+import { noop } from 'lodash';
 
 class ActionSheet extends Component {
   constructor(props) {
@@ -17,28 +18,25 @@ class ActionSheet extends Component {
     this.hide = this.hide.bind(this);
   }
 
-  show({ title, content, onClose, closeBtnPosition = 'top' }) {
-    this.setState(
-      {
-        title,
-        content,
-        onClose,
-        closeBtnPosition,
-      },
-      () => {
-        this.setState({ asVisible: true });
-      }
-    );
+  static defaultProps = {
+    title: null,
+    onClose: noop,
+    closeBtnPosition: 'top',
+  };
+
+  show() {
+    this.setState({ asVisible: true });
   }
 
   hide() {
     this.setState({ asVisible: false });
-    const { onClose } = this.state;
+    const { onClose } = this.props;
     onClose && onClose();
   }
 
   render() {
-    const { title, content, closeBtnPosition, asVisible } = this.state;
+    const { asVisible } = this.state;
+    const { title, children, closeBtnPosition } = this.props;
 
     const ASContainer = styled.div`
       position: fixed;
@@ -88,7 +86,7 @@ class ActionSheet extends Component {
                   </ASCloseBtnTop>
                 )}
                 {title && <ASTitle>{title}</ASTitle>}
-                <div className="actionSheet-content">{content}</div>
+                <div className="actionSheet-content">{children}</div>
                 {closeBtnPosition === 'bottom' && (
                   <div>
                     <WhiteSpace />
@@ -104,14 +102,4 @@ class ActionSheet extends Component {
   }
 }
 
-function ActionSheetSharedInstance() {
-  return (
-    <ActionSheet
-      ref={c => {
-        ActionSheet.sharedInstance = c;
-      }}
-    />
-  );
-}
-
-export { ActionSheet, ActionSheetSharedInstance };
+export { ActionSheet };

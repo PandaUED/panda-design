@@ -20,10 +20,12 @@ class Keyboard extends Component {
     children: null,
     KeyboardCls: null,
     handleChange: null,
+    numLimit: 6,
     type: 'password', // calculator / password
     icon: <Icon size={24} type="Coin" />,
     onHide: null,
     onConfirm: null,
+    checkValue: null,
   };
 
   KeyboardNumArr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
@@ -44,16 +46,19 @@ class Keyboard extends Component {
   `;
 
   updateValue(value) {
+    const { checkValue } = this.props;
+    const _v = checkValue ? checkValue(value) : value;
     this.setState(
       {
-        currValue: value,
+        currValue: _v,
       },
-      this.handleClick
+      () => this.props.handleChange(this.state.currValue)
     );
   }
 
   concatString(value) {
     const { currValue } = this.state;
+    const { numLimit } = this.props;
     let _value = currValue + value.toString();
 
     if (this.props.type === 'calculator') {
@@ -63,6 +68,10 @@ class Keyboard extends Component {
         } else {
           _value = value.toString();
         }
+      }
+    } else {
+      if (currValue.length >= numLimit) {
+        return;
       }
     }
 
@@ -86,10 +95,6 @@ class Keyboard extends Component {
       }
     }
     this.updateValue(_value);
-  }
-
-  handleClick() {
-    this.props.handleChange(this.state.currValue);
   }
 
   renderDelBtn() {

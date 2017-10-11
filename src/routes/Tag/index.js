@@ -44,7 +44,7 @@ export default class extends React.Component {
         </TagRow>
         <WhiteSpace>fliter</WhiteSpace>
         <TagRow>
-          <Tag type={TAG_TYPE.FILTER} textColor={'textNoraml'} />
+          <Tag type={TAG_TYPE.FILTER} textColor={'textNormal'} />
 
           <Tag type={TAG_TYPE.FILTER} textColor={'blue'} />
         </TagRow>

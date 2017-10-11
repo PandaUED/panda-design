@@ -9,5 +9,6 @@
 | size     | 头像大小                | number | 48 |
 | shape     | 形状,圆形方形                | ['circle' / 'square'] | 'circle' |
 | url     | 图片资源地址               | string | 无 |
+| name     | 名字,用于没有头像时代替头像       | string | 无 |
 | **OTHER** |                                   |        |         |
 | className | 样式类名                              | string |    -    |
