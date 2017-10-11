@@ -38,31 +38,37 @@ const PageCombine = () => {
       <Combine
         ref={c => (refCombinePassword = c)}
         type="password"
-        content={
+        actionBar={
           <div>
             <Timer>重新获取 (41s)</Timer>
             <WhiteSpace transparent size={25} />
-            <NoticeBar center visible>
-              短信验证码已发至153****3008，请查收
-            </NoticeBar>
           </div>
         }
+        onClose={() => console.log('close 应用层回调')}
+        notice="短信验证码已发至153****3008，请查收"
         onPasswordFinish={value => {
           console.log(`input finished, value: ${value}`);
-            Toast.sharedInstance.show({
-                desc: `input finished, value: ${value}`,
-            });
+          Toast.sharedInstance.show({
+            desc: `input finished, value: ${value}`,
+          });
           refCombinePassword.close();
         }}
       />
-      {/* <a
-                onClick={() => {
-                    refCombineCalculator.open()
-                }}
-            >
-                计算器
-            </a> */}
-      <Combine ref={c => (refCombineCalculator = c)} type="calculator" />
+      <a
+        onClick={() => {
+          refCombineCalculator.open();
+        }}
+      >
+        计算器
+      </a>
+      <Combine
+        ref={c => (refCombineCalculator = c)}
+        type="calculator"
+        notice="预期年化收益可能与累计单日收益出现几分钱的误差"
+        calculateFunc={value => value * 2}
+        onClose={() => console.log('Combine close')}
+        onConfirm={() => console.log('Combine confirm')}
+      />
     </CombineDemo>
   );
 };

@@ -32,7 +32,7 @@ export default () => {
   `;
   const Title = styled.div`
     text-align: center;
-    color: ${style.color.textNoraml};
+    color: ${style.color.textNormal};
     margin-bottom: 0.6rem;
     font-size: 0.8rem;
   `;

@@ -25,6 +25,7 @@ class Keyboard extends Component {
     icon: <Icon size={24} type="Coin" />,
     onHide: null,
     onConfirm: null,
+    checkValue: null,
   };
 
   KeyboardNumArr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
@@ -45,11 +46,13 @@ class Keyboard extends Component {
   `;
 
   updateValue(value) {
+    const { checkValue } = this.props;
+    const _v = checkValue ? checkValue(value) : value;
     this.setState(
       {
-        currValue: value,
+        currValue: _v,
       },
-      this.handleClick
+      () => this.props.handleChange(this.state.currValue)
     );
   }
 
@@ -92,10 +95,6 @@ class Keyboard extends Component {
       }
     }
     this.updateValue(_value);
-  }
-
-  handleClick() {
-    this.props.handleChange(this.state.currValue);
   }
 
   renderDelBtn() {
