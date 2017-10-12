@@ -1,7 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { noop } from 'lodash';
+import { Icon } from 'pand';
 import { style } from '../';
 
 class Input extends React.Component {
@@ -12,15 +13,18 @@ class Input extends React.Component {
     left: PropTypes.node,
     right: PropTypes.node,
     value: PropTypes.string,
+    defaultValue: PropTypes.string,
     onChange: PropTypes.func,
     onClick: PropTypes.func,
     size: PropTypes.string,
     readOnly: PropTypes.bool,
+    showClear: PropTypes.bool,
   };
   static defaultProps = {
     onChange: noop,
     onClick: noop,
     readOnly: false,
+    showClear: false,
   };
 
   checkValue(value) {
@@ -59,8 +63,23 @@ class Input extends React.Component {
     }
   }
 
+  clear(e) {
+    let target = e.target.parentNode.parentNode;
+    target.querySelector('input').value = '';
+  }
+
   render() {
-    const { className, size = 'small', left, right, placeholder, value, readOnly } = this.props;
+    const {
+      className,
+      size = 'small',
+      left,
+      right,
+      placeholder,
+      value,
+      readOnly,
+      showClear,
+      defaultValue,
+    } = this.props;
     if (size === 'square') {
       const InputWrap = styled.div`
         display: flex;
@@ -69,10 +88,10 @@ class Input extends React.Component {
       `;
       const InputBlock = styled.div`
         flex: 1;
-        background: #fff;
-        border: 1px solid #eee;
+        background: ${style.color.white};
+        border: 1px solid ${style.color.split};
         font-size: 36px;
-        color: #444;
+        color: ${style.color.textDark};
         line-height: 54px;
         height: 54px;
         text-align: center;
@@ -92,13 +111,19 @@ class Input extends React.Component {
         </InputWrap>
       );
     }
+
+    const largeStyle = css`
+      font-size: 20px;
+      line-height: 20px;
+      font-weight: bold;
+    `;
     const InputWrap = styled.div`
       display: flex;
-      background-color: white;
+      background-color: ${style.color.white};
       align-items: center;
       padding: 19px 8px;
     `;
-    let Input = styled.input`
+    const Input = styled.input`
       color: ${style.color.textNormal};
       width: 100%;
       margin-left: 24px;
@@ -106,26 +131,22 @@ class Input extends React.Component {
       line-height: 16px;
       border: none;
       ::-moz-placeholder {
-        color: #cacaca;
+        color: ${style.color.placeholder};
       }
       ::-webkit-input-placeholder {
-        color: #cacaca;
+        color: ${style.color.placeholder};
       }
+
+      ${size === 'large' && largeStyle};
     `;
     const InputLeft = styled.div`margin-left: 16px;`;
     const InputRight = styled.div`
       font-size: 12px;
-      color: #5891ef;
+      color: ${style.color.blue};
       word-break: keep-all;
       margin-right: 8px;
     `;
-    if (size === 'large') {
-      Input = Input.extend`
-        font-size: 20px;
-        line-height: 20px;
-        font-weight: bold;
-      `;
-    }
+    const InputClear = styled.div`margin-right: 16px;`;
     return (
       <InputWrap>
         {left && <InputLeft>{left}</InputLeft>}
@@ -134,11 +155,17 @@ class Input extends React.Component {
           className={className}
           placeholder={placeholder}
           value={value}
+          defaultValue={defaultValue}
           onChange={e => {
             this.onChange(e);
           }}
-          readOnly={readOnly && 'readonly'}
+          readOnly={readOnly}
         />
+        {showClear && (
+          <InputClear onClick={e => this.clear(e)}>
+            <Icon size={16} type="remove" color="#CACACA" />
+          </InputClear>
+        )}
         {right && <InputRight>{right}</InputRight>}
       </InputWrap>
     );

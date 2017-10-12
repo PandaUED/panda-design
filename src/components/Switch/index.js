@@ -1,6 +1,7 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
+import { style } from '../';
 
 class Switch extends React.Component {
   static propTypes = {
@@ -19,8 +20,33 @@ class Switch extends React.Component {
   }
 
   render() {
-    let { className, type, color = '#4dd865', active, disable } = this.props;
-    let SwitchWrap = styled.div`
+    const { className, type, color = '#4dd865', active, disable } = this.props;
+
+    const squareWrap = css`
+      input[type='checkbox']:checked + .checkbox:after {
+        -webkit-transform: translateX(35px);
+        -ms-transform: translateX(35px);
+        transform: translateX(35px);
+      }
+    `;
+    const squareSwitch = css`
+      width: 72px;
+      height: 23px;
+      border-radius: 3px;
+      background: ${style.color.textDeactive};
+      :after {
+        width: 35px;
+        height: 21px;
+        border-radius: 2px;
+        box-shadow: none;
+        left: 1px;
+        top: 1px;
+      }
+      :before {
+        display: none;
+      }
+    `;
+    const SwitchWrap = styled.div`
       box-sizing: border-box;
       position: relative;
       cursor: pointer;
@@ -53,12 +79,14 @@ class Switch extends React.Component {
       input[type='checkbox']:disabled + .checkbox {
         opacity: 0.3;
       }
+
+      ${type === 'square' && squareWrap};
     `;
-    let Switch = styled.div`
+    const Switch = styled.div`
       width: 50px;
       height: 30px;
       border-radius: 30px;
-      background: #e5e5e5;
+      background: ${style.color.split};
       z-index: 0;
       margin: 0;
       padding: 0;
@@ -76,7 +104,7 @@ class Switch extends React.Component {
         top: 1px;
         height: 28px;
         border-radius: 28px;
-        background: #fff;
+        background: ${style.color.white};
         -webkit-transition: all 0.2s;
         transition: all 0.2s;
       }
@@ -94,35 +122,11 @@ class Switch extends React.Component {
         -webkit-transform: translateX(0);
         -ms-transform: translateX(0);
         transform: translateX(0);
-        box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.21);
+        box-shadow: 2px 2px 4px ${style.color.placeholder};
       }
+
+      ${type === 'square' && squareSwitch};
     `;
-    if (type === 'square') {
-      SwitchWrap = SwitchWrap.extend`
-        input[type='checkbox']:checked + .checkbox:after {
-          -webkit-transform: translateX(35px);
-          -ms-transform: translateX(35px);
-          transform: translateX(35px);
-        }
-      `;
-      Switch = Switch.extend`
-        width: 72px;
-        height: 23px;
-        border-radius: 3px;
-        background: #a7aaa6;
-        :after {
-          width: 35px;
-          height: 21px;
-          border-radius: 2px;
-          box-shadow: none;
-          left: 1px;
-          top: 1px;
-        }
-        :before {
-          display: none;
-        }
-      `;
-    }
 
     return (
       <SwitchWrap className={className}>

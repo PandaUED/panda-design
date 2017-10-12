@@ -9,21 +9,17 @@ const props = {
   type: PropTypes.string,
   data: PropTypes.array,
   color: PropTypes.string,
-  deg: PropTypes.string,
 };
 
-const Steps = ({ type, data = [], color, deg, ...other }) => {
-  let Steps = styled.div`
+const Steps = ({ type, data = [], color, ...other }) => {
+  const Steps = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
     color: ${style.color.textDeactive};
     background: transparent;
+    ${type === 'vertical' && `flex-direction: column;`};
   `;
-
-  if (type === 'vertical') {
-    Steps = Steps.extend`flex-direction: column;`;
-  }
 
   return (
     <Steps {...other}>
@@ -59,7 +55,6 @@ const Steps = ({ type, data = [], color, deg, ...other }) => {
               key={item.name}
               data={item}
               color={color}
-              deg={deg}
               isFirst={data.indexOf(item) === 0}
               isLast={data.indexOf(item) === data.length - 1}
             />

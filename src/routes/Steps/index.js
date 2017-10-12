@@ -80,21 +80,9 @@ export default () => {
       <WhiteSpace />
       <WhiteSpace>Steps-横版进度条</WhiteSpace>
       <WhiteSpace />
-      <Steps
-        className="ProgressCls"
-        data={progressData}
-        type="progress"
-        color="#FF5F5F"
-        deg="#FFA675"
-      />
+      <Steps className="ProgressCls" data={progressData} type="progress" color="red" />
       <WhiteSpace />
-      <Steps
-        className="ProgressCls"
-        data={progressData2}
-        type="progress"
-        color="#07CF93"
-        deg="#60EA80"
-      />
+      <Steps className="ProgressCls" data={progressData2} type="progress" color="green" />
       <WhiteSpace />
       <Steps className="ProgressCls" data={progressData3} type="progress" />
       <WhiteSpace />

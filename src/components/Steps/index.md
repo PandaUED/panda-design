@@ -10,8 +10,7 @@
 | data      | 数据                | array  | [] |
 | **OTHER** |                    |        |         |
 | classname | 样式类名            | string |    -    |
-| color     | 主要颜色(用于progress类Steps)            | string |    "#5891ef"    |
-| deg       | 渐变色 (用于progress类Steps)             | string |   蓝色渐变   |
+| color     | 主要颜色(用于progress类Steps)            | string |    "red"    |
 
 
 ### horizontal类型data数据格式
