@@ -1,6 +1,7 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { noop } from 'lodash';
+import { style } from '../';
 
 const props = {
   className: PropTypes.string,
@@ -24,6 +25,29 @@ const Radio = ({
   value = 'example',
   ...other
 }) => {
+  const hasDescStyle = css`
+    height: 50px;
+    padding-top: 5px;
+  `;
+  const RadioWrap = styled.div`
+    width: 100%;
+    background: white;
+    height: 44px;
+    padding-left: 20px;
+    border-bottom: 1px solid ${style.color.split};
+    align-items: center;
+    position: relative;
+    font-size: 15px;
+    input[type='radio']:checked + div {
+      div:after {
+        border-color: ${style.color.blue};
+      }
+    }
+    input[type='radio']:disabled + div {
+      opacity: 0.3;
+    }
+    ${desc && hasDescStyle};
+  `;
   const RadioInput = styled.input`
     position: absolute;
     width: 100%;
@@ -39,25 +63,8 @@ const Radio = ({
     align-items: center;
     justify-content: space-between;
   `;
-  const RadioWrap = styled.div`
-    width: 100%;
-    background: white;
-    height: 44px;
-    padding-left: 20px;
-    border-bottom: 1px solid #eee;
-    align-items: center;
-    input[type='radio']:checked + div {
-      div:after {
-        border-color: #5891ef;
-      }
-    }
-    input[type='radio']:disabled + div {
-      opacity: 0.3;
-    }
-  `;
-  const RadioContent = styled.div`font-size: 15px;`;
   const RadioDesc = styled.div`
-    color: #999;
+    color: ${style.color.textLight};
     font-size: 14px;
     margin-top: 5px;
   `;
@@ -70,7 +77,7 @@ const Radio = ({
       position: absolute;
       border-style: solid;
       border-width: 0 2px 2px 0;
-      border-color: #fff;
+      border-color: ${style.color.white};
       transform: rotate(45deg);
       top: 13px;
       right: 36px;
@@ -78,23 +85,25 @@ const Radio = ({
   `;
 
   return (
-    <RadioWrap className={className}>
-      <RadioInput
-        type="radio"
-        defaultChecked={checked}
-        disabled={disabled}
-        name={group}
-        value={value}
-        onClick={e => onClick(e)}
-      />
-      <Radio>
-        <RadioContent>
-          {name}
-          {desc && <RadioDesc>{desc}</RadioDesc>}
-        </RadioContent>
-        <RadioIcon className="radioIcon" />
-      </Radio>
-    </RadioWrap>
+    <div>
+      <RadioWrap className={className}>
+        <RadioInput
+          type="radio"
+          defaultChecked={checked}
+          disabled={disabled}
+          name={group}
+          value={value}
+          onClick={e => onClick(e)}
+        />
+        <Radio>
+          <div>
+            {name}
+            {desc && <RadioDesc>{desc}</RadioDesc>}
+          </div>
+          <RadioIcon className="radioIcon" />
+        </Radio>
+      </RadioWrap>
+    </div>
   );
 };
 

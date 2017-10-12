@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { style } from '../';
 
@@ -7,11 +7,13 @@ const props = {
   name: PropTypes.string,
   desc: PropTypes.string,
   active: PropTypes.bool,
-  disable: PropTypes.bool,
+  disabled: PropTypes.bool,
   onChange: PropTypes.func,
 };
 
-const CheckBox = ({ name = 'example', className, active, disable, onChange, desc, ...other }) => {
+const CheckBox = ({ name = 'example', className, active, disabled, onChange, desc, ...other }) => {
+  const disabledStyle = css`color: ${style.color.placeholder};`;
+
   const CheckBoxWrap = styled.div`
     display: flex;
     align-items: center;
@@ -25,18 +27,13 @@ const CheckBox = ({ name = 'example', className, active, disable, onChange, desc
       width: 100%;
       height: 44px;
       input[type='checkbox']:checked + .checkboxicon {
-        border-color: #5891ef;
-        background-color: #5891ef;
+        border-color: ${style.color.blue};
+        background-color: ${style.color.blue};
       }
       input[type='checkbox']:disabled + .checkboxicon {
         opacity: 0.3;
       }
     }
-  `;
-  let CheckBoxContent = styled.div`color: #444;`;
-  const CheckBoxDesc = styled.div`
-    color: #999;
-    font-size: 14px;
   `;
   const CheckBoxInput = styled.input`
     position: absolute;
@@ -56,7 +53,7 @@ const CheckBox = ({ name = 'example', className, active, disable, onChange, desc
     right: 0;
     width: 21px;
     height: 21px;
-    border: 1px solid #d6d9e0;
+    border: 1px solid ${style.color.bgDeactive};
     border-radius: 50%;
     -webkit-transform: rotate(0deg);
     -ms-transform: rotate(0deg);
@@ -75,10 +72,14 @@ const CheckBox = ({ name = 'example', className, active, disable, onChange, desc
       top: 2px;
     }
   `;
-
-  if (disable) {
-    CheckBoxContent = CheckBoxContent.extend`color: #cacaca;`;
-  }
+  let CheckBoxContent = styled.div`
+    color: ${style.color.textNormal};
+    ${disabled && disabledStyle};
+  `;
+  const CheckBoxDesc = styled.div`
+    color: ${style.color.textLight};
+    font-size: 14px;
+  `;
 
   return (
     <CheckBoxWrap className={className}>
@@ -87,7 +88,7 @@ const CheckBox = ({ name = 'example', className, active, disable, onChange, desc
           <CheckBoxInput
             type="checkbox"
             {...other}
-            disabled={disable}
+            disabled={disabled}
             defaultChecked={active}
             onChange={e => {
               if (onChange) {
