@@ -1,6 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from '../index';
+import { Icon } from 'pand';
+import { style } from '../';
 
 const props = {
   className: PropTypes.string,
@@ -8,23 +10,33 @@ const props = {
   isFirst: PropTypes.bool,
   isLast: PropTypes.bool,
   color: PropTypes.string,
-  deg: PropTypes.string,
 };
 
 // 横版步骤
 const HorizontalStepItem = ({ data, isFirst = false, isLast = false, ...other }) => {
+  const activeIcon = css`
+    color: ${style.color.white};
+    background-color: ${style.color.blue};
+  `;
   const StepItem = styled.div`
     margin: 0;
-    color: #cacaca;
+    color: ${style.color.placeholder};
     display: flex;
+    flex-direction: column;
+    align-items: center;
+    > div {
+      display: flex;
+    }
   `;
-
-  let PlaceHolder = styled.div`
+  const PlaceHolder = styled.div`
     width: 48px;
     height: 1px;
     margin-top: 12px;
+    background-color: ${style.color.split};
+    ${data.status === 'active' && `background-color: ${style.color.blue};`};
   `;
-  let StepIcon = styled.div`
+  const WhitePlaceHolder = PlaceHolder.extend`background-color: transparent;`;
+  const StepIcon = styled.div`
     height: 24px;
     width: 24px;
     font-size: 14px;
@@ -32,30 +44,24 @@ const HorizontalStepItem = ({ data, isFirst = false, isLast = false, ...other })
     text-align: center;
     line-height: 24px;
     margin: 0 auto;
+    background-color: ${style.color.split};
+    ${data.status === 'active' && activeIcon};
   `;
-  let StepName = styled.div`
+  const StepName = styled.div`
     font-size: 12px;
     line-height: 12px;
     margin-top: 6px;
+    ${data.status === 'active' && `color: ${style.color.blue};`};
   `;
-
-  if (data.status === 'active') {
-    PlaceHolder = PlaceHolder.extend`background-color: #5891ef;`;
-    StepName = StepName.extend`color: #5891ef;`;
-    StepIcon = StepIcon.extend`
-      color: white;
-      background-color: #5891ef;
-    `;
-  }
 
   return (
     <StepItem {...other}>
-      {!isFirst && <PlaceHolder />}
-      <div {...other}>
+      <div>
+        {isFirst ? <WhitePlaceHolder /> : <PlaceHolder />}
         <StepIcon>{data.num}</StepIcon>
-        <StepName>{data.name}</StepName>
+        {isLast ? <WhitePlaceHolder /> : <PlaceHolder />}
       </div>
-      {!isLast && <PlaceHolder />}
+      <StepName>{data.name}</StepName>
     </StepItem>
   );
 };
@@ -64,20 +70,22 @@ const HorizontalStepItem = ({ data, isFirst = false, isLast = false, ...other })
 const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) => {
   const StepItem = styled.div`
     margin: 0;
-    color: #cacaca;
+    color: ${style.color.placeholder};
     display: flex;
     div {
       display: flex;
       flex-direction: column;
     }
   `;
-
-  let PlaceHolder = styled.div`
+  const PlaceHolder = styled.div`
     width: 1px;
     height: 16px;
     margin-left: 11px;
+    ${data.status === 'finish' && `background-color: ${style.color.blue};`};
+    ${data.status === 'active' && `background-color: ${style.color.blue};`};
+    ${data.status === 'error' && `background-color: ${style.color.red};`};
   `;
-  let StepIcon = styled.div`
+  const StepIcon = styled.div`
     height: 24px;
     width: 24px;
     font-size: 14px;
@@ -85,40 +93,25 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
     text-align: center;
     line-height: 24px;
     margin: 0 auto;
+    ${data.status === 'finish' && `color: ${style.color.blue};`};
+    ${data.status === 'active' && `color: ${style.color.blue};`};
+    ${data.status === 'error' && `color: ${style.color.red};`};
   `;
-  let StepName = styled.div`
+  const StepName = styled.div`
     font-size: 15px;
-    color: #666;
+    color: ${style.color.textNormal};
     line-height: 15px;
     margin-left: 16px;
+    ${data.status === 'active' && `color: ${style.color.blue};`};
   `;
-  let StepDesc = styled.div`
+  const StepDesc = styled.div`
     margin-top: 3px;
     font-size: 12px;
-    color: #999;
+    color: ${style.color.textLight};
     line-height: 12px;
     margin-left: 16px;
   `;
-  let StepContent = styled.div`margin-top: 16px;`;
-  if (isFirst) {
-    StepContent = StepContent.extend`margin-top: 0;`;
-  }
-
-  if (data.status === 'finish') {
-    PlaceHolder = PlaceHolder.extend`background-color: #5891ef;`;
-    StepIcon = StepIcon.extend`color: #5891ef;`;
-  }
-
-  if (data.status === 'active') {
-    PlaceHolder = PlaceHolder.extend`background-color: #5891ef;`;
-    StepIcon = StepIcon.extend`color: #5891ef;`;
-    StepName = StepName.extend`color: #5891ef;`;
-  }
-
-  if (data.status === 'error') {
-    PlaceHolder = PlaceHolder.extend`background-color: #ff5f5f;`;
-    StepIcon = StepIcon.extend`color: #ff5f5f;`;
-  }
+  const StepContent = styled.div`${isFirst ? 'margin-top: 0;' : 'margin-top: 16px;'};`;
 
   return (
     <StepItem {...other}>
@@ -138,67 +131,59 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
 };
 
 // 横版进度
-const ProgressStepItem = ({ data, color, deg, isLast = false, ...other }) => {
-  let StepItem = styled.div`
+const ProgressStepItem = ({ data, color, isLast = false, ...other }) => {
+  const StepItem = styled.div`
     margin: 0;
-    color: #cacaca;
+    color: ${style.color.placeholder};
     display: flex;
     flex-direction: column;
-    background-color: #fff;
+    background-color: ${style.color.white};
     ${data.rate ? `width: ${data.rate}` : ''};
+    ${!isLast && 'margin-right: 2px;'};
   `;
-
-  let PlaceHolder = styled.div`
+  const PlaceHolder = styled.div`
     width: 48px;
     height: 15px;
     margin-top: 12px;
-    border-color: #d6d9e0;
+    border-color: ${style.color.bgDeactive};
     border-left: 1px solid;
     border-top: 1px solid;
+    ${data.status === 'active' &&
+      `${color ? `border-color: ${style.color[color]}` : `border-color: ${style.color.blue}`};`};
   `;
-  let PlaceHolderRight = PlaceHolder.extend`
+  const PlaceHolderRight = PlaceHolder.extend`
     border-left: 0;
     border-right: 1px solid;
     border-top: 1px solid;
   `;
-  let StepInfo = styled.div`
+  const StepInfo = styled.div`
     display: flex;
     justify-content: space-between;
   `;
-  let StepContent = styled.div`
-    background-color: #d6d9e0;
-    color: white;
+  const StepContent = styled.div`
+    background-color: ${style.color.bgDeactive};
+    color: ${style.color.white};
     font-size: 12px;
     line-height: 20px;
     text-align: center;
+    ${data.status === 'active' &&
+      `${color
+        ? `background-image: ${style.gradient[color](120)};`
+        : `background-image: ${style.gradient['blue'](120)}`};`};
   `;
-  let StepName = styled.div`
+  const StepName = styled.div`
     font-size: 12px;
     line-height: 12px;
     margin-top: 6px;
-    color: #828994;
+    color: ${style.color.darkGrey};
+    ${data.status === 'active' &&
+      `${color ? `color: ${style.color[color]}` : `color: ${style.color.blue}`};`};
   `;
-  let StepRight = styled.div`
+  const StepRight = styled.div`
     div + div {
       float: right;
     }
   `;
-
-  if (data.status === 'active') {
-    PlaceHolder = PlaceHolder.extend`
-      ${color ? `border-color: ${color}` : 'border-color: #5891EF'};
-    `;
-    StepName = StepName.extend`${color ? `color: ${color}` : 'color: #5891EF'};`;
-    StepContent = StepContent.extend`
-      ${color
-        ? `background-image: linear-gradient(-45deg, ${deg} 0%, ${color} 100%);`
-        : 'background-image: linear-gradient(-45deg, #00B6FF 0%, #3F94F7 100%)'};
-    `;
-  }
-
-  if (!isLast) {
-    StepItem = StepItem.extend`margin-right: 2px;`;
-  }
 
   return (
     <StepItem {...other}>

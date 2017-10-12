@@ -38,7 +38,7 @@ const NoticeBar = ({
     line-height: 36px;
     display: flex;
     flex-direction: row;
-    ${!visible && css`display: none;`};
+    ${!visible && 'display: none;'};
   `;
   const NoticeBarContent = styled.div`${center && centerContent};`;
   const NoticeBarIcon = styled.a`

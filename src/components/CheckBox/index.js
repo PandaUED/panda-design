@@ -12,8 +12,6 @@ const props = {
 };
 
 const CheckBox = ({ name = 'example', className, active, disabled, onChange, desc, ...other }) => {
-  const disabledStyle = css`color: ${style.color.placeholder};`;
-
   const CheckBoxWrap = styled.div`
     display: flex;
     align-items: center;
@@ -72,9 +70,9 @@ const CheckBox = ({ name = 'example', className, active, disabled, onChange, des
       top: 2px;
     }
   `;
-  let CheckBoxContent = styled.div`
+  const CheckBoxContent = styled.div`
     color: ${style.color.textNormal};
-    ${disabled && disabledStyle};
+    ${disabled && `color: ${style.color.placeholder};`};
   `;
   const CheckBoxDesc = styled.div`
     color: ${style.color.textLight};

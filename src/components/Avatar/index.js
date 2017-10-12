@@ -11,21 +11,18 @@ const props = {
 };
 
 const Avatar = ({ className, size = 48, shape = 'circle', url, name = ' ', ...other }) => {
-  let circleStyle = css`border-radius: ${size / 2}px;`;
-  let squareStyle = css`border-radius: 5px;`;
-
-  let AvatarWrap = styled.div`
+  const AvatarWrap = styled.div`
     display: flex;
     align-items: center;
   `;
-  let Avatar = styled.img`
+  const Avatar = styled.img`
     background: ${style.color.bgDeactive};
     width: ${size}px;
     height: ${size}px;
-    ${shape === 'circle' && circleStyle};
-    ${shape === 'square' && squareStyle};
+    border-radius: 5px;
+    ${shape === 'circle' && `border-radius: ${size / 2}px;`};
   `;
-  let AvatarName = styled.div`
+  const AvatarName = styled.div`
     color: white;
     text-align: center;
     position: absolute;

@@ -20,7 +20,7 @@ class Switch extends React.Component {
   }
 
   render() {
-    let { className, type, color = '#4dd865', active, disable } = this.props;
+    const { className, type, color = '#4dd865', active, disable } = this.props;
 
     const squareWrap = css`
       input[type='checkbox']:checked + .checkbox:after {
