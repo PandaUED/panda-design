@@ -12,6 +12,16 @@ export default () => {
         onChange={e => {
           console.log(e.target.value);
         }}
+        showClear
+      />
+      <Input
+        placeholder="请输入手机号"
+        type="tel"
+        onChange={e => {
+          console.log(e.target.value);
+        }}
+        showClear
+        defaultValue="13366049321"
       />
       <WhiteSpace>large</WhiteSpace>
       <Input
