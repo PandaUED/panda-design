@@ -123,7 +123,7 @@ class Input extends React.Component {
       align-items: center;
       padding: 19px 8px;
     `;
-    let Input = styled.input`
+    const Input = styled.input`
       color: ${style.color.textNormal};
       width: 100%;
       margin-left: 24px;
