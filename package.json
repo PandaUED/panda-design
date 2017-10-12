@@ -10,7 +10,7 @@
 	"scripts": {
 		"root": "yarn && yarn build:dll && yarn link",
 		"start": "yarn trello && yarn link pand && roadhog server",
-		"build": "yarn lint:prettier && yarn build:roadhog && yarn build:precache && yarn build:doc",
+		"build": "yarn build:roadhog && yarn build:precache && yarn build:doc",
 		"merge": "open https://coding.net/u/canisminor1990/p/panda-design/git/merge/create?endWith=master",
 		"build:roadhog": "yarn link pand && roadhog build",
 		"build:precache": "sw-precache --config=.precache.js",
