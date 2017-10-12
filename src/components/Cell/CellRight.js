@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { style } from '../';
 
 const props = {
   className: PropTypes.string,
@@ -8,14 +9,15 @@ const props = {
   right: PropTypes.number,
 };
 
-const CellRight = ({ className, size, color, right, children, ...other }) => {
+const CellRight = ({ className, size = 13, color, right = 16, children, ...other }) => {
   const CellRight = styled.div`
     position: absolute;
     display: flex;
     align-items: center;
-    ${size ? `font-size: ${size}px;` : 'font-size: 13px;'};
-    ${color ? `color: ${color};` : 'color: #666D78;'};
-    ${right ? `right: ${right}px;` : 'right: 16px;'};
+    font-weight: normal;
+    font-size: ${size}px;
+    right: ${right}px;
+    ${color ? `color: ${color};` : `color: ${style.color.textNormal};`};
   `;
 
   return (

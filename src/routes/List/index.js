@@ -27,7 +27,7 @@ export default () => {
         </List.Item>
 
         <List.Item>
-          <Cell className="CellCls" along padding={24}>
+          <Cell className="CellCls" alone padding={24}>
             <Cell.Left>
               <Avatar
                 shape="circle"
@@ -52,7 +52,7 @@ export default () => {
           </Cell>
         </List.Item>
         <List.Item>
-          <Cell className="CellCls" along fontSize={15}>
+          <Cell className="CellCls" alone fontSize={15}>
             新手福利
             <Badge type="text">抢购</Badge>
             <Cell.Right color="#CACACA">
@@ -62,14 +62,14 @@ export default () => {
           </Cell>
         </List.Item>
         <List.Item>
-          <Cell className="CellCls" along padding={16}>
+          <Cell className="CellCls" alone padding={16}>
             <Cell.Left size={13}>09:32</Cell.Left>
             <Cell.Main size={13}>熊猫活宝第3227期 · 20万</Cell.Main>
             <Cell.Right color="#666D78">8分钟售罄</Cell.Right>
           </Cell>
         </List.Item>
         <List.Item split>
-          <Cell className="CellCls" along padding={16}>
+          <Cell className="CellCls" alone padding={16}>
             <Cell.Left size={12}>
               <Icon size={16} type="confirm" color="#666D78" />
               <div>我已阅读并同意</div>

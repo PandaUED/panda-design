@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { style } from '../';
 
 const props = {
   className: PropTypes.string,
@@ -9,39 +10,54 @@ const props = {
   desc: PropTypes.node,
   descSize: PropTypes.number,
   descMargin: PropTypes.number,
+  descRight: PropTypes.bool,
+  descBold: PropTypes.bool,
+  descColor: PropTypes.string,
 };
 
 const CellMain = ({
   className,
-  size,
+  size = 16,
   color,
-  marginLeft,
+  marginLeft = 12,
   desc,
-  descSize,
-  descMargin,
+  descSize = 12,
+  descMargin = 8,
+  descRight = false,
+  descBold = false,
+  descColor,
   children,
   ...other
 }) => {
+  const descRightMain = css`
+    display: flex;
+    align-items: center;
+  `;
   const CellMain = styled.div`
     text-align: justify;
-    ${size ? `font-size: ${size}px;` : 'font-size: 16px;'};
-    ${color ? `color: ${color};` : 'color: #444;'};
-    ${marginLeft ? `margin-left: ${marginLeft}px;` : 'margin-left: 12px;'};
+    font-size: ${size}px;
+    margin-left: ${marginLeft}px;
+    ${color ? `color: ${color};` : `color: ${style.color.textDark};`};
+    ${descRight && descRightMain};
   `;
 
   const CellMainDesc = styled.div`
-    color: #999;
-    ${descSize ? `font-size: ${descSize}px;` : 'font-size: 12px;'};
-    ${descMargin ? `margin-top: ${descMargin}px;` : 'margin-top: 8px;'};
+    font-weight: normal;
+    font-size: ${descSize}px;
+    line-height: ${descSize}px;
+    margin-top: ${descMargin}px;
+    ${descColor ? `color: ${descColor};` : `color: ${style.color.textLight};`};
     div {
       display: flex;
       align-items: flex-end;
     }
+    ${descRight && 'margin-top: 1px;margin-left: 4px;'};
+    ${descBold && 'font-weight: bold;'};
   `;
 
   return (
     <CellMain className={className} {...other}>
-      {children}
+      <div>{children}</div>
       {desc && <CellMainDesc className={`${className}-desc`}>{desc}</CellMainDesc>}
     </CellMain>
   );

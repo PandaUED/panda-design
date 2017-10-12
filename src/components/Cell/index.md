@@ -8,12 +8,13 @@
 
 | 属性        | 说明                                |   类型   |   默认值   |
 | :-------- | --------------------------------- | :----: | :-----: |
-| along     |表示不与List搭配使用               | bool | false |
+| alone     |表示不与List搭配使用               | bool | false |
 | center     | 内容是否需要居中                   | bool | false |
 | **OTHER** |   只是提供这些接口，觉得麻烦的话可以在内层node里自己写样式       |        |         |
 | className | 样式类名                              | string |    -    |
 | color | 文字颜色                              | string |    '#444'    |
 | bold | 文字是否加粗                              | bool |    false   |
+| large | 比较大，有最小高度            | bool |    false   |
 | fontSize | 字体大小                            | number |    14   |
 | padding | 不与List搭配使用时常需设置内边距       | number |    16   |
 | margin | Cell的左右margin                            | number |    0   |
@@ -36,11 +37,14 @@
 | desc      | 可以选择添加描述部分                          | node |    -    |
 | **OTHER** | 只是提供这些接口，觉得麻烦的话可以在内层node里自己写样式     |        |         |
 | className | 样式类名, 如果有desc部分,则也作为desc部分类名前缀       | string |    -    |
-| color | 文字颜色                              | string |    '#999'    |
+| color | 文字颜色                              | string |    '#444'    |
 | size | 字体大小                            | number |    14   |
 | marginLeft | 左边距                              | number |    12    |
 | descSize | 描述部分字体大小                            | number |    12   |
-| descMargin | 描述部分距title部分距离                            | number |    8   |
+| descMargin | 描述部分距title部分距离                    | number |    8   |
+| descRight | 描述部分在本体右边                            | bool | false   |
+| descBold | 描述部分加粗                          | bool | false |
+| descColor | 描述部分颜色                            | string |  '#999'   |
 
 
 ### Cell.Right

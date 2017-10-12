@@ -18,7 +18,7 @@ const List = ({ className, children, header, footer, split = true, ...other }) =
   `;
 
   const ListHeader = styled.div`
-    background: #fff;
+    background: ${style.color.white};
     display: flex;
     align-items: center;
     justify-content: space-between;
