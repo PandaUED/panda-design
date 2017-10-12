@@ -46,6 +46,7 @@ const Radio = ({
     input[type='radio']:disabled + div {
       opacity: 0.3;
     }
+
     ${desc && hasDescStyle};
   `;
   const RadioInput = styled.input`

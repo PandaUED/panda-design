@@ -79,6 +79,7 @@ class Switch extends React.Component {
       input[type='checkbox']:disabled + .checkbox {
         opacity: 0.3;
       }
+
       ${type === 'square' && squareWrap};
     `;
     const Switch = styled.div`
@@ -123,6 +124,7 @@ class Switch extends React.Component {
         transform: translateX(0);
         box-shadow: 2px 2px 4px ${style.color.placeholder};
       }
+
       ${type === 'square' && squareSwitch};
     `;
 

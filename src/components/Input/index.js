@@ -136,6 +136,7 @@ class Input extends React.Component {
       ::-webkit-input-placeholder {
         color: ${style.color.placeholder};
       }
+
       ${size === 'large' && largeStyle};
     `;
     const InputLeft = styled.div`margin-left: 16px;`;
