@@ -13,10 +13,10 @@ export default () => {
           <CheckBox />
         </List.Item>
         <List.Item padding={16} split>
-          <CheckBox active disable />
+          <CheckBox active disabled />
         </List.Item>
         <List.Item padding={16} split>
-          <CheckBox disable />
+          <CheckBox disabled />
         </List.Item>
 
         <List.Item padding={16} split>
