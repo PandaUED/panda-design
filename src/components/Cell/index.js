@@ -8,7 +8,6 @@ import CellRight from './CellRight';
 const props = {
   className: PropTypes.string,
   padding: PropTypes.number,
-  margin: PropTypes.number,
   alone: PropTypes.bool,
   center: PropTypes.bool,
   color: PropTypes.string,
@@ -21,7 +20,6 @@ const Cell = ({
   className,
   children,
   padding,
-  margin,
   color,
   center,
   fontSize,
@@ -46,7 +44,6 @@ const Cell = ({
     ${fontSize ? `font-size: ${fontSize}px;` : 'font-size: 14px;'};
     align-items: center;
     ${color ? `color:${color};` : `color: ${style.color.textDark};`};
-    ${margin ? `margin:0 ${margin}px;` : ''};
     ${bold && 'font-weight: bold;'};
     ${alone && aloneCell};
     ${center && centerCell};
