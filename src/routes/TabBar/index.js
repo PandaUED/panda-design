@@ -4,114 +4,59 @@
  * Description: 这是演示页面，展示组件的功能
  */
 
-import { TabBar, WhiteSpace, Card } from 'pand';
+import { TabBar, WhiteSpace, Card, Icon } from 'pand';
 import React from 'react';
+import { darken, rgba } from 'polished';
 import './../../components/Modal/_modal.scss';
 
+const iconSize = 24;
 export default () => {
   class PageTabBar extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        tabsDataA: [
+        tabsData: [
           {
-            content: '首页',
+            title: '首页',
             icon: {
-              size: 24,
-              type: 'Home',
-              double: false,
+              common: <Icon size={iconSize} type={'Home'} />,
+              selected: <Icon size={iconSize} type={'HomeActive'} double />,
             },
           },
           {
-            content: '金库',
+            title: '金库',
             icon: {
-              size: 24,
-              type: 'YuE',
-              double: true,
-              color: ['#333', '#777'],
+              common: <Icon size={iconSize} double type={'YuE'} />,
+              selected: <Icon size={iconSize} type={'CoinActive'} double />,
             },
           },
           {
-            content: '发现',
+            title: '发现',
             icon: {
-              size: 24,
-              type: 'Discover',
+              common: <Icon size={iconSize} type={'Discover'} />,
+              selected: <Icon size={iconSize} type={'DiscoverActive'} double />,
             },
           },
           {
-            content: '我的',
+            title: '我的',
             icon: {
-              size: 24,
-              type: 'My',
+              common: <Icon size={iconSize} type={'My'} />,
+              selected: (
+                <Icon size={iconSize} type={'MyActive'} double gradient color={['orange']} />
+              ),
             },
           },
-          { content: '这是多出来的数据会被自动截断' },
         ],
-        tabsDataB: [
-          {
-            title: '资金安全:',
-            content: '全程由新网银行存管',
-            icon: {
-              size: 24,
-              type: 'GreenSafe',
-              double: true,
-              color: ['#333', '#777'],
-            },
-          },
-          { content: '标题' },
-        ],
-        tabsDataC: [{ content: '标题' }, { content: '标题' }],
-        tabsDataD: [
-          {
-            content: '标题',
-            icon: {
-              size: 24,
-              type: 'Bill',
-            },
-          },
-          {
-            content: '标题',
-            icon: {
-              size: 24,
-              type: 'Bill',
-            },
-          },
-          { content: '标题' },
-        ],
-        activeIndexA: 1,
-        activeIndexB: 0,
-        activeIndexC: 0,
-        activeIndexD: 0,
+        activeIndex: 0,
       };
     }
 
     render() {
-      const {
-        tabsDataA,
-        tabsDataB,
-        tabsDataC,
-        tabsDataD,
-        activeIndexA,
-        activeIndexB,
-        activeIndexC,
-        activeIndexD,
-      } = this.state;
+      const { tabsData } = this.state;
       return (
         <div>
           <Card>
-            <TabBar tabsData={tabsDataA} activeIndex={activeIndexA} />
-          </Card>
-          <WhiteSpace />
-          <Card>
-            <TabBar mode={2} tabsData={tabsDataB} activeIndex={activeIndexB} />
-          </Card>
-          <WhiteSpace />
-          <Card>
-            <TabBar mode={2} tabsData={tabsDataC} activeIndex={activeIndexC} />
-          </Card>
-          <WhiteSpace />
-          <Card>
-            <TabBar mode={3} tabsData={tabsDataD} activeIndex={activeIndexD} />
+            <TabBar tabsData={tabsData} />
           </Card>
         </div>
       );

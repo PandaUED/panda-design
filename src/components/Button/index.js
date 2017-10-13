@@ -1,6 +1,10 @@
+/**
+ * Author: CM & Ruo
+ * Create: 2017-09-28
+ * Description: 按钮组件
+ */
 import React from 'react';
 import { darken, rgba } from 'polished';
-import PropTypes from 'prop-types';
 import TouchFeedback from 'rmc-feedback';
 import styled, { css } from 'styled-components';
 import { style } from '../';
@@ -43,6 +47,7 @@ const Button = ({
   disabled = false,
   ...other
 }) => {
+  // 线框样式
   const ghostStyleSheet = css`
     color: ${singleColorFn(color)};
     border: ${border ? ` 1px solid ${singleColorFn(color)}` : ''};
@@ -53,6 +58,7 @@ const Button = ({
       background-color: transparent;
     }
   `;
+  // 背景渐变样式
   const degStyleSheet = css`
     background: ${gradientColorFn(color, deg)};
     color: #fff;
@@ -62,9 +68,11 @@ const Button = ({
       color: rgba(255, 255, 255, 0.7);
     }
   `;
+  // 阴影样式
   const shadowStyleSheet = css`
     box-shadow: 0 ${shadowSizeFn(size)} 0 ${rgba(singleColorFn(color), 0.3)};
   `;
+  // 右上角高光的样式
   const highlightStyleSheet = css`
     :after {
       content: '';
@@ -79,8 +87,8 @@ const Button = ({
       right: ${hightlightSizeFn(size) * 1.25}px;
       top: ${hightlightSizeFn(size) * 1.25}px;
     }
-    /* 有一个报错在下面那行。。stylelint可能是智障？ */
   `;
+  // 禁用时的样式
   const disabledStyleSheet = css`
     opacity: 0.5;
     cursor: not-allowed;
@@ -110,10 +118,11 @@ const Button = ({
     ${style.text.ellipsis};
     // 线框
     ${!disabled && ghost ? ghostStyleSheet : ''};
-
-    ${!(disabled || ghost || deg === null) ? degStyleSheet : ''} ${shadow
-        ? shadowStyleSheet
-        : ''} ${highlight ? highlightStyleSheet : ''} ${disabled && disabledStyleSheet};
+    // 渐变
+    ${!(disabled || ghost || deg === null) ? degStyleSheet : ''};
+    ${shadow ? shadowStyleSheet : ''};
+    ${highlight ? highlightStyleSheet : ''};
+    ${disabled ? disabledStyleSheet : ''};
   `;
   return (
     <TouchFeedback disabled={disabled}>
