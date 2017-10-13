@@ -3,12 +3,13 @@ import PropTypes from 'prop-types';
 import { style } from '../';
 
 const props = {
+  className: PropTypes.string,
   children: PropTypes.node,
   gutter: PropTypes.number,
   align: PropTypes.string,
 };
 
-const Row = ({ children = 'example', gutter, align = 'top', ...other }) => {
+const Row = ({ className, children = 'example', gutter = 0, align = 'top', ...other }) => {
   const Row = styled.div`
     background-color: ${style.color.bgPage};
     display: flex;
@@ -21,7 +22,11 @@ const Row = ({ children = 'example', gutter, align = 'top', ...other }) => {
     ${align === 'bottom' && `align-items: flex-end;`};
   `;
 
-  return <Row {...other}>{children}</Row>;
+  return (
+    <Row className={className} {...other}>
+      {children}
+    </Row>
+  );
 };
 
 Row.propTypes = props;
