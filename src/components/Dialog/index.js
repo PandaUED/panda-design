@@ -6,6 +6,66 @@ import { style, Modal, Button } from '../';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
+const DialogStyles = {
+  DWrapper: styled.div`
+    .DialogMask-content {
+      width: 100%;
+      height: 100%;
+      ${style.mixins.xmFlexCenter('column')};
+    }
+  `,
+  DContent: styled.div`padding: 24px 16px;`,
+  DialogContainer: styled.div`
+    width: 280px;
+    background: #fff;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+    padding: 1px;
+  `,
+  DMessage: styled.div`
+    font-size: 14px;
+    color: #999;
+    line-height: 21px;
+  `,
+  DClassicBtnWrapper: styled.div`
+    height: 48px;
+    font-size: 18px;
+    box-shadow: inset 0 0 0 0 #f8f8f8;
+    border-top: 1px solid #f8f8f8;
+    line-height: 48px;
+    display: flex;
+    > div {
+      flex: 1;
+      &:last-child {
+        color: ${style.color.orange};
+      }
+      &:nth-child(2) {
+        border-left: 1px solid #f8f8f8;
+      }
+    }
+  `,
+  DTitle: styled.div`
+    color: #444;
+    margin-bottom: 16px;
+    &.new {
+      font-size: 22px;
+      line-height: 22px;
+    }
+    &.classic {
+      font-size: 18px;
+      line-height: 18px;
+    }
+  `,
+  DNewSingleBtn: styled.div`margin: 0 70px 20px;`,
+  DIcon: styled.div`
+    position: absolute;
+    top: 0;
+    transform: translate(-50%, -50%);
+    left: 50%;
+  `,
+};
+
 class Dialog extends Component {
   state = {
     title: '',
@@ -13,6 +73,7 @@ class Dialog extends Component {
     buttons: [],
     theme: 'classic',
     img: null,
+    maskVisible: false,
   };
 
   refDialogView = null;
@@ -26,8 +87,15 @@ class Dialog extends Component {
     callback,
     icon = null,
   }) {
-    this.setState({ title, message, buttons, theme, children, callback, icon }, () => {
-      this.refDialogView.show();
+    this.setState({
+      title,
+      message,
+      buttons,
+      theme,
+      children,
+      callback,
+      icon,
+      maskVisible: true,
     });
   }
 
@@ -40,60 +108,32 @@ class Dialog extends Component {
     theme = 'classic',
     icon = null,
   }) {
-    this.setState({ title, message, buttons, children, callback, theme, icon }, () => {
-      this.refDialogView.show();
+    this.setState({
+      title,
+      message,
+      buttons,
+      children,
+      callback,
+      theme,
+      icon,
+      maskVisible: true,
     });
   }
 
   closeDialog(result) {
     const { callback } = this.state;
     callback && callback(result);
-    this.refDialogView.hide();
+    console.log('closeDialog');
+    this.setState({
+      maskVisible: false,
+    });
   }
 
   render() {
     const { title, message, buttons, theme, children, icon } = this.state;
-    const DialogContainer = styled.div`
-      width: 280px;
-      background: #fff;
-      border-radius: 8px;
-      text-align: center;
-      position: relative;
-      padding: 1px;
-      padding-top: ${icon && '40px'};
-    `;
-    const DContent = styled.div`padding: 24px 16px;`;
-    const DTitle = styled.div`
-      color: #444;
-      margin-bottom: 16px;
-      font-size: ${theme === 'classic' ? '18px' : '22px'};
-      line-height: ${theme === 'classic' ? '18px' : '22px'};
-    `;
-    const DMessage = styled.div`
-      font-size: 14px;
-      color: #999;
-      line-height: 21px;
-    `;
-    const DClassicBtnWrapper = styled.div`
-      height: 48px;
-      font-size: 18px;
-      box-shadow: inset 0 0 0 0 #f8f8f8;
-      border-top: 1px solid #f8f8f8;
-      line-height: 48px;
-      display: flex;
-      > div {
-        flex: 1;
-        &:last-child {
-          color: ${style.color.orange};
-        }
-        &:nth-child(2) {
-          border-left: 1px solid #f8f8f8;
-        }
-      }
-    `;
-    const DNewSingleBtn = styled.div`margin: 0 70px 20px;`;
+
     const DClassicBtnGroup = (
-      <DClassicBtnWrapper className="classicBtnGroup">
+      <DialogStyles.DClassicBtnWrapper className="classicBtnGroup">
         {buttons.map((e, i) => {
           return (
             <div
@@ -107,13 +147,13 @@ class Dialog extends Component {
             </div>
           );
         })}
-      </DClassicBtnWrapper>
+      </DialogStyles.DClassicBtnWrapper>
     );
     const DNewBtnGroup = (
       <div className="newBtnGroup">
         {buttons.map((e, i) => {
           return (
-            <DNewSingleBtn
+            <DialogStyles.DNewSingleBtn
               className="newBtn"
               key={i}
               onClick={() => {
@@ -123,44 +163,36 @@ class Dialog extends Component {
               <Button round color="primary" deg={-45} shadow>
                 {e}
               </Button>
-            </DNewSingleBtn>
+            </DialogStyles.DNewSingleBtn>
           );
         })}
       </div>
     );
 
-    const DIcon = styled.div`
-      position: absolute;
-      top: 0;
-      transform: translate(-50%, -50%);
-      left: 50%;
-    `;
-    const DWrapper = styled.div`
-      .DialogMask-content {
-        width: 100%;
-        height: 100%;
-        ${style.mixins.xmFlexCenter('column')};
-      }
-    `;
     return (
-      <DWrapper>
+      <DialogStyles.DWrapper>
         <Modal
           ref={c => {
             this.refDialogView = c;
           }}
           childrenCls="DialogMask-content"
+          visible={this.state.maskVisible}
         >
-          <DialogContainer className="DialogContainer">
-            {theme === 'new' && icon && <DIcon className="DIcon">{icon}</DIcon>}
-            <DContent>
-              <DTitle>{title}</DTitle>
-              <DMessage>{message}</DMessage>
+          <DialogStyles.DialogContainer
+            className="DialogContainer"
+            style={icon && { paddingTop: '40px' }}
+          >
+            {theme === 'new' &&
+              icon && <DialogStyles.DIcon className="DIcon">{icon}</DialogStyles.DIcon>}
+            <DialogStyles.DContent>
+              <DialogStyles.DTitle className={theme}>{title}</DialogStyles.DTitle>
+              <DialogStyles.DMessage>{message}</DialogStyles.DMessage>
               {children}
-            </DContent>
+            </DialogStyles.DContent>
             {theme === 'classic' ? DClassicBtnGroup : DNewBtnGroup}
-          </DialogContainer>
+          </DialogStyles.DialogContainer>
         </Modal>
-      </DWrapper>
+      </DialogStyles.DWrapper>
     );
   }
 }

@@ -27,7 +27,7 @@ class CombinePassword extends Component {
         </NoticeBar>
         <Keyboard
           type="password"
-          handleChange={r => {
+          onChange={r => {
             this.setState({ currValue: r }, () => {
               if (r.length >= 6) {
                 onPasswordFinish(r);
@@ -65,7 +65,7 @@ class CombineCalculator extends Component {
     return result;
   }
 
-  render({ notice, calculateFunc, onHide, onConfirm }, { currValue }) {
+  render({ notice, actionBar, calculateFunc, onHide, onConfirm }, { currValue }) {
     const Output = styled.div`
       background: #fff;
       box-shadow: 0 2px 6px 0 #e3e3e3;
@@ -98,13 +98,14 @@ class CombineCalculator extends Component {
             <span>{calculateFunc ? calculateFunc(currValue) : currValue}</span>
           </em>
         </Output>
+        {actionBar}
         <NoticeBar center visible>
           {notice}
         </NoticeBar>
         <Keyboard
           type="calculator"
           checkValue={this.checkValue}
-          handleChange={r => {
+          onChange={r => {
             console.log(`currValue: ${this.checkValue(r)}`);
             this.setState({ currValue: r });
           }}
@@ -125,11 +126,18 @@ class CombineCalculator extends Component {
 class Combine extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      currValue: '',
-    };
     this.close = this.close.bind(this);
   }
+
+  static propTypes = {
+    type: PropTypes.string,
+    onClose: '',
+    calculateFunc: '',
+    onConfirm: '',
+    onPasswordFinish: '',
+    actionBar: '',
+    notice: '',
+  };
 
   static defaultProps = {
     type: 'password', // calculator
@@ -189,7 +197,7 @@ class Combine extends Component {
             }}
           >
             <CombineCalculator
-              {...{ notice, calculateFunc, onConfirm }}
+              {...{ actionBar, notice, calculateFunc, onConfirm }}
               onHide={() => {
                 this.close();
               }}
