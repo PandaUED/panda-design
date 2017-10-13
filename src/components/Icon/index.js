@@ -1,52 +1,62 @@
+/**
+ * Author: CM & Ruo
+ * Create: 2017-10-12
+ * Description: 图标组件，可定制大小
+ */
 import classnames from 'classnames';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css, ThemeProvider } from 'styled-components';
 
-const props = {
+// 单色图标 样式
+const singleStyleSheet = css`color: ${({ theme }) => theme.color};`;
+
+// 双色图标 样式
+const doubleStyleSheet = css`
+  position: relative;
+  & > .xmjkDoubleIcon {
+    font-size: inherit;
+  }
+  // 底层
+  & > .xmjkDoubleIcon:nth-child(1) {
+    color: ${({ theme }) => theme.color && theme.color[0]};
+  }
+  // 上面那一层
+  & > .xmjkDoubleIcon:nth-child(2) {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: ${({ theme }) => theme.color && theme.color[1]};
+  }
+`;
+
+const IconContainer = styled.span`
+  width: ${({ theme }) => theme.size}px;
+  height: ${({ theme }) => theme.size}px;
+  display: inline-block;
+  text-align: center;
+  font-size: ${({ theme }) => theme.size}px;
+  line-height: ${({ theme }) => theme.size}px;
+  ${({ theme }) => (theme.double ? doubleStyleSheet : singleStyleSheet)};
+`;
+
+const Icon = ({ className, type, size, color, double = false, ...other }) => {
+  const Name = ['Icon', size, _.upperFirst(_.camelCase(type))].join('-');
+  return (
+    <ThemeProvider theme={{ size, color, double }}>
+      <IconContainer className={!double ? classnames('xmjkIcon', Name, className) : ''} {...other}>
+        {double && <span className={`xmjkDoubleIcon ${Name}_1`} />}
+        {double && <span className={`xmjkDoubleIcon ${Name}_2`} />}
+      </IconContainer>
+    </ThemeProvider>
+  );
+};
+
+Icon.propTypes = {
   size: PropTypes.oneOf([16, 24, 32]).isRequired,
   type: PropTypes.string.isRequired,
   double: PropTypes.bool,
   color: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 };
-
-const Icon = ({ size, className, type, double = false, color, ...other }) => {
-  const Name = ['Icon', size, _.upperFirst(_.camelCase(type))].join('-');
-
-  const IconBase = styled.span`
-    width: ${size}px;
-    height: ${size}px;
-    display: inline-block;
-    font-size: ${size}px;
-    text-align: center;
-    line-height: ${size}px;
-  `;
-
-  if (!double) {
-    const IconSingle = IconBase.extend`${color ? `color:${color}` : ''};`;
-    return <IconSingle className={classnames('xmjkIcon', Name, className)} {...other} />;
-  } else {
-    const IconDouble = IconBase.extend`position: relative;`;
-    const First = IconBase.extend`
-      font-size: inherit;
-      ${color ? `color:${color[0]}` : ''};
-    `;
-    const Second = IconBase.extend`
-      font-size: inherit;
-      ${color ? `color:${color[1]}` : ''};
-      position: absolute;
-      left: 0;
-      top: 0;
-    `;
-    return (
-      <IconDouble className={className} {...other}>
-        <First className={classnames('xmjkDoubleIcon', `${Name}_1`)} />
-        <Second className={classnames('xmjkDoubleIcon', `${Name}_2`)} />
-      </IconDouble>
-    );
-  }
-};
-
-Icon.propTypes = props;
 
 export default Icon;
