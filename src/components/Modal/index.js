@@ -2,11 +2,12 @@
  * Created by Liqi on 17/9/27.
  */
 
+import { default as Component } from '../utlis/Component';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classnames from 'classnames';
-import PropTypes from 'prop-types';
-import { Component } from 'react';
 import { CSSTransition } from 'react-transition-group';
+import { noop } from 'lodash';
 import { style, Icon } from '../';
 import './_modal.scss';
 
@@ -46,32 +47,39 @@ const ModalStyles = {
 
 class Modal extends Component {
   static propTypes = {
-    // TODO
+    visible: PropTypes.bool,
+    onClose: PropTypes.func,
+    closable: PropTypes.bool,
+    maskClosable: PropTypes.bool,
+    animation: PropTypes.bool,
+    maskCls: PropTypes.string,
+    maskBgCls: PropTypes.string,
+    childrenCls: PropTypes.string,
+    children: PropTypes.node,
   };
   static defaultProps = {
-    onClose: null,
-    animation: true,
+    visible: false,
+    onClose: noop,
     closable: false,
-    children: null,
     maskClosable: false,
+    animation: true,
     maskCls: null,
     maskBgCls: null,
     childrenCls: null,
+    children: null,
   };
 
-  render() {
-    const {
-      visible,
-      children,
-      maskCls,
-      maskBgCls,
-      childrenCls,
-      onClose,
-      maskClosable,
-      closable,
-      animation,
-    } = this.props;
-
+  render({
+    visible,
+    children,
+    maskCls,
+    maskBgCls,
+    childrenCls,
+    onClose,
+    maskClosable,
+    closable,
+    animation,
+  }) {
     const ModalBase = (
       <ModalStyles.ModalStyled className={classnames('xm-mask', maskCls)}>
         <ModalStyles.ModalBg
@@ -95,11 +103,7 @@ class Modal extends Component {
     );
 
     if (!animation) {
-      return (
-        <div className="sdagfdh" style={{ visibility: visible ? 'visible' : 'hidden' }}>
-          {ModalBase}
-        </div>
-      );
+      return <div style={{ visibility: visible ? 'visible' : 'hidden' }}>{ModalBase}</div>;
     }
 
     return (
