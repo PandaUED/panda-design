@@ -4,13 +4,14 @@ import PropTypes from 'prop-types';
 import { style } from '../';
 
 const props = {
-  children: PropTypes.string,
+  className: PropTypes.string,
+  children: PropTypes.node,
   span: PropTypes.number,
   offset: PropTypes.number,
   height: PropTypes.number,
 };
 
-const Col = ({ children = 'example', span, offset = 0, height, ...other }) => {
+const Col = ({ className, children = 'example', span, offset = 0, height, ...other }) => {
   const Col = styled.div`
     flex: ${span + offset};
     text-align: center;
@@ -29,7 +30,7 @@ const Col = ({ children = 'example', span, offset = 0, height, ...other }) => {
   `;
 
   return (
-    <Col {...other}>
+    <Col className={className} {...other}>
       <ColOffest />
       <ColContent>{children}</ColContent>
     </Col>
