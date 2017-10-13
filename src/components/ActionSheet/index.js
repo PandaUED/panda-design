@@ -3,7 +3,7 @@
  */
 import { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Icon, WhiteSpace, ModalNoState } from '../';
+import { Icon, WhiteSpace, Modal } from '../';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 import './_actionSheet.scss';
@@ -73,7 +73,8 @@ class ActionSheet extends Component {
 
     return (
       <div>
-        {asVisible && <ModalNoState handleBgClick={this.hide} />}
+        <Modal visible={asVisible} onClose={this.hide} maskClosable />
+
         <CSSTransition timeout={400} classNames="actionSheet-fade" in={asVisible}>
           {status => {
             return (
