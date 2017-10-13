@@ -32,7 +32,7 @@ const HorizontalStepItem = ({ data, isFirst = false, isLast = false, ...other })
     width: 48px;
     height: 1px;
     margin-top: 12px;
-    background-color: ${style.color.split};
+    background-color: ${style.color.bgPage};
     ${data.status === 'active' && `background-color: ${style.color.blue};`};
   `;
   const WhitePlaceHolder = PlaceHolder.extend`background-color: transparent;`;
@@ -44,7 +44,7 @@ const HorizontalStepItem = ({ data, isFirst = false, isLast = false, ...other })
     text-align: center;
     line-height: 24px;
     margin: 0 auto;
-    background-color: ${style.color.split};
+    background-color: ${style.color.bgPage};
     ${data.status === 'active' && activeIcon};
   `;
   const StepName = styled.div`
@@ -81,6 +81,7 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
     width: 1px;
     height: 16px;
     margin-left: 11px;
+    background-color: ${style.color.bgPage};
     ${data.status === 'finish' && `background-color: ${style.color.blue};`};
     ${data.status === 'active' && `background-color: ${style.color.blue};`};
     ${data.status === 'error' && `background-color: ${style.color.red};`};

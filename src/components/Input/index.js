@@ -124,7 +124,7 @@ class Input extends React.Component {
       padding: 19px 8px;
     `;
     const Input = styled.input`
-      color: ${style.color.textNormal};
+      color: ${style.color.textDark};
       width: 100%;
       margin-left: 24px;
       font-size: 16px;

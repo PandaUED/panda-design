@@ -22,6 +22,13 @@ const Avatar = ({ className, size = 48, shape = 'circle', url, name = ' ', ...ot
     border-radius: 5px;
     ${shape === 'circle' && `border-radius: ${size / 2}px;`};
   `;
+  const AvatarDiv = styled.div`
+    background: ${style.color.bgDeactive};
+    width: ${size}px;
+    height: ${size}px;
+    border-radius: 5px;
+    ${shape === 'circle' && `border-radius: ${size / 2}px;`};
+  `;
   const AvatarName = styled.div`
     color: white;
     text-align: center;
@@ -31,8 +38,8 @@ const Avatar = ({ className, size = 48, shape = 'circle', url, name = ' ', ...ot
   `;
 
   return (
-    <AvatarWrap>
-      <Avatar className={className} {...other} src={url} width={size} height={size} />
+    <AvatarWrap className={className}>
+      <AvatarDiv>{url && <Avatar src={url} width={size} height={size} {...other} />}</AvatarDiv>
       {!url && <AvatarName>{name[0].toUpperCase()}</AvatarName>}
     </AvatarWrap>
   );

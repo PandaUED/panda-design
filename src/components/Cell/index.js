@@ -14,6 +14,7 @@ const props = {
   fontSize: PropTypes.number,
   bold: PropTypes.bool,
   large: PropTypes.bool,
+  height: PropTypes.number,
 };
 
 const Cell = ({
@@ -24,6 +25,7 @@ const Cell = ({
   center,
   fontSize,
   bold,
+  height,
   large,
   alone = false,
   ...other
@@ -48,6 +50,7 @@ const Cell = ({
     ${alone && aloneCell};
     ${center && centerCell};
     ${large && 'min-height: 65px'};
+    ${height && `height: ${height}px`};
   `;
 
   return (
