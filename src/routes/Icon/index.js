@@ -69,6 +69,18 @@ export default () => {
         </Body>
       </Card>
       <WhiteSpace />
+      <WhiteSpace />
+      <Card>
+        <Header split>双色 24px 渐变</Header>
+        <Body padding>
+          {DoubleIcon['24'].map(type => (
+            <Box key={type}>
+              <Icon size={24} color={['#333', '#777']} type={type} double gradient />
+              <p>{type}</p>
+            </Box>
+          ))}
+        </Body>
+      </Card>
     </View>
   );
 };
@@ -100,6 +112,10 @@ const SingIcon = {
     'NoConfirm',
   ],
   24: [
+    'StepDone',
+    'StepNormal',
+    'StepDoing',
+    'StepWrong',
     'Back',
     'Fliter',
     'Bill',
@@ -124,6 +140,10 @@ const SingIcon = {
 
 const DoubleIcon = {
   24: [
+    'HomeActive',
+    'DiscoverActive',
+    'CoinActive',
+    'MyActive',
     'Time',
     'Data',
     'User',

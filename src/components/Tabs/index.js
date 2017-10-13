@@ -1,7 +1,8 @@
 /**
  * Author: Ruo
  * Create: 2017-09-28
- * Description:
+ * Description: tab 组件，允许通过传数据结构构建 tabs 或者map重载 tab 组件
+ * 允许带有active滑条（TabLinkBar）
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
@@ -35,7 +36,7 @@ const ErrorTab = EmptyTab.extend`color: red;`;
 
 class Tabs extends React.Component {
   static defaultProps = {
-    hasLinkBar: true,
+    hasLinkBar: false,
     tabsData: [],
     children: [],
     activeIndex: 0,
@@ -74,6 +75,10 @@ class Tabs extends React.Component {
     };
   }
 
+  /**
+   * 可视化动画，如果显示TabLinkBar则也会有动画
+   * 使用不优雅的js写css方式实现，暂时不做改进
+   */
   animation() {
     // eslint-disable-next-line
     const container = ReactDOM.findDOMNode(this.instance);
@@ -85,6 +90,7 @@ class Tabs extends React.Component {
         activeTab.scrollIntoView({ behavior: 'smooth' });
       }, 1);
       const tabLinkBar = container.querySelector('.tab-link-bar');
+      // tabLinkBar 的动画
       if (tabLinkBar) {
         const tabLinkBarWidth = tabLinkBar.offsetWidth;
         const activeTabWidth = activeTab.offsetWidth;
@@ -93,11 +99,15 @@ class Tabs extends React.Component {
       }
     }
   }
-
+  // 判断是否无tab标签数据
   isEmpty() {
     return this.props.tabsData.length === 0 && this.props.children.length === 0;
   }
 
+  /**
+   * 允许通过两种方式构建tabs，但不能两者同时使用
+   * 该方法判断是否两种方式都被使用
+   */
   hasError() {
     return this.props.children.length > 0 && this.props.tabsData.length > 0;
   }
@@ -105,15 +115,19 @@ class Tabs extends React.Component {
   render() {
     const { tabsData, children, activeColor, hasLinkBar, ...other } = this.props;
     const tabs = tabsData.map((tabData, index) => <Tab key={index} index={index} {...tabData} />);
+
     const isEmpty = this.isEmpty();
     const hasError = this.hasError();
+
     return (
       <ThemeProvider theme={{ activeColor: singleColorFn(activeColor) }}>
         <TabContainer ref={i => (this.instance = i)} {...other}>
-          {!hasError && !isEmpty && children}
           {!hasError && !isEmpty && tabs}
-          {hasError && <ErrorTab>Error: Both attribute and embedded data</ErrorTab>}
+          {!hasError && !isEmpty && children}
+
           {!hasError && !isEmpty && hasLinkBar && <TabLinkBar className={'tab-link-bar'} />}
+
+          {hasError && <ErrorTab>Error: Both attribute and embedded data</ErrorTab>}
           {isEmpty && <EmptyTab>None Tab Data</EmptyTab>}
         </TabContainer>
       </ThemeProvider>

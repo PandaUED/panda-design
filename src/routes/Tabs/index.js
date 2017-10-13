@@ -14,27 +14,27 @@ export default () => {
       super(props);
       this.state = {
         tabsDataA: [
-          { content: '这是有点长的标题' },
-          { content: '这是有点长的标题呢' },
-          { content: '嗯嗯确实有点长呢' },
-          { content: 'TITLE2' },
-          { content: 'TITLE3' },
-          { content: 'TITLE4' },
-          { content: 'TITLE5' },
-          { content: 'TITLE6' },
-          { content: '哈哈哈哈哈哈果然很长啊' },
-          { content: 'TITLE8' },
-          { content: 'TITLE9' },
-          { content: 'TITLE10' },
-          { content: '有我长吗HIAHIAHIAHIAHIAHIAHIA～' },
+          { title: '这是有点长的标题' },
+          { title: '这是有点长的标题呢' },
+          { title: '嗯嗯确实有点长呢' },
+          { title: 'TITLE2' },
+          { title: 'TITLE3' },
+          { title: 'TITLE4' },
+          { title: 'TITLE5' },
+          { title: 'TITLE6' },
+          { title: '哈哈哈哈哈哈果然很长啊' },
+          { title: 'TITLE8' },
+          { title: 'TITLE9' },
+          { title: 'TITLE10' },
+          { title: '有我长吗HIAHIAHIAHIAHIAHIAHIA～' },
         ],
         tabsDataB: [
-          { content: 'TITLE1' },
-          { content: 'TITLE2' },
-          { content: 'TITLE3' },
-          { content: 'TITLE4' },
+          { title: 'TITLE1' },
+          { title: 'TITLE2' },
+          { title: 'TITLE3' },
+          { title: 'TITLE4' },
         ],
-        activeIndexB: 3,
+        activeIndexB: 2,
       };
     }
     render() {
@@ -45,7 +45,7 @@ export default () => {
           <Card>
             <Tabs />
           </Card>
-          <WhiteSpace />
+          <WhiteSpace>tabsData和Childen内容都设定时</WhiteSpace>
           <Card>
             <Tabs tabsData={tabsDataA} activeIndex={activeIndexB}>
               {tabsDataA.map((tabData, index) => <Tab key={index} index={index} {...tabData} />)}
@@ -53,11 +53,11 @@ export default () => {
           </Card>
           <WhiteSpace>有数据时的默认样式</WhiteSpace>
           <Card>
-            <Tabs tabsData={tabsDataA} />
+            <Tabs tabsData={tabsDataA} hasLinkBar />
           </Card>
-          <WhiteSpace>定制 hasLinkBar = false</WhiteSpace>
+          <WhiteSpace>定制 hasLinkBar</WhiteSpace>
           <Card>
-            <Tabs hasLinkBar={false}>
+            <Tabs hasLinkBar>
               {tabsDataB.map((tabData, index) => <Tab key={index} index={index} {...tabData} />)}
             </Tabs>
           </Card>

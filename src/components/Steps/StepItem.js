@@ -12,6 +12,13 @@ const props = {
   color: PropTypes.string,
 };
 
+const iconList = {
+  finish: 'StepDone',
+  active: 'StepDoing',
+  holding: 'StepNormal',
+  error: 'StepWrong',
+};
+
 // 横版步骤
 const HorizontalStepItem = ({ data, isFirst = false, isLast = false, ...other }) => {
   const activeIcon = css`
@@ -32,7 +39,7 @@ const HorizontalStepItem = ({ data, isFirst = false, isLast = false, ...other })
     width: 48px;
     height: 1px;
     margin-top: 12px;
-    background-color: ${style.color.split};
+    background-color: ${style.color.bgPage};
     ${data.status === 'active' && `background-color: ${style.color.blue};`};
   `;
   const WhitePlaceHolder = PlaceHolder.extend`background-color: transparent;`;
@@ -44,7 +51,7 @@ const HorizontalStepItem = ({ data, isFirst = false, isLast = false, ...other })
     text-align: center;
     line-height: 24px;
     margin: 0 auto;
-    background-color: ${style.color.split};
+    background-color: ${style.color.bgPage};
     ${data.status === 'active' && activeIcon};
   `;
   const StepName = styled.div`
@@ -81,6 +88,7 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
     width: 1px;
     height: 16px;
     margin-left: 11px;
+    background-color: ${style.color.bgPage};
     ${data.status === 'finish' && `background-color: ${style.color.blue};`};
     ${data.status === 'active' && `background-color: ${style.color.blue};`};
     ${data.status === 'error' && `background-color: ${style.color.red};`};
@@ -93,9 +101,11 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
     text-align: center;
     line-height: 24px;
     margin: 0 auto;
-    ${data.status === 'finish' && `color: ${style.color.blue};`};
-    ${data.status === 'active' && `color: ${style.color.blue};`};
-    ${data.status === 'error' && `color: ${style.color.red};`};
+    color: ${style.color.placeholder};
+    background-color: ${style.color.bgPage};
+    ${data.status === 'finish' && `background-color: ${style.color.blue};color: white;`};
+    ${data.status === 'active' && `background-color: ${style.color.blue};color: white;`};
+    ${data.status === 'error' && `background-color: ${style.color.red};color: white;`};
   `;
   const StepName = styled.div`
     font-size: 15px;
@@ -118,7 +128,7 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
       <div>
         {!isFirst && <PlaceHolder />}
         <StepIcon>
-          <Icon size={24} type={data.icon} />
+          <Icon size={24} type={iconList[data.status]} />
         </StepIcon>
         {!isLast && <PlaceHolder />}
       </div>

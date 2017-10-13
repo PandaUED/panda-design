@@ -3,7 +3,7 @@
 // 文档请不要留白也会报错，至少复制Example中的文档
 export default {
   Variable: ['style'],
-  Layout: ['View', 'WhiteSpace', 'WingBlank'],
+  Layout: ['View', 'WhiteSpace', 'WingBlank', 'Grid'],
   Navigation: ['NavBar', 'Tabs', 'TabBar', 'Steps'],
   DataEntry: ['Icon', 'Button', 'Card', 'Avatar', 'Input', 'Switch', 'CheckBox', 'Radio'],
   DataDisplay: ['Showcase', 'Carousel', 'List', 'Cell', 'Badge', 'Tag', 'NoticeBar'],

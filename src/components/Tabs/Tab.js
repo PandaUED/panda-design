@@ -1,27 +1,24 @@
 /**
  * Author: Ruo
  * Create: 2017-10-07
- * Description:
+ * Description: tab标签 内部渲染顺序为:title > children
  */
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
-import { Icon } from 'pand';
 
-const BasicTab = (props, context) => {
-  const { onClick, index, key, title, content, icon, className, ...rest } = props;
-  const { activeIndex } = context;
+const BasicTab = (props, { activeIndex, handleSync }) => {
+  const { onClick, index, key, title, className, children, ...rest } = props;
   const handleOnClick = () => {
     onClick instanceof Function && onClick();
-    context.handleSync(index);
+    handleSync(index);
   };
   const activeClass = classNames(className, activeIndex === index ? 'active' : '');
   return (
     <a key={key} onClick={handleOnClick} className={activeClass} {...rest}>
-      {icon && <Icon {...icon} />}
       {title && <span>{title}</span>}
-      <span>{content}</span>
+      {children}
     </a>
   );
 };
@@ -45,7 +42,6 @@ export const Tab = styled(BasicTab)`
   font-weight: 500;
   color: #666;
   cursor: pointer;
-  transition: color 0.15s ease-in-out;
   &.active {
     color: ${({ theme }) => theme.activeColor};
     position: relative;

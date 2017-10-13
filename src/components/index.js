@@ -6,6 +6,7 @@ export { default as Example } from './Example';
 export { default as View } from './View';
 export { default as WhiteSpace } from './WhiteSpace';
 export { default as WingBlank } from './WingBlank';
+export { Row, Col } from './Grid';
 
 // Navigation
 export { NavBar, NAVBAR_MODE } from './NavBar';
