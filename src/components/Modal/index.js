@@ -86,8 +86,6 @@ class Modal extends Component {
           className={classnames('xm-mask-bg', maskBgCls)}
           onClick={() => {
             console.log('bg');
-            console.log(maskClosable);
-
             maskClosable && onClose();
           }}
         />

@@ -1,13 +1,14 @@
-# 动作窗
+# 动作面板
 
-说明用途
+从底部弹出的动作面板
 
 ## API
 
-| 属性        | 说明                                |   类型   |   默认值   |
-| :-------- | --------------------------------- | :----: | :-----: |
-| props     | 说明                | - | - |
-| **OTHER** |                                   |        |         |
-| classname | 样式类名                              | string |    -    |
-| style     | 自定义样式                             | object |    -    |
-| onClick   | 点击按钮的点击回调函数                       |  func  |    -    |
+
+| 属性   | 说明      |   类型   |   默认值   |
+| :-------- | ------ | :----: | :-----: |
+| closeBtnPosition | string | top/bottom | top |
+| onClose | 关闭回调 | func | null |
+| title | 标题 | string | null |
+| actionSheetCls | 包裹类 | string | null |
+| children | 内容 | node | null
