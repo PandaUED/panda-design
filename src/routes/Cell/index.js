@@ -5,7 +5,7 @@ export default () => {
   return (
     <View>
       <WhiteSpace>Cell-Avatar</WhiteSpace>
-      <Cell className="CellCls" alone padding={24}>
+      <Cell className="CellCls" alone padding={16} height={90} bold>
         <Cell.Left>
           <Avatar
             shape="circle"
@@ -195,7 +195,7 @@ export default () => {
       </Cell>
 
       <WhiteSpace>Cell-Other</WhiteSpace>
-      <Cell className="CellCls" alone padding={16}>
+      <Cell className="CellCls" alone padding={16} bold>
         <Cell.Main desc="活动时间：2017.07.18 - 2017.07.24">尊享卡5折秒杀</Cell.Main>
       </Cell>
       <WhiteSpace />
