@@ -25,7 +25,6 @@
 | :-------- | --------------------------------- | :----: | :-----: |
 | name      | 步骤名称                | string  | '步骤1' |
 | desc      | 详细介绍，辅助说明        | string  | '辅助说明文字' |
-| icon      | 图标样式                | string  | 'Acitve' |
 | status    | 步骤进行状态             | string  | 'finish' or 'active' or 'holding' or 'error' |
 
 ### progress类型data数据格式

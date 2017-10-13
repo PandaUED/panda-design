@@ -28,6 +28,7 @@
 | className | 样式类名                              | string |    -    |
 | color | 文字颜色                              | string |    '#999'    |
 | size | 字体大小                            | number |    14   |
+| marginLeft | 左边距                            | number |    0   |
 
 
 ### Cell.Main

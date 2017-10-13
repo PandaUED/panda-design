@@ -15,6 +15,7 @@ const props = {
   bold: PropTypes.bool,
   large: PropTypes.bool,
   height: PropTypes.number,
+  align: PropTypes.string,
 };
 
 const Cell = ({
@@ -27,6 +28,7 @@ const Cell = ({
   bold,
   height,
   large,
+  align = '',
   alone = false,
   ...other
 }) => {
@@ -51,6 +53,7 @@ const Cell = ({
     ${center && centerCell};
     ${large && 'min-height: 65px'};
     ${height && `height: ${height}px`};
+    ${align === 'top' && 'align-items: flex-start;'};
   `;
 
   return (

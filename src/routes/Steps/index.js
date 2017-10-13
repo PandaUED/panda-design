@@ -8,10 +8,10 @@ const horizontalData = [
 ];
 
 const verticalData = [
-  { name: '步骤1', status: 'finish', icon: 'acitve', desc: '辅助说明文本' },
-  { name: '步骤2', status: 'active', icon: 'acitve', desc: '辅助说明文本' },
-  { name: '步骤3', status: 'holding', icon: 'news', desc: '辅助说明文本' },
-  { name: '步骤4', status: 'error', icon: 'close', desc: '辅助说明文本' },
+  { name: '步骤1', status: 'finish', desc: '辅助说明文本' },
+  { name: '步骤2', status: 'active', desc: '辅助说明文本' },
+  { name: '步骤3', status: 'holding', desc: '辅助说明文本' },
+  { name: '步骤4', status: 'error', desc: '辅助说明文本' },
 ];
 
 const progressData = [
