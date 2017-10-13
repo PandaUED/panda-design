@@ -1,8 +1,7 @@
 /**
  * Created by Liqi on 17/9/30.
  */
-import { WhiteSpace, Keyboard, style, Icon } from 'pand';
-import styled from 'styled-components';
+import { WhiteSpace, Keyboard, Icon } from 'pand';
 
 const PageKeyboard = () => {
   return (
@@ -11,13 +10,13 @@ const PageKeyboard = () => {
       <Keyboard
         type="password"
         icon={<Icon size={24} type="Yes" />}
-        handleChange={r => console.log(`currValue: ${r}`)}
+        onChange={r => console.log(`currValue: ${r}`)}
       />
 
       <WhiteSpace>Keyboard calculator</WhiteSpace>
       <Keyboard
         type="calculator"
-        handleChange={r => console.log(`currValue: ${r}`)}
+        onChange={r => console.log(`currValue: ${r}`)}
         onHide={() => {
           console.log(`hide`);
         }}

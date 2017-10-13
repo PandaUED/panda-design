@@ -27,7 +27,7 @@ class CombinePassword extends Component {
         </NoticeBar>
         <Keyboard
           type="password"
-          handleChange={r => {
+          onChange={r => {
             this.setState({ currValue: r }, () => {
               if (r.length >= 6) {
                 onPasswordFinish(r);
@@ -104,7 +104,7 @@ class CombineCalculator extends Component {
         <Keyboard
           type="calculator"
           checkValue={this.checkValue}
-          handleChange={r => {
+          onChange={r => {
             console.log(`currValue: ${this.checkValue(r)}`);
             this.setState({ currValue: r });
           }}
