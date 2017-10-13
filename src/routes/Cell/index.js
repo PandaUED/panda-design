@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tag, TAG_TYPE, Badge, Icon, Avatar, Cell, View, WhiteSpace } from 'pand';
+import { Tag, TAG_TYPE, Badge, Icon, Avatar, Cell, View, WhiteSpace, WingBlank } from 'pand';
 
 export default () => {
   return (
@@ -79,12 +79,14 @@ export default () => {
         「3月期」年化8.5% (已售罄)
       </Cell>
       <WhiteSpace />
-      <Cell className="CellCls" alone margin={10}>
-        <Cell.Main>不使用红包</Cell.Main>
-        <Cell.Right right={24}>
-          <Icon size={24} type="Acitve" color="#07CF93" />
-        </Cell.Right>
-      </Cell>
+      <WingBlank size={10}>
+        <Cell className="CellCls" alone>
+          <Cell.Main>不使用红包</Cell.Main>
+          <Cell.Right right={24}>
+            <Icon size={24} type="Acitve" color="#07CF93" />
+          </Cell.Right>
+        </Cell>
+      </WingBlank>
 
       <WhiteSpace>Cell-CellLarge</WhiteSpace>
       <Cell className="CellCls" alone large>

@@ -17,7 +17,6 @@
 | large | 比较大，有最小高度            | bool |    false   |
 | fontSize | 字体大小                            | number |    14   |
 | padding | 不与List搭配使用时常需设置内边距       | number |    16   |
-| margin | Cell的左右margin                            | number |    0   |
 
 
 ### Cell.Left
