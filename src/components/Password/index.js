@@ -3,10 +3,20 @@
  */
 
 import { default as Component } from '../utlis/Component';
+import styled from 'styled-components';
 import { ActionSheet, Input, Keyboard, WhiteSpace, NoticeBar } from '../';
 import PropTypes from 'prop-types';
 import { noop } from 'lodash';
 
+const PasswordStyles = {
+  ActionBar: styled.div`
+    font-family: PingFangSC-Regular;
+    font-size: 12px;
+    color: #999;
+    line-height: 16px;
+    margin-left: 30px;
+  `,
+};
 class Password extends Component {
   constructor(props) {
     super(props);
@@ -18,18 +28,20 @@ class Password extends Component {
 
   static propTypes = {
     onClose: PropTypes.func,
-    calculateFunc: PropTypes.func,
-    onConfirm: PropTypes.func,
     onPasswordFinish: PropTypes.func,
+    passwordNum: PropTypes.number,
     actionBar: PropTypes.node,
     notice: PropTypes.string,
+    icon: PropTypes.node,
   };
 
   static defaultProps = {
+    onClose: noop,
+    onPasswordFinish: noop,
+    passwordNum: 6,
     actionBar: null,
     notice: null,
-    onPasswordFinish: noop,
-    calculateFunc: null,
+    icon: null,
   };
 
   open() {
@@ -49,20 +61,21 @@ class Password extends Component {
     this.clear();
   }
 
-  render({ actionBar, notice, onPasswordFinish, onClose }, { currValue }) {
+  render({ onClose, onPasswordFinish, passwordNum, actionBar, notice, icon }, { currValue }) {
     return (
       <ActionSheet
         ref={c => (this.refASPassword = c)}
         title="输入验证码"
         onClose={() => {
           console.log('close 回调');
-          onClose();
+          onClose(this.state.currValue);
           this.clear();
         }}
       >
         <Input size="square" value={currValue} />
         <WhiteSpace transparent />
-        {actionBar}
+        <PasswordStyles.ActionBar>{actionBar}</PasswordStyles.ActionBar>
+        <WhiteSpace transparent size={25} />
         <NoticeBar center visible>
           {notice}
         </NoticeBar>
@@ -70,11 +83,13 @@ class Password extends Component {
           type="password"
           onChange={r => {
             this.setState({ currValue: r }, () => {
-              if (r.length >= 6) {
+              if (r.length >= passwordNum) {
                 onPasswordFinish(r);
               }
             });
           }}
+          numLimit={passwordNum}
+          icon={icon}
         />
       </ActionSheet>
     );

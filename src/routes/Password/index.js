@@ -14,13 +14,6 @@ const PasswordDemo = styled.div`
     ${style.split.bottom};
   }
 `;
-const Timer = styled.div`
-  font-family: PingFangSC-Regular;
-  font-size: 12px;
-  color: #999;
-  line-height: 16px;
-  margin-left: 30px;
-`;
 
 const PagePassword = () => {
   let refPassword = null;
@@ -37,13 +30,8 @@ const PagePassword = () => {
       </a>
       <Password
         ref={c => (refPassword = c)}
-        actionBar={
-          <div>
-            <Timer>重新获取 (41s)</Timer>
-            <WhiteSpace transparent size={25} />
-          </div>
-        }
-        onClose={() => console.log('close 应用层回调')}
+        actionBar="重新获取 (41s)"
+        onClose={value => console.log(`close 应用层回调, value: ${value}`)}
         notice="短信验证码已发至153****3008，请查收"
         onPasswordFinish={value => {
           console.log(`input finished, value: ${value}`);
