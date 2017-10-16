@@ -7,6 +7,8 @@ import styled from 'styled-components';
 import { ActionSheet, Input, Keyboard, WhiteSpace, NoticeBar } from '../';
 import PropTypes from 'prop-types';
 import { noop } from 'lodash';
+import ReactDOM from 'react-dom';
+import React from 'react';
 
 const PasswordStyles = {
   ActionBar: styled.div`
@@ -22,6 +24,7 @@ class Password extends Component {
     super(props);
     this.state = {
       currValue: '',
+      key: new Date().getTime(),
     };
     this.close = this.close.bind(this);
   }
@@ -49,11 +52,10 @@ class Password extends Component {
   }
 
   clear() {
-    console.log('TODO clear');
-    // TODO clear
-    // this.setState({
-    //     currValue: '',
-    // });
+    this.setState({
+      key: new Date().getTime(),
+      currValue: '',
+    });
   }
 
   close() {
@@ -61,7 +63,7 @@ class Password extends Component {
     this.clear();
   }
 
-  render({ onClose, onPasswordFinish, passwordNum, actionBar, notice, icon }, { currValue }) {
+  render({ onClose, onPasswordFinish, passwordNum, actionBar, notice, icon }, { currValue, key }) {
     return (
       <ActionSheet
         ref={c => (this.refASPassword = c)}
@@ -81,6 +83,7 @@ class Password extends Component {
         </NoticeBar>
         <Keyboard
           type="password"
+          key={key}
           onChange={r => {
             this.setState({ currValue: r }, () => {
               if (r.length >= passwordNum) {
