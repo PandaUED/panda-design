@@ -38,7 +38,8 @@ export default () => {
           {
             title: (
               <div>
-                TITLE1<Badge className={'corner'} type="text">
+                TITLE1
+                <Badge className={'corner'} type="text">
                   new
                 </Badge>
               </div>
@@ -56,7 +57,8 @@ export default () => {
           {
             title: (
               <div>
-                TITLE1<Badge className={'corner'} type="text">
+                TITLE1
+                <Badge className={'corner'} type="text">
                   new
                 </Badge>
               </div>
@@ -80,6 +82,7 @@ export default () => {
         activeIndexB: 2,
       };
     }
+
     render() {
       const { tabsDataA, tabsDataB, tabsDataC, tabsDataD, activeIndexB } = this.state;
       return (
@@ -87,12 +90,6 @@ export default () => {
           <WhiteSpace>无数据时的样式</WhiteSpace>
           <Card>
             <Tabs />
-          </Card>
-          <WhiteSpace>tabsData和Childen内容都设定时</WhiteSpace>
-          <Card>
-            <Tabs tabsData={tabsDataA} activeIndex={activeIndexB}>
-              {tabsDataA.map((tabData, index) => <Tab key={index} index={index} {...tabData} />)}
-            </Tabs>
           </Card>
           <WhiteSpace>有数据时的默认样式</WhiteSpace>
           <Card>
@@ -106,25 +103,20 @@ export default () => {
           </Card>
           <WhiteSpace>定制 hasLinkBar</WhiteSpace>
           <Card>
-            <Tabs hasLinkBar>
-              {tabsDataB.map((tabData, index) => <Tab key={index} index={index} {...tabData} />)}
-            </Tabs>
+            <Tabs tabsData={tabsDataB} hasLinkBar />
           </Card>
           <WhiteSpace>定制 activeColor</WhiteSpace>
           <Card>
-            <Tabs activeColor={'orange'}>
-              {tabsDataB.map((tabData, index) => <Tab key={index} index={index} {...tabData} />)}
-            </Tabs>
+            <Tabs tabsData={tabsDataB} activeColor={'orange'} />
           </Card>
           <WhiteSpace>定制 activeIndex</WhiteSpace>
           <Card>
-            <Tabs activeIndex={activeIndexB}>
-              {tabsDataB.map((tabData, index) => <Tab key={index} index={index} {...tabData} />)}
-            </Tabs>
+            <Tabs tabsData={tabsDataB} activeIndex={activeIndexB} />
           </Card>
         </div>
       );
     }
   }
+
   return <PageTab />;
 };

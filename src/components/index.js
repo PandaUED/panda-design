@@ -11,7 +11,7 @@ export { Row, Col } from './Grid';
 // Navigation
 export { NavBar, NAVBAR_MODE } from './NavBar';
 export { Tabs, Tab, TabContainer, TabLinkBar } from './Tabs';
-export { TabBar } from './TabBar';
+export { TabFrame } from './TabFrame';
 export { default as Steps } from './Steps';
 
 // Data Entry

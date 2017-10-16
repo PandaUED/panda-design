@@ -35,7 +35,7 @@ const ErrorTab = EmptyTab.extend`color: red;`;
 
 const TabContainer = styled.div`
   position: relative;
-  width: auto;
+  width: 100%;
   height: 54px;
   display: flex;
   flex-wrap: nowrap;
@@ -77,7 +77,7 @@ class Tabs extends React.Component {
       activeIndex: props.activeIndex || 0,
     };
   }
-
+  componentWillMount() {}
   componentDidMount() {
     this.animation();
   }
@@ -85,17 +85,16 @@ class Tabs extends React.Component {
   componentDidUpdate() {
     this.animation();
   }
-
   getChildContext() {
     const t = this;
     return {
       handleSync(index) {
+        t.context.handleSync && t.context.handleSync(index);
         t.setState({ activeIndex: index });
       },
       activeIndex: t.state.activeIndex,
     };
   }
-
   /**
    * 可视化动画，如果显示TabLinkBar则也会有动画
    * 使用不优雅的js写css方式实现，暂时不做改进
@@ -132,23 +131,25 @@ class Tabs extends React.Component {
   hasError() {
     return this.props.children.length > 0 && this.props.tabsData.length > 0;
   }
-
   render() {
-    const { tabsData, children, activeColor, hasLinkBar, ...other } = this.props;
-    const tabs = tabsData.map((tabData, index) => <Tab key={index} index={index} {...tabData} />);
+    const { tabsData, children, activeColor, hasLinkBar, activeIndex, ...other } = this.props;
+    const tabTitles = tabsData.map((tabData, index) => (
+      <Tab key={index} index={index} {...tabData} />
+    ));
 
     const isEmpty = this.isEmpty();
     const hasError = this.hasError();
     let extraClass = '';
-    if (tabs.length === 2 || children.length === 2) {
+    if (tabTitles.length === 2 || children.length === 2) {
       extraClass = 'length-two';
-    } else if (tabs.length === 3 || children.length === 3) {
+    } else if (tabTitles.length === 3 || children.length === 3) {
       extraClass = 'length-three';
     }
+
     return (
       <ThemeProvider theme={{ activeColor: singleColorFn(activeColor) }}>
         <TabContainer className={extraClass} ref={i => (this.instance = i)} {...other}>
-          {!hasError && !isEmpty && tabs}
+          {!hasError && !isEmpty && tabTitles}
           {!hasError && !isEmpty && children}
 
           {!hasError && !isEmpty && hasLinkBar && <TabLinkBar className={'tab-link-bar'} />}
@@ -160,8 +161,11 @@ class Tabs extends React.Component {
     );
   }
 }
-
 Tabs.childContextTypes = {
+  handleSync: PropTypes.func,
+  activeIndex: PropTypes.number,
+};
+Tabs.contextTypes = {
   handleSync: PropTypes.func,
   activeIndex: PropTypes.number,
 };

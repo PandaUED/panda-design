@@ -10,12 +10,12 @@ import classNames from 'classnames';
 import { Badge } from 'pand';
 
 const BasicTab = (
-  { onClick, index, key, title = '', className, children, badge, dot, ...rest },
+  { onClick, index, title = '', className, children, badge, dot, ...rest },
   { activeIndex, handleSync }
 ) => {
   const handleOnClick = () => {
     onClick instanceof Function && onClick();
-    handleSync(index);
+    handleSync && handleSync(index);
   };
   let BadgeNode;
   if (badge instanceof React.Component) {
@@ -25,7 +25,7 @@ const BasicTab = (
   }
   const activeClass = classNames(className, activeIndex === index ? 'active' : '');
   return (
-    <a key={key} onClick={handleOnClick} className={activeClass} {...rest}>
+    <a onClick={handleOnClick} className={activeClass} {...rest}>
       {title}
       {children}
       {BadgeNode}
