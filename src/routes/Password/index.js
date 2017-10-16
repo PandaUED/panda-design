@@ -40,6 +40,7 @@ const PagePassword = () => {
           });
           refPassword.close();
         }}
+        // resetWhenClose={false}
       />
     </PasswordDemo>
   );

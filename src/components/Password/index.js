@@ -17,11 +17,13 @@ const PasswordStyles = {
     margin-left: 30px;
   `,
 };
+
 class Password extends Component {
   constructor(props) {
     super(props);
     this.state = {
       currValue: '',
+      key: new Date().getTime(),
     };
     this.close = this.close.bind(this);
   }
@@ -30,6 +32,7 @@ class Password extends Component {
     onClose: PropTypes.func,
     onPasswordFinish: PropTypes.func,
     passwordNum: PropTypes.number,
+    resetWhenClose: PropTypes.bool,
     actionBar: PropTypes.node,
     notice: PropTypes.string,
     icon: PropTypes.node,
@@ -39,6 +42,7 @@ class Password extends Component {
     onClose: noop,
     onPasswordFinish: noop,
     passwordNum: 6,
+    resetWhenClose: true,
     actionBar: null,
     notice: null,
     icon: null,
@@ -48,20 +52,23 @@ class Password extends Component {
     this.refASPassword.show();
   }
 
-  clear() {
-    console.log('TODO clear');
-    // TODO clear
-    // this.setState({
-    //     currValue: '',
-    // });
+  reset() {
+    if (this.props.resetWhenClose) {
+      this.setState({
+        key: new Date().getTime(),
+        currValue: '',
+      });
+    }
   }
 
   close() {
     this.refASPassword.hide();
-    this.clear();
   }
 
-  render({ onClose, onPasswordFinish, passwordNum, actionBar, notice, icon }, { currValue }) {
+  render(
+    { onClose, onPasswordFinish, passwordNum, actionBar, notice, icon, resetWhenClose },
+    { currValue, key }
+  ) {
     return (
       <ActionSheet
         ref={c => (this.refASPassword = c)}
@@ -69,7 +76,7 @@ class Password extends Component {
         onClose={() => {
           console.log('close 回调');
           onClose(this.state.currValue);
-          this.clear();
+          resetWhenClose && this.reset();
         }}
       >
         <Input size="square" value={currValue} />
@@ -81,6 +88,7 @@ class Password extends Component {
         </NoticeBar>
         <Keyboard
           type="password"
+          key={key}
           onChange={r => {
             this.setState({ currValue: r }, () => {
               if (r.length >= passwordNum) {

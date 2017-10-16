@@ -29,6 +29,7 @@ const PageCalculator = () => {
         打开计算器
       </a>
       <Calculator
+        // resetWhenClose
         ref={c => (refCalculator = c)}
         calculateFunc={value => value * 2}
         onClose={() => console.log('Calculator close')}

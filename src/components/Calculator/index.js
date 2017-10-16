@@ -40,6 +40,7 @@ class Calculator extends Component {
     checkValue: PropTypes.func,
     onClose: PropTypes.func,
     onConfirm: PropTypes.func,
+    resetWhenClose: PropTypes.bool,
     content: PropTypes.node,
     notice: PropTypes.string,
   };
@@ -49,6 +50,7 @@ class Calculator extends Component {
     checkValue: null,
     onClose: noop,
     onConfirm: noop,
+    resetWhenClose: false,
     content: null,
     notice: null,
   };
@@ -59,6 +61,15 @@ class Calculator extends Component {
 
   close() {
     this.refASCalculator.hide();
+  }
+
+  reset() {
+    if (this.props.resetWhenClose) {
+      this.setState({
+        key: new Date().getTime(),
+        currValue: '',
+      });
+    }
   }
 
   checkValue(value) {
@@ -78,7 +89,10 @@ class Calculator extends Component {
     return result;
   }
 
-  render({ calculateFunc, checkValue, onClose, onConfirm, content, notice }, { currValue }) {
+  render(
+    { calculateFunc, checkValue, onClose, onConfirm, content, notice, resetWhenClose },
+    { currValue, key }
+  ) {
     return (
       <ActionSheet
         ref={c => (this.refASCalculator = c)}
@@ -86,6 +100,7 @@ class Calculator extends Component {
         onClose={() => {
           console.log('close 回调');
           onClose();
+          resetWhenClose && this.reset();
         }}
       >
         <Input
@@ -108,6 +123,7 @@ class Calculator extends Component {
         </NoticeBar>
         <Keyboard
           type="calculator"
+          key={key}
           checkValue={checkValue || this.checkValue}
           onChange={r => {
             this.setState({ currValue: r });
