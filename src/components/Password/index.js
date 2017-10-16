@@ -19,6 +19,7 @@ const PasswordStyles = {
     margin-left: 30px;
   `,
 };
+
 class Password extends Component {
   constructor(props) {
     super(props);
@@ -33,6 +34,7 @@ class Password extends Component {
     onClose: PropTypes.func,
     onPasswordFinish: PropTypes.func,
     passwordNum: PropTypes.number,
+    resetWhenClose: PropTypes.bool,
     actionBar: PropTypes.node,
     notice: PropTypes.string,
     icon: PropTypes.node,
@@ -42,6 +44,7 @@ class Password extends Component {
     onClose: noop,
     onPasswordFinish: noop,
     passwordNum: 6,
+    resetWhenClose: true,
     actionBar: null,
     notice: null,
     icon: null,
@@ -51,19 +54,23 @@ class Password extends Component {
     this.refASPassword.show();
   }
 
-  clear() {
-    this.setState({
-      key: new Date().getTime(),
-      currValue: '',
-    });
+  reset() {
+    if (this.props.resetWhenClose) {
+      this.setState({
+        key: new Date().getTime(),
+        currValue: '',
+      });
+    }
   }
 
   close() {
     this.refASPassword.hide();
-    this.clear();
   }
 
-  render({ onClose, onPasswordFinish, passwordNum, actionBar, notice, icon }, { currValue, key }) {
+  render(
+    { onClose, onPasswordFinish, passwordNum, actionBar, notice, icon, resetWhenClose },
+    { currValue, key }
+  ) {
     return (
       <ActionSheet
         ref={c => (this.refASPassword = c)}
@@ -71,7 +78,7 @@ class Password extends Component {
         onClose={() => {
           console.log('close 回调');
           onClose(this.state.currValue);
-          this.clear();
+          resetWhenClose && this.reset();
         }}
       >
         <Input size="square" value={currValue} />

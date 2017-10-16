@@ -21,5 +21,6 @@ Calculator.close();
 | checkValue | 输入过滤函数 | func | 过滤两位小数 |
 | onClose | 关闭弹窗回调 | func | null |
 | onConfirm | 点击确认按钮回调 | func | null |
+| resetWhenClose | 关闭弹窗时是否重置数值 | bool | false |
 | notice | noticeBar内容 | string | null |
 | content | 更多内容接口 | node | null |
