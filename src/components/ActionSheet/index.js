@@ -1,7 +1,6 @@
 /**
  * Created by Liqi on 17/9/28.
  */
-// import { Component } from 'react';
 import { default as Component } from '../utlis/Component';
 import PropTypes from 'prop-types';
 import { Icon, WhiteSpace, Modal } from '../';
