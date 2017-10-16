@@ -7,8 +7,6 @@ import styled from 'styled-components';
 import { ActionSheet, Input, Keyboard, WhiteSpace, NoticeBar } from '../';
 import PropTypes from 'prop-types';
 import { noop } from 'lodash';
-import ReactDOM from 'react-dom';
-import React from 'react';
 
 const PasswordStyles = {
   ActionBar: styled.div`
