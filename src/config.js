@@ -8,7 +8,7 @@ export default {
   DataEntry: ['Icon', 'Button', 'Card', 'Avatar', 'Input', 'Switch', 'CheckBox', 'Radio'],
   DataDisplay: ['Showcase', 'Carousel', 'List', 'Cell', 'Badge', 'Tag', 'NoticeBar'],
   Feedback: ['Modal', 'Dialog', 'Toast', 'ActionSheet', 'Keyboard'],
-  Combination: ['Combine', 'Calculator'],
+  Combination: ['Combine', 'Calculator', 'Password'],
   Gesture: [],
   Other: [],
 };

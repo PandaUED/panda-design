@@ -41,6 +41,7 @@ export { ActionSheet } from './ActionSheet';
 export { Keyboard } from './Keyboard';
 export { Combine } from './Combine';
 export { Calculator } from './Calculator';
+export { Password } from './Password';
 
 // Gesture
 
