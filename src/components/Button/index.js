@@ -124,6 +124,7 @@ const Button = ({
     ${highlight ? highlightStyleSheet : ''};
     ${disabled ? disabledStyleSheet : ''};
   `;
+
   return (
     <TouchFeedback disabled={disabled}>
       <BasicButton role="button" onClick={onClick} {...other}>

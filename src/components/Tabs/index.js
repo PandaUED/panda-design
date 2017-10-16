@@ -11,7 +11,6 @@ import styled, { ThemeProvider } from 'styled-components';
 import { style } from '../';
 
 import { Tab } from './Tab';
-import { TabContainer } from './TabContainer';
 
 const singleColorFn = color => style.color[color];
 
@@ -34,6 +33,28 @@ const EmptyTab = styled.div`
 `;
 const ErrorTab = EmptyTab.extend`color: red;`;
 
+const TabContainer = styled.div`
+  position: relative;
+  width: auto;
+  height: 54px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  text-align: center;
+  appearance: none;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &.length-two {
+    padding: 0 80px;
+  }
+  &.length-three {
+    padding: 0 30px;
+  }
+  &.dot {
+  }
+`;
 class Tabs extends React.Component {
   static defaultProps = {
     hasLinkBar: false,
@@ -118,10 +139,15 @@ class Tabs extends React.Component {
 
     const isEmpty = this.isEmpty();
     const hasError = this.hasError();
-
+    let extraClass = '';
+    if (tabs.length === 2 || children.length === 2) {
+      extraClass = 'length-two';
+    } else if (tabs.length === 3 || children.length === 3) {
+      extraClass = 'length-three';
+    }
     return (
       <ThemeProvider theme={{ activeColor: singleColorFn(activeColor) }}>
-        <TabContainer ref={i => (this.instance = i)} {...other}>
+        <TabContainer className={extraClass} ref={i => (this.instance = i)} {...other}>
           {!hasError && !isEmpty && tabs}
           {!hasError && !isEmpty && children}
 

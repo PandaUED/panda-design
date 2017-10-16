@@ -7,18 +7,28 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import classNames from 'classnames';
+import { Badge } from 'pand';
 
-const BasicTab = (props, { activeIndex, handleSync }) => {
-  const { onClick, index, key, title, className, children, ...rest } = props;
+const BasicTab = (
+  { onClick, index, key, title = '', className, children, badge, dot, ...rest },
+  { activeIndex, handleSync }
+) => {
   const handleOnClick = () => {
     onClick instanceof Function && onClick();
     handleSync(index);
   };
+  let BadgeNode;
+  if (badge instanceof React.Component) {
+    BadgeNode = badge;
+  } else if (typeof badge === 'string') {
+    BadgeNode = <Badge dot={dot}>badge</Badge>;
+  }
   const activeClass = classNames(className, activeIndex === index ? 'active' : '');
   return (
     <a key={key} onClick={handleOnClick} className={activeClass} {...rest}>
-      {title && <span>{title}</span>}
+      {title}
       {children}
+      {BadgeNode}
     </a>
   );
 };
@@ -27,6 +37,7 @@ BasicTab.contextTypes = {
   activeIndex: PropTypes.number,
 };
 export const Tab = styled(BasicTab)`
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -45,5 +56,12 @@ export const Tab = styled(BasicTab)`
   &.active {
     color: ${({ theme }) => theme.activeColor};
     position: relative;
+  }
+  & .corner {
+    position: absolute;
+    transform: translate3d(0em, -11px, 0) scale(0.9);
+  }
+  & .dot {
+    transform: translate3d(3px, -6px, 0) scale(0.9);
   }
 `;

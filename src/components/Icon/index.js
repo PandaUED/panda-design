@@ -14,15 +14,15 @@ const singleStyleSheet = css`color: ${({ theme }) => theme.color};`;
 // 双色图标 样式
 const doubleStyleSheet = css`
   position: relative;
-  & > .xmjkDoubleIcon {
+  & > span {
     font-size: inherit;
   }
   // 底层
-  & > .xmjkDoubleIcon:nth-child(1) {
+  & > span:nth-child(1) {
     color: ${({ theme }) => theme.color && theme.color[0]};
   }
   // 上面那一层
-  & > .xmjkDoubleIcon:nth-child(2) {
+  & > span:nth-child(2) {
     position: absolute;
     left: 0;
     top: 0;
@@ -44,9 +44,12 @@ const Icon = ({ className, type, size, color, double = false, ...other }) => {
   const Name = ['Icon', size, _.upperFirst(_.camelCase(type))].join('-');
   return (
     <ThemeProvider theme={{ size, color, double }}>
-      <IconContainer className={!double ? classnames('xmjkIcon', Name, className) : ''} {...other}>
-        {double && <span className={`xmjkDoubleIcon ${Name}_1`} />}
-        {double && <span className={`xmjkDoubleIcon ${Name}_2`} />}
+      <IconContainer
+        className={classnames(double ? 'xmjkDoubleIcon' : 'xmjkIcon', Name, className)}
+        {...other}
+      >
+        {double && <span className={`${Name}_1`} />}
+        {double && <span className={`${Name}_2`} />}
       </IconContainer>
     </ThemeProvider>
   );

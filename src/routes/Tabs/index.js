@@ -4,7 +4,7 @@
  * Description: 这是演示页面，展示组件的功能
  */
 
-import { Tabs, Tab, TabLinkBar, WhiteSpace, Card } from 'pand';
+import { Tabs, Tab, Badge, WhiteSpace, Card } from 'pand';
 import React from 'react';
 import './../../components/Modal/_modal.scss';
 
@@ -34,11 +34,54 @@ export default () => {
           { title: 'TITLE3' },
           { title: 'TITLE4' },
         ],
+        tabsDataC: [
+          {
+            title: (
+              <div>
+                TITLE1<Badge className={'corner'} type="text">
+                  new
+                </Badge>
+              </div>
+            ),
+          },
+          {
+            title: (
+              <div>
+                TITLE2<Badge className={'corner dot'} type="dot" />
+              </div>
+            ),
+          },
+        ],
+        tabsDataD: [
+          {
+            title: (
+              <div>
+                TITLE1<Badge className={'corner'} type="text">
+                  new
+                </Badge>
+              </div>
+            ),
+          },
+          {
+            title: (
+              <div>
+                TITLE2<Badge>188</Badge>
+              </div>
+            ),
+          },
+          {
+            title: (
+              <div>
+                TITLE3<Badge className={'corner dot'} type="dot" />
+              </div>
+            ),
+          },
+        ],
         activeIndexB: 2,
       };
     }
     render() {
-      const { tabsDataA, tabsDataB, activeIndexB } = this.state;
+      const { tabsDataA, tabsDataB, tabsDataC, tabsDataD, activeIndexB } = this.state;
       return (
         <div>
           <WhiteSpace>无数据时的样式</WhiteSpace>
@@ -52,6 +95,12 @@ export default () => {
             </Tabs>
           </Card>
           <WhiteSpace>有数据时的默认样式</WhiteSpace>
+          <Card>
+            <Tabs tabsData={tabsDataC} hasLinkBar />
+          </Card>
+          <Card>
+            <Tabs tabsData={tabsDataD} hasLinkBar />
+          </Card>
           <Card>
             <Tabs tabsData={tabsDataA} hasLinkBar />
           </Card>
