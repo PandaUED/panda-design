@@ -5,26 +5,27 @@
 import { WhiteSpace, Combine, style, NoticeBar, Toast } from 'pand';
 import styled from 'styled-components';
 
-const PageCombine = () => {
-  const CombineDemo = styled.div`
-    > a {
-      display: block;
-      padding: 1rem;
-      background: #fff;
-      color: #444;
-      ${style.split.bottom};
-    }
-  `;
-  const Timer = styled.div`
-    font-family: PingFangSC-Regular;
-    font-size: 12px;
-    color: #999;
-    line-height: 16px;
-    margin-left: 30px;
-  `;
+const CombineDemo = styled.div`
+  > a {
+    display: block;
+    padding: 1rem;
+    background: #fff;
+    color: #444;
+    ${style.split.bottom};
+  }
+`;
+const Timer = styled.div`
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #999;
+  line-height: 16px;
+  margin-left: 30px;
+`;
 
+const PageCombine = () => {
   let refCombinePassword = null;
   let refCombineCalculator = null;
+
   return (
     <CombineDemo>
       <WhiteSpace>Combine</WhiteSpace>
@@ -35,9 +36,8 @@ const PageCombine = () => {
       >
         输入验证码
       </a>
-      <Combine
+      <Combine.Password
         ref={c => (refCombinePassword = c)}
-        type="password"
         actionBar={
           <div>
             <Timer>重新获取 (41s)</Timer>
@@ -61,13 +61,12 @@ const PageCombine = () => {
       >
         计算器
       </a>
-      <Combine
+      <Combine.Calculator
         ref={c => (refCombineCalculator = c)}
-        type="calculator"
-        notice="预期年化收益可能与累计单日收益出现几分钱的误差"
         calculateFunc={value => value * 2}
         onClose={() => console.log('Combine close')}
         onConfirm={() => console.log('Combine confirm')}
+        notice="预期年化收益可能与累计单日收益出现几分钱的误差"
       />
     </CombineDemo>
   );

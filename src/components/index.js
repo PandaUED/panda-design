@@ -40,6 +40,7 @@ export { Toast, ToastSharedInstance } from './Toast';
 export { ActionSheet } from './ActionSheet';
 export { Keyboard } from './Keyboard';
 export { Combine } from './Combine';
+export { Calculator } from './Calculator';
 
 // Gesture
 
