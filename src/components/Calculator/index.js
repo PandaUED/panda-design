@@ -40,7 +40,7 @@ class Calculator extends Component {
     checkValue: PropTypes.func,
     onClose: PropTypes.func,
     onConfirm: PropTypes.func,
-    actionBar: PropTypes.node,
+    content: PropTypes.node,
     notice: PropTypes.string,
   };
 
@@ -49,7 +49,7 @@ class Calculator extends Component {
     checkValue: null,
     onClose: noop,
     onConfirm: noop,
-    actionBar: null,
+    content: null,
     notice: null,
   };
 
@@ -78,7 +78,7 @@ class Calculator extends Component {
     return result;
   }
 
-  render({ calculateFunc, checkValue, onClose, onConfirm, actionBar, notice }, { currValue }) {
+  render({ calculateFunc, checkValue, onClose, onConfirm, content, notice }, { currValue }) {
     return (
       <ActionSheet
         ref={c => (this.refASCalculator = c)}
@@ -102,7 +102,7 @@ class Calculator extends Component {
             <span>{calculateFunc ? calculateFunc(currValue) : currValue}</span>
           </em>
         </CalculatorStyles.Output>
-        {actionBar}
+        {content}
         <NoticeBar center visible>
           {notice}
         </NoticeBar>

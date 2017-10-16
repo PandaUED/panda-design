@@ -39,12 +39,12 @@ export { Dialog, DialogSharedInstance } from './Dialog';
 export { Toast, ToastSharedInstance } from './Toast';
 export { ActionSheet } from './ActionSheet';
 export { Keyboard } from './Keyboard';
-export { Calculator } from './Calculator';
-export { Password } from './Password';
 
 // Gesture
 
 // Combination
+export { Calculator } from './Calculator';
+export { Password } from './Password';
 
 // Utils
 export { default as Component } from './utlis/Component';
