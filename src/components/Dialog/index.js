@@ -1,10 +1,18 @@
 /**
  * Created by Liqi on 17/9/28.
  */
-import { Component } from 'react';
+import { default as Component } from '../utlis/Component';
 import { style, Modal, Button } from '../';
-import PropTypes from 'prop-types';
 import styled from 'styled-components';
+
+const DIALOG_TYPE = {
+  ALERT: 'alert',
+  CONFIRM: 'confirm',
+};
+const DIALOG_THEME = {
+  CLASSIC: 'classic',
+  NEW: 'new',
+};
 
 const DialogStyles = {
   DWrapper: styled.div`
@@ -70,31 +78,30 @@ class Dialog extends Component {
   state = {
     title: '',
     message: '',
-    buttons: [],
-    theme: 'classic',
-    img: null,
+    confirmBtn: '确认',
+    cancelBtn: '取消',
+    theme: DIALOG_THEME.CLASSIC,
+    callback: null,
     maskVisible: false,
+    type: DIALOG_TYPE.ALERT,
   };
-
-  refDialogView = null;
 
   alert({
     title,
     message,
-    buttons = ['确认'],
-    theme = 'classic',
-    children = null,
+    confirmBtn = '确认',
+    theme = DIALOG_THEME.CLASSIC,
     callback,
     icon = null,
   }) {
     this.setState({
       title,
       message,
-      buttons,
+      confirmBtn,
       theme,
-      children,
       callback,
       icon,
+      type: DIALOG_TYPE.ALERT,
       maskVisible: true,
     });
   }
@@ -102,20 +109,21 @@ class Dialog extends Component {
   confirm({
     title,
     message,
-    buttons = ['取消', '确认'],
-    children = null,
+    confirmBtn = '确认',
+    cancelBtn = '取消',
     callback,
-    theme = 'classic',
+    theme = DIALOG_THEME.CLASSIC,
     icon = null,
   }) {
     this.setState({
       title,
       message,
-      buttons,
-      children,
-      callback,
+      confirmBtn,
+      cancelBtn,
       theme,
+      callback,
       icon,
+      type: DIALOG_TYPE.CONFIRM,
       maskVisible: true,
     });
   }
@@ -123,61 +131,60 @@ class Dialog extends Component {
   closeDialog(result) {
     const { callback } = this.state;
     callback && callback(result);
-    console.log('closeDialog');
     this.setState({
       maskVisible: false,
     });
   }
 
-  render() {
-    const { title, message, buttons, theme, children, icon } = this.state;
-
-    const DClassicBtnGroup = (
-      <DialogStyles.DClassicBtnWrapper className="classicBtnGroup">
-        {buttons.map((e, i) => {
-          return (
-            <div
-              key={i}
-              className="classicBtn"
-              onClick={() => {
-                this.closeDialog(buttons.length === 1 ? true : !!i);
-              }}
-            >
-              {e}
-            </div>
-          );
-        })}
-      </DialogStyles.DClassicBtnWrapper>
-    );
-    const DNewBtnGroup = (
-      <div className="newBtnGroup">
-        {buttons.map((e, i) => {
-          return (
-            <DialogStyles.DNewSingleBtn
-              className="newBtn"
-              key={i}
-              onClick={() => {
-                this.closeDialog(buttons.length === 1 ? true : !!i);
-              }}
-            >
-              <Button round color="primary" deg={-45} shadow>
+  renderBtnGroup() {
+    const { type, theme, confirmBtn, cancelBtn } = this.state;
+    const buttonArr = type === DIALOG_TYPE.ALERT ? [confirmBtn] : [cancelBtn, confirmBtn];
+    if (theme === DIALOG_THEME.CLASSIC) {
+      return (
+        <DialogStyles.DClassicBtnWrapper className="classicBtnGroup">
+          {buttonArr.map((e, i) => {
+            return (
+              <div
+                key={i}
+                className="classicBtn"
+                onClick={() => {
+                  this.closeDialog(buttonArr.length === 1 ? true : !!i);
+                }}
+              >
                 {e}
-              </Button>
-            </DialogStyles.DNewSingleBtn>
-          );
-        })}
-      </div>
-    );
+              </div>
+            );
+          })}
+        </DialogStyles.DClassicBtnWrapper>
+      );
+    } else {
+      return (
+        <div className="newBtnGroup">
+          {buttonArr.map((e, i) => {
+            return (
+              <DialogStyles.DNewSingleBtn
+                className="newBtn"
+                key={i}
+                onClick={() => {
+                  this.closeDialog(buttonArr.length === 1 ? true : !!i);
+                }}
+              >
+                <Button round color="primary" deg={-45} shadow>
+                  {e}
+                </Button>
+              </DialogStyles.DNewSingleBtn>
+            );
+          })}
+        </div>
+      );
+    }
+  }
 
+  // eslint-disable-next-line
+    render({}, { title, message, theme, icon }) {
     return (
       <DialogStyles.DWrapper>
-        <Modal
-          ref={c => {
-            this.refDialogView = c;
-          }}
-          childrenCls="DialogMask-content"
-          visible={this.state.maskVisible}
-        >
+        <Modal childrenCls="DialogMask-content" visible={this.state.maskVisible}>
           <DialogStyles.DialogContainer
             className="DialogContainer"
             style={icon && { paddingTop: '40px' }}
@@ -187,9 +194,8 @@ class Dialog extends Component {
             <DialogStyles.DContent>
               <DialogStyles.DTitle className={theme}>{title}</DialogStyles.DTitle>
               <DialogStyles.DMessage>{message}</DialogStyles.DMessage>
-              {children}
             </DialogStyles.DContent>
-            {theme === 'classic' ? DClassicBtnGroup : DNewBtnGroup}
+            {this.renderBtnGroup()}
           </DialogStyles.DialogContainer>
         </Modal>
       </DialogStyles.DWrapper>
