@@ -13,8 +13,8 @@ const BasicTabContent = ({ index, children, className, ...other }, { activeIndex
   return (
     <div
       index={index}
-      {...other}
       className={classNames('tab-content', className, activeIndex === index ? 'active' : '')}
+      {...other}
     >
       {children}
     </div>

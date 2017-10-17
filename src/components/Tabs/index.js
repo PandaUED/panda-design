@@ -8,6 +8,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
+import classnames from 'classnames';
 import { style } from '../';
 
 import { Tab } from './Tab';
@@ -36,7 +37,7 @@ const ErrorTab = EmptyTab.extend`color: red;`;
 const TabContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 54px;
+  //height: 54px;
   display: flex;
   flex-wrap: nowrap;
   align-items: center;
@@ -55,16 +56,17 @@ const TabContainer = styled.div`
   &.dot {
   }
 `;
+
 class Tabs extends React.Component {
   static defaultProps = {
-    hasLinkBar: false,
+    linkBar: false,
     tabsData: [],
     children: [],
     activeIndex: 0,
     activeColor: 'blue',
   };
   static propTypes = {
-    hasLinkBar: PropTypes.bool,
+    linkBar: PropTypes.bool,
     tabsData: PropTypes.array,
     children: PropTypes.array,
     activeIndex: PropTypes.number,
@@ -77,14 +79,17 @@ class Tabs extends React.Component {
       activeIndex: props.activeIndex || 0,
     };
   }
+
   componentWillMount() {}
+
   componentDidMount() {
-    this.animation();
+    this.animation(false);
   }
 
   componentDidUpdate() {
     this.animation();
   }
+
   getChildContext() {
     const t = this;
     return {
@@ -95,20 +100,27 @@ class Tabs extends React.Component {
       activeIndex: t.state.activeIndex,
     };
   }
+
   /**
    * 可视化动画，如果显示TabLinkBar则也会有动画
    * 使用不优雅的js写css方式实现，暂时不做改进
+   * @param {bool} [scrollInto=true] 设置是否加载时就滚动到可见状态
    */
-  animation() {
+  animation(scrollInto = true) {
     // eslint-disable-next-line
     const container = ReactDOM.findDOMNode(this.instance);
     const activeTab = container.querySelector(`a:nth-child(${this.state.activeIndex + 1})`);
     // scrollIntoView 方法兼容到ie8
     // 使用setTimeout是因为页面加载完后立马smooth动画不会发生
     if (activeTab) {
-      setTimeout(() => {
-        activeTab.scrollIntoView({ behavior: 'smooth' });
-      }, 1);
+      if (scrollInto) {
+        setTimeout(() => {
+          activeTab.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+          });
+        }, 1);
+      }
       const tabLinkBar = container.querySelector('.tab-link-bar');
       // tabLinkBar 的动画
       if (tabLinkBar) {
@@ -119,6 +131,7 @@ class Tabs extends React.Component {
       }
     }
   }
+
   // 判断是否无tab标签数据
   isEmpty() {
     return this.props.tabsData.length === 0 && this.props.children.length === 0;
@@ -131,8 +144,17 @@ class Tabs extends React.Component {
   hasError() {
     return this.props.children.length > 0 && this.props.tabsData.length > 0;
   }
+
   render() {
-    const { tabsData, children, activeColor, hasLinkBar, activeIndex, ...other } = this.props;
+    const {
+      tabsData,
+      children,
+      activeColor,
+      linkBar,
+      className,
+      activeIndex,
+      ...other
+    } = this.props;
     const tabTitles = tabsData.map((tabData, index) => (
       <Tab key={index} index={index} {...tabData} />
     ));
@@ -145,14 +167,17 @@ class Tabs extends React.Component {
     } else if (tabTitles.length === 3 || children.length === 3) {
       extraClass = 'length-three';
     }
-
     return (
       <ThemeProvider theme={{ activeColor: singleColorFn(activeColor) }}>
-        <TabContainer className={extraClass} ref={i => (this.instance = i)} {...other}>
+        <TabContainer
+          className={classnames(className, extraClass)}
+          ref={i => (this.instance = i)}
+          {...other}
+        >
           {!hasError && !isEmpty && tabTitles}
           {!hasError && !isEmpty && children}
 
-          {!hasError && !isEmpty && hasLinkBar && <TabLinkBar className={'tab-link-bar'} />}
+          {!hasError && !isEmpty && linkBar && <TabLinkBar className={'tab-link-bar'} />}
 
           {hasError && <ErrorTab>Error: Both attribute and embedded data</ErrorTab>}
           {isEmpty && <EmptyTab>None Tab Data</EmptyTab>}
@@ -161,6 +186,7 @@ class Tabs extends React.Component {
     );
   }
 }
+
 Tabs.childContextTypes = {
   handleSync: PropTypes.func,
   activeIndex: PropTypes.number,

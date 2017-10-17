@@ -93,17 +93,17 @@ export default () => {
           </Card>
           <WhiteSpace>有数据时的默认样式</WhiteSpace>
           <Card>
-            <Tabs tabsData={tabsDataC} hasLinkBar />
+            <Tabs tabsData={tabsDataC} linkBar />
           </Card>
           <Card>
-            <Tabs tabsData={tabsDataD} hasLinkBar />
+            <Tabs tabsData={tabsDataD} linkBar />
           </Card>
           <Card>
-            <Tabs tabsData={tabsDataA} hasLinkBar />
+            <Tabs tabsData={tabsDataA} linkBar />
           </Card>
-          <WhiteSpace>定制 hasLinkBar</WhiteSpace>
+          <WhiteSpace>定制 linkBar</WhiteSpace>
           <Card>
-            <Tabs tabsData={tabsDataB} hasLinkBar />
+            <Tabs tabsData={tabsDataB} linkBar />
           </Card>
           <WhiteSpace>定制 activeColor</WhiteSpace>
           <Card>
