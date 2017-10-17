@@ -113,7 +113,7 @@ export default () => {
               style: {
                 width: '64px',
                 flexGrow: 0,
-                borderRight: '1px solid #F8F8F8',
+                boxShadow: '0.5px 0 0 #f8f8f8',
               },
             },
           },
