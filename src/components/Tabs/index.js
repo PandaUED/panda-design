@@ -55,14 +55,14 @@ const TabContainer = styled.div`
 class Tabs extends React.Component {
   static defaultProps = {
     linkBar: false,
-    tabsData: [],
+    titles: [],
     children: [],
     activeIndex: 0,
     activeColor: 'blue',
   };
   static propTypes = {
     linkBar: PropTypes.bool,
-    tabsData: PropTypes.array,
+    titles: PropTypes.array,
     children: PropTypes.array,
     activeIndex: PropTypes.number,
     activeColor: PropTypes.string,
@@ -129,7 +129,7 @@ class Tabs extends React.Component {
 
   // 判断是否无tab标签数据
   isEmpty() {
-    return this.props.tabsData.length === 0 && this.props.children.length === 0;
+    return this.props.titles.length === 0 && this.props.children.length === 0;
   }
 
   /**
@@ -137,20 +137,12 @@ class Tabs extends React.Component {
    * 该方法判断是否两种方式都被使用
    */
   hasError() {
-    return this.props.children.length > 0 && this.props.tabsData.length > 0;
+    return this.props.children.length > 0 && this.props.titles.length > 0;
   }
 
   render() {
-    const {
-      tabsData,
-      children,
-      activeColor,
-      linkBar,
-      className,
-      activeIndex,
-      ...other
-    } = this.props;
-    const tabTitles = tabsData.map((tabData, index) => (
+    const { titles, children, activeColor, linkBar, className, activeIndex, ...other } = this.props;
+    const tabTitles = titles.map((tabData, index) => (
       <Tab key={index} index={index} {...tabData} />
     ));
 

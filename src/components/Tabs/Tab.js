@@ -10,7 +10,7 @@ import classNames from 'classnames';
 import { Badge } from 'pand';
 
 const BasicTab = (
-  { onClick, index, title = '', disable, className, children, badge, dot, ...rest },
+  { onClick, index, title, disable = false, className, children, badge, dot, ...rest },
   { activeIndex, handleSync }
 ) => {
   const handleOnClick = () => {

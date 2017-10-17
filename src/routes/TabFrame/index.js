@@ -164,7 +164,6 @@ export default () => {
               title: '温馨提示:',
               icon: {
                 common: <Icon size={iconSize} type={'Discover'} />,
-                selected: <Icon size={iconSize} type={'DiscoverActive'} double />,
               },
               description: '本月省1次免费转出机会',
             },
