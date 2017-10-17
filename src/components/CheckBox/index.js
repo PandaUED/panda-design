@@ -71,12 +71,12 @@ const CheckBox = ({ name = 'example', className, active, disabled, onChange, des
     }
   `;
   const CheckBoxContent = styled.div`
-    color: ${style.color.textNormal};
+    color: ${style.color.textDark};
     ${disabled && `color: ${style.color.placeholder};`};
   `;
   const CheckBoxDesc = styled.div`
     color: ${style.color.textLight};
-    font-size: 14px;
+    font-size: 12px;
   `;
 
   return (

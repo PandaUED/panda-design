@@ -14,6 +14,7 @@
 | className | 样式类名                              | string |    -    |
 | color | 文字颜色                              | string |    '#444'    |
 | bold | 文字是否加粗                              | bool |    false   |
+| height | 高度                              | number |   -   |
 | large | 比较大，有最小高度            | bool |    false   |
 | fontSize | 字体大小                            | number |    14   |
 | padding | 不与List搭配使用时常需设置内边距       | number |    16   |
@@ -27,6 +28,7 @@
 | className | 样式类名                              | string |    -    |
 | color | 文字颜色                              | string |    '#999'    |
 | size | 字体大小                            | number |    14   |
+| marginLeft | 左边距                            | number |    0   |
 
 
 ### Cell.Main

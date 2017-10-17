@@ -66,7 +66,7 @@ const Radio = ({
   `;
   const RadioDesc = styled.div`
     color: ${style.color.textLight};
-    font-size: 14px;
+    font-size: 12px;
     margin-top: 5px;
   `;
   const RadioIcon = styled.div`

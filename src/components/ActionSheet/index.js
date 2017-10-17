@@ -1,13 +1,52 @@
 /**
  * Created by Liqi on 17/9/28.
  */
-import { Component } from 'react';
+import { default as Component } from '../utlis/Component';
 import PropTypes from 'prop-types';
-import { Icon, WhiteSpace, ModalNoState } from '../';
+import { Icon, WhiteSpace, Modal } from '../';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 import './_actionSheet.scss';
 import { noop } from 'lodash';
+
+const ACTIONSHEET_TYPE = {
+  TOP: 'top',
+  BOTTOM: 'bottom',
+};
+
+const ASStyles = {
+  ASContainer: styled.div`
+    position: fixed;
+    bottom: 0;
+    background: #fff;
+    width: 100%;
+  `,
+  ASTitle: styled.div`
+    height: 54px;
+    line-height: 54px;
+    font-family: PingFangSC-Regular;
+    font-size: 17px;
+    color: #666;
+    text-align: center;
+    position: relative;
+  `,
+  ASCloseBtnTop: styled.div`
+    position: absolute;
+    padding: 15px;
+    left: 0;
+    top: 0;
+    z-index: 100;
+  `,
+  ASCloseBtnBottom: styled.div`
+    height: 54px;
+    line-height: 54px;
+    text-align: center;
+    font-family: PingFangSC-Regular;
+    font-size: 16px;
+    color: #444;
+    font-weight: bold;
+  `,
+};
 
 class ActionSheet extends Component {
   constructor(props) {
@@ -18,10 +57,18 @@ class ActionSheet extends Component {
     this.hide = this.hide.bind(this);
   }
 
+  static propTypes = {
+    closeBtnPosition: PropTypes.string,
+    onClose: PropTypes.func,
+    title: PropTypes.string,
+    actionSheetCls: PropTypes.string,
+  };
+
   static defaultProps = {
-    title: null,
+    closeBtnPosition: ACTIONSHEET_TYPE.TOP,
     onClose: noop,
-    closeBtnPosition: 'top',
+    title: null,
+    actionSheetCls: null,
   };
 
   show() {
@@ -30,70 +77,33 @@ class ActionSheet extends Component {
 
   hide() {
     this.setState({ asVisible: false });
-    const { onClose } = this.props;
-    onClose && onClose();
+    this.props.onClose();
   }
 
-  render() {
-    const { asVisible } = this.state;
-    const { title, children, closeBtnPosition } = this.props;
-
-    const ASContainer = styled.div`
-      position: fixed;
-      bottom: 0;
-      background: #fff;
-      width: 100%;
-    `;
-
-    const ASTitle = styled.div`
-      height: 54px;
-      line-height: 54px;
-      font-family: .PingFangSC-Regular;
-      font-size: 17px;
-      color: #666;
-      text-align: center;
-      position: relative;
-    `;
-    const ASCloseBtnTop = styled.div`
-      position: absolute;
-      padding: 15px;
-      left: 0;
-      top: 0;
-      z-index: 100;
-    `;
-    const ASCloseBtnBottom = styled.div`
-      height: 54px;
-      line-height: 54px;
-      text-align: center;
-      font-family: PingFangSC-Regular;
-      font-size: 16px;
-      color: #444;
-      font-weight: bold;
-    `;
-
+  render({ title, children, closeBtnPosition, actionSheetCls }, { asVisible }) {
     return (
-      <div>
-        {asVisible && <ModalNoState handleBgClick={this.hide} />}
+      <div className={actionSheetCls}>
+        <Modal visible={asVisible} onClose={this.hide} maskClosable />
         <CSSTransition timeout={400} classNames="actionSheet-fade" in={asVisible}>
           {status => {
             return (
-              <ASContainer
+              <ASStyles.ASContainer
                 className={`actionSheet-fade actionSheet-fade-${status} actionSheet-container`}
               >
-                {closeBtnPosition === 'top' && (
-                  <ASCloseBtnTop onClick={this.hide}>
+                {closeBtnPosition === ACTIONSHEET_TYPE.TOP && (
+                  <ASStyles.ASCloseBtnTop onClick={this.hide}>
                     <Icon size={24} type="Close" />
-                  </ASCloseBtnTop>
+                  </ASStyles.ASCloseBtnTop>
                 )}
-                {title && <ASTitle>{title}</ASTitle>}
+                {title && <ASStyles.ASTitle>{title}</ASStyles.ASTitle>}
                 <div className="actionSheet-content">{children}</div>
-                {closeBtnPosition === 'bottom' && (
+                {closeBtnPosition === ACTIONSHEET_TYPE.BOTTOM && (
                   <div>
                     <WhiteSpace />
-                    <ASCloseBtnBottom onClick={this.hide}>取消</ASCloseBtnBottom>
+                    <ASStyles.ASCloseBtnBottom onClick={this.hide}>取消</ASStyles.ASCloseBtnBottom>
                   </div>
                 )}
-              </ASContainer>
+              </ASStyles.ASContainer>
             );
           }}
         </CSSTransition>

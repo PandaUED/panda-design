@@ -17,7 +17,8 @@ const Steps = ({ type, data = [], color, ...other }) => {
     align-items: center;
     justify-content: center;
     color: ${style.color.textDeactive};
-    background: transparent;
+    background: ${style.color.white};
+    padding: 16px 0;
     ${type === 'vertical' && `flex-direction: column;`};
   `;
 

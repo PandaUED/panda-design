@@ -112,6 +112,10 @@ const SingIcon = {
     'NoConfirm',
   ],
   24: [
+    'StepDone',
+    'StepNormal',
+    'StepDoing',
+    'StepWrong',
     'Back',
     'Fliter',
     'Bill',

@@ -5,7 +5,7 @@ export default () => {
   return (
     <View>
       <WhiteSpace>Cell-Avatar</WhiteSpace>
-      <Cell className="CellCls" alone padding={24}>
+      <Cell className="CellCls" alone padding={16} height={90} bold>
         <Cell.Left>
           <Avatar
             shape="circle"
@@ -57,10 +57,12 @@ export default () => {
       <WhiteSpace />
       <Cell className="CellCls" alone fontSize={15}>
         新手福利
-        <Badge type="text">抢购</Badge>
-        <Cell.Right color="#CACACA">
+        <Cell.Main marginLeft={6}>
+          <Badge type="text">抢购</Badge>
+        </Cell.Main>
+        <Cell.Right color="#999">
           无可用红包
-          <Icon size={16} type="right" color="#CACACA" />
+          <Icon size={16} type="right" color="#e3e3e3" />
         </Cell.Right>
       </Cell>
       <WhiteSpace />
@@ -175,7 +177,7 @@ export default () => {
       </Cell>
 
       <WhiteSpace>Cell-Note</WhiteSpace>
-      <Cell className="CellCls" alone padding={16}>
+      <Cell className="CellCls" alone padding={16} align="top">
         <Cell.Left>
           <Icon size={16} type="point" color="#85B2FF" />
         </Cell.Left>
@@ -185,17 +187,17 @@ export default () => {
       </Cell>
       <WhiteSpace />
       <Cell className="CellCls" alone padding={16}>
-        <Cell.Left size={12}>
+        <Cell.Left size={12} marginLeft={16}>
           <Icon size={16} type="confirm" color="#666D78" />
           <div>我已阅读并同意</div>
         </Cell.Left>
-        <Cell.Main size={12} marginLeft={1}>
+        <Cell.Main size={12} marginLeft={1} color="#666D78">
           《熊猫金库用户服务协议》
         </Cell.Main>
       </Cell>
 
       <WhiteSpace>Cell-Other</WhiteSpace>
-      <Cell className="CellCls" alone padding={16}>
+      <Cell className="CellCls" alone padding={16} bold>
         <Cell.Main desc="活动时间：2017.07.18 - 2017.07.24">尊享卡5折秒杀</Cell.Main>
       </Cell>
       <WhiteSpace />

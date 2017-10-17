@@ -34,16 +34,17 @@ export { default as Badge } from './Badge';
 export { default as NoticeBar } from './NoticeBar';
 
 // Feedback
-export { Modal, ModalNoState } from './Modal';
+export { Modal } from './Modal';
 export { Dialog, DialogSharedInstance } from './Dialog';
 export { Toast, ToastSharedInstance } from './Toast';
 export { ActionSheet } from './ActionSheet';
 export { Keyboard } from './Keyboard';
-export { Combine } from './Combine';
 
 // Gesture
 
 // Combination
+export { Calculator } from './Calculator';
+export { Password } from './Password';
 
 // Utils
 export { default as Component } from './utlis/Component';

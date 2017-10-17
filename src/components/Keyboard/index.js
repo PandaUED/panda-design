@@ -3,8 +3,14 @@
  */
 import { default as Component } from '../utlis/Component';
 import { Icon, style } from '../';
-// import PropTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import { noop } from 'lodash';
+
+const KEYBOARD_TYPE = {
+  PASSWORD: 'password',
+  CALCULATOR: 'calculator',
+};
 
 class Keyboard extends Component {
   constructor(props) {
@@ -16,16 +22,26 @@ class Keyboard extends Component {
     this.deleteLastChar = this.deleteLastChar.bind(this);
   }
 
+  static propTypes = {
+    type: PropTypes.string,
+    keyboardCls: PropTypes.string,
+    onChange: PropTypes.func,
+    onHide: PropTypes.func,
+    onConfirm: PropTypes.func,
+    checkValue: PropTypes.func,
+    numLimit: PropTypes.number,
+    icon: PropTypes.node,
+  };
+
   static defaultProps = {
-    children: null,
-    KeyboardCls: null,
-    handleChange: null,
-    numLimit: 6,
-    type: 'password', // calculator / password
-    icon: <Icon size={24} type="Coin" />,
-    onHide: null,
-    onConfirm: null,
+    type: KEYBOARD_TYPE.PASSWORD,
+    keyboardCls: null,
+    onChange: noop,
+    onHide: noop,
+    onConfirm: noop,
     checkValue: null,
+    numLimit: 6,
+    icon: null,
   };
 
   KeyboardNumArr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
@@ -52,7 +68,7 @@ class Keyboard extends Component {
       {
         currValue: _v,
       },
-      () => this.props.handleChange(this.state.currValue)
+      () => this.props.onChange(this.state.currValue)
     );
   }
 
@@ -115,7 +131,7 @@ class Keyboard extends Component {
 
   renderKbNum() {
     return (
-      <div>
+      <div className="keyboard-numGrp">
         {this.KeyboardNumArr.map((elem, idx) => {
           return (
             <this.KeyboardRow key={idx}>
@@ -183,7 +199,7 @@ class Keyboard extends Component {
     );
   }
 
-  render({ type, handleChange }) {
+  render({ type, keyboardCls }) {
     const KbContainer = styled.div`
       background: #fff;
       border: 1px solid #f8f8f8;
@@ -191,9 +207,9 @@ class Keyboard extends Component {
     `;
 
     return (
-      <KbContainer>
-        {type === 'password' && this.renderKbPassword()}
-        {type === 'calculator' && this.renderKbCalculator()}
+      <KbContainer className={keyboardCls}>
+        {type === KEYBOARD_TYPE.PASSWORD && this.renderKbPassword()}
+        {type === KEYBOARD_TYPE.CALCULATOR && this.renderKbCalculator()}
       </KbContainer>
     );
   }
