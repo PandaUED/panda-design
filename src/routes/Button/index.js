@@ -21,18 +21,23 @@ export default () => {
       `;
       return (
         <CardBody padding>
+          <WhiteSpace>round color = primary</WhiteSpace>
           <Button round color="primary">
             按钮标题
           </Button>
+          <WhiteSpace>round ghost</WhiteSpace>
           <Button round ghost>
             按钮标题
           </Button>
+          <WhiteSpace>round desabled</WhiteSpace>
           <Button round disabled={disabled} onClick={() => this.setState({ disabled: !disabled })}>
             按钮标题
           </Button>
+          <WhiteSpace>round color=primary deg=-45 shadow</WhiteSpace>
           <Button round color="primary" deg={-45} shadow>
             按钮标题
           </Button>
+          <WhiteSpace>round size=small color=primary deg=45 shadow highlight</WhiteSpace>
           <Button round size="small" color="primary" deg={45} shadow highlight>
             按钮标题
           </Button>
@@ -43,12 +48,9 @@ export default () => {
 
   return (
     <View>
+      <Header split>Button</Header>
       <WhiteSpace />
-      <Card>
-        <Header split>Button</Header>
-        <Buttons />
-      </Card>
-      <WhiteSpace />
+      <Buttons />
     </View>
   );
 };

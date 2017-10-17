@@ -4,7 +4,7 @@
  * Description: 这是演示页面，展示组件的功能
  */
 
-import { Tabs, Tab, Badge, WhiteSpace, Card } from 'pand';
+import { Tabs, Badge, WhiteSpace, Card } from 'pand';
 import React from 'react';
 import './../../components/Modal/_modal.scss';
 
@@ -95,9 +95,11 @@ export default () => {
           <Card>
             <Tabs titles={tabsDataC} linkBar />
           </Card>
+          <WhiteSpace />
           <Card>
             <Tabs titles={tabsDataD} linkBar />
           </Card>
+          <WhiteSpace />
           <Card>
             <Tabs titles={tabsDataA} linkBar />
           </Card>

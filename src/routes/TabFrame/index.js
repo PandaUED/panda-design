@@ -147,10 +147,10 @@ export default () => {
           },
         ],
         tabsDataE: [
-          { tab: { title: ' 标题1' } },
-          { tab: { title: ' 标题2' } },
-          { tab: { title: ' 标题3' } },
-          { tab: { title: ' 标题4' } },
+          { tab: { title: ' 标题1' }, content: <TempView>内容1</TempView> },
+          { tab: { title: ' 标题2' }, content: <TempView>内容2</TempView> },
+          { tab: { title: ' 标题3' }, content: <TempView>内容3</TempView> },
+          { tab: { title: ' 标题4' }, content: <TempView>内容4</TempView> },
         ],
         tabsDataF: [
           { tab: { title: ' 标题1' } },
