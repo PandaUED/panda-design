@@ -47,10 +47,10 @@ export const Tab = styled(BasicTab)`
   flex-shrink: 0;
   flex-grow: 1;
   width: auto;
-  min-width: 58px;
   height: 54px;
+  min-width: 58px;
   line-height: 16px;
-  padding: 19px 13.5px;
+  padding: 16.5px 13.5px;
   text-align: center;
   font-size: 14px;
   font-weight: 500;

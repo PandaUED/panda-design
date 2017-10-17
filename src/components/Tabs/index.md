@@ -27,3 +27,18 @@ Parent:: TabFrame
 
 
 
+示例：
+
+```jsx
+const tabsData = [
+	{ title: 'TITLE1' },
+	{ title: <div>TITLE2<Badge className={'corner'} type="text">new</Badge></div> },
+	{ title: 'TITLE3' },
+	{ title: 'TITLE4' },
+];
+// JSX
+<Tabs titles={tabsData} linkBar />
+```
+
+
+
