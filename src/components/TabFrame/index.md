@@ -47,10 +47,49 @@ icon是另外封装在TabFrame的BasicTab中，Tab组件中没有相关配置
 
 ### icon - [Icon](../icon/index.md) 
 
-为空或者不设置将不显示icon
+为空对象或者不设置将不显示icon
 
-| 属性       | 说明           | 类型   | 可选值  | 默认值  |
-| -------- | ------------ | ---- | ---- | ---- |
-| common   | 默认情况下显示的icon | Node | -    | -    |
-| Selected | 激活情况下显示的icon | Node | -    | -    |
+| 属性       | 说明                               | 类型   | 可选值  | 默认值  |
+| -------- | -------------------------------- | ---- | ---- | ---- |
+| common   | 默认情况下显示的icon                     | Node | -    | -    |
+| Selected | 激活情况下显示的icon，没有则显示common状态下的icon | Node | -    | -    |
+
+
+
+示例：
+
+```jsx
+const tabsData = [
+  {
+    tab: {
+      title: <div>首页<Badge className={'corner'}>188</Badge></div>,
+      icon: {
+        common: <Icon size={iconSize} type={'Home'} />,
+        selected: <Icon size={iconSize} type={'HomeActive'} double />,
+  	  },
+      style: {
+        width: '64px',
+        flexGrow: 0,
+      },
+      onClick: () => {alert('test');},
+      highlight: true, // 设置渐变（高亮）背景
+      description: '本月省1次免费转出机会', // 如果要设置description，请同时设置confirm
+    },
+    content: <View>首页内容</View>,
+  },
+  {...}, // 省略
+];
+this.state = {
+    activeIndex: 0,
+};
+// JSX
+<TabFrame 
+  tabsData={tabsData} 
+  activeIndex={activeIndex} 
+  activeColor={'orange'}
+  tabsPosition={'bottom'}
+  confirm
+  linkBar
+/>
+```
 

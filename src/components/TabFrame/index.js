@@ -20,10 +20,12 @@ const gradientColor = gradientColorFn('orange', -45);
 const iconStyleSheet = css`
   flex-direction: column-reverse;
   padding: 2px 13.5px 0;
-  line-height: 20px;
   font-size: 10px;
   font-weight: 400;
   height: 49px;
+  .icon {
+    height: 24px;
+  }
 `;
 // ButtonGroup模式下 彩色（高亮）背景样式
 const highlightStyleSheet = css`
@@ -62,7 +64,7 @@ const BasicTab = (
     <ThemeProvider theme={{ buttonGroup, highlight, hasIcon }}>
       <TabWarpper
         index={index}
-        className={description !== undefined ? 'description' : ''}
+        className={description !== undefined ? 'description-tab' : ''}
         disable={description !== undefined}
         {...other}
       >
@@ -89,6 +91,9 @@ const BasicTabFrame = styled.div`
 `;
 const BasicTabTitles = styled(Tabs)`
   padding: ${({ theme }) => (theme.buttonGroup ? '0 !important' : '')};
+  .tab {
+    height: ${({ theme }) => (theme.buttonGroup ? '49px;' : '')};
+  }
   box-shadow: 0 ${({ theme }) => (theme.tabsPosition === 'bottom' ? '-' : '')}2px 4px 0
     rgba(0, 0, 0, 0.05);
   &.length-two {
@@ -98,7 +103,7 @@ const BasicTabTitles = styled(Tabs)`
     padding: 0 30px;
   }
   &.confirm {
-    .description {
+    .description-tab {
       .title,
       .icon,
       .description {
