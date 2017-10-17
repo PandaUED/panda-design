@@ -52,7 +52,7 @@ export const Tab = styled(BasicTab)`
   line-height: 16px;
   padding: 16.5px 13.5px;
   text-align: center;
-  font-size: 14px;
+  font-size: 16px;
   //font-weight: 500;
   color: #666;
   cursor: pointer;
