@@ -31,6 +31,7 @@ const EmptyTab = styled.div`
   display: block;
   width: 100%;
   text-align: center;
+  padding: 10px;
 `;
 const ErrorTab = EmptyTab.extend`color: red;`;
 
@@ -46,12 +47,6 @@ const TabContainer = styled.div`
   overflow: auto;
   &::-webkit-scrollbar {
     display: none;
-  }
-  &.length-two {
-    padding: 0 80px;
-  }
-  &.length-three {
-    padding: 0 30px;
   }
   &.dot {
   }
@@ -161,19 +156,10 @@ class Tabs extends React.Component {
 
     const isEmpty = this.isEmpty();
     const hasError = this.hasError();
-    let extraClass = '';
-    if (tabTitles.length === 2 || children.length === 2) {
-      extraClass = 'length-two';
-    } else if (tabTitles.length === 3 || children.length === 3) {
-      extraClass = 'length-three';
-    }
+
     return (
       <ThemeProvider theme={{ activeColor: singleColorFn(activeColor) }}>
-        <TabContainer
-          className={classnames(className, extraClass)}
-          ref={i => (this.instance = i)}
-          {...other}
-        >
+        <TabContainer className={classnames(className)} ref={i => (this.instance = i)} {...other}>
           {!hasError && !isEmpty && tabTitles}
           {!hasError && !isEmpty && children}
 

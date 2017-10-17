@@ -5,17 +5,19 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import classNames from 'classnames';
 import { Badge } from 'pand';
 
 const BasicTab = (
-  { onClick, index, title = '', className, children, badge, dot, ...rest },
+  { onClick, index, title = '', disable, className, children, badge, dot, ...rest },
   { activeIndex, handleSync }
 ) => {
   const handleOnClick = () => {
-    onClick instanceof Function && onClick();
-    handleSync && handleSync(index);
+    if (!disable) {
+      onClick instanceof Function && onClick();
+      handleSync && handleSync(index);
+    }
   };
   let BadgeNode;
   if (badge instanceof React.Component) {
@@ -23,7 +25,7 @@ const BasicTab = (
   } else if (typeof badge === 'string') {
     BadgeNode = <Badge dot={dot}>badge</Badge>;
   }
-  const activeClass = classNames(className, activeIndex === index ? 'active' : '');
+  const activeClass = classNames('tab', className, activeIndex === index ? 'active' : '');
   return (
     <a onClick={handleOnClick} className={activeClass} {...rest}>
       {title}
@@ -36,6 +38,7 @@ BasicTab.contextTypes = {
   handleSync: PropTypes.func,
   activeIndex: PropTypes.number,
 };
+const descriptionStyleSheet = css``;
 export const Tab = styled(BasicTab)`
   position: relative;
   display: flex;
