@@ -52,14 +52,14 @@ export const Tab = styled(BasicTab)`
   line-height: 16px;
   padding: 16.5px 13.5px;
   text-align: center;
-  font-size: 16px;
+  font-size: 14px;
   //font-weight: 500;
   color: #666;
   cursor: pointer;
   &.active {
     color: ${({ theme }) => theme.activeColor};
     position: relative;
-    font-weight: bold;
+    font-weight: 500;
   }
   & .corner {
     position: absolute;

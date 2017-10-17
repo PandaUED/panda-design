@@ -39,8 +39,10 @@ const highlightStyleSheet = css`
 // 包裹tab的div
 const TabWarpper = Tab.extend`
   position: relative;
-  ${({ theme }) => (theme.hasIcon ? iconStyleSheet : '')};
   color: #bbbfc8;
+  ${({ theme }) => (theme.hasIcon ? iconStyleSheet : '')};
+  font-size: ${({ theme }) => (theme.buttonGroup && !theme.hasIcon ? '16px;' : '')};
+  height: ${({ theme }) => (theme.buttonGroup ? '49px;' : '')};
   &.active {
     color: ${({ theme }) => (theme.activeColor ? theme.activeColor : singleColor)};
     .xmjkDoubleIcon span:nth-child(1) {
@@ -91,9 +93,6 @@ const BasicTabFrame = styled.div`
 `;
 const BasicTabTitles = styled(Tabs)`
   padding: ${({ theme }) => (theme.buttonGroup ? '0 !important' : '')};
-  .tab {
-    height: ${({ theme }) => (theme.buttonGroup ? '49px;' : '')};
-  }
   box-shadow: 0 ${({ theme }) => (theme.tabsPosition === 'bottom' ? '-' : '')}2px 4px 0
     rgba(0, 0, 0, 0.05);
   &.length-two {
