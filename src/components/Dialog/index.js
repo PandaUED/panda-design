@@ -40,16 +40,17 @@ const DialogStyles = {
     height: 48px;
     font-size: 18px;
     box-shadow: inset 0 0 0 0 #f8f8f8;
-    border-top: 1px solid #f8f8f8;
+    border-top: 0.5px solid #f8f8f8;
     line-height: 48px;
     display: flex;
     > div {
       flex: 1;
+      color: #666;
       &:last-child {
         color: ${style.color.orange};
       }
       &:nth-child(2) {
-        border-left: 1px solid #f8f8f8;
+        border-left: 0.5px solid #f8f8f8;
       }
     }
   `,
@@ -169,7 +170,7 @@ class Dialog extends Component {
                   this.closeDialog(buttonArr.length === 1 ? true : !!i);
                 }}
               >
-                <Button round color="primary" deg={-45} shadow>
+                <Button round color="primary" deg={-45}>
                   {e}
                 </Button>
               </DialogStyles.DNewSingleBtn>

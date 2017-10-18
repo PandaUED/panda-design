@@ -97,7 +97,7 @@ class Password extends Component {
             });
           }}
           numLimit={passwordNum}
-          icon={icon}
+          {...icon && { icon }}
         />
       </ActionSheet>
     );
