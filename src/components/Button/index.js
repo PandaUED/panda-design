@@ -51,11 +51,11 @@ const Button = ({
   const ghostStyleSheet = css`
     color: ${singleColorFn(color)};
     border: ${border ? ` 1px solid ${singleColorFn(color)}` : ''};
-    background-color: transparent;
+    background-color: #fff;
     &:active {
       color: ${darken(0.08, singleColorFn(color))};
       ${border ? `border-color:${darken(0.08, singleColorFn(color))}` : ''};
-      background-color: transparent;
+      background-color: #fff;
     }
   `;
   // 背景渐变样式
@@ -124,6 +124,7 @@ const Button = ({
     ${highlight ? highlightStyleSheet : ''};
     ${disabled ? disabledStyleSheet : ''};
   `;
+
   return (
     <TouchFeedback disabled={disabled}>
       <BasicButton role="button" onClick={onClick} {...other}>

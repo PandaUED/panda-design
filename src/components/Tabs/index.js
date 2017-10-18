@@ -8,10 +8,10 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
+import classnames from 'classnames';
 import { style } from '../';
 
 import { Tab } from './Tab';
-import { TabContainer } from './TabContainer';
 
 const singleColorFn = color => style.color[color];
 
@@ -31,20 +31,38 @@ const EmptyTab = styled.div`
   display: block;
   width: 100%;
   text-align: center;
+  padding: 10px;
 `;
 const ErrorTab = EmptyTab.extend`color: red;`;
 
+const TabContainer = styled.div`
+  position: relative;
+  width: 100%;
+  //height: 54px;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  text-align: center;
+  appearance: none;
+  overflow: auto;
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  &.dot {
+  }
+`;
+
 class Tabs extends React.Component {
   static defaultProps = {
-    hasLinkBar: false,
-    tabsData: [],
+    linkBar: false,
+    titles: [],
     children: [],
     activeIndex: 0,
     activeColor: 'blue',
   };
   static propTypes = {
-    hasLinkBar: PropTypes.bool,
-    tabsData: PropTypes.array,
+    linkBar: PropTypes.bool,
+    titles: PropTypes.array,
     children: PropTypes.array,
     activeIndex: PropTypes.number,
     activeColor: PropTypes.string,
@@ -57,8 +75,10 @@ class Tabs extends React.Component {
     };
   }
 
+  componentWillMount() {}
+
   componentDidMount() {
-    this.animation();
+    this.animation(false);
   }
 
   componentDidUpdate() {
@@ -69,6 +89,7 @@ class Tabs extends React.Component {
     const t = this;
     return {
       handleSync(index) {
+        t.context.handleSync && t.context.handleSync(index);
         t.setState({ activeIndex: index });
       },
       activeIndex: t.state.activeIndex,
@@ -78,17 +99,23 @@ class Tabs extends React.Component {
   /**
    * 可视化动画，如果显示TabLinkBar则也会有动画
    * 使用不优雅的js写css方式实现，暂时不做改进
+   * @param {bool} [scrollInto=true] 设置是否加载时就滚动到可见状态
    */
-  animation() {
+  animation(scrollInto = true) {
     // eslint-disable-next-line
     const container = ReactDOM.findDOMNode(this.instance);
     const activeTab = container.querySelector(`a:nth-child(${this.state.activeIndex + 1})`);
     // scrollIntoView 方法兼容到ie8
     // 使用setTimeout是因为页面加载完后立马smooth动画不会发生
     if (activeTab) {
-      setTimeout(() => {
-        activeTab.scrollIntoView({ behavior: 'smooth' });
-      }, 1);
+      if (scrollInto) {
+        setTimeout(() => {
+          activeTab.scrollIntoView({
+            behavior: 'smooth',
+            block: 'nearest',
+          });
+        }, 1);
+      }
       const tabLinkBar = container.querySelector('.tab-link-bar');
       // tabLinkBar 的动画
       if (tabLinkBar) {
@@ -99,9 +126,10 @@ class Tabs extends React.Component {
       }
     }
   }
+
   // 判断是否无tab标签数据
   isEmpty() {
-    return this.props.tabsData.length === 0 && this.props.children.length === 0;
+    return this.props.titles.length === 0 && this.props.children.length === 0;
   }
 
   /**
@@ -109,23 +137,25 @@ class Tabs extends React.Component {
    * 该方法判断是否两种方式都被使用
    */
   hasError() {
-    return this.props.children.length > 0 && this.props.tabsData.length > 0;
+    return this.props.children.length > 0 && this.props.titles.length > 0;
   }
 
   render() {
-    const { tabsData, children, activeColor, hasLinkBar, ...other } = this.props;
-    const tabs = tabsData.map((tabData, index) => <Tab key={index} index={index} {...tabData} />);
+    const { titles, children, activeColor, linkBar, className, activeIndex, ...other } = this.props;
+    const tabTitles = titles.map((tabData, index) => (
+      <Tab key={index} index={index} {...tabData} />
+    ));
 
     const isEmpty = this.isEmpty();
     const hasError = this.hasError();
 
     return (
       <ThemeProvider theme={{ activeColor: singleColorFn(activeColor) }}>
-        <TabContainer ref={i => (this.instance = i)} {...other}>
-          {!hasError && !isEmpty && tabs}
+        <TabContainer className={classnames(className)} ref={i => (this.instance = i)} {...other}>
+          {!hasError && !isEmpty && tabTitles}
           {!hasError && !isEmpty && children}
 
-          {!hasError && !isEmpty && hasLinkBar && <TabLinkBar className={'tab-link-bar'} />}
+          {!hasError && !isEmpty && linkBar && <TabLinkBar className={'tab-link-bar'} />}
 
           {hasError && <ErrorTab>Error: Both attribute and embedded data</ErrorTab>}
           {isEmpty && <EmptyTab>None Tab Data</EmptyTab>}
@@ -136,6 +166,10 @@ class Tabs extends React.Component {
 }
 
 Tabs.childContextTypes = {
+  handleSync: PropTypes.func,
+  activeIndex: PropTypes.number,
+};
+Tabs.contextTypes = {
   handleSync: PropTypes.func,
   activeIndex: PropTypes.number,
 };

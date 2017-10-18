@@ -4,7 +4,7 @@
  * Description: 这是演示页面，展示组件的功能
  */
 
-import { Tabs, Tab, TabLinkBar, WhiteSpace, Card } from 'pand';
+import { Tabs, Badge, WhiteSpace, Card } from 'pand';
 import React from 'react';
 import './../../components/Modal/_modal.scss';
 
@@ -34,48 +34,91 @@ export default () => {
           { title: 'TITLE3' },
           { title: 'TITLE4' },
         ],
+        tabsDataC: [
+          {
+            title: (
+              <div>
+                TITLE1
+                <Badge className={'corner'} type="text">
+                  new
+                </Badge>
+              </div>
+            ),
+          },
+          {
+            title: (
+              <div>
+                TITLE2<Badge className={'corner dot'} type="dot" />
+              </div>
+            ),
+          },
+        ],
+        tabsDataD: [
+          {
+            title: (
+              <div>
+                TITLE1
+                <Badge className={'corner'} type="text">
+                  new
+                </Badge>
+              </div>
+            ),
+          },
+          {
+            title: (
+              <div>
+                TITLE2<Badge>188</Badge>
+              </div>
+            ),
+          },
+          {
+            title: (
+              <div>
+                TITLE3<Badge className={'corner dot'} type="dot" />
+              </div>
+            ),
+          },
+        ],
         activeIndexB: 2,
       };
     }
+
     render() {
-      const { tabsDataA, tabsDataB, activeIndexB } = this.state;
+      const { tabsDataA, tabsDataB, tabsDataC, tabsDataD, activeIndexB } = this.state;
       return (
         <div>
           <WhiteSpace>无数据时的样式</WhiteSpace>
           <Card>
             <Tabs />
           </Card>
-          <WhiteSpace>tabsData和Childen内容都设定时</WhiteSpace>
-          <Card>
-            <Tabs tabsData={tabsDataA} activeIndex={activeIndexB}>
-              {tabsDataA.map((tabData, index) => <Tab key={index} index={index} {...tabData} />)}
-            </Tabs>
-          </Card>
           <WhiteSpace>有数据时的默认样式</WhiteSpace>
           <Card>
-            <Tabs tabsData={tabsDataA} hasLinkBar />
+            <Tabs titles={tabsDataC} />
           </Card>
-          <WhiteSpace>定制 hasLinkBar</WhiteSpace>
+          <WhiteSpace />
           <Card>
-            <Tabs hasLinkBar>
-              {tabsDataB.map((tabData, index) => <Tab key={index} index={index} {...tabData} />)}
-            </Tabs>
+            <Tabs titles={tabsDataD} linkBar />
+          </Card>
+          <WhiteSpace />
+          <Card>
+            <Tabs titles={tabsDataA} linkBar />
+          </Card>
+          <WhiteSpace>定制 linkBar</WhiteSpace>
+          <Card>
+            <Tabs titles={tabsDataB} linkBar />
           </Card>
           <WhiteSpace>定制 activeColor</WhiteSpace>
           <Card>
-            <Tabs activeColor={'orange'}>
-              {tabsDataB.map((tabData, index) => <Tab key={index} index={index} {...tabData} />)}
-            </Tabs>
+            <Tabs titles={tabsDataB} activeColor={'orange'} />
           </Card>
           <WhiteSpace>定制 activeIndex</WhiteSpace>
           <Card>
-            <Tabs activeIndex={activeIndexB}>
-              {tabsDataB.map((tabData, index) => <Tab key={index} index={index} {...tabData} />)}
-            </Tabs>
+            <Tabs titles={tabsDataB} activeIndex={activeIndexB} />
           </Card>
         </div>
       );
     }
   }
+
   return <PageTab />;
 };

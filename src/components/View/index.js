@@ -1,18 +1,21 @@
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import styled, { ThemeProvider } from 'styled-components';
 
 const props = {
   color: PropTypes.string,
 };
-
+const BasicView = styled.div`
+  overflow-x: hidden;
+  width: 100%;
+  background: ${({ theme }) => theme.color};
+  position: relative;
+`;
 const View = ({ color = 'transparent', ...other }) => {
-  const View = styled.div`
-    overflow-x: hidden;
-    width: 100%;
-    background: ${color};
-    position: relative;
-  `;
-  return <View {...other} />;
+  return (
+    <ThemeProvider theme={{ color }}>
+      <BasicView {...other} />
+    </ThemeProvider>
+  );
 };
 
 View.propTypes = props;
