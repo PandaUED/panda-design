@@ -2,7 +2,8 @@
  * Created by Liqi on 17/9/30.
  */
 import { default as Component } from '../utlis/Component';
-import { Icon, style } from '../';
+import { Icon } from '../Icon/index';
+import { style } from '../style_index';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { noop } from 'lodash';
@@ -85,10 +86,8 @@ class Keyboard extends Component {
           _value = value.toString();
         }
       }
-    } else {
-      if (currValue.length >= numLimit) {
-        return;
-      }
+    } else if (currValue.length >= numLimit) {
+      return;
     }
 
     this.updateValue(_value);
@@ -103,12 +102,10 @@ class Keyboard extends Component {
     let _value = null;
     if (currValue.match(/\./i)) {
       return;
+    } else if (!currValue.length) {
+      _value = '0.';
     } else {
-      if (!currValue.length) {
-        _value = '0.';
-      } else {
-        _value = currValue + '.';
-      }
+      _value = `${currValue}.`;
     }
     this.updateValue(_value);
   }
@@ -160,14 +157,20 @@ class Keyboard extends Component {
 
   renderKbCalculator() {
     const { onHide, onConfirm } = this.props;
-    const Container = styled.div`display: flex;`;
-    const Left = styled.div`flex: 3;`;
+    const Container = styled.div`
+      display: flex;
+    `;
+    const Left = styled.div`
+      flex: 3;
+    `;
     const Right = styled.div`
       flex: 1;
       display: flex;
       flex-direction: column;
     `;
-    const RightItem = styled.div`${style.mixins.xmFlexCenter()};`;
+    const RightItem = styled.div`
+      ${style.mixins.xmFlexCenter()};
+    `;
     const KeyboardItemRight = this.KeyboardItem.extend`
             height: 112px;
             line-height: 112px;

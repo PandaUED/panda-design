@@ -8,7 +8,8 @@ import styled from 'styled-components';
 import classnames from 'classnames';
 import { CSSTransition } from 'react-transition-group';
 import { noop } from 'lodash';
-import { style, Icon } from '../';
+import { Icon } from '../Icon/index';
+import { style } from '../style_index';
 import './_modal.scss';
 
 const ModalStyles = {
@@ -27,7 +28,9 @@ const ModalStyles = {
     height: 100%;
     z-index: -1;
   `,
-  ModalContent: styled.div`display: inline-block;`,
+  ModalContent: styled.div`
+    display: inline-block;
+  `,
 
   CloseBtn: styled.div`
     height: 48px;

@@ -7,7 +7,7 @@ import React from 'react';
 import { darken, rgba } from 'polished';
 import TouchFeedback from 'rmc-feedback';
 import styled, { css } from 'styled-components';
-import { style } from '../';
+import { style } from '../style_index';
 
 // 预设
 const heightSize = { large: 54, default: 48, small: 36 };
@@ -133,4 +133,4 @@ const Button = ({
     </TouchFeedback>
   );
 };
-export default Button;
+export { Button };

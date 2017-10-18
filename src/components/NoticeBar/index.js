@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
-import { Icon } from 'pand';
-import { style } from '../';
+import { Icon } from '../Icon';
+import { style } from '../style_index';
 
 const props = {
   className: PropTypes.string,
@@ -40,7 +40,9 @@ const NoticeBar = ({
     flex-direction: row;
     ${!visible && 'display: none;'};
   `;
-  const NoticeBarContent = styled.div`${center && centerContent};`;
+  const NoticeBarContent = styled.div`
+    ${center && centerContent};
+  `;
   const NoticeBarIcon = styled.a`
     span {
       line-height: 36px;
@@ -74,4 +76,4 @@ const NoticeBar = ({
 
 NoticeBar.propTypes = props;
 
-export default NoticeBar;
+export { NoticeBar };

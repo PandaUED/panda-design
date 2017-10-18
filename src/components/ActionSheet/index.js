@@ -3,7 +3,9 @@
  */
 import { default as Component } from '../utlis/Component';
 import PropTypes from 'prop-types';
-import { Icon, WhiteSpace, Modal } from '../';
+import { Icon } from '../Icon/index';
+import { WhiteSpack as WhiteSpace } from '../WhiteSpace/index';
+import { Modal } from '../Modal/index';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 import './_actionSheet.scss';

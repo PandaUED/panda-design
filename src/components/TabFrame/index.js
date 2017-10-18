@@ -5,10 +5,11 @@
  */
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Tabs, Tab, View } from 'pand';
 import classnames from 'classnames';
 import styled, { css, ThemeProvider } from 'styled-components';
-import { style } from '../';
+import { Tabs, Tab } from '../Tabs';
+import { View } from '../View';
+import { style } from '../style_index';
 import { TabContent } from './TabContent';
 
 // 基本配置
@@ -196,7 +197,7 @@ class TabFrame extends React.Component {
               // 排除content字段
               const { content, tab, ...otherData } = tabData;
               if (tab) {
-                let { title, description, ...otherData } = tab;
+                const { title, description, ...otherData } = tab;
                 return (
                   <BasicTab
                     key={index}

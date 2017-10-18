@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { style } from '../';
+import { style } from '../style_index';
 
 const props = {
   size: PropTypes.number,
@@ -19,7 +19,9 @@ const WhiteSpack = ({ size = 10, transparent = false, children, ...other }) => {
       padding: ${children ? '10px 16px' : 0};
     `;
   } else {
-    WhiteSpace = WhiteSpace.extend`height: ${size}px;`;
+    WhiteSpace = WhiteSpace.extend`
+      height: ${size}px;
+    `;
   }
 
   return <WhiteSpace {...other}>{children}</WhiteSpace>;
@@ -27,4 +29,4 @@ const WhiteSpack = ({ size = 10, transparent = false, children, ...other }) => {
 
 WhiteSpack.propTypes = props;
 
-export default WhiteSpack;
+export { WhiteSpack };
