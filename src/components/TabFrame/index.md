@@ -6,10 +6,10 @@
 3. 本组件包含tabs和content
 
 ## API
-### TabFrame - 不能包含自元素
+### TabFrame - 不能包含子元素
 | 属性                                       | 说明                         | 类型      | 可选值                            | 默认值      |
 | ---------------------------------------- | -------------------------- | ------- | ------------------------------ | -------- |
-| [tabsData[Object]](#tabsData[Object] - [Tabs](../tabs/index.md)) | 请查看Tabs组件文档                | Array   | -                              | []       |
+| [tabsData[Object]](#tabsData[Object] - [Tabs](../tabs/index.md) | 请查看Tabs组件文档                | Array   | -                              | []       |
 | linkBar                                  | 添加滑动的下划线                   | Boolean | -                              | false    |
 | buttonGroup                              | 将标签选项夹设置为按钮组               | Boolean | -                              | false    |
 | activeColor                              | tab选项夹被激活时的字体颜色            | String  | See：[color](../style/index.md) | **blue** |
@@ -18,9 +18,9 @@
 | confirm                                  | 设置该框架为文字描述 + 按钮            | Boolean | -                              | false    |
 | description                              | 当`confirm = true`时显示的描述性文字 | Boolean | -                              | false    |
 
-### tabsData[Object] - [Tabs](../tabs/index.md) 
+### tabsData[Object] - [Tabs](../tabs) 
 
-该配置可用于[**Tabs**](../tabs/index.js)组件中的tabsData属性
+该配置可用于[**Tabs**](../tabs)组件中的tabsData属性
 
 | 属性          | 说明             | 类型     | 可选值  | 默认值  |
 | ----------- | -------------- | ------ | ---- | ---- |

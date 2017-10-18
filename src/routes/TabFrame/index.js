@@ -20,7 +20,7 @@ export default () => {
     constructor(props) {
       super(props);
       this.state = {
-        tabsDataA: [
+        tabBar: [
           {
             tab: {
               title: '首页',
@@ -64,7 +64,7 @@ export default () => {
             content: <TempView>我的内容</TempView>,
           },
         ],
-        tabsDataB: [
+        badgeTab: [
           {
             tab: {
               title: (
@@ -137,7 +137,7 @@ export default () => {
             },
           },
         ],
-        tabsDataD: [
+        confirmTab: [
           { tab: { title: ' 标题1' } },
           {
             tab: {
@@ -146,18 +146,18 @@ export default () => {
             },
           },
         ],
-        tabsDataE: [
+        commonTab: [
           { tab: { title: ' 标题1' }, content: <TempView>内容1</TempView> },
           { tab: { title: ' 标题2' }, content: <TempView>内容2</TempView> },
           { tab: { title: ' 标题3' }, content: <TempView>内容3</TempView> },
           { tab: { title: ' 标题4' }, content: <TempView>内容4</TempView> },
         ],
-        tabsDataF: [
+        orangeTab: [
           { tab: { title: ' 标题1' } },
           { tab: { title: ' 标题2' } },
           { tab: { title: ' 标题3' } },
         ],
-        tabsDataG: [{ tab: { title: ' 标题1' } }, { tab: { title: ' 标题2' } }],
+        twoElements: [{ tab: { title: ' 标题1' } }, { tab: { title: ' 标题2' } }],
         descriptionType: [
           {
             tab: {
@@ -182,37 +182,37 @@ export default () => {
 
     render() {
       const {
-        tabsDataA,
-        tabsDataB,
+        badgeTab,
         tabsDataC,
-        tabsDataD,
-        tabsDataE,
-        tabsDataF,
-        tabsDataG,
-        descriptionType,
+        confirmTab,
+        commonTab,
+        orangeTab,
+        twoElements,
+        tabBar,
         activeIndex,
+        descriptionType,
       } = this.state;
       return (
         <div>
           <WhiteSpace>普通 Tabs</WhiteSpace>
           <Card>
-            <TabFrame tabsData={tabsDataE} linkBar />
+            <TabFrame tabsData={commonTab} linkBar />
           </Card>
           <WhiteSpace />
           <Card>
-            <TabFrame tabsData={tabsDataF} linkBar activeColor={'orange'} />
+            <TabFrame tabsData={orangeTab} linkBar activeColor={'orange'} />
           </Card>
           <WhiteSpace />
           <Card>
-            <TabFrame tabsData={tabsDataG} linkBar activeColor={'orange'} />
+            <TabFrame tabsData={twoElements} linkBar activeColor={'orange'} />
           </Card>
           <WhiteSpace>设置 buttonGroup</WhiteSpace>
           <Card>
-            <TabFrame tabsData={tabsDataB} activeColor={'orange'} />
+            <TabFrame tabsData={badgeTab} activeColor={'orange'} />
           </Card>
           <WhiteSpace>设置 buttonGroup</WhiteSpace>
           <Card>
-            <TabFrame tabsData={tabsDataD} buttonGroup activeColor={'orange'} />
+            <TabFrame tabsData={confirmTab} buttonGroup activeColor={'orange'} />
           </Card>
           <WhiteSpace>设置 buttonGroup 定制 style</WhiteSpace>
           <Card>
@@ -220,12 +220,12 @@ export default () => {
           </Card>
           <WhiteSpace>设置 activeIndex</WhiteSpace>
           <Card>
-            <TabFrame tabsData={tabsDataA} activeIndex={activeIndex} activeColor={'orange'} />
+            <TabFrame tabsData={tabBar} activeIndex={activeIndex} activeColor={'orange'} />
           </Card>
           <WhiteSpace>设置 activeIndex 和 tabsPosition = bottom</WhiteSpace>
           <Card>
             <TabFrame
-              tabsData={tabsDataA}
+              tabsData={tabBar}
               activeIndex={activeIndex}
               tabsPosition={'bottom'}
               activeColor={'orange'}

@@ -16,6 +16,9 @@ const doubleStyleSheet = css`
   position: relative;
   & > span {
     font-size: inherit;
+    position: absolute;
+    left: 0;
+    top: 0;
   }
   // 底层
   & > span:nth-child(1) {
@@ -23,9 +26,6 @@ const doubleStyleSheet = css`
   }
   // 上面那一层
   & > span:nth-child(2) {
-    position: absolute;
-    left: 0;
-    top: 0;
     color: ${({ theme }) => theme.color && theme.color[1]};
   }
 `;
@@ -45,7 +45,7 @@ const Icon = ({ className, type, size, color, double = false, ...other }) => {
   return (
     <ThemeProvider theme={{ size, color, double }}>
       <IconContainer
-        className={classnames(double ? 'xmjkDoubleIcon' : 'xmjkIcon', Name, className)}
+        className={classnames(double ? 'xmjkDoubleIcon' : ['xmjkIcon', Name], className)}
         {...other}
       >
         {double && <span className={`${Name}_1`} />}

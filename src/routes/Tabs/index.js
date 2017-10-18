@@ -93,7 +93,7 @@ export default () => {
           </Card>
           <WhiteSpace>有数据时的默认样式</WhiteSpace>
           <Card>
-            <Tabs titles={tabsDataC} linkBar />
+            <Tabs titles={tabsDataC} />
           </Card>
           <WhiteSpace />
           <Card>
