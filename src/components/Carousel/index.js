@@ -24,19 +24,13 @@ const Carousel = ({
 }) => {
   let Carousel = styled(ReactCarousel)`
     background: ${style.color[color]};
-    a {
-      display: inline-block;
+    img {
       width: 100%;
-      img {
-        width: 100%;
-        vertical-align: top;
-      }
+      vertical-align: top;
     }
   `;
   if (deg) {
-    Carousel = Carousel.extend`
-      background: ${style.gradient[color](deg)};
-    `;
+    Carousel = Carousel.extend`background: ${style.gradient[color](deg)};`;
   }
 
   return <Carousel {...other} dots={dots} autoplay={autoplay} wrapAround={infinite} />;
