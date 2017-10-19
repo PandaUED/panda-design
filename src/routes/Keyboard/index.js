@@ -9,7 +9,7 @@ const PageKeyboard = () => {
       <WhiteSpace>Keyboard password</WhiteSpace>
       <Keyboard
         type="password"
-        icon={<Icon size={24} type="Yes" />}
+        // icon={<Icon size={24} type="Yes" />}
         onChange={r => console.log(`currValue: ${r}`)}
       />
 

@@ -94,7 +94,7 @@ class ActionSheet extends Component {
               >
                 {closeBtnPosition === ACTIONSHEET_TYPE.TOP && (
                   <ASStyles.ASCloseBtnTop onClick={this.hide}>
-                    <Icon size={24} type="Close" />
+                    <Icon size={24} type="Close" color="#666" />
                   </ASStyles.ASCloseBtnTop>
                 )}
                 {title && <ASStyles.ASTitle>{title}</ASStyles.ASTitle>}
