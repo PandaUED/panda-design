@@ -45,3 +45,5 @@ export { Password } from './Password';
 
 // Utils
 export { default as Component } from './utlis/Component';
+
+export { style } from './style_index';
