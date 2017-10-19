@@ -4,7 +4,6 @@ import 'dva/router';
 import 'dva/fetch';
 import 'dva/dynamic';
 import 'dva-loading';
-import 'dva-loading';
 import 'history';
 import 'nprogress';
 import 'path';
