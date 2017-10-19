@@ -165,6 +165,7 @@ const DoubleIcon = {
     'Coupons',
     'Add',
     'Event',
+    'LogoXw',
   ],
   32: ['Fanfanle', 'Present', 'Invite', 'Safe'],
 };

@@ -107,12 +107,12 @@ class Calculator extends Component {
           placeholder="请输入金额"
           type="money"
           size="large"
-          left={<Icon color="#666666" size={24} type="Money" />}
+          left={<Icon color="#666" size={24} type="Money" />}
           value={currValue}
           readOnly
         />
         <CalculatorStyles.Output>
-          <span>预期收益</span>
+          <span style={{ color: '#666' }}>预期收益</span>
           <em>
             <span>{calculateFunc ? calculateFunc(currValue) : currValue}</span>
           </em>

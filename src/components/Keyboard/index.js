@@ -12,6 +12,34 @@ const KEYBOARD_TYPE = {
   CALCULATOR: 'calculator',
 };
 
+const KBStyles = {
+  KbContainer: styled.div`
+    background: #fff;
+    border: 1px solid #f8f8f8;
+    border-right: 0;
+  `,
+  KeyboardRow: styled.div`
+    height: 56px;
+    display: flex;
+    line-height: 56px;
+  `,
+  KeyboardItem: styled.div`
+    font-family: SFUIDisplay-Regular;
+    font-size: 26px;
+    color: #444;
+    flex: 1;
+    box-shadow: 0.5px 0.5px 0 0 #f8f8f8;
+    text-align: center;
+  `,
+  KbcContainer: styled.div`display: flex;`,
+  KbcLeft: styled.div`flex: 3;`,
+  KbcRight: styled.div`
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  `,
+};
+
 class Keyboard extends Component {
   constructor(props) {
     super(props);
@@ -41,25 +69,18 @@ class Keyboard extends Component {
     onConfirm: noop,
     checkValue: null,
     numLimit: 6,
-    icon: null,
+    icon: (
+      <Icon
+        size={24}
+        type="LogoXw"
+        double
+        color={['#e3e3e3', '#EEE']}
+        style={{ transform: 'translateX(-50%)' }}
+      />
+    ),
   };
 
   KeyboardNumArr = [[1, 2, 3], [4, 5, 6], [7, 8, 9]];
-
-  KeyboardRow = styled.div`
-    height: 56px;
-    display: flex;
-    line-height: 56px;
-  `;
-  KeyboardItem = styled.div`
-    font-family: SFUIDisplay-Regular;
-    font-size: 26px;
-    color: #444;
-    flex: 1;
-    border-right: 1px solid #f8f8f8;
-    border-bottom: 1px solid #f8f8f8;
-    text-align: center;
-  `;
 
   updateValue(value) {
     const { checkValue } = this.props;
@@ -116,16 +137,16 @@ class Keyboard extends Component {
   renderDelBtn() {
     return (
       <div onClick={this.deleteLastChar}>
-        <Icon size={24} type="Delete" />
+        <Icon size={24} type="Delete" color="#666" />
       </div>
     );
   }
 
   renderSingleNum(elem, idx = 0) {
     return (
-      <this.KeyboardItem key={idx} onClick={() => this.concatString(elem)}>
+      <KBStyles.KeyboardItem key={idx} onClick={() => this.concatString(elem)}>
         {elem}
-      </this.KeyboardItem>
+      </KBStyles.KeyboardItem>
     );
   }
 
@@ -134,11 +155,11 @@ class Keyboard extends Component {
       <div className="keyboard-numGrp">
         {this.KeyboardNumArr.map((elem, idx) => {
           return (
-            <this.KeyboardRow key={idx}>
+            <KBStyles.KeyboardRow key={idx}>
               {elem.map((e, i) => {
                 return this.renderSingleNum(e, i);
               })}
-            </this.KeyboardRow>
+            </KBStyles.KeyboardRow>
           );
         })}
       </div>
@@ -149,68 +170,56 @@ class Keyboard extends Component {
     return (
       <div>
         {this.renderKbNum()}
-        <this.KeyboardRow>
-          <this.KeyboardItem>{this.props.icon}</this.KeyboardItem>
+        <KBStyles.KeyboardRow>
+          <KBStyles.KeyboardItem>{this.props.icon}</KBStyles.KeyboardItem>
           {this.renderSingleNum(0)}
-          <this.KeyboardItem>{this.renderDelBtn()}</this.KeyboardItem>
-        </this.KeyboardRow>
+          <KBStyles.KeyboardItem>{this.renderDelBtn()}</KBStyles.KeyboardItem>
+        </KBStyles.KeyboardRow>
       </div>
     );
   }
 
   renderKbCalculator() {
-    const { onHide, onConfirm } = this.props;
-    const Container = styled.div`display: flex;`;
-    const Left = styled.div`flex: 3;`;
-    const Right = styled.div`
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    `;
-    const RightItem = styled.div`${style.mixins.xmFlexCenter()};`;
-    const KeyboardItemRight = this.KeyboardItem.extend`
+    const KbcItemRight = KBStyles.KeyboardItem.extend`
             height: 112px;
             line-height: 112px;
         `;
-    const KeyboardItemConfirm = KeyboardItemRight.extend`
+    const KbcItemConfirm = KbcItemRight.extend`
       font-size: 18px;
       letter-spacing: 0.45px;
       border: 0;
       background-image: linear-gradient(-180deg, #ff9100 0%, #ff7500 100%);
       color: #fff;
     `;
+    const { onHide, onConfirm } = this.props;
     return (
-      <Container>
-        <Left>
+      <KBStyles.KbcContainer>
+        <KBStyles.KbcLeft>
           {this.renderKbNum()}
-          <this.KeyboardRow>
-            <this.KeyboardItem onClick={this.concatPoint}>.</this.KeyboardItem>
+          <KBStyles.KeyboardRow>
+            <KBStyles.KeyboardItem onClick={this.concatPoint}>
+              <div style={{ color: '#666' }}>.</div>
+            </KBStyles.KeyboardItem>
             {this.renderSingleNum(0)}
-            <this.KeyboardItem onClick={onHide}>
-              <Icon type="Keyboard" size={24} />
-            </this.KeyboardItem>
-          </this.KeyboardRow>
-        </Left>
-        <Right>
-          <KeyboardItemRight>{this.renderDelBtn()}</KeyboardItemRight>
-          <KeyboardItemConfirm onClick={onConfirm}>确定</KeyboardItemConfirm>
-        </Right>
-      </Container>
+            <KBStyles.KeyboardItem onClick={onHide}>
+              <Icon type="Keyboard" size={24} color="#666" />
+            </KBStyles.KeyboardItem>
+          </KBStyles.KeyboardRow>
+        </KBStyles.KbcLeft>
+        <KBStyles.KbcRight>
+          <KbcItemRight>{this.renderDelBtn()}</KbcItemRight>
+          <KbcItemConfirm onClick={onConfirm}>确定</KbcItemConfirm>
+        </KBStyles.KbcRight>
+      </KBStyles.KbcContainer>
     );
   }
 
   render({ type, keyboardCls }) {
-    const KbContainer = styled.div`
-      background: #fff;
-      border: 1px solid #f8f8f8;
-      border-right: 0;
-    `;
-
     return (
-      <KbContainer className={keyboardCls}>
+      <KBStyles.KbContainer className={keyboardCls}>
         {type === KEYBOARD_TYPE.PASSWORD && this.renderKbPassword()}
         {type === KEYBOARD_TYPE.CALCULATOR && this.renderKbCalculator()}
-      </KbContainer>
+      </KBStyles.KbContainer>
     );
   }
 }
