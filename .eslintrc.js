@@ -41,6 +41,7 @@ module.exports = {
 		'react/prop-types'        : [1],
 		'react/display-name'      : [0],
 		'react/no-children-prop'  : [0],
-		'no-unused-vars'          : [1]
+		'no-unused-vars'          : [1],
+		'react/require-default-props': [0]
 	}
 };

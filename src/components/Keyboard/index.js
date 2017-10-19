@@ -1,12 +1,12 @@
 /**
  * Created by Liqi on 17/9/30.
  */
-import { default as Component } from '../utlis/Component';
-import { Icon } from '../Icon/index';
-import { style } from '../style_index';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { noop } from 'lodash';
+import { default as Component } from '../utlis/Component';
+import { Icon } from '../Icon/index';
+import { style } from '../style_index';
 
 const KEYBOARD_TYPE = {
   PASSWORD: 'password',

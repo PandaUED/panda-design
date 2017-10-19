@@ -1,11 +1,11 @@
 /**
  * Created by Liqi on 17/9/28.
  */
+import styled from 'styled-components';
 import { default as Component } from '../utlis/Component';
 import { Modal } from '../Modal/index';
 import { Button } from '../Button/index';
 import { style } from '../style_index';
-import styled from 'styled-components';
 
 const DIALOG_TYPE = {
   ALERT: 'alert',

@@ -56,3 +56,7 @@ $ yarn merge
 - [roadhog](https://github.com/sorrycc/roadhog)
 - [dva](https://github.com/dvajs/dva)
 
+##注意事项
+#### 因为将ui框架放进主工程出现了比较严重的循环引用问题，所以我们约定：
+- 不要在component里使用import .. from pand；
+- 最好避免默认导出 （export default） 这样的使用，直接命名导出 export，引用的时候也具体引用
