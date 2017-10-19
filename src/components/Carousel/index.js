@@ -2,8 +2,8 @@
  * Created by lichenguang on 2017/9/21.
  */
 import styled from 'styled-components';
-import ReactCarousel from './ReactCarousel';
 import PropTypes from 'prop-types';
+import ReactCarousel from './ReactCarousel';
 import { style } from '../style_index';
 
 const props = {
