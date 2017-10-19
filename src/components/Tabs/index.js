@@ -9,7 +9,7 @@ import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 import classnames from 'classnames';
-import { style } from '../';
+import { style } from '../style_index';
 
 import { Tab } from './Tab';
 
@@ -33,7 +33,9 @@ const EmptyTab = styled.div`
   text-align: center;
   padding: 10px;
 `;
-const ErrorTab = EmptyTab.extend`color: red;`;
+const ErrorTab = EmptyTab.extend`
+  color: red;
+`;
 
 const TabContainer = styled.div`
   position: relative;

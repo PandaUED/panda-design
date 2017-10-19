@@ -2,7 +2,7 @@
  * Created by Liqi on 17/9/30.
  */
 import { default as Component } from '../utlis/Component';
-import { Icon, style } from '../';
+import { Icon } from '../Icon/index';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { noop } from 'lodash';
@@ -31,8 +31,12 @@ const KBStyles = {
     box-shadow: 0.5px 0.5px 0 0 #f8f8f8;
     text-align: center;
   `,
-  KbcContainer: styled.div`display: flex;`,
-  KbcLeft: styled.div`flex: 3;`,
+  KbcContainer: styled.div`
+    display: flex;
+  `,
+  KbcLeft: styled.div`
+    flex: 3;
+  `,
   KbcRight: styled.div`
     flex: 1;
     display: flex;
@@ -106,10 +110,8 @@ class Keyboard extends Component {
           _value = value.toString();
         }
       }
-    } else {
-      if (currValue.length >= numLimit) {
-        return;
-      }
+    } else if (currValue.length >= numLimit) {
+      return;
     }
 
     this.updateValue(_value);
@@ -124,12 +126,10 @@ class Keyboard extends Component {
     let _value = null;
     if (currValue.match(/\./i)) {
       return;
+    } else if (!currValue.length) {
+      _value = '0.';
     } else {
-      if (!currValue.length) {
-        _value = '0.';
-      } else {
-        _value = currValue + '.';
-      }
+      _value = `${currValue}.`;
     }
     this.updateValue(_value);
   }

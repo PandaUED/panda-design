@@ -1,8 +1,8 @@
 import styled, { css } from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Icon } from 'pand';
-import { style } from '../';
+import { Icon } from '../Icon';
+import { style } from '../style_index';
 
 const props = {
   className: PropTypes.string,
@@ -42,7 +42,9 @@ const HorizontalStepItem = ({ data, isFirst = false, isLast = false, ...other })
     background-color: ${style.color.bgPage};
     ${data.status === 'active' && `background-color: ${style.color.blue};`};
   `;
-  const WhitePlaceHolder = PlaceHolder.extend`background-color: transparent;`;
+  const WhitePlaceHolder = PlaceHolder.extend`
+    background-color: transparent;
+  `;
   const StepIcon = styled.div`
     height: 24px;
     width: 24px;
@@ -121,7 +123,9 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
     line-height: 12px;
     margin-left: 16px;
   `;
-  const StepContent = styled.div`${isFirst ? 'margin-top: 0;' : 'margin-top: 16px;'};`;
+  const StepContent = styled.div`
+    ${isFirst ? 'margin-top: 0;' : 'margin-top: 16px;'};
+  `;
 
   return (
     <StepItem {...other}>

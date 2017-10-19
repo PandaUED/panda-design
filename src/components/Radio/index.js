@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { noop } from 'lodash';
-import { style } from '../';
+import { style } from '../style_index';
 
 const props = {
   className: PropTypes.string,

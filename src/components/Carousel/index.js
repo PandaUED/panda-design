@@ -4,7 +4,7 @@
 import styled from 'styled-components';
 import ReactCarousel from './ReactCarousel';
 import PropTypes from 'prop-types';
-import { style } from '../';
+import { style } from '../style_index';
 
 const props = {
   color: PropTypes.oneOf(Object.keys(style.color)),
@@ -34,7 +34,9 @@ const Carousel = ({
     }
   `;
   if (deg) {
-    Carousel = Carousel.extend`background: ${style.gradient[color](deg)};`;
+    Carousel = Carousel.extend`
+      background: ${style.gradient[color](deg)};
+    `;
   }
 
   return <Carousel {...other} dots={dots} autoplay={autoplay} wrapAround={infinite} />;

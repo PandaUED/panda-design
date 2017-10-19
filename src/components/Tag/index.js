@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import { Icon } from 'pand';
-import { style } from '../';
+import { Icon } from '../Icon/index';
+import { style } from '../style_index';
 
 const TAG_TYPE = {
   BIG: 'BIG',
@@ -42,7 +42,9 @@ const Tag = ({
     color: ${style.color[textColor]};
   `;
   if (deg) {
-    Tag = Tag.extend`background: ${style.gradient[backgroundColor](deg)};`;
+    Tag = Tag.extend`
+      background: ${style.gradient[backgroundColor](deg)};
+    `;
   }
 
   if (type === TAG_TYPE.BIG) {

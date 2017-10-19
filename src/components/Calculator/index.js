@@ -2,11 +2,16 @@
  * Created by Liqi on 17/10/16.
  */
 
-import { default as Component } from '../utlis/Component';
-import { ActionSheet, Input, Keyboard, NoticeBar, Icon, style } from '../';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { noop } from 'lodash';
+import { default as Component } from '../utlis/Component';
+import { ActionSheet } from '../ActionSheet/index';
+import { Input } from '../Input/index';
+import { Keyboard } from '../Keyboard/index';
+import { NoticeBar } from '../NoticeBar/index';
+import { Icon } from '../Icon/index';
+import { style } from '../style_index';
 
 const CalculatorStyles = {
   Output: styled.div`

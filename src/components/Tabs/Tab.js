@@ -7,7 +7,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import classNames from 'classnames';
-import { Badge } from 'pand';
+import Badge from '../Badge/index';
 
 const BasicTab = (
   { onClick, index, title, disable = false, className, children, badge, dot, ...rest },

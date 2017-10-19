@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
-import { style } from '../';
+import { style } from '../style_index';
 import CellLeft from './CellLeft';
 import CellMain from './CellMain';
 import CellRight from './CellRight';

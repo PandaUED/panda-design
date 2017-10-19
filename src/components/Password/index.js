@@ -1,12 +1,15 @@
 /**
  * Created by Liqi on 17/10/16.
  */
-
-import { default as Component } from '../utlis/Component';
-import styled from 'styled-components';
-import { ActionSheet, Input, Keyboard, WhiteSpace, NoticeBar } from '../';
 import PropTypes from 'prop-types';
 import { noop } from 'lodash';
+import styled from 'styled-components';
+import { default as Component } from '../utlis/Component';
+import { ActionSheet } from '../ActionSheet/index';
+import { Input } from '../Input/index';
+import { Keyboard } from '../Keyboard/index';
+import { WhiteSpack as WhiteSpace } from '../WhiteSpace/index';
+import { NoticeBar } from '../NoticeBar/index';
 
 const PasswordStyles = {
   ActionBar: styled.div`

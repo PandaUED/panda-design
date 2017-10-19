@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { style } from '../';
+import { style } from '../style_index';
 
 const props = {
   className: PropTypes.string,

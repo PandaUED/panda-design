@@ -9,7 +9,9 @@ import PropTypes from 'prop-types';
 import styled, { css, ThemeProvider } from 'styled-components';
 
 // 单色图标 样式
-const singleStyleSheet = css`color: ${({ theme }) => theme.color};`;
+const singleStyleSheet = css`
+  color: ${({ theme }) => theme.color};
+`;
 
 // 双色图标 样式
 const doubleStyleSheet = css`
@@ -62,4 +64,4 @@ Icon.propTypes = {
   color: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
 };
 
-export default Icon;
+export { Icon };

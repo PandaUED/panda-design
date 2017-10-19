@@ -2,8 +2,8 @@ import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { noop } from 'lodash';
-import { Icon } from 'pand';
-import { style } from '../';
+import { Icon } from '../Icon';
+import { style } from '../style_index';
 
 class Input extends React.Component {
   static propTypes = {
@@ -64,7 +64,7 @@ class Input extends React.Component {
   }
 
   clear(e) {
-    let target = e.target.parentNode.parentNode;
+    const target = e.target.parentNode.parentNode;
     target.querySelector('input').value = '';
   }
 
@@ -139,14 +139,18 @@ class Input extends React.Component {
 
       ${size === 'large' && largeStyle};
     `;
-    const InputLeft = styled.div`margin-left: 16px;`;
+    const InputLeft = styled.div`
+      margin-left: 16px;
+    `;
     const InputRight = styled.div`
       font-size: 12px;
       color: ${style.color.blue};
       word-break: keep-all;
       margin-right: 8px;
     `;
-    const InputClear = styled.div`margin-right: 16px;`;
+    const InputClear = styled.div`
+      margin-right: 16px;
+    `;
     return (
       <InputWrap>
         {left && <InputLeft>{left}</InputLeft>}
@@ -172,4 +176,4 @@ class Input extends React.Component {
   }
 }
 
-export default Input;
+export { Input };

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import PropTypes from 'prop-types';
-import { style } from '../';
+import { style } from '../style_index';
 
 const props = {
   className: PropTypes.string,

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
-import { style } from '../';
+import { style } from '../style_index';
 
 class Switch extends React.Component {
   static propTypes = {

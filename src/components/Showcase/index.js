@@ -5,7 +5,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { rgba } from 'polished';
-import { style } from '../';
+import { style } from '../style_index';
 
 const props = {
   backgroundColor: PropTypes.oneOf(Object.keys(style.color)),
@@ -47,7 +47,9 @@ const Showcase = ({
   `;
 
   if (deg) {
-    Showcase = Showcase.extend`background: ${style.gradient[backgroundColor](deg)};`;
+    Showcase = Showcase.extend`
+      background: ${style.gradient[backgroundColor](deg)};
+    `;
   }
 
   const Title = styled.div`
@@ -73,9 +75,15 @@ const Showcase = ({
     font-size: 10px;
     align-self: flex-start;
   `;
-  const Cell = styled.div`flex: 1;`;
-  const ShowcaseHeader = styled.div`display: flex;`;
-  const ShowcaseContent = styled(ShowcaseHeader)`margin-top: 20px;`;
+  const Cell = styled.div`
+    flex: 1;
+  `;
+  const ShowcaseHeader = styled.div`
+    display: flex;
+  `;
+  const ShowcaseContent = styled(ShowcaseHeader)`
+    margin-top: 20px;
+  `;
   const ShowcaseBackground = styled.a`
     opacity: 0.08;
     font-family: SFUIDisplay-Black;
