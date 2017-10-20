@@ -19,9 +19,7 @@ const WhiteSpack = ({ size = 10, transparent = false, children, ...other }) => {
       padding: ${children ? '10px 16px' : 0};
     `;
   } else {
-    WhiteSpace = WhiteSpace.extend`
-      height: ${size}px;
-    `;
+    WhiteSpace = WhiteSpace.extend`height: ${size}px;`;
   }
 
   return <WhiteSpace {...other}>{children}</WhiteSpace>;

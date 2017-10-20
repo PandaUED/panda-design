@@ -67,13 +67,9 @@ class NavBar extends Component {
       top: 0;
     `;
     if (this.props.mode === NAVBAR_MODE.WHITE) {
-      NavBG = NavBG.extend`
-        background: #fff;
-      `;
+      NavBG = NavBG.extend`background: #fff;`;
     } else {
-      NavBG = NavBG.extend`
-        background: transparent !important;
-      `;
+      NavBG = NavBG.extend`background: transparent !important;`;
     }
 
     const NavItem = styled.div`
