@@ -221,4 +221,6 @@ class Keyboard extends Component {
   }
 }
 
+Keyboard.TYPES = KEYBOARD_TYPE;
+
 export { Keyboard };

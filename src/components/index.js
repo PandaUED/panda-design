@@ -45,5 +45,6 @@ export { Password } from './Password';
 
 // Utils
 export { default as Component } from './utlis/Component';
+export { color, gradient } from './style';
 
 export { style } from './style_index';
