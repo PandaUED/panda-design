@@ -53,7 +53,7 @@ const PageActionSheet = () => {
       <ActionSheet
         ref={c => (refASBottom = c)}
         title="选择排序方式"
-        closeBtnPosition="bottom"
+        closeBtnPosition={ActionSheet.TYPES.BOTTOM}
         onClose={() => {
           console.log('close 应用层回调');
         }}

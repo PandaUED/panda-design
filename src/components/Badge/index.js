@@ -84,5 +84,6 @@ const Badge = ({ type = 'number', children = null, overflowNum = 99, className =
 };
 
 Badge.propTypes = BadgeProps;
+Badge.TYPES = BADGE_TYPE;
 
 export default Badge;

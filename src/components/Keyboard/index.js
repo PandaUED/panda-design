@@ -32,12 +32,8 @@ const KBStyles = {
     box-shadow: 0.5px 0.5px 0 0 #f8f8f8;
     text-align: center;
   `,
-  KbcContainer: styled.div`
-    display: flex;
-  `,
-  KbcLeft: styled.div`
-    flex: 3;
-  `,
+  KbcContainer: styled.div`display: flex;`,
+  KbcLeft: styled.div`flex: 3;`,
   KbcRight: styled.div`
     flex: 1;
     display: flex;
@@ -224,5 +220,7 @@ class Keyboard extends Component {
     );
   }
 }
+
+Keyboard.TYPES = KEYBOARD_TYPE;
 
 export { Keyboard };

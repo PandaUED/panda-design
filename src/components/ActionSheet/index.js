@@ -114,4 +114,6 @@ class ActionSheet extends Component {
   }
 }
 
+ActionSheet.TYPES = ACTIONSHEET_TYPE;
+
 export { ActionSheet };
