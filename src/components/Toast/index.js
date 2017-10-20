@@ -46,9 +46,7 @@ class Toast extends Component {
       background: #fff;
       ${style.mixins.xmFlexCenter()};
     `;
-    const TIcon = styled.div`
-      margin-right: 16px;
-    `;
+    const TIcon = styled.div`margin-right: 16px;`;
     const TTitle = styled.div`
       font-family: PingFangSC-Medium;
       font-size: 16px;
@@ -65,9 +63,7 @@ class Toast extends Component {
       line-height: 18px;
       text-align: justify;
     `;
-    const TBlank = styled.div`
-      flex: 1 1 auto;
-    `;
+    const TBlank = styled.div`flex: 1 1 auto;`;
     const TBtn = styled.div`
       margin-left: 16px;
       font-family: PingFangSC-Regular;

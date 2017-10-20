@@ -1,4 +1,4 @@
-import { React, Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -30,9 +30,9 @@ function getScrollDom(selector = '.scroll') {
 class NavBar extends Component {
   static defaultProps = {
     mode: NAVBAR_MODE.WHITE,
-    leftView: null,
-    rightView: null,
-    titleView: null,
+    leftView: <div>返回</div>,
+    rightView: <div>设置</div>,
+    titleView: <div style={{ margin: '0 auto' }}>熊猫金库</div>,
     scrollDom: '.scroll',
   };
 
@@ -67,13 +67,9 @@ class NavBar extends Component {
       top: 0;
     `;
     if (this.props.mode === NAVBAR_MODE.WHITE) {
-      NavBG = NavBG.extend`
-        background: #fff;
-      `;
+      NavBG = NavBG.extend`background: #fff;`;
     } else {
-      NavBG = NavBG.extend`
-        background: transparent !important;
-      `;
+      NavBG = NavBG.extend`background: transparent !important;`;
     }
 
     const NavItem = styled.div`
