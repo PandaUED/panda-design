@@ -42,9 +42,7 @@ const Tag = ({
     color: ${style.color[textColor]};
   `;
   if (deg) {
-    Tag = Tag.extend`
-      background: ${style.gradient[backgroundColor](deg)};
-    `;
+    Tag = Tag.extend`background: ${style.gradient[backgroundColor](deg)};`;
   }
 
   if (type === TAG_TYPE.BIG) {
