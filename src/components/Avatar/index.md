@@ -10,5 +10,6 @@
 | shape     | 形状,圆形方形        | ['circle' / 'square'] | 'circle' |
 | url       | 图片资源地址         |        string         |    无     |
 | name      | 名字,用于没有头像时代替头像 |        string         |    无     |
+| center    | 是否居中 |        bool         |    false     |
 | **OTHER** |                |                       |          |
 | className | 样式类名           |        string         |    -     |
