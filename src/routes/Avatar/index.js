@@ -16,7 +16,7 @@ export default () => {
           />
         </List.Item>
         <List.Item padding={16} split>
-          <Avatar name="kikooo" />
+          <Avatar name="kikooo" center />
         </List.Item>
         <List.Item padding={16} split>
           <Avatar name="番薯哥哥" />
