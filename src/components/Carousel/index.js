@@ -24,9 +24,13 @@ const Carousel = ({
 }) => {
   let Carousel = styled(ReactCarousel)`
     background: ${style.color[color]};
-    img {
+    a {
+      display: inline-block;
       width: 100%;
-      vertical-align: top;
+      img {
+        width: 100%;
+        vertical-align: top;
+      }
     }
   `;
   if (deg) {
