@@ -19,15 +19,6 @@ const props = {
   scrollDom: PropTypes.string,
 };
 
-function getScrollDom(selector = '.scroll') {
-  const scrollDom = document.querySelector(selector);
-  // 有一种可能，该dom元素还未渲染出来，这里抛异常，方便找问题
-  if (!scrollDom) {
-    throw new Error(`can not get scrollDom from "${selector}"`);
-  }
-  return scrollDom;
-}
-
 class NavBar extends Component {
   static defaultProps = {
     mode: NAVBAR_MODE.WHITE,
@@ -36,28 +27,6 @@ class NavBar extends Component {
     titleView: null,
     scrollDom: '.scroll',
   };
-
-  componentWillMount() {
-    this.setState({
-      mode: this.props.mode,
-    });
-  }
-
-  componentDidMount() {
-    const { scrollDom } = this.props;
-    if (scrollDom) {
-      setTimeout(() => {
-        this.$scrollDom = getScrollDom(scrollDom).on('scroll', this.handleScroll);
-        // 主动调用一次scroll事件以便更新navbar
-        this.$scrollDom.trigger('scroll');
-      }, 100);
-    }
-  }
-
-  $scrollDom = null;
-
-  hanleScroll() {}
-
   render() {
     let NavBG = styled.div`
       display: flex;
