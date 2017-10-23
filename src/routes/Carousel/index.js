@@ -36,26 +36,8 @@ export default () => {
       <Card>
         <Header split>Carousel Banner</Header>
         <Body>
-          <Carousel color="primary" deg={45} autoplay infinite dots>
-            {/* {['1', '2', '3'].map(i => <div key={i}>Carousel {i}</div>)} */}
-            <div>
-              <img
-                src="https://zos.alipayobjects.com/rmsportal/QcWDkUhvYIVEcvtosxMF.png"
-                alt="banner"
-                onLoad={() => {
-                  window.dispatchEvent(new Event('resize'));
-                }}
-              />
-            </div>
-            <div>
-              <img
-                src="https://zos.alipayobjects.com/rmsportal/QcWDkUhvYIVEcvtosxMF.png"
-                alt="banner"
-                onLoad={() => {
-                  window.dispatchEvent(new Event('resize'));
-                }}
-              />
-            </div>
+          <Carousel color="primary" deg={45} autoplay infinite dots style={{ height: 192 }}>
+            {['1', '2', '3'].map(i => <div key={i}>Carousel {i}</div>)}
           </Carousel>
           <WhiteSpace />
           <Carousel color="blue" deg={45} style={{ height: 128 }}>

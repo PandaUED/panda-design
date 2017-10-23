@@ -14,6 +14,15 @@ export default () => {
           </Button>
         </Footer>
       </Card>
+      <Card className="ddd">
+        <Header split>Header</Header>
+        <Body padding>Body</Body>
+        <Footer split>
+          <Button color="blue" size="large" ghost border={false}>
+            Footer
+          </Button>
+        </Footer>
+      </Card>
       <WhiteSpace />
     </View>
   );

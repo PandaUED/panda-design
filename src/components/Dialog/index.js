@@ -210,6 +210,9 @@ class Dialog extends Component {
   }
 }
 
+Dialog.TYPES = DIALOG_TYPE;
+Dialog.THEMES = DIALOG_THEME;
+
 function DialogSharedInstance() {
   return (
     <Dialog

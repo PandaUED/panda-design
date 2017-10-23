@@ -1,9 +1,68 @@
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { noop } from 'lodash';
 import { Icon } from '../Icon';
 import { style } from '../style_index';
+
+const SquareInputWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  padding: 0;
+  width: 100%;
+`;
+const SquareInputBlock = styled.div`
+  background: ${style.color.white};
+  border: 1px solid ${style.color.split};
+  font-size: 36px;
+  color: ${style.color.textDark};
+  line-height: 54px;
+  height: 54px;
+  width: 48px;
+  text-align: center;
+  margin-right: 6px;
+  &:last-child {
+    margin-right: 0;
+  }
+`;
+const InputWrap = styled.div`
+  display: flex;
+  background-color: ${style.color.white};
+  align-items: center;
+  padding: 19px 8px;
+`;
+const InputView = styled.input`
+  color: ${style.color.textDark};
+  width: 100%;
+  margin-left: 24px;
+  font-size: 16px;
+  line-height: 16px;
+  border: none;
+  ::-moz-placeholder {
+    color: ${style.color.placeholder};
+  }
+  ::-webkit-input-placeholder {
+    color: ${style.color.placeholder};
+  }
+`;
+const InputLeft = styled.div`
+  margin-left: 16px;
+`;
+const InputRight = styled.div`
+  font-size: 12px;
+  color: ${style.color.blue};
+  word-break: keep-all;
+  margin-right: 8px;
+`;
+const InputClear = styled.div`
+  margin-right: 16px;
+`;
+
+const LargeInput = InputView.extend`
+  font-size: 20px;
+  line-height: 20px;
+  font-weight: bold;
+`;
 
 class Input extends React.Component {
   static propTypes = {
@@ -19,6 +78,7 @@ class Input extends React.Component {
     size: PropTypes.string,
     readOnly: PropTypes.bool,
     showClear: PropTypes.bool,
+    padding: PropTypes.number,
   };
   static defaultProps = {
     onChange: noop,
@@ -81,90 +141,45 @@ class Input extends React.Component {
       defaultValue,
     } = this.props;
     if (size === 'square') {
-      const InputWrap = styled.div`
-        display: flex;
-        justify-content: center;
-        padding: 0 30px;
-      `;
-      const InputBlock = styled.div`
-        flex: 1;
-        background: ${style.color.white};
-        border: 1px solid ${style.color.split};
-        font-size: 36px;
-        color: ${style.color.textDark};
-        line-height: 54px;
-        height: 54px;
-        text-align: center;
-        margin-right: 6px;
-        &:last-child {
-          margin-right: 0;
-        }
-      `;
       return (
-        <InputWrap className={className} onClick={e => this.props.onClick(e)}>
-          <InputBlock>{value[0]}</InputBlock>
-          <InputBlock>{value[1]}</InputBlock>
-          <InputBlock>{value[2]}</InputBlock>
-          <InputBlock>{value[3]}</InputBlock>
-          <InputBlock>{value[4]}</InputBlock>
-          <InputBlock>{value[5]}</InputBlock>
-        </InputWrap>
+        <SquareInputWrap className={className} onClick={e => this.props.onClick(e)}>
+          <SquareInputBlock>{value[0]}</SquareInputBlock>
+          <SquareInputBlock>{value[1]}</SquareInputBlock>
+          <SquareInputBlock>{value[2]}</SquareInputBlock>
+          <SquareInputBlock>{value[3]}</SquareInputBlock>
+          <SquareInputBlock>{value[4]}</SquareInputBlock>
+          <SquareInputBlock>{value[5]}</SquareInputBlock>
+        </SquareInputWrap>
       );
     }
 
-    const largeStyle = css`
-      font-size: 20px;
-      line-height: 20px;
-      font-weight: bold;
-    `;
-    const InputWrap = styled.div`
-      display: flex;
-      background-color: ${style.color.white};
-      align-items: center;
-      padding: 19px 8px;
-    `;
-    const Input = styled.input`
-      color: ${style.color.textDark};
-      width: 100%;
-      margin-left: 24px;
-      font-size: 16px;
-      line-height: 16px;
-      border: none;
-      ::-moz-placeholder {
-        color: ${style.color.placeholder};
-      }
-      ::-webkit-input-placeholder {
-        color: ${style.color.placeholder};
-      }
-
-      ${size === 'large' && largeStyle};
-    `;
-    const InputLeft = styled.div`
-      margin-left: 16px;
-    `;
-    const InputRight = styled.div`
-      font-size: 12px;
-      color: ${style.color.blue};
-      word-break: keep-all;
-      margin-right: 8px;
-    `;
-    const InputClear = styled.div`
-      margin-right: 16px;
-    `;
     return (
-      <InputWrap>
+      <InputWrap className={className}>
         {left && <InputLeft>{left}</InputLeft>}
-        <Input
-          onClick={e => this.props.onClick(e)}
-          className={className}
-          placeholder={placeholder}
-          value={value}
-          defaultValue={defaultValue}
-          onChange={e => {
-            this.onChange(e);
-          }}
-          readOnly={readOnly}
-        />
+        {size === 'large' ? (
+          <LargeInput
+            onClick={e => this.props.onClick(e)}
+            className={className}
+            placeholder={placeholder}
+            value={value}
+            defaultValue={defaultValue}
+            onChange={e => {
+              this.onChange(e);
+            }}
+            readOnly={readOnly}
+          />
+        ) : (
+          <InputView
+            onClick={e => this.props.onClick(e)}
+            placeholder={placeholder}
+            value={value}
+            defaultValue={defaultValue}
+            onChange={e => {
+              this.onChange(e);
+            }}
+            readOnly={readOnly}
+          />
+        )}
         {showClear && (
           <InputClear onClick={e => this.clear(e)}>
             <Icon size={16} type="remove" color="#CACACA" />
