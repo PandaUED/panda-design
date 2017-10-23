@@ -2,13 +2,18 @@ import styled from 'styled-components';
 import CardBody from './CardBody';
 import CardFooter from './CardFooter';
 import CardHeader from './CardHeader';
+import './_card.scss';
 
 const props = {};
 
 const Card = ({ children = 'example', ...other }) => {
   const Card = styled.div`background: #fff;`;
 
-  return <Card {...other}>{children}</Card>;
+  return (
+    <Card className="xm-card" {...other}>
+      {children}
+    </Card>
+  );
 };
 
 Card.propTypes = props;
