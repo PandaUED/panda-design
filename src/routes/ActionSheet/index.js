@@ -26,6 +26,7 @@ const PageActionSheet = () => {
       <WhiteSpace>ActionSheet</WhiteSpace>
       <a
         onClick={() => {
+          console.log(refASTop);
           refASTop.show();
         }}
       >

@@ -56,6 +56,7 @@ class ActionSheet extends Component {
     this.state = {
       asVisible: false,
     };
+    this.show = this.show.bind(this);
     this.hide = this.hide.bind(this);
   }
 

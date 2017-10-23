@@ -12,13 +12,13 @@ const SquareInputWrap = styled.div`
   width: 100%;
 `;
 const SquareInputBlock = styled.div`
-  flex: 1;
   background: ${style.color.white};
   border: 1px solid ${style.color.split};
   font-size: 36px;
   color: ${style.color.textDark};
   line-height: 54px;
   height: 54px;
+  width: 48px;
   text-align: center;
   margin-right: 6px;
   &:last-child {
