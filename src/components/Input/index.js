@@ -148,7 +148,7 @@ class Input extends React.Component {
     }
 
     return (
-      <InputWrap>
+      <InputWrap className={className}>
         {left && <InputLeft>{left}</InputLeft>}
         {size === 'large' ? (
           <LargeInput
@@ -165,7 +165,6 @@ class Input extends React.Component {
         ) : (
           <InputView
             onClick={e => this.props.onClick(e)}
-            className={className}
             placeholder={placeholder}
             value={value}
             defaultValue={defaultValue}
