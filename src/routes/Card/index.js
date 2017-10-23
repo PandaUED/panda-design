@@ -14,7 +14,7 @@ export default () => {
           </Button>
         </Footer>
       </Card>
-      <Card>
+      <Card className="ddd">
         <Header split>Header</Header>
         <Body padding>Body</Body>
         <Footer split>
