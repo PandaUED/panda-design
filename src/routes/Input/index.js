@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Input, WhiteSpace, Icon } from 'pand';
+import { View, Input, WhiteSpace, Icon, Cell } from 'pand';
 
 class PageInput extends React.Component {
   state = {
@@ -49,7 +49,9 @@ class PageInput extends React.Component {
           }}
         />
         <WhiteSpace>square（应配合键盘使用）</WhiteSpace>
-        <Input size="square" value="23248" />
+        <Cell className="CellCls" padding={30}>
+          <Input size="square" value="23248" />
+        </Cell>
       </View>
     );
   }

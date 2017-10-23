@@ -8,7 +8,8 @@ import { style } from '../style_index';
 const SquareInputWrap = styled.div`
   display: flex;
   justify-content: center;
-  padding: 0 30px;
+  padding: 0;
+  width: 100%;
 `;
 const SquareInputBlock = styled.div`
   flex: 1;
@@ -73,6 +74,7 @@ class Input extends React.Component {
     size: PropTypes.string,
     readOnly: PropTypes.bool,
     showClear: PropTypes.bool,
+    padding: PropTypes.number,
   };
   static defaultProps = {
     onChange: noop,
