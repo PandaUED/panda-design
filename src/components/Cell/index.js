@@ -32,10 +32,7 @@ const Cell = ({
   alone = false,
   ...other
 }) => {
-  const aloneCell = css`
-    border-bottom: ${style.color.bgPage} 1px solid;
-    ${padding ? `padding:${padding}px;` : 'padding:16px;'};
-  `;
+  const aloneCell = css`border-bottom: ${style.color.bgPage} 1px solid;`;
   const centerCell = css`
     display: flex;
     flex-direction: row;
@@ -54,6 +51,7 @@ const Cell = ({
     ${large && 'min-height: 65px'};
     ${height && `height: ${height}px`};
     ${align === 'top' && 'align-items: flex-start;'};
+    ${padding ? `padding:${padding}px;` : 'padding:16px;'};
   `;
 
   return (
