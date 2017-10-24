@@ -45,18 +45,14 @@ const InputView = styled.input`
     color: ${style.color.placeholder};
   }
 `;
-const InputLeft = styled.div`
-  margin-left: 16px;
-`;
+const InputLeft = styled.div`margin-left: 16px;`;
 const InputRight = styled.div`
   font-size: 12px;
   color: ${style.color.blue};
   word-break: keep-all;
   margin-right: 8px;
 `;
-const InputClear = styled.div`
-  margin-right: 16px;
-`;
+const InputClear = styled.div`margin-right: 16px;`;
 
 const LargeInput = InputView.extend`
   font-size: 20px;

@@ -40,11 +40,10 @@ const HorizontalStepItem = ({ data, isFirst = false, isLast = false, ...other })
     height: 1px;
     margin-top: 12px;
     background-color: ${style.color.bgPage};
-    ${data.status === 'active' && `background-color: ${style.color.blue};`};
+    ${(data.status === 'active' || data.status === 'finish') &&
+      `background-color: ${style.color.blue};`};
   `;
-  const WhitePlaceHolder = PlaceHolder.extend`
-    background-color: transparent;
-  `;
+  const WhitePlaceHolder = PlaceHolder.extend`background-color: transparent;`;
   const StepIcon = styled.div`
     height: 24px;
     width: 24px;
@@ -54,20 +53,23 @@ const HorizontalStepItem = ({ data, isFirst = false, isLast = false, ...other })
     line-height: 24px;
     margin: 0 auto;
     background-color: ${style.color.bgPage};
-    ${data.status === 'active' && activeIcon};
+    ${(data.status === 'active' || data.status === 'finish') && activeIcon};
   `;
   const StepName = styled.div`
     font-size: 12px;
     line-height: 12px;
     margin-top: 6px;
-    ${data.status === 'active' && `color: ${style.color.blue};`};
+    ${(data.status === 'active' || data.status === 'finish') && `color: ${style.color.blue};`};
   `;
 
   return (
     <StepItem {...other}>
       <div>
         {isFirst ? <WhitePlaceHolder /> : <PlaceHolder />}
-        <StepIcon>{data.num}</StepIcon>
+        <StepIcon>
+          {data.status !== 'finish' && data.num}
+          {data.status === 'finish' && <Icon size={24} type={iconList[data.status]} />}
+        </StepIcon>
         {isLast ? <WhitePlaceHolder /> : <PlaceHolder />}
       </div>
       <StepName>{data.name}</StepName>
@@ -123,9 +125,7 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
     line-height: 12px;
     margin-left: 16px;
   `;
-  const StepContent = styled.div`
-    ${isFirst ? 'margin-top: 0;' : 'margin-top: 16px;'};
-  `;
+  const StepContent = styled.div`${isFirst ? 'margin-top: 0;' : 'margin-top: 16px;'};`;
 
   return (
     <StepItem {...other}>

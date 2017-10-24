@@ -7,9 +7,7 @@ import './_card.scss';
 const props = {};
 
 const Card = ({ children = 'example', className = '', ...other }) => {
-  const Card = styled.div`
-    background: #fff;
-  `;
+  const Card = styled.div`background: #fff;`;
 
   return (
     <Card className={`${className} xm-card`} {...other}>

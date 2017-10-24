@@ -33,9 +33,7 @@ const EmptyTab = styled.div`
   text-align: center;
   padding: 10px;
 `;
-const ErrorTab = EmptyTab.extend`
-  color: red;
-`;
+const ErrorTab = EmptyTab.extend`color: red;`;
 
 const TabContainer = styled.div`
   position: relative;

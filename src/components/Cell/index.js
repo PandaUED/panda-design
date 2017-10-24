@@ -32,9 +32,7 @@ const Cell = ({
   alone = false,
   ...other
 }) => {
-  const aloneCell = css`
-    border-bottom: ${style.color.bgPage} 1px solid;
-  `;
+  const aloneCell = css`border-bottom: ${style.color.bgPage} 1px solid;`;
   const centerCell = css`
     display: flex;
     flex-direction: row;
