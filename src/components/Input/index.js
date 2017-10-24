@@ -8,16 +8,17 @@ import { style } from '../style_index';
 const SquareInputWrap = styled.div`
   display: flex;
   justify-content: center;
-  padding: 0 30px;
+  padding: 0;
+  width: 100%;
 `;
 const SquareInputBlock = styled.div`
-  flex: 1;
   background: ${style.color.white};
   border: 1px solid ${style.color.split};
   font-size: 36px;
   color: ${style.color.textDark};
   line-height: 54px;
   height: 54px;
+  width: 48px;
   text-align: center;
   margin-right: 6px;
   &:last-child {
@@ -44,14 +45,18 @@ const InputView = styled.input`
     color: ${style.color.placeholder};
   }
 `;
-const InputLeft = styled.div`margin-left: 16px;`;
+const InputLeft = styled.div`
+  margin-left: 16px;
+`;
 const InputRight = styled.div`
   font-size: 12px;
   color: ${style.color.blue};
   word-break: keep-all;
   margin-right: 8px;
 `;
-const InputClear = styled.div`margin-right: 16px;`;
+const InputClear = styled.div`
+  margin-right: 16px;
+`;
 
 const LargeInput = InputView.extend`
   font-size: 20px;
@@ -73,6 +78,7 @@ class Input extends React.Component {
     size: PropTypes.string,
     readOnly: PropTypes.bool,
     showClear: PropTypes.bool,
+    padding: PropTypes.number,
   };
   static defaultProps = {
     onChange: noop,
@@ -148,7 +154,7 @@ class Input extends React.Component {
     }
 
     return (
-      <InputWrap>
+      <InputWrap className={className}>
         {left && <InputLeft>{left}</InputLeft>}
         {size === 'large' ? (
           <LargeInput
@@ -165,7 +171,6 @@ class Input extends React.Component {
         ) : (
           <InputView
             onClick={e => this.props.onClick(e)}
-            className={className}
             placeholder={placeholder}
             value={value}
             defaultValue={defaultValue}

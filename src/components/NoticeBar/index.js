@@ -40,7 +40,9 @@ const NoticeBar = ({
     flex-direction: row;
     ${!visible && 'display: none;'};
   `;
-  const NoticeBarContent = styled.div`${center && centerContent};`;
+  const NoticeBarContent = styled.div`
+    ${center && centerContent};
+  `;
   const NoticeBarIcon = styled.a`
     span {
       line-height: 36px;

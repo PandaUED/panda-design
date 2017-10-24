@@ -28,7 +28,9 @@ const ModalStyles = {
     height: 100%;
     z-index: -1;
   `,
-  ModalContent: styled.div`display: inline-block;`,
+  ModalContent: styled.div`
+    display: inline-block;
+  `,
 
   CloseBtn: styled.div`
     height: 48px;

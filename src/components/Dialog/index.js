@@ -24,7 +24,9 @@ const DialogStyles = {
       ${style.mixins.xmFlexCenter('column')};
     }
   `,
-  DContent: styled.div`padding: 24px 16px;`,
+  DContent: styled.div`
+    padding: 24px 16px;
+  `,
   DialogContainer: styled.div`
     width: 280px;
     background: #fff;
@@ -68,7 +70,9 @@ const DialogStyles = {
       line-height: 18px;
     }
   `,
-  DNewSingleBtn: styled.div`margin: 0 70px 20px;`,
+  DNewSingleBtn: styled.div`
+    margin: 0 70px 20px;
+  `,
   DIcon: styled.div`
     position: absolute;
     top: 0;
