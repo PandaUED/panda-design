@@ -40,7 +40,8 @@ const HorizontalStepItem = ({ data, isFirst = false, isLast = false, ...other })
     height: 1px;
     margin-top: 12px;
     background-color: ${style.color.bgPage};
-    ${data.status === 'active' && `background-color: ${style.color.blue};`};
+    ${(data.status === 'active' || data.status === 'finish') &&
+      `background-color: ${style.color.blue};`};
   `;
   const WhitePlaceHolder = PlaceHolder.extend`background-color: transparent;`;
   const StepIcon = styled.div`
@@ -52,20 +53,23 @@ const HorizontalStepItem = ({ data, isFirst = false, isLast = false, ...other })
     line-height: 24px;
     margin: 0 auto;
     background-color: ${style.color.bgPage};
-    ${data.status === 'active' && activeIcon};
+    ${(data.status === 'active' || data.status === 'finish') && activeIcon};
   `;
   const StepName = styled.div`
     font-size: 12px;
     line-height: 12px;
     margin-top: 6px;
-    ${data.status === 'active' && `color: ${style.color.blue};`};
+    ${(data.status === 'active' || data.status === 'finish') && `color: ${style.color.blue};`};
   `;
 
   return (
     <StepItem {...other}>
       <div>
         {isFirst ? <WhitePlaceHolder /> : <PlaceHolder />}
-        <StepIcon>{data.num}</StepIcon>
+        <StepIcon>
+          {data.status !== 'finish' && data.num}
+          {data.status === 'finish' && <Icon size={24} type={iconList[data.status]} />}
+        </StepIcon>
         {isLast ? <WhitePlaceHolder /> : <PlaceHolder />}
       </div>
       <StepName>{data.name}</StepName>
