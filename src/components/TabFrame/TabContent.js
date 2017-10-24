@@ -12,7 +12,6 @@ import classNames from 'classnames';
 const BasicTabContent = ({ index, children, className, ...other }, { activeIndex }) => {
   return (
     <div
-      index={index}
       className={classNames('tab-content', className, activeIndex === index ? 'active' : '')}
       {...other}
     >
