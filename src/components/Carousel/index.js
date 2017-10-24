@@ -30,9 +30,7 @@ const Carousel = ({
     }
   `;
   if (deg) {
-    Carousel = Carousel.extend`
-      background: ${style.gradient[color](deg)};
-    `;
+    Carousel = Carousel.extend`background: ${style.gradient[color](deg)};`;
   }
 
   return <Carousel {...other} dots={dots} autoplay={autoplay} wrapAround={infinite} />;
