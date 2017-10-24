@@ -1,4 +1,4 @@
-import { NavBar, NAVBAR_MODE, style, View, WhiteSpace } from 'pand';
+import { NavBar, NAVBAR_MODE, style, View, WhiteSpace, Icon } from 'pand';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -22,7 +22,11 @@ export default class extends React.Component {
 
     return (
       <PageView>
-        <NavBar mode={this.state.mode} />
+        <NavBar
+          mode={this.state.mode}
+          titleView={<div style={{ margin: '0 auto' }}>熊猫金库</div>}
+          rightView={<Icon size={24} type={'Setting'} />}
+        />
         <WhiteSpace>Type</WhiteSpace>
         <a onClick={() => this.setState({ mode: NAVBAR_MODE.WHITE })}>White Mode</a>
         <a onClick={() => this.setState({ mode: NAVBAR_MODE.TRANS })}>Trans Mode</a>

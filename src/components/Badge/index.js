@@ -54,13 +54,13 @@ const Badge = ({ type = 'number', children = null, overflowNum = 99, className =
     display: inline-block;
     background: ${style.color.orange};
     border: 1px solid #fff;
-    border-radius: 50px;
+    border-radius: 8px;
     border-bottom-left-radius: 0;
     font-family: PingFangSC-Medium;
     font-size: 9px;
     color: #fff;
     letter-spacing: 0.34px;
-    padding: 2px 4px;
+    padding: 1px 6px;
     //transform: scale(0.9);
   `;
 

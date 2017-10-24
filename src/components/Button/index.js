@@ -45,6 +45,7 @@ const Button = ({
   shadow = false,
   highlight = false,
   disabled = false,
+  onTouchTap,
   ...other
 }) => {
   // 线框样式
