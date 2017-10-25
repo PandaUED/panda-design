@@ -35,6 +35,10 @@ const CellMain = ({
     display: flex;
     align-items: center;
   `;
+  const CellMainWrap = css`
+    display: flex;
+    align-items: center;
+  `;
   const CellMain = styled.div`
     font-size: ${size}px;
     margin-left: ${marginLeft}px;
@@ -59,7 +63,7 @@ const CellMain = ({
 
   return (
     <CellMain className={className} {...other}>
-      <div>{children}</div>
+      <CellMainWrap>{children}</CellMainWrap>
       {desc && <CellMainDesc className={`${className}-desc`}>{desc}</CellMainDesc>}
     </CellMain>
   );
