@@ -8,7 +8,6 @@ const BasicView = styled.div`
   overflow-x: hidden;
   width: 100%;
   background: ${({ theme }) => theme.color};
-  position: relative;
 `;
 const View = ({ color = 'transparent', ...other }) => {
   return (
