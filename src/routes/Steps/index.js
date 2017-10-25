@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Steps, WhiteSpace } from 'pand';
 
 const horizontalData = [
-  { name: '步骤1', num: 1, status: 'active' },
+  { name: '步骤1', num: 1, status: 'finish' },
   { name: '步骤2', num: 2, status: 'active' },
   { name: '步骤3', num: 3, status: 'holding' },
 ];

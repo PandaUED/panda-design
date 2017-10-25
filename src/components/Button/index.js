@@ -45,6 +45,7 @@ const Button = ({
   shadow = false,
   highlight = false,
   disabled = false,
+  onTouchTap,
   ...other
 }) => {
   // 线框样式
@@ -107,7 +108,6 @@ const Button = ({
     // common
     color: #fff;
     font-size: ${fontSizeFn(size)}px;
-    font-weight: 500;
     background: ${singleColorFn(color)};
     border-radius: ${borderRadiusSizeFn(round, size)}px;
     cursor: pointer;
