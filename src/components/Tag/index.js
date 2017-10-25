@@ -42,7 +42,9 @@ const Tag = ({
     color: ${style.color[textColor]};
   `;
   if (deg) {
-    Tag = Tag.extend`background: ${style.gradient[backgroundColor](deg)};`;
+    Tag = Tag.extend`
+      background: ${style.gradient[backgroundColor](deg)};
+    `;
   }
 
   if (type === TAG_TYPE.BIG) {
@@ -52,6 +54,7 @@ const Tag = ({
       letter-spacing: 0.38px;
       height: 18px;
       padding: 2px 4.5px;
+      line-height: 15px;
     `;
   } else if (type === TAG_TYPE.FILTER) {
     Tag = Tag.extend`
@@ -91,6 +94,7 @@ const Tag = ({
       border-radius: 1.62px;
       min-width: 34px;
       height: 14px;
+      line-height: 11px;
       > span {
         width: inherit;
         height: inherit;
