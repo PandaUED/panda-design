@@ -13,6 +13,7 @@ const props = {
   descRight: PropTypes.bool,
   descBold: PropTypes.bool,
   descColor: PropTypes.string,
+  center: PropTypes.bool,
 };
 
 const CellMain = ({
@@ -26,6 +27,7 @@ const CellMain = ({
   descRight = false,
   descBold = false,
   descColor,
+  center,
   children,
   ...other
 }) => {
@@ -34,11 +36,11 @@ const CellMain = ({
     align-items: center;
   `;
   const CellMain = styled.div`
-    text-align: justify;
     font-size: ${size}px;
     margin-left: ${marginLeft}px;
     ${color ? `color: ${color};` : `color: ${style.color.textDark};`};
     ${descRight && descRightMain};
+    ${center ? `text-align: center;` : `text-align: justify;`};
   `;
 
   const CellMainDesc = styled.div`
