@@ -35,7 +35,7 @@ const CellMain = ({
     display: flex;
     align-items: center;
   `;
-  const CellMainWrap = css`
+  const CellMainWrap = styled.div`
     display: flex;
     align-items: center;
   `;
