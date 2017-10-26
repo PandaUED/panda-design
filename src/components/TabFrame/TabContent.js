@@ -29,5 +29,8 @@ const TabContent = styled(BasicTabContent)`
   &.active {
     display: block;
   }
+  & > * {
+    height: 100%;
+  }
 `;
 export { TabContent };
