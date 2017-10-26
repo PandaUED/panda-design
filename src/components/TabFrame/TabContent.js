@@ -24,6 +24,8 @@ BasicTabContent.contextTypes = {
 };
 const TabContent = styled(BasicTabContent)`
   display: none;
+  width: 100%;
+  flex-grow: 1;
   &.active {
     display: block;
   }
