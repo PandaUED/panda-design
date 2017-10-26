@@ -14,7 +14,9 @@
   }
 
   .actionSheet-fade-entering.actionSheet-fade-enter-active,
-  .actionSheet-fade-exiting {
+  .actionSheet-fade-exiting,
+  .actionSheet-fade-entered {
     transform: translate3D(0, 0, 0);
+    z-index: 1200;
   }
 }
