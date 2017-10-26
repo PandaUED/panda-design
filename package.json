@@ -48,10 +48,10 @@
 		"path": "^0.12.7",
 		"polished": "^1.7.0",
 		"prop-types": "^15.6.0",
-		"react": "^16.0.0",
-		"react-dom": "^16.0.0",
-		"react-lazyload": "^2.2.7",
+		"react": "^15.4.0",
+		"react-dom": "^15.4.0",
 		"react-transition-group": "^2.2.0",
+		"react-lazyload": "^2.2.7",
 		"rmc-feedback": "^1.0.0",
 		"rmc-nuka-carousel": "^2.2.0",
 		"styled-components": "^2.1.2"
