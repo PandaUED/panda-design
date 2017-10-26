@@ -83,6 +83,7 @@ const Showcase = ({
     float: right;
     margin-top: -62px;
     margin-right: -46px;
+    color: ${style.color.white};
   `;
 
   return (
