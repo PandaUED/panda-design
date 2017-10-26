@@ -31,8 +31,8 @@ const Col = ({ className, children = 'example', span, offset = 0, height, ...oth
 
   return (
     <Col className={className} {...other}>
-      <ColOffest />
-      <ColContent>{children}</ColContent>
+      {offset > 0 && <ColOffest className={className ? `${className}-offset` : ''} />}
+      <ColContent className={className ? `${className}-content` : ''}>{children}</ColContent>
     </Col>
   );
 };
