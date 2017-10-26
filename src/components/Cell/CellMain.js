@@ -13,6 +13,7 @@ const props = {
   descRight: PropTypes.bool,
   descBold: PropTypes.bool,
   descColor: PropTypes.string,
+  center: PropTypes.bool,
 };
 
 const CellMain = ({
@@ -26,6 +27,7 @@ const CellMain = ({
   descRight = false,
   descBold = false,
   descColor,
+  center,
   children,
   ...other
 }) => {
@@ -33,12 +35,16 @@ const CellMain = ({
     display: flex;
     align-items: center;
   `;
+  const CellMainWrap = styled.div`
+    display: flex;
+    align-items: center;
+  `;
   const CellMain = styled.div`
-    text-align: justify;
     font-size: ${size}px;
     margin-left: ${marginLeft}px;
     ${color ? `color: ${color};` : `color: ${style.color.textDark};`};
     ${descRight && descRightMain};
+    ${center ? `text-align: center;` : `text-align: justify;`};
   `;
 
   const CellMainDesc = styled.div`
@@ -57,7 +63,7 @@ const CellMain = ({
 
   return (
     <CellMain className={className} {...other}>
-      <div>{children}</div>
+      <CellMainWrap>{children}</CellMainWrap>
       {desc && <CellMainDesc className={`${className}-desc`}>{desc}</CellMainDesc>}
     </CellMain>
   );
