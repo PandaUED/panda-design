@@ -25,7 +25,7 @@ const Col = ({ className, children = 'example', span, offset = 0, height, ...oth
   const ColContent = styled.div`
     flex: ${span};
     background-color: ${style.color.white};
-    padding: 16px 0;
+    padding: 0 0;
     text-align: center;
   `;
 
