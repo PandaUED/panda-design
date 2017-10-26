@@ -90,7 +90,8 @@ const BasicTab = (
 const BasicTabFrame = styled.div`
   display: flex;
   flex-wrap: wrap;
-  ${({ theme }) => (theme.tabsPosition === 'bottom' ? 'flex-direction: column-reverse;' : '')};
+  ${({ theme }) =>
+    theme.tabsPosition === 'bottom' ? 'flex-direction: column-reverse;' : 'column'};
 `;
 const BasicTabTitles = styled(Tabs)`
   padding: ${({ theme }) => (theme.buttonGroup ? '0 !important' : '')};
