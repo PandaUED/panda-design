@@ -31,7 +31,7 @@
 			"git add"
 		],
 		"src/**/*.js": [
-            "eslint --fix",
+			"eslint --fix",
 			"git add"
 		]
 	},
@@ -50,8 +50,8 @@
 		"prop-types": "^15.6.0",
 		"react": "^16.0.0",
 		"react-dom": "^16.0.0",
-		"react-transition-group": "^2.2.0",
 		"react-lazyload": "^2.2.7",
+		"react-transition-group": "^2.2.0",
 		"rmc-feedback": "^1.0.0",
 		"rmc-nuka-carousel": "^2.2.0",
 		"styled-components": "^2.1.2"
@@ -94,10 +94,10 @@
 		"roadhog": "^1.2.2",
 		"run-sequence": "^2.1.0",
 		"sass-loader": "^6.0.6",
-		"sw-precache": "^5.2.0",
 		"stylelint": "^8.1.1",
 		"stylelint-config-standard": "^17.0.0",
 		"stylelint-config-styled-components": "^0.1.1",
-		"stylelint-processor-styled-components": "^1.0.0"
+		"stylelint-processor-styled-components": "^1.0.0",
+		"sw-precache": "^5.2.0"
 	}
 }
