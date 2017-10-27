@@ -35,6 +35,7 @@ class NavBar extends Component {
       line-height: 44px;
       position: fixed;
       top: 0;
+      z-index: 1;
     `;
     if (this.props.mode === NAVBAR_MODE.WHITE) {
       NavBG = NavBG.extend`background: #fff;`;
