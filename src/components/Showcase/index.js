@@ -76,7 +76,7 @@ const Showcase = ({
   const Cell = styled.div`flex: 1;`;
   const ShowcaseHeader = styled.div`display: flex;`;
   const ShowcaseContent = styled(ShowcaseHeader)`margin-top: 20px;`;
-  const ShowcaseBackground = styled.a`
+  const ShowcaseBackground = styled.span`
     opacity: 0.08;
     font-family: SFUIDisplay-Black;
     font-size: 100px;
