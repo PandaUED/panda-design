@@ -4,7 +4,7 @@ PanD React UI Components
 
 <img src="https://o4j4l4n7h.qnssl.com/2017-09-20-icon.png" width="360" />
 
-- **Panda UED:** <http://ued.xiongmaojinku.com/>
+- **Panda UED:** <http://ued.xiongmaojinku.com/pand>
 - **Panda Design:** <http://xmui.xiongmaojinku.com/>
 
 ## RoadMap
