@@ -17,6 +17,7 @@ const CellRight = ({ className, size = 13, color, right = 16, children, ...other
     font-weight: normal;
     font-size: ${size}px;
     right: ${right}px;
+    text-align: end;
     ${color ? `color: ${color};` : `color: ${style.color.textNormal};`};
     .xmjkIcon {
       margin-left: 6px;
