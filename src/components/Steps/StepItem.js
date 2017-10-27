@@ -56,7 +56,7 @@ const HorizontalStepItem = ({ data, isFirst = false, isLast = false, ...other })
     ${(data.status === 'active' || data.status === 'finish') && activeIcon};
   `;
   const StepName = styled.div`
-    font-size: 12px;
+    font-size: 10px;
     line-height: 12px;
     margin-top: 6px;
     ${(data.status === 'active' || data.status === 'finish') && `color: ${style.color.blue};`};
@@ -120,7 +120,7 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
   `;
   const StepDesc = styled.div`
     margin-top: 3px;
-    font-size: 12px;
+    font-size: 10px;
     color: ${style.color.textLight};
     line-height: 12px;
     margin-left: 16px;
@@ -177,7 +177,7 @@ const ProgressStepItem = ({ data, color, isLast = false, ...other }) => {
   const StepContent = styled.div`
     background-color: ${style.color.bgDeactive};
     color: ${style.color.white};
-    font-size: 12px;
+    font-size: 10px;
     line-height: 20px;
     text-align: center;
     ${data.status === 'active' &&
@@ -186,7 +186,7 @@ const ProgressStepItem = ({ data, color, isLast = false, ...other }) => {
         : `background-image: ${style.gradient['blue'](120)}`};`};
   `;
   const StepName = styled.div`
-    font-size: 12px;
+    font-size: 10px;
     line-height: 12px;
     margin-top: 6px;
     color: ${style.color.darkGrey};

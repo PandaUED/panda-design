@@ -40,7 +40,6 @@ const highlightStyleSheet = css`
 // 包裹tab的div
 const TabWarpper = Tab.extend`
   position: relative;
-  color: #bbbfc8;
   ${({ theme }) => (theme.hasIcon ? iconStyleSheet : '')};
   font-size: ${({ theme }) => (theme.buttonGroup && !theme.hasIcon ? '16px;' : '')};
   height: ${({ theme }) => (theme.buttonGroup ? '49px;' : '')};
