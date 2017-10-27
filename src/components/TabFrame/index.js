@@ -40,7 +40,6 @@ const highlightStyleSheet = css`
 // 包裹tab的div
 const TabWarpper = Tab.extend`
   position: relative;
-  color: #bbbfc8;
   ${({ theme }) => (theme.hasIcon ? iconStyleSheet : '')};
   font-size: ${({ theme }) => (theme.buttonGroup && !theme.hasIcon ? '16px;' : '')};
   height: ${({ theme }) => (theme.buttonGroup ? '49px;' : '')};
@@ -91,6 +90,10 @@ const BasicTabFrame = styled.div`
   display: flex;
   flex-wrap: wrap;
   flex-direction: ${({ theme }) => (theme.tabsPosition === 'bottom' ? 'column-reverse' : 'column')};
+  .tab-contents {
+    display: flex;
+    flex-grow: 1;
+  }
 `;
 const BasicTabTitles = styled(Tabs)`
   padding: ${({ theme }) => (theme.buttonGroup ? '0 !important' : '')};

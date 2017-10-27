@@ -42,9 +42,7 @@ const Tag = ({
     color: ${style.color[textColor]};
   `;
   if (deg) {
-    Tag = Tag.extend`
-      background: ${style.gradient[backgroundColor](deg)};
-    `;
+    Tag = Tag.extend`background: ${style.gradient[backgroundColor](deg)};`;
   }
 
   if (type === TAG_TYPE.BIG) {
@@ -94,7 +92,7 @@ const Tag = ({
       border-radius: 1.62px;
       min-width: 34px;
       height: 14px;
-      line-height: 11px;
+      line-height: 13px;
       > span {
         width: inherit;
         height: inherit;

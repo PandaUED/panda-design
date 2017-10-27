@@ -31,12 +31,9 @@
 			"git add"
 		],
 		"src/**/*.js": [
-            "eslint --fix",
+			"eslint --fix",
 			"git add"
 		]
-	},
-	"engines": {
-		"install-node": "6.9.2"
 	},
 	"dependencies": {
 		"babel-runtime": "^6.26.0",
@@ -94,10 +91,10 @@
 		"roadhog": "^1.2.2",
 		"run-sequence": "^2.1.0",
 		"sass-loader": "^6.0.6",
-		"sw-precache": "^5.2.0",
 		"stylelint": "^8.1.1",
 		"stylelint-config-standard": "^17.0.0",
 		"stylelint-config-styled-components": "^0.1.1",
-		"stylelint-processor-styled-components": "^1.0.0"
+		"stylelint-processor-styled-components": "^1.0.0",
+		"sw-precache": "^5.2.0"
 	}
 }
