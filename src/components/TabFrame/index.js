@@ -236,9 +236,14 @@ class TabFrame extends React.Component {
           </BasicTabTitles>
           <div className={'tab-contents'}>
             {tabsData.map((tabData, index) => {
-              const { content, ...other } = tabData;
+              const { content, beforeRenderContent, afterRenderContent } = tabData;
               return (
-                <TabContent key={index} index={index} {...other}>
+                <TabContent
+                  key={index}
+                  index={index}
+                  beforeRenderContent={beforeRenderContent}
+                  afterRenderContent={afterRenderContent}
+                >
                   {content}
                 </TabContent>
               );

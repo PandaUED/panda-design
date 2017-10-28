@@ -23,7 +23,7 @@ class BasicTabContent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      activeIndex: 0,
+      activeIndex: props.activeIndex || 0,
     };
   }
   componentWillMount() {
@@ -47,7 +47,7 @@ class BasicTabContent extends React.Component {
       afterRenderContent,
       ...other
     } = this.props;
-    const { activeIndex } = this.state;
+    const { activeIndex } = this.context;
     return (
       <div
         className={classNames('tab-content', className, activeIndex === index ? 'active' : '')}
