@@ -160,7 +160,7 @@ class TabFrame extends React.Component {
     tabsPosition: PropTypes.oneOfType([PropTypes.oneOf(['top', 'bottom'])]),
     activeColor: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   };
-  static defaultPorps = {
+  static defaultProps = {
     tabsData: [],
     buttonGroup: false,
     activeIndex: 0,
@@ -236,9 +236,9 @@ class TabFrame extends React.Component {
           </BasicTabTitles>
           <div className={'tab-contents'}>
             {tabsData.map((tabData, index) => {
-              const { content } = tabData;
+              const { content, ...other } = tabData;
               return (
-                <TabContent key={index} index={index}>
+                <TabContent key={index} index={index} {...other}>
                   {content}
                 </TabContent>
               );

@@ -149,8 +149,26 @@ export default () => {
           },
         ],
         commonTab: [
-          { tab: { title: ' 标题1' }, content: <TempView>内容1</TempView> },
-          { tab: { title: ' 标题2' }, content: <TempView>内容2</TempView> },
+          {
+            tab: { title: ' 标题1' },
+            content: <TempView>内容1</TempView>,
+            beforeRenderContent: () => {
+              console.log('1');
+            },
+            afterRenderContent: () => {
+              console.log('2');
+            },
+          },
+          {
+            tab: { title: ' 标题2' },
+            content: <TempView>内容2</TempView>,
+            beforeRenderContent: () => {
+              console.log('3');
+            },
+            afterRenderContent: () => {
+              console.log('4');
+            },
+          },
           { tab: { title: ' 标题3' }, content: <TempView>内容3</TempView> },
           { tab: { title: ' 标题4' }, content: <TempView>内容4</TempView> },
         ],
@@ -196,7 +214,7 @@ export default () => {
       } = this.state;
       return (
         <div>
-          <WhiteSpace>普通 Tabs</WhiteSpace>
+          <WhiteSpace>普通 Tabs 带有Hook测试 见控制台</WhiteSpace>
           <Card>
             <TabFrame tabsData={commonTab} linkBar />
           </Card>
