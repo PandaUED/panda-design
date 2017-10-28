@@ -99,6 +99,7 @@ export default () => {
             tab: {
               title: ' 标题4',
               highlight: true,
+              highlightColor: 'green',
             },
           },
         ],
@@ -124,6 +125,7 @@ export default () => {
                 common: <Icon size={iconSize} double type={'YuE'} />,
                 selected: <Icon size={iconSize} type={'CoinActive'} double />,
               },
+              highlightColor: 'green',
               style: {
                 width: '64px',
                 flexGrow: 0,

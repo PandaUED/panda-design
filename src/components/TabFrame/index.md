@@ -33,15 +33,16 @@
 
 icon是另外封装在TabFrame的BasicTab中，Tab组件中没有相关配置
 
-| 属性            | 说明         | 类型            | 可选值  | 默认值   |
-| ------------- | ---------- | ------------- | ---- | ----- |
-| title         | tab内容      | Node          | -    | -     |
-| [icon](#icon) | tab图标      | Obejct        | -    | -     |
-| highlight     | 设置渐变（高亮）背景 | Boolean       | -    | false |
-| **OTHER**     |            |               |      |       |
-| style         | -          | Object        | -    | -     |
-| className     | -          | String/Object | -    | -     |
-| onClick       | -          | Function      | -    | -     |
+| 属性             | 说明           | 类型            | 可选值                            | 默认值    |
+| -------------- | ------------ | ------------- | ------------------------------ | ------ |
+| title          | tab内容        | Node          | -                              | -      |
+| [icon](#icon)  | tab图标        | Obejct        | -                              | -      |
+| highlight      | 设置渐变（高亮）背景   | Boolean       | -                              | false  |
+| highlightColor | 设置渐变（高亮）背景颜色 | String        | See：[color](../style/index.md) | orange |
+| **OTHER**      |              |               |                                |        |
+| style          | -            | Object        | -                              | -      |
+| className      | -            | String/Object | -                              | -      |
+| onClick        | -            | Function      | -                              | -      |
 
 
 

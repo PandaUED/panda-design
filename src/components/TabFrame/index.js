@@ -30,7 +30,8 @@ const iconStyleSheet = css`
 `;
 // ButtonGroup模式下 彩色（高亮）背景样式
 const highlightStyleSheet = css`
-  background: ${gradientColor};
+  background: ${({ theme }) =>
+    theme.highlightColor ? gradientColorFn(theme.highlightColor, -45) : gradientColor};
   color: #fff;
   &.active {
     color: #fff;
@@ -46,7 +47,8 @@ const TabWarpper = Tab.extend`
   &.active {
     color: ${({ theme }) => (theme.activeColor ? theme.activeColor : singleColor)};
     .xmjkDoubleIcon span:nth-child(1) {
-      background: ${gradientColor};
+      background: ${({ theme }) =>
+        theme.highlightColor ? gradientColorFn(theme.highlightColor, -45) : gradientColor};
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -58,12 +60,22 @@ const TabWarpper = Tab.extend`
   ${({ theme }) => (theme.highlight ? highlightStyleSheet : '')};
 `;
 const BasicTab = (
-  { index, title, icon, children, description, buttonGroup = false, highlight = false, ...other },
+  {
+    index,
+    title,
+    icon,
+    children,
+    description,
+    buttonGroup = false,
+    highlight = false,
+    highlightColor = 'orange',
+    ...other
+  },
   { activeIndex }
 ) => {
   const hasIcon = icon && (icon.selected || icon.common);
   return (
-    <ThemeProvider theme={{ buttonGroup, highlight, hasIcon }}>
+    <ThemeProvider theme={{ buttonGroup, highlight, highlightColor, hasIcon }}>
       <TabWarpper
         index={index}
         className={description !== undefined ? 'description-tab' : ''}
