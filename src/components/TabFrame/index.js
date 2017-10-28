@@ -201,11 +201,11 @@ class TabFrame extends React.Component {
     }
     return (
       <ThemeProvider theme={{ tabsPosition, buttonGroup }}>
-        <BasicTabFrame className={'tab-frame'}>
+        <BasicTabFrame className={classnames('tab-frame', className)}>
           <BasicTabTitles
             activeIndex={activeIndex}
             activeColor={activeColor}
-            className={classnames('tabs', className, extraClass)}
+            className={classnames('tabs', extraClass)}
             {...other}
           >
             {tabsData.map((tabData, index) => {
