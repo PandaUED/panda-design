@@ -124,17 +124,24 @@ const BasicTabTitles = styled(Tabs)`
       .description {
         position: absolute;
       }
+      .icon,
+      .description {
+        color: #bbbfc8;
+        font-size: 12px;
+        line-height: 16px;
+        font-family: 'PingFangSC-Medium';
+      }
       .title {
         top: 9px;
+        left: 16px;
+      }
+      .description {
+        top: 26px;
         left: 16px;
       }
       .icon {
         top: 13px;
         right: 16px;
-      }
-      .description {
-        top: 26px;
-        left: 16px;
       }
     }
     & .tab:nth-child(2) {
