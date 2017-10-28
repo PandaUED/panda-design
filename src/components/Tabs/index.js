@@ -40,6 +40,7 @@ const TabContainer = styled.div`
   position: relative;
   width: 100%;
   display: flex;
+  flex-grow: 0;
   flex-wrap: nowrap;
   flex-direction: column;
   align-items: center;

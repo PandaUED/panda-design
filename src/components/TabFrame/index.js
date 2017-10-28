@@ -100,7 +100,7 @@ const BasicTab = (
 // tab框架 包含 titles 和 contents
 const BasicTabFrame = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: ${({ theme }) => (theme.tabsPosition === 'bottom' ? 'column-reverse' : 'column')};
   .tab-contents {
     display: flex;

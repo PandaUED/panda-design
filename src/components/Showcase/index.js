@@ -44,6 +44,7 @@ const Showcase = ({
     background: ${style.color[backgroundColor]};
     overflow: hidden;
     color: ${backgroundColor === 'white' ? null : '#fff'};
+    flex-shrink: 0;
   `;
 
   if (deg) {
