@@ -124,7 +124,7 @@ const BasicTabTitles = styled(Tabs)`
       .description {
         position: absolute;
       }
-      .icon,
+      .title,
       .description {
         color: #bbbfc8;
         font-size: 12px;
