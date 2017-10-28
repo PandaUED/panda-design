@@ -41,7 +41,7 @@ const IconContainer = styled.span`
 `;
 
 const Icon = ({ className, type, size, color, double = false, ...other }) => {
-  const Name = ['Icon', size, type].join('-');
+  const Name = ['Icon', size, _.upperFirst(_.camelCase(type))].join('-');
   return (
     <ThemeProvider theme={{ size, color, double }}>
       <IconContainer
