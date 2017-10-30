@@ -6,7 +6,7 @@
 
 | 属性        | 说明                                |   类型   |   默认值   |
 | :-------- | --------------------------------- | :----: | :-----: |
-| name     | 复选框的值                | string | 'example' |
+| title     | 复选框的值                | string | 'example' |
 | desc     | 复选框的详细介绍                | string | - |
 | active    | 按钮初始值             |  bool  |   false   |
 | disable   | 是否禁用               |  bool  |   false   |
