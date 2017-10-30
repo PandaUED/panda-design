@@ -11,4 +11,6 @@
 | type | 类型 | number/dot/text | number |
 | children | 文字 | string | null |
 | overflowNum | 溢出数字 (number only) | number | 99 |
+| plusBefore | 前置加号 (number only) | bool | false |
+| border | 外边框 | bool | true |
 | className | 样式类名	 | string | null |
