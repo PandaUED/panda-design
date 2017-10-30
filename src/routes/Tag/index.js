@@ -1,4 +1,4 @@
-import { Tag, TAG_TYPE, WhiteSpace } from 'pand';
+import { Tag, TAG_TYPE, WhiteSpace, View } from 'pand';
 import React from 'react';
 import styled from 'styled-components';
 
@@ -13,7 +13,7 @@ export default class extends React.Component {
     `;
 
     return (
-      <view>
+      <View>
         <WhiteSpace>big</WhiteSpace>
         <TagRow>
           <Tag type={TAG_TYPE.BIG} backgroundColor={'red'} deg={-180}>
@@ -56,7 +56,7 @@ export default class extends React.Component {
           <Tag type={TAG_TYPE.LARGE} img={'Note'} textColor={'textDark'} />
           <Tag type={TAG_TYPE.LARGE} img={'Note'} textColor={'textDark'} />
         </TagRow>
-      </view>
+      </View>
     );
   }
 }
