@@ -31,6 +31,7 @@ const Showcase = ({
   leftTitle,
   rightDesc,
   rightTitle,
+  bottomDesc,
   button,
   backgroundText,
   ...other
@@ -55,7 +56,7 @@ const Showcase = ({
     font-size: 36px;
     margin-top: 10px;
     font-family: SFUIDisplay-Medium;
-    color: ${titleColor ? style.color[titleColor] : null};
+    color: ${titleColor ? style.color[titleColor] : bottomDesc ? '#56606F' : null};
   `;
   const Desc = styled.div`
     font-size: 11px;
@@ -74,9 +75,13 @@ const Showcase = ({
     font-size: 10px;
     align-self: flex-start;
   `;
+  const BottomDesc = Desc.extend`line-height: 16px;`;
   const Cell = styled.div`flex: 1;`;
   const ShowcaseHeader = styled.div`display: flex;`;
-  const ShowcaseContent = styled(ShowcaseHeader)`margin-top: 20px;`;
+  const ShowcaseContent = styled(ShowcaseHeader)`
+    margin-top: ${bottomDesc ? '16' : '20'}px;
+    letter-spacing: ${bottomDesc ? 0 : 0.4}px;
+  `;
   const ShowcaseBackground = styled.span`
     opacity: 0.08;
     font-family: SFUIDisplay-Black;
@@ -97,14 +102,25 @@ const Showcase = ({
         {button ? <Button>{button}</Button> : null}
       </ShowcaseHeader>
       <ShowcaseContent>
-        <Cell>
-          <Desc>{leftDesc}</Desc>
-          <Subtitle>{leftTitle}</Subtitle>
-        </Cell>
-        <Cell>
-          <Desc>{rightDesc}</Desc>
-          <Subtitle>{rightTitle}</Subtitle>
-        </Cell>
+        {leftDesc &&
+          leftTitle && (
+            <Cell>
+              <Desc>{leftDesc}</Desc>
+              <Subtitle>{leftTitle}</Subtitle>
+            </Cell>
+          )}
+        {rightDesc &&
+          rightTitle && (
+            <Cell>
+              <Desc>{rightDesc}</Desc>
+              <Subtitle>{rightTitle}</Subtitle>
+            </Cell>
+          )}
+        {bottomDesc && (
+          <Cell>
+            <BottomDesc>{bottomDesc}</BottomDesc>
+          </Cell>
+        )}
       </ShowcaseContent>
       {backgroundText ? <ShowcaseBackground>{backgroundText}</ShowcaseBackground> : null}
     </Showcase>

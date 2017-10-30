@@ -18,6 +18,12 @@ export default () => {
             rightDesc="累计收益（元）"
             rightTitle="1,776.20"
           />
+          <WhiteSpace />
+          <Showcase
+            title="35,125.28"
+            desc="持有总资产 (元)"
+            bottomDesc="当前借款人还款后，若服务计划未到期，金库将自动为您匹配新的借款债权。"
+          />
         </Body>
       </Card>
       <WhiteSpace />

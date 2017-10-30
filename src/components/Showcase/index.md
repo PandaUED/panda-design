@@ -15,11 +15,12 @@
 | leftTitle       | 左侧标题文字                 | string | -     |
 | rightDesc       | 右侧标题描述                 | string | -     |
 | rightTitle      | 右侧标题文字                 | string | -     |
+| bottomDesc      | 底部标题描述                 | string | -     |
 | button          | 右上角button文字            | string | -     |
 | backgroundText  | 背景文字                   | string | -     |
-| **OTHER** |                                   |        |         |
-| classname | 样式类名                              | string |    -    |
-| style     | 自定义样式                             | object |    -    |
+| **OTHER**       |                        |        |       |
+| classname       | 样式类名                   | string | -     |
+| style           | 自定义样式                  | object | -     |
 
 
 
