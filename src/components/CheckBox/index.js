@@ -4,14 +4,14 @@ import { style } from '../style_index';
 
 const props = {
   className: PropTypes.string,
-  name: PropTypes.string,
+  title: PropTypes.string,
   desc: PropTypes.string,
   active: PropTypes.bool,
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
 };
 
-const CheckBox = ({ name = 'example', className, active, disabled, onChange, desc, ...other }) => {
+const CheckBox = ({ title = 'example', className, active, disabled, onChange, desc, ...other }) => {
   const CheckBoxWrap = styled.div`
     display: flex;
     align-items: center;
@@ -98,7 +98,7 @@ const CheckBox = ({ name = 'example', className, active, disabled, onChange, des
         </div>
       </CheckBox>
       <CheckBoxContent>
-        {name}
+        {title}
         {desc && <CheckBoxDesc>{desc}</CheckBoxDesc>}
       </CheckBoxContent>
     </CheckBoxWrap>

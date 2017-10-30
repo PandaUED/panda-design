@@ -14,6 +14,7 @@ import { noop } from 'lodash';
 const ACTIONSHEET_TYPE = {
   TOP: 'top',
   BOTTOM: 'bottom',
+  NONE: 'none',
 };
 
 const ASStyles = {

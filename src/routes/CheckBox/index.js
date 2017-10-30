@@ -20,7 +20,7 @@ export default () => {
         </List.Item>
 
         <List.Item padding={16} split>
-          <CheckBox name="name" desc="description" />
+          <CheckBox title="name" desc="description" />
         </List.Item>
       </List>
       <WhiteSpace />
