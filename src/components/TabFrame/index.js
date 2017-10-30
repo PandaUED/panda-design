@@ -30,7 +30,8 @@ const iconStyleSheet = css`
 `;
 // ButtonGroup模式下 彩色（高亮）背景样式
 const highlightStyleSheet = css`
-  background: ${gradientColor};
+  background: ${({ theme }) =>
+    theme.highlightColor ? gradientColorFn(theme.highlightColor, -45) : gradientColor};
   color: #fff;
   &.active {
     color: #fff;
@@ -46,7 +47,8 @@ const TabWarpper = Tab.extend`
   &.active {
     color: ${({ theme }) => (theme.activeColor ? theme.activeColor : singleColor)};
     .xmjkDoubleIcon span:nth-child(1) {
-      background: ${gradientColor};
+      background: ${({ theme }) =>
+        theme.highlightColor ? gradientColorFn(theme.highlightColor, -45) : gradientColor};
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
@@ -58,12 +60,22 @@ const TabWarpper = Tab.extend`
   ${({ theme }) => (theme.highlight ? highlightStyleSheet : '')};
 `;
 const BasicTab = (
-  { index, title, icon, children, description, buttonGroup = false, highlight = false, ...other },
+  {
+    index,
+    title,
+    icon,
+    children,
+    description,
+    buttonGroup = false,
+    highlight = false,
+    highlightColor = 'orange',
+    ...other
+  },
   { activeIndex }
 ) => {
   const hasIcon = icon && (icon.selected || icon.common);
   return (
-    <ThemeProvider theme={{ buttonGroup, highlight, hasIcon }}>
+    <ThemeProvider theme={{ buttonGroup, highlight, highlightColor, hasIcon }}>
       <TabWarpper
         index={index}
         className={description !== undefined ? 'description-tab' : ''}
@@ -88,7 +100,7 @@ const BasicTab = (
 // tab框架 包含 titles 和 contents
 const BasicTabFrame = styled.div`
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   flex-direction: ${({ theme }) => (theme.tabsPosition === 'bottom' ? 'column-reverse' : 'column')};
   .tab-contents {
     display: flex;
@@ -112,17 +124,24 @@ const BasicTabTitles = styled(Tabs)`
       .description {
         position: absolute;
       }
+      .title,
+      .description {
+        color: #bbbfc8;
+        font-size: 12px;
+        line-height: 16px;
+        font-family: 'PingFangSC-Medium';
+      }
       .title {
         top: 9px;
+        left: 16px;
+      }
+      .description {
+        top: 26px;
         left: 16px;
       }
       .icon {
         top: 13px;
         right: 16px;
-      }
-      .description {
-        top: 26px;
-        left: 16px;
       }
     }
     & .tab:nth-child(2) {
@@ -141,7 +160,7 @@ class TabFrame extends React.Component {
     tabsPosition: PropTypes.oneOfType([PropTypes.oneOf(['top', 'bottom'])]),
     activeColor: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
   };
-  static defaultPorps = {
+  static defaultProps = {
     tabsData: [],
     buttonGroup: false,
     activeIndex: 0,
@@ -189,11 +208,11 @@ class TabFrame extends React.Component {
     }
     return (
       <ThemeProvider theme={{ tabsPosition, buttonGroup }}>
-        <BasicTabFrame className={'tab-frame'}>
+        <BasicTabFrame className={classnames('tab-frame', className)}>
           <BasicTabTitles
             activeIndex={activeIndex}
             activeColor={activeColor}
-            className={classnames('tabs', className, extraClass)}
+            className={classnames('tabs', extraClass)}
             {...other}
           >
             {tabsData.map((tabData, index) => {
@@ -217,9 +236,14 @@ class TabFrame extends React.Component {
           </BasicTabTitles>
           <div className={'tab-contents'}>
             {tabsData.map((tabData, index) => {
-              const { content } = tabData;
+              const { content, beforeRenderContent, afterRenderContent } = tabData;
               return (
-                <TabContent key={index} index={index}>
+                <TabContent
+                  key={index}
+                  index={index}
+                  beforeRenderContent={beforeRenderContent}
+                  afterRenderContent={afterRenderContent}
+                >
                   {content}
                 </TabContent>
               );

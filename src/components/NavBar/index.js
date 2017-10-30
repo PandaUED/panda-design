@@ -74,5 +74,6 @@ class NavBar extends Component {
 }
 
 NavBar.propTypes = props;
+NavBar.MODE = NAVBAR_MODE;
 
 export { NavBar, NAVBAR_MODE };

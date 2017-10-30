@@ -39,14 +39,16 @@ const ErrorTab = EmptyTab.extend`color: red;`;
 const TabContainer = styled.div`
   position: relative;
   width: 100%;
-  //height: 54px;
   display: flex;
+  flex-grow: 0;
+  flex-shrink: 0;
   flex-wrap: nowrap;
   flex-direction: column;
   align-items: center;
   text-align: center;
   appearance: none;
   overflow: auto;
+  background-color: #fff;
   &::-webkit-scrollbar {
     display: none;
   }
