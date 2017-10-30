@@ -37,7 +37,7 @@ const Showcase = ({
   ...other
 }) => {
   let Showcase = styled.div`
-    height: ${backgroundColor === 'white' ? '162px' : '152px'};
+    height: ${backgroundColor === 'white' ? (bottomDesc ? '156px' : '162px') : '152px'};
     border-radius: 6px;
     margin: ${backgroundColor === 'white' ? null : '8px 15px 14px 17px'};
     box-shadow: 0 4px 4px 0 ${rgba(style.color[backgroundColor], 0.41)};
@@ -75,7 +75,10 @@ const Showcase = ({
     font-size: 10px;
     align-self: flex-start;
   `;
-  const BottomDesc = Desc.extend`line-height: 16px;`;
+  const BottomDesc = Desc.extend`
+    line-height: 16px;
+    letter-spacing: 0.4px;
+  `;
   const Cell = styled.div`flex: 1;`;
   const ShowcaseHeader = styled.div`display: flex;`;
   const ShowcaseContent = styled(ShowcaseHeader)`
