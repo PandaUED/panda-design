@@ -11,6 +11,7 @@ import { Icon } from '../Icon/index';
 const KEYBOARD_TYPE = {
   PASSWORD: 'password',
   CALCULATOR: 'calculator',
+  VERIFYCODE: 'verifyCode',
 };
 
 const KBStyles = {
@@ -211,11 +212,45 @@ class Keyboard extends Component {
     );
   }
 
+  renderKbVerifyCode() {
+    const KbcItemRight = KBStyles.KeyboardItem.extend`
+            height: 112px;
+            line-height: 112px;
+        `;
+    const KbcItemConfirm = KbcItemRight.extend`
+      font-size: 18px;
+      letter-spacing: 0.45px;
+      border: 0;
+      background-image: linear-gradient(-180deg, #ff9100 0%, #ff7500 100%);
+      color: #fff;
+    `;
+    const { onHide, onConfirm } = this.props;
+    return (
+      <KBStyles.KbcContainer>
+        <KBStyles.KbcLeft>
+          {this.renderKbNum()}
+          <KBStyles.KeyboardRow>
+            <KBStyles.KeyboardItem>{this.props.icon}</KBStyles.KeyboardItem>
+            {this.renderSingleNum(0)}
+            <KBStyles.KeyboardItem onClick={onHide}>
+              <Icon type="Keyboard" size={24} color="#666" />
+            </KBStyles.KeyboardItem>
+          </KBStyles.KeyboardRow>
+        </KBStyles.KbcLeft>
+        <KBStyles.KbcRight>
+          <KbcItemRight>{this.renderDelBtn()}</KbcItemRight>
+          <KbcItemConfirm onClick={onConfirm}>确定</KbcItemConfirm>
+        </KBStyles.KbcRight>
+      </KBStyles.KbcContainer>
+    );
+  }
+
   render({ type, keyboardCls }) {
     return (
       <KBStyles.KbContainer className={keyboardCls}>
         {type === KEYBOARD_TYPE.PASSWORD && this.renderKbPassword()}
         {type === KEYBOARD_TYPE.CALCULATOR && this.renderKbCalculator()}
+        {type === KEYBOARD_TYPE.VERIFYCODE && this.renderKbVerifyCode()}
       </KBStyles.KbContainer>
     );
   }

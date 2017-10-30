@@ -24,6 +24,18 @@ const PageKeyboard = () => {
           console.log(`confirm`);
         }}
       />
+
+      <WhiteSpace>Keyboard verifyCode</WhiteSpace>
+      <Keyboard
+        type="verifyCode"
+        onChange={r => console.log(`currValue: ${r}`)}
+        onHide={() => {
+          console.log(`hide`);
+        }}
+        onConfirm={() => {
+          console.log(`confirm`);
+        }}
+      />
     </div>
   );
 };
