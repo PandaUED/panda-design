@@ -16,7 +16,7 @@ const props = {
   deg: PropTypes.number,
   textColor: PropTypes.oneOf(Object.keys(style.color)),
   type: PropTypes.oneOf(Object.keys(TAG_TYPE)),
-  children: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  children: PropTypes.node,
   img: PropTypes.string,
   color: PropTypes.oneOf(Object.keys(style.color)),
 };
