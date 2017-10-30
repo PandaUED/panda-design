@@ -27,12 +27,13 @@ const Badge = ({
   className = null,
   plusBefore = false,
   border = true,
+  bgColor = style.color.orange,
 }) => {
   const BDot = styled.div`
     display: inline-block;
     width: 8px;
     height: 8px;
-    background: ${style.color.orange};
+    background: ${bgColor};
     border: ${border ? '1px solid #fff' : null};
     border-radius: 50%;
   `;
@@ -43,7 +44,7 @@ const Badge = ({
     font-size: 12px;
     color: #fff;
     letter-spacing: 0.34px;
-    background: #ff6700;
+    background: ${bgColor};
     border: ${border ? '1px solid #fff' : null};
     line-height: 1;
     white-space: nowrap;
@@ -62,7 +63,7 @@ const Badge = ({
 
   const BText = styled.div`
     display: inline-block;
-    background: ${style.color.orange};
+    background: ${bgColor};
     border: ${border ? '1px solid #fff' : null};
     border-radius: 8px;
     border-bottom-left-radius: 0;
@@ -70,7 +71,7 @@ const Badge = ({
     font-size: 12px;
     color: #fff;
     letter-spacing: 0.34px;
-    padding: 1px 6px;
+    padding: 2px 6px;
     transform: scale(0.9);
   `;
 

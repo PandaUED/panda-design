@@ -38,6 +38,15 @@ const PageBadge = () => {
       <a>
         number 55 overflow 33 <Badge overflowNum={33}>55</Badge>
       </a>
+      <a>
+        number 55 no border <Badge border={false}>55</Badge>
+      </a>
+      <a>
+        number 55 plus before <Badge plusBefore>55</Badge>
+      </a>
+      <a>
+        number 55 bg red <Badge bgColor="red">55</Badge>
+      </a>
     </BadgeDemo>
   );
 };

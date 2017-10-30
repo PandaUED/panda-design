@@ -13,4 +13,5 @@
 | overflowNum | 溢出数字 (number only) | number | 99 |
 | plusBefore | 前置加号 (number only) | bool | false |
 | border | 外边框 | bool | true |
+| bgColor | 背景色 | string | #FF6700 |
 | className | 样式类名	 | string | null |
