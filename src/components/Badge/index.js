@@ -87,7 +87,7 @@ const Badge = ({
           {_num}
         </BNumberDouble>
       ) : (
-        <BNumberSingle>{_num}</BNumberSingle>
+        <BNumberSingle className={className}>{_num}</BNumberSingle>
       );
     case BADGE_TYPE.TEXT:
       return <BText className={className}>{children}</BText>;
