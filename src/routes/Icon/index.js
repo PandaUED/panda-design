@@ -156,7 +156,7 @@ const DoubleIcon = {
     'Fast',
     'HomeMoney',
     'HuoBao',
-    'JJGao',
+    'JieJieGao',
     'YuE',
     'ShouYi',
     'Gift',
