@@ -22,13 +22,14 @@ const props = {
 };
 
 const Tag = ({
-  children = '标题',
+  children = 'No Data',
   type = 'BIG',
   backgroundColor = 'white',
   textColor = 'white',
   img,
   color,
   deg,
+  border = false,
   ...other
 }) => {
   let imgIcon = null;
@@ -57,7 +58,9 @@ const Tag = ({
   } else if (type === TAG_TYPE.FILTER) {
     Tag = Tag.extend`
       height: 38px;
-      box-shadow: 0 2px 6px 0 #e3e3e3;
+      ${!border && 'box-shadow: 0 2px 6px 0 #e3e3e3'};
+      ${border && 'border: 1px solid #eee'};
+      ${border && 'color: #666'};
       text-align: center;
       font-family: PingFangSC-Regular;
       font-size: 14px;
