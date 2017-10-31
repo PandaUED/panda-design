@@ -17,51 +17,62 @@ const BadgeProps = {
   children: PropTypes.node,
   overflowNum: PropTypes.number,
   className: PropTypes.string,
+  plusBefore: PropTypes.bool,
 };
 
-const Badge = ({ type = 'number', children = null, overflowNum = 99, className = null }) => {
+const Badge = ({
+  type = 'number',
+  children = null,
+  overflowNum = 99,
+  className = null,
+  plusBefore = false,
+  border = true,
+  bgColor = style.color.orange,
+}) => {
   const BDot = styled.div`
     display: inline-block;
     width: 8px;
     height: 8px;
-    background: ${style.color.orange};
-    border: 1px solid #fff;
+    background: ${bgColor};
+    border: ${border ? '1px solid #fff' : null};
     border-radius: 50%;
   `;
   const BNumber = styled.div`
     display: inline-block;
     text-align: center;
     font-family: PingFangSC-Medium;
-    font-size: 9px;
+    font-size: 12px;
     color: #fff;
     letter-spacing: 0.34px;
-    background: #ff6700;
-    border: 1px solid #fff;
+    background: ${bgColor};
+    border: ${border ? '1px solid #fff' : null};
+    line-height: 1;
+    white-space: nowrap;
+    transform: scale(0.9);
   `;
   const BNumberSingle = BNumber.extend`
     height: 20px;
     width: 20px;
     line-height: 18px;
     border-radius: 50%;
-    //transform: scale(0.9);
   `;
   const BNumberDouble = BNumber.extend`
-    padding: 2px 5px;
-    border-radius: 9px;
+    padding: 3px 6px 2px;
+    border-radius: 20px;
   `;
 
   const BText = styled.div`
     display: inline-block;
-    background: ${style.color.orange};
-    border: 1px solid #fff;
+    background: ${bgColor};
+    border: ${border ? '1px solid #fff' : null};
     border-radius: 8px;
     border-bottom-left-radius: 0;
     font-family: PingFangSC-Medium;
-    font-size: 9px;
+    font-size: 12px;
     color: #fff;
     letter-spacing: 0.34px;
-    padding: 1px 6px;
-    //transform: scale(0.9);
+    padding: 2px 6px;
+    transform: scale(0.9);
   `;
 
   switch (type) {
@@ -70,10 +81,13 @@ const Badge = ({ type = 'number', children = null, overflowNum = 99, className =
     case BADGE_TYPE.NUMBER:
       const _num =
         overflowNum && parseInt(children, 10) > overflowNum ? `${overflowNum}+` : children;
-      return parseInt(children, 10) < 10 ? (
-        <BNumberSingle>{_num}</BNumberSingle>
+      return parseInt(children, 10) > 10 || plusBefore ? (
+        <BNumberDouble className={className}>
+          {plusBefore && '+'}
+          {_num}
+        </BNumberDouble>
       ) : (
-        <BNumberDouble className={className}>{_num}</BNumberDouble>
+        <BNumberSingle className={className}>{_num}</BNumberSingle>
       );
     case BADGE_TYPE.TEXT:
       return <BText className={className}>{children}</BText>;

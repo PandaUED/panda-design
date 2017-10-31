@@ -13,10 +13,10 @@ const props = {
   deg: PropTypes.number,
   title: PropTypes.string.isRequired,
   desc: PropTypes.string.isRequired,
-  leftDesc: PropTypes.string.isRequired,
-  leftTitle: PropTypes.string.isRequired,
-  rightDesc: PropTypes.string.isRequired,
-  rightTitle: PropTypes.string.isRequired,
+  leftDesc: PropTypes.string,
+  leftTitle: PropTypes.string,
+  rightDesc: PropTypes.string,
+  rightTitle: PropTypes.string,
   button: PropTypes.string,
   backgroundText: PropTypes.string,
 };
@@ -31,12 +31,13 @@ const Showcase = ({
   leftTitle,
   rightDesc,
   rightTitle,
+  bottomDesc,
   button,
   backgroundText,
   ...other
 }) => {
   let Showcase = styled.div`
-    height: ${backgroundColor === 'white' ? '162px' : '152px'};
+    height: ${backgroundColor === 'white' ? (bottomDesc ? '156px' : '162px') : '152px'};
     border-radius: 6px;
     margin: ${backgroundColor === 'white' ? null : '8px 15px 14px 17px'};
     box-shadow: 0 4px 4px 0 ${rgba(style.color[backgroundColor], 0.41)};
@@ -55,7 +56,7 @@ const Showcase = ({
     font-size: 36px;
     margin-top: 10px;
     font-family: SFUIDisplay-Medium;
-    color: ${titleColor ? style.color[titleColor] : null};
+    color: ${titleColor ? style.color[titleColor] : bottomDesc ? '#56606F' : null};
   `;
   const Desc = styled.div`
     font-size: 11px;
@@ -74,9 +75,16 @@ const Showcase = ({
     font-size: 10px;
     align-self: flex-start;
   `;
+  const BottomDesc = Desc.extend`
+    line-height: 16px;
+    letter-spacing: 0.4px;
+  `;
   const Cell = styled.div`flex: 1;`;
   const ShowcaseHeader = styled.div`display: flex;`;
-  const ShowcaseContent = styled(ShowcaseHeader)`margin-top: 20px;`;
+  const ShowcaseContent = styled(ShowcaseHeader)`
+    margin-top: ${bottomDesc ? '16' : '20'}px;
+    letter-spacing: ${bottomDesc ? 0 : 0.4}px;
+  `;
   const ShowcaseBackground = styled.span`
     opacity: 0.08;
     font-family: SFUIDisplay-Black;
@@ -97,14 +105,25 @@ const Showcase = ({
         {button ? <Button>{button}</Button> : null}
       </ShowcaseHeader>
       <ShowcaseContent>
-        <Cell>
-          <Desc>{leftDesc}</Desc>
-          <Subtitle>{leftTitle}</Subtitle>
-        </Cell>
-        <Cell>
-          <Desc>{rightDesc}</Desc>
-          <Subtitle>{rightTitle}</Subtitle>
-        </Cell>
+        {leftDesc &&
+          leftTitle && (
+            <Cell>
+              <Desc>{leftDesc}</Desc>
+              <Subtitle>{leftTitle}</Subtitle>
+            </Cell>
+          )}
+        {rightDesc &&
+          rightTitle && (
+            <Cell>
+              <Desc>{rightDesc}</Desc>
+              <Subtitle>{rightTitle}</Subtitle>
+            </Cell>
+          )}
+        {bottomDesc && (
+          <Cell>
+            <BottomDesc>{bottomDesc}</BottomDesc>
+          </Cell>
+        )}
       </ShowcaseContent>
       {backgroundText ? <ShowcaseBackground>{backgroundText}</ShowcaseBackground> : null}
     </Showcase>

@@ -24,7 +24,7 @@ export default class extends React.Component {
       <PageView>
         <NavBar
           mode={this.state.mode}
-          titleView={<div style={{ margin: '0 auto' }}>熊猫金库</div>}
+          titleView={<div>熊猫金库</div>}
           rightView={<Icon size={24} type={'Setting'} />}
         />
         <WhiteSpace>Type</WhiteSpace>

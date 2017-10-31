@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Icon } from '../Icon/index';
+import { style } from '../style_index';
 
 // 导航栏，只有两种样式，透明滑下去变白，和一直白
 // 只含有最简单的样式，跟客户端之间的交互等放在应用层实现
@@ -49,8 +50,7 @@ class NavBar extends Component {
     const NavItem = styled.div`
       flex: 1;
       height: 100%;
-      display: flex;
-      align-items: center;
+      ${style.mixins.xmFlexCenter('column')};
     `;
     const LeftItem = NavItem.extend`
       left: 16px;

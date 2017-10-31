@@ -24,7 +24,7 @@ const PageBadge = () => {
         text <Badge type="text">+2个</Badge>
       </a>
       <a>
-        number 9 <Badge>9</Badge>
+        number 9 <Badge className="test">9</Badge>
       </a>
       <a>
         number 55 <Badge>55</Badge>
@@ -37,6 +37,18 @@ const PageBadge = () => {
       </a>
       <a>
         number 55 overflow 33 <Badge overflowNum={33}>55</Badge>
+      </a>
+      <a>
+        number 55 no border <Badge border={false}>55</Badge>
+      </a>
+      <a>
+        number 55 plus before <Badge plusBefore>55</Badge>
+      </a>
+      <a>
+        number 55 bg red{' '}
+        <Badge className="test" bgColor="red">
+          55
+        </Badge>
       </a>
     </BadgeDemo>
   );

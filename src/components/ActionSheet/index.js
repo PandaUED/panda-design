@@ -2,6 +2,7 @@
  * Created by Liqi on 17/9/28.
  */
 import { default as Component } from '../utlis/Component';
+import classNames from 'classnames';
 import PropTypes from 'prop-types';
 import { Icon } from '../Icon/index';
 import { WhiteSpack as WhiteSpace } from '../WhiteSpace/index';
@@ -84,7 +85,7 @@ class ActionSheet extends Component {
     this.props.onClose();
   }
 
-  render({ title, children, closeBtnPosition, actionSheetCls }, { asVisible }) {
+  render({ title, children, closeBtnPosition, actionSheetCls, className }, { asVisible }) {
     return (
       <div className={actionSheetCls}>
         <Modal visible={asVisible} onClose={this.hide} maskClosable />
@@ -92,7 +93,10 @@ class ActionSheet extends Component {
           {status => {
             return (
               <ASStyles.ASContainer
-                className={`actionSheet-fade actionSheet-fade-${status} actionSheet-container`}
+                className={classNames(
+                  `actionSheet-fade actionSheet-fade-${status} actionSheet-container`,
+                  className
+                )}
               >
                 {closeBtnPosition === ACTIONSHEET_TYPE.TOP && (
                   <ASStyles.ASCloseBtnTop onClick={this.hide}>
