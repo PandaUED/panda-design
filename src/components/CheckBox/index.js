@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import { Icon } from 'pand';
+import { Icon } from '../Icon/index';
 import { style } from '../style_index';
 
 const CheckBoxWrap = styled.div`
