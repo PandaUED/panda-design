@@ -83,6 +83,10 @@ class Input extends React.Component {
     showClear: false,
   };
 
+  state = {
+    clear: this.props.defaultValue && this.props.defaultValue.length > 0,
+  };
+
   checkValue(value) {
     let result = value;
 
@@ -109,6 +113,15 @@ class Input extends React.Component {
       }
     }
 
+    if (result.length > 0) {
+      this.setState({
+        clear: true,
+      });
+    } else {
+      this.setState({
+        clear: false,
+      });
+    }
     return result;
   }
 
@@ -122,6 +135,9 @@ class Input extends React.Component {
   clear(e) {
     const target = e.target.parentNode.parentNode;
     target.querySelector('input').value = '';
+    this.setState({
+      clear: false,
+    });
   }
 
   render() {
@@ -176,11 +192,12 @@ class Input extends React.Component {
             readOnly={readOnly}
           />
         )}
-        {showClear && (
-          <InputClear onClick={e => this.clear(e)}>
-            <Icon size={16} type="remove" color="#CACACA" />
-          </InputClear>
-        )}
+        {showClear &&
+          this.state.clear && (
+            <InputClear onClick={e => this.clear(e)}>
+              <Icon size={16} type="remove" color="#CACACA" />
+            </InputClear>
+          )}
         {right && <InputRight>{right}</InputRight>}
       </InputWrap>
     );
