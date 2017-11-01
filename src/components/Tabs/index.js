@@ -6,7 +6,7 @@
  * tabs比较特殊，为了能够计算linkBar的样式没有完全使用styled-component的写法
  */
 import React from 'react';
-import ReactDOM from 'react-dom';
+// import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
 import styled, { ThemeProvider } from 'styled-components';
 import classnames from 'classnames';
@@ -125,7 +125,7 @@ class Tabs extends React.Component {
       this.linkBarBox.style.paddingLeft = paddingLeft + 'px';
       this.linkBarBox.style.paddingRight = paddingLeft + 'px';
       // eslint-disable-next-line
-            const container = this.tabsInner.parentNode;
+      const container = this.tabsInner.parentNode;
       const activeTab = container.querySelector(`a:nth-child(${this.state.activeIndex + 1})`);
       // scrollIntoView 方法兼容到ie8
       // 使用setTimeout是因为页面加载完后立马smooth动画不会发生
@@ -178,9 +178,11 @@ class Tabs extends React.Component {
     const tabTitles = titles.map((tabData, index) => (
       <Tab key={index} index={index} onTabChange={onTabChange} {...tabData} />
     ));
-    const tabs = [...tabTitles, ...children].map(function(entry) {
-      return entry;
-    });
+    let tabs = tabTitles.concat(
+      children.map(function(entry, index) {
+        return React.cloneElement(entry, { index, onTabChange, key: index });
+      })
+    );
 
     const isEmpty = this.isEmpty();
     const hasError = this.hasError();
@@ -208,7 +210,6 @@ class Tabs extends React.Component {
                 <TabLinkBar className={'tab-link-bar'} />
               </div>
             )}
-
           {/* error block */}
           {hasError && <ErrorTab>Error: Both attribute and embedded data</ErrorTab>}
           {isEmpty && <EmptyTab>None Tab Data</EmptyTab>}

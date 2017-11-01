@@ -44,7 +44,7 @@ icon是另外封装在TabFrame的BasicTab中，Tab组件中没有相关配置
 | **OTHER**      |              |               |                                |        |
 | style          | -            | Object        | -                              | -      |
 | className      | -            | String/Object | -                              | -      |
-| onClick        | -            | Function      | -                              | -      |
+| onTabChange    | -            | Function      | -                              | -      |
 
 
 

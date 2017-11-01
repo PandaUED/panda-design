@@ -4,7 +4,7 @@
  * Description: 这是演示页面，展示组件的功能
  */
 
-import { Tabs, Badge, WhiteSpace, Card } from 'pand';
+import { Tabs, Tab, Badge, WhiteSpace, Card } from 'pand';
 import React from 'react';
 import './../../components/Modal/_modal.scss';
 
@@ -121,6 +121,12 @@ export default () => {
           <WhiteSpace>定制 activeIndex</WhiteSpace>
           <Card>
             <Tabs titles={tabsDataB} activeIndex={activeIndexB} />
+          </Card>
+          <Card>
+            <Tabs>
+              <Tab index={0}>a</Tab>
+              <Tab index={1}>b</Tab>
+            </Tabs>
           </Card>
         </div>
       );

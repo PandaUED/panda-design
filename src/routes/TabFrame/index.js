@@ -253,7 +253,13 @@ export default () => {
           </Card>
           <WhiteSpace>带有 description 的 tab, tabsPosition = bottom</WhiteSpace>
           <Card>
-            <TabFrame tabsData={descriptionType} confirm activeIndex={1} activeColor={'orange'} />
+            <TabFrame
+              tabsData={descriptionType}
+              confirm
+              activeIndex={1}
+              tabsPosition={'bottom'}
+              activeColor={'orange'}
+            />
           </Card>
         </div>
       );

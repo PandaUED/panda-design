@@ -10,13 +10,12 @@ import classNames from 'classnames';
 import Badge from '../Badge/index';
 
 const BasicTab = (
-  { onTabChange, onClick, index, title, disable = false, className, children, badge, dot, ...rest },
+  { onTabChange, index, title, disable = false, className, children, badge, dot, ...rest },
   { activeIndex, handleSync }
 ) => {
   const handleOnClick = () => {
     if (!disable) {
       onTabChange && onTabChange(index);
-      onClick instanceof Function && onClick();
       handleSync && handleSync(index);
     }
   };
