@@ -5,16 +5,19 @@ Parent:: TabFrame
 用来展示产品信息
 
 ## API
-###tabs
+
+### tabs
+
 | 属性             | 说明              | 类型     | 可选值                            | 默认值      |
 | -------------- | --------------- | ------ | ------------------------------ | -------- |
 | titles[Object] | tab数据,元素为对象     | Array  | -                              | -        |
+| onTabChange | 切换tab的回调 (内置index参数) | Function | - | null |
 | activeColor    | tab选项夹被激活时的字体颜色 | String | See：[color](../style/index.md) | **blue** |
 | activeIndex    | 默认激活的 tab索引     | Number | -                              | 0        |
 | linkBar        | 滑动的下划线          | Array  | -                              | -        |
 | **OTHER**      |                 |        |                                |          |
 
-###tab
+### tab
 
 | 属性        | 说明          | 类型            | 可选值  | 默认值   |
 | --------- | ----------- | ------------- | ---- | ----- |

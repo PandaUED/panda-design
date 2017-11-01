@@ -97,7 +97,14 @@ export default () => {
           </Card>
           <WhiteSpace />
           <Card>
-            <Tabs titles={tabsDataD} linkBar />
+            <Tabs
+              titles={tabsDataD}
+              linkBar
+              onTabChange={i => {
+                console.log('onTabChange');
+                console.log(i);
+              }}
+            />
           </Card>
           <WhiteSpace />
           <Card>
