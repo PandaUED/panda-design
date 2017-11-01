@@ -174,7 +174,6 @@ class Tabs extends React.Component {
       activeIndex,
       ...other
     } = this.props;
-    console.log(this.props.onTabChange);
 
     const tabTitles = titles.map((tabData, index) => (
       <Tab key={index} index={index} onTabChange={onTabChange} {...tabData} />
