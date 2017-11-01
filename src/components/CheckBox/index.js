@@ -73,7 +73,7 @@ const SmallCheckBoxView = styled.div`
   > div {
     position: absolute;
     width: 100%;
-    height: 20px;
+    height: 16px;
   }
 `;
 
