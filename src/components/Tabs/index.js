@@ -164,9 +164,20 @@ class Tabs extends React.Component {
   }
 
   render() {
-    const { titles, children, activeColor, linkBar, className, activeIndex, ...other } = this.props;
+    const {
+      titles,
+      onTabChange,
+      children,
+      activeColor,
+      linkBar,
+      className,
+      activeIndex,
+      ...other
+    } = this.props;
+    console.log(this.props.onTabChange);
+
     const tabTitles = titles.map((tabData, index) => (
-      <Tab key={index} index={index} {...tabData} />
+      <Tab key={index} index={index} onTabChange={onTabChange} {...tabData} />
     ));
     const tabs = [...tabTitles, ...children].map(function(entry) {
       return entry;
