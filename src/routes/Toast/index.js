@@ -37,6 +37,18 @@ const ToastDemo = () => {
       <a
         onClick={() => {
           Toast.sharedInstance.show({
+            desc: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
+            button: 'OK',
+            icon: <IconTest />,
+            hasFooterBar: true,
+          });
+        }}
+      >
+        Toast FooterBar true
+      </a>
+      <a
+        onClick={() => {
+          Toast.sharedInstance.show({
             desc: '内容内容',
             icon: <IconTest />,
           });
