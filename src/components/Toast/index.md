@@ -24,7 +24,8 @@ Toast.sharedInstance.show({
 | :-------- | ------ | :----: | :-----: |
 | title     | 标题 | string | 温馨提示 |
 | desc | 详细描述 | string |    null    |
-| button | 右侧按钮文案 | string | null|
+| button | 右侧按钮文案 | string | null |
+| hasFooterBar | 当前页面是否有footerBar | bool | false |
 | onClose | 右侧按钮关闭回调 | function | null|
 | duration| 自动关闭时间 | number | `button ? 3000: 1000`|
 | icon | 左侧icon | node | null |
