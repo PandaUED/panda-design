@@ -180,7 +180,7 @@ class Tabs extends React.Component {
     ));
     let tabs = tabTitles.concat(
       children.map(function(entry, index) {
-        return React.cloneElement(entry, { index, onTabChange, key: index });
+        return React.cloneElement(entry, { index, key: index });
       })
     );
 
