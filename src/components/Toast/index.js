@@ -4,6 +4,7 @@
 import { Component } from 'react';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
+import classNames from 'classnames';
 import { style } from '../style_index';
 import './_toast.scss';
 
@@ -16,10 +17,16 @@ class Toast extends Component {
     this.hide = this.hide.bind(this);
   }
 
-  show({ title = '温馨提示', desc, icon = null, button = null, onClose = null, duration = null }) {
-    this.setState({ title, desc, icon, button, onClose }, () => {
-      this.setState({ toastVisible: true });
-    });
+  show({
+    title = '温馨提示',
+    desc,
+    icon = null,
+    button = null,
+    onClose = null,
+    duration = null,
+    hasFooterBar = false,
+  }) {
+    this.setState({ title, desc, icon, button, onClose, hasFooterBar, toastVisible: true });
 
     let _duration = duration;
     if (!_duration) {
@@ -36,7 +43,8 @@ class Toast extends Component {
   }
 
   render() {
-    const { title, desc, icon, button, onClose } = this.state;
+    const { title, desc, icon, button, onClose, hasFooterBar } = this.state;
+    const footerBarCls = hasFooterBar ? 'hasFooterBar' : 'noFooterBar';
 
     const ToastContainer = styled.div`
       width: calc(100% - 32px);
@@ -76,7 +84,7 @@ class Toast extends Component {
       <CSSTransition timeout={400} classNames="toast-fade" in={this.state.toastVisible}>
         {status => {
           return (
-            <div className={`toast-fade toast-fade-${status}`}>
+            <div className={classNames(`toast-fade toast-fade-${status}`, footerBarCls)}>
               <ToastContainer className="toast-container">
                 {icon && <TIcon className="toast-icon">{icon}</TIcon>}
                 <div className="toast-textarea">

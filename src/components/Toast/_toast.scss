@@ -11,7 +11,10 @@
   .toast-fade-exited,
   .toast-fade-entering,
   .toast-fade-exiting.toast-fade-exit-active {
-    transform: translate3D(0, 0, 0);
+    &.hasFooterBar,
+    &.noFooterBar {
+      transform: translate3D(0, 0, 0);
+    }
     opacity: 0;
     z-index: -1;
   }
@@ -20,7 +23,12 @@
   .toast-fade-entered,
   .toast-fade-exiting,
   .toast-fade-entering.toast-fade-enter-active {
-    transform: translate3D(0, -65px, 0);
+    &.hasFooterBar {
+      transform: translate3D(0, -65px, 0);
+    }
+    &.noFooterBar {
+      transform: translate3D(0, -16px, 0);
+    }
     opacity: 1;
     z-index: 100;
   }
