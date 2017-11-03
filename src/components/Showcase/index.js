@@ -82,7 +82,7 @@ const Showcase = ({
   const Cell = styled.div`flex: 1;`;
   const ShowcaseHeader = styled.div`display: flex;`;
   const ShowcaseContent = styled(ShowcaseHeader)`
-    margin-top: ${bottomDesc ? '16' : '20'}px;
+    margin-top: ${bottomDesc ? '16' : '25'}px;
     letter-spacing: ${bottomDesc ? 0 : 0.4}px;
   `;
   const ShowcaseBackground = styled.span`
@@ -114,7 +114,7 @@ const Showcase = ({
           )}
         {rightDesc &&
           rightTitle && (
-            <Cell style={{ textIndent: 16 }}>
+            <Cell style={{ textIndent: 16, boxShadow: 'inset #f8f8f8 0.5px 0 0' }}>
               <Desc>{rightDesc}</Desc>
               <Subtitle>{rightTitle}</Subtitle>
             </Cell>
