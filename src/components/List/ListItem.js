@@ -22,7 +22,6 @@ const ListItem = ({
 }) => {
   const splitItem = css`
     margin-bottom: 10px;
-    box-shadow: inset 0 0 0 0 ${style.color.bgPage};
     ${style.split.bottom};
   `;
   const ListItem = styled.div`
@@ -32,9 +31,8 @@ const ListItem = ({
     color: ${style.color.textDark};
     line-height: 16px;
     align-items: center;
-    box-shadow: inset 0 0 0 0 ${style.color.bgPage};
+    box-shadow: inset 0 -0.5px 0 0 ${style.color.bgPage};
     ${padding ? `padding: 16px ${padding}px;` : 'padding: 0;'};
-    ${border && `border-bottom: ${style.color.bgPage} 1px solid;`};
     ${padding && `padding: 16px ${padding}px;`};
     ${padding && padding === true && 'padding: 16px 0;'};
     ${split && splitItem};

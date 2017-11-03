@@ -14,7 +14,7 @@ const color = {
   textLight: '#999',
   textDeactive: '#BBBFC8',
   placeholder: '#CACACA',
-  split: '#eee',
+  split: '#f8f8f8',
   bgDeactive: '#D6D9E0',
   bgNotice: '#FAFBFB',
   bgPage: '#F8F8F8',

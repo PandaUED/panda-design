@@ -114,7 +114,7 @@ const Showcase = ({
           )}
         {rightDesc &&
           rightTitle && (
-            <Cell>
+            <Cell style={{ textIndent: 16 }}>
               <Desc>{rightDesc}</Desc>
               <Subtitle>{rightTitle}</Subtitle>
             </Cell>
