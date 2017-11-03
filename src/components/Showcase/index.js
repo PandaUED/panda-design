@@ -46,6 +46,7 @@ const Showcase = ({
     overflow: hidden;
     color: ${backgroundColor === 'white' ? null : '#fff'};
     flex-shrink: 0;
+    line-height: 1;
   `;
 
   if (deg) {
@@ -114,7 +115,12 @@ const Showcase = ({
           )}
         {rightDesc &&
           rightTitle && (
-            <Cell style={{ textIndent: 16, boxShadow: 'inset #f8f8f8 0.5px 0 0' }}>
+            <Cell
+              style={{
+                textIndent: 16,
+                boxShadow: backgroundColor === 'white' ? '#f8f8f8 0.5px 0px 0px inset' : null,
+              }}
+            >
               <Desc>{rightDesc}</Desc>
               <Subtitle>{rightTitle}</Subtitle>
             </Cell>
