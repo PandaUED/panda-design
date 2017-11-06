@@ -33,6 +33,9 @@ const PagePassword = () => {
         actionBar="重新获取 (41s)"
         onClose={value => console.log(`close 应用层回调, value: ${value}`)}
         notice="短信验证码已发至153****3008，请查收"
+        onActionClick={()=>
+            console.log('action')
+        }
         onPasswordFinish={value => {
           console.log(`input finished, value: ${value}`);
           Toast.sharedInstance.show({

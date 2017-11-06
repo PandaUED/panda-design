@@ -10,12 +10,14 @@ import { Input } from '../Input/index';
 import { Keyboard } from '../Keyboard/index';
 import { WhiteSpack as WhiteSpace } from '../WhiteSpace/index';
 import { NoticeBar } from '../NoticeBar/index';
+import TouchFeedback from 'rmc-feedback';
+import { style } from "../style_index";
 
 const PasswordStyles = {
-  ActionBar: styled.div`
+  ActionBar: styled.a`
     font-family: PingFangSC-Regular;
     font-size: 12px;
-    color: #999;
+    color: ${style.color.textLight};
     line-height: 16px;
     margin-left: 30px;
   `,
@@ -39,6 +41,8 @@ class Password extends Component {
     actionBar: PropTypes.node,
     notice: PropTypes.string,
     icon: PropTypes.node,
+      onActionClick: PropTypes.func,
+      actionDisable: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -49,6 +53,8 @@ class Password extends Component {
     actionBar: null,
     notice: null,
     icon: null,
+      onActionClick: noop,
+      actionDisable: true,
   };
 
   open() {
@@ -69,7 +75,7 @@ class Password extends Component {
   }
 
   render(
-    { onClose, onPasswordFinish, passwordNum, actionBar, notice, icon, resetWhenClose },
+    { onClose, onPasswordFinish, passwordNum, actionBar, notice, icon, resetWhenClose, onActionClick, actionDisable },
     { currValue, key }
   ) {
     return (
@@ -84,7 +90,10 @@ class Password extends Component {
       >
         <Input size="square" value={currValue} />
         <WhiteSpace transparent />
-        <PasswordStyles.ActionBar>{actionBar}</PasswordStyles.ActionBar>
+        <TouchFeedback disabled={actionDisable}>
+          <PasswordStyles.ActionBar
+          onClick={actionDisable ? null : onActionClick}>{actionBar}</PasswordStyles.ActionBar>
+        </TouchFeedback>
         <WhiteSpace transparent size={25} />
         <NoticeBar center visible>
           {notice}
