@@ -41,6 +41,7 @@ const Cell = ({
   `;
   const Cell = styled.div`
     background: ${style.color.white};
+    position: relative;
     display: flex;
     ${fontSize ? `font-size: ${fontSize}px;` : 'font-size: 14px;'};
     align-items: center;
