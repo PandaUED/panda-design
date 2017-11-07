@@ -6,8 +6,11 @@ import './_card.scss';
 
 const props = {};
 
-const Card = ({ children = 'example', className = '', ...other }) => {
-  const Card = styled.div`background: #fff;`;
+const Card = ({ children = 'example', className = '', noMarginTop = false, ...other }) => {
+  const Card = styled.div`
+    background: #fff;
+    ${noMarginTop && 'margin-top: 0 !important'};
+  `;
 
   return (
     <Card className={`${className} xm-card`} {...other}>
