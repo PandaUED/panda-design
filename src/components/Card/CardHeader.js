@@ -6,20 +6,23 @@ const props = {
   split: PropTypes.bool,
 };
 
-const CardHeader = ({ split = false, children, ...other }) => {
-  const CardHeader = styled.div`
-    background: #fff;
-    height: 54px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0 16px;
-    font-weight: 600;
-    ${style.text.ellipsis};
-    ${split ? style.split.bottom : ''};
-  `;
+const CardHeaderStyle = styled.div`
+  background: #fff;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  font-weight: 600;
+  ${style.text.ellipsis};
+`;
 
-  return <CardHeader {...other}>{children}</CardHeader>;
+const CardHeader = ({ split = false, children, ...other }) => {
+  let CardHeaderStyleExtend = CardHeaderStyle;
+  if (split) {
+    CardHeaderStyleExtend = CardHeaderStyle.extend`${style.split.bottom};`;
+  }
+  return <CardHeaderStyle {...other}>{children}</CardHeaderStyle>;
 };
 
 CardHeader.propTypes = props;

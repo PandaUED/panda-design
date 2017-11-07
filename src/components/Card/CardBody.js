@@ -5,9 +5,15 @@ const props = {
   padding: PropTypes.bool,
 };
 
+const CardBodyStyle = styled.div``;
+
 const CardBody = ({ padding = false, children, ...other }) => {
-  const CardBody = styled.div`padding: ${padding ? 16 : 0}px;`;
-  return <CardBody {...other}>{children}</CardBody>;
+  let CardBodyStyleExtend = CardBodyStyle;
+  if (padding) {
+    CardBodyStyleExtend = CardBodyStyle.extend`padding: 16px;`;
+  }
+
+  return <CardBodyStyleExtend {...other}>{children}</CardBodyStyleExtend>;
 };
 
 CardBody.propTypes = props;

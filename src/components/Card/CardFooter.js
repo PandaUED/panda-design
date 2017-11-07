@@ -6,12 +6,14 @@ const props = {
   split: PropTypes.bool,
 };
 
+const CardFooterStyle = styled.div`min-height: 44px;`;
+
 const CardFooter = ({ split = false, children, ...other }) => {
-  const CardFooter = styled.div`
-    min-height: 44px;
-    ${split ? `border-top: 1px solid ${style.color.split}` : ''};
-  `;
-  return <CardFooter {...other}>{children}</CardFooter>;
+  let CardFooterStyleExtend = CardFooterStyle;
+  if (split) {
+    CardFooterStyleExtend = CardFooterStyle.extend`border-top: 1px solid ${style.color.split};`;
+  }
+  return <CardFooterStyleExtend {...other}>{children}</CardFooterStyleExtend>;
 };
 
 CardFooter.propTypes = props;
