@@ -22,7 +22,7 @@ const CardHeader = ({ split = false, children, ...other }) => {
   if (split) {
     CardHeaderStyleExtend = CardHeaderStyle.extend`${style.split.bottom};`;
   }
-  return <CardHeaderStyle {...other}>{children}</CardHeaderStyle>;
+  return <CardHeaderStyleExtend {...other}>{children}</CardHeaderStyleExtend>;
 };
 
 CardHeader.propTypes = props;
