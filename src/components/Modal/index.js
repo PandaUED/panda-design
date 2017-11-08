@@ -86,7 +86,6 @@ class Modal extends Component {
         <ModalStyles.ModalBg
           className={classnames('xm-mask-bg', maskBgCls)}
           onClick={() => {
-            console.log('bg');
             maskClosable && onClose();
           }}
         />
