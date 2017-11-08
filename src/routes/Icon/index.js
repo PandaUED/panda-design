@@ -129,6 +129,7 @@ const SingIcon = {
 
 const DoubleIcon = {
   24: [
+    'ShopDiamond',
     'HomeActive',
     'DiscoverActive',
     'CoinActive',
