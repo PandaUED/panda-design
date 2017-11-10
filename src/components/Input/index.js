@@ -67,7 +67,7 @@ class Input extends React.Component {
     placeholder: PropTypes.string,
     left: PropTypes.node,
     right: PropTypes.node,
-    value: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     defaultValue: PropTypes.string,
     onChange: PropTypes.func,
     onClick: PropTypes.func,
