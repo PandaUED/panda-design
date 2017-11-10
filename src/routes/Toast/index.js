@@ -25,6 +25,24 @@ const ToastDemo = () => {
       <WhiteSpace>Toast</WhiteSpace>
       <a
         onClick={() => {
+          Toast.sharedInstance.showSuccess({
+            desc: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
+          });
+        }}
+      >
+        Show Success
+      </a>
+      <a
+        onClick={() => {
+          Toast.sharedInstance.showFail({
+            desc: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
+          });
+        }}
+      >
+        Show Fail
+      </a>
+      <a
+        onClick={() => {
           Toast.sharedInstance.show({
             desc: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
             button: 'OK',
@@ -61,6 +79,7 @@ const ToastDemo = () => {
           Toast.sharedInstance.show({
             desc: '内容内容',
             duration: 5000,
+            icon: <IconTest />,
           });
         }}
       >
