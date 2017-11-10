@@ -17,7 +17,7 @@ const props = {
   leftTitle: PropTypes.string,
   rightDesc: PropTypes.string,
   rightTitle: PropTypes.string,
-  button: PropTypes.string,
+  button: PropTypes.node,
   backgroundText: PropTypes.string,
 };
 

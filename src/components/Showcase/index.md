@@ -16,7 +16,7 @@
 | rightDesc       | 右侧标题描述                 | string | -     |
 | rightTitle      | 右侧标题文字                 | string | -     |
 | bottomDesc      | 底部标题描述                 | string | -     |
-| button          | 右上角button文字            | string | -     |
+| button          | 右上角button文字            | node | -     |
 | backgroundText  | 背景文字                   | string | -     |
 | **OTHER**       |                        |        |       |
 | classname       | 样式类名                   | string | -     |
