@@ -66,10 +66,11 @@ const TabContent = styled(BasicTabContent)`
   width: 100%;
   flex-grow: 1;
   &.active {
-    display: block;
+    display: flex;
   }
   & > * {
     height: 100%;
+    width: 100%;
   }
 `;
 export { TabContent };
