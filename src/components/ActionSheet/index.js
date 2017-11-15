@@ -1,6 +1,7 @@
 /**
  * Created by Liqi on 17/9/28.
  */
+import React from 'react';
 import { default as Component } from '../utlis/Component';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';

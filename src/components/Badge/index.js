@@ -2,6 +2,7 @@
  * Created by Liqi on 17/9/29.
  */
 
+import React from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { style } from '../style_index';

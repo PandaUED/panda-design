@@ -2,6 +2,7 @@
  * Created by lichenguang on 2017/9/15.
  */
 
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { rgba } from 'polished';

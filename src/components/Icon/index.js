@@ -3,6 +3,7 @@
  * Create: 2017-10-12
  * Description: 图标组件，可定制大小
  */
+import React from 'react';
 import classnames from 'classnames';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
