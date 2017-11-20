@@ -54,7 +54,6 @@ const Cell = ({
     ${height && `height: ${height}px`};
     ${align === 'top' && 'align-items: flex-start;'};
     ${padding ? `padding:${padding}px;` : 'padding: 13px 16px;'};
-    //padding-right: 16px;
   `;
 
   return (
