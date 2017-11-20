@@ -49,7 +49,7 @@ class PageInput extends React.Component {
           }}
         />
         <WhiteSpace>square（应配合键盘使用）</WhiteSpace>
-        <Cell className="CellCls" padding={30}>
+        <Cell padding={30}>
           <Input size="square" value="23248" />
         </Cell>
       </View>
