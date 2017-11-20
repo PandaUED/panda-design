@@ -56,10 +56,10 @@ const CellMain = ({
     line-height: 18px;
     margin-top: ${descMargin}px;
     ${descColor ? `color: ${descColor};` : `color: ${style.color.textLight};`};
-    div {
-      display: flex;
-      align-items: flex-end;
-    }
+    //div {
+    //  display: flex;
+    //  align-items: flex-end;
+    //}
     ${descRight && 'margin-top: 1px;margin-left: 4px;'};
     ${descBold && 'font-weight: bold;'};
   `;
