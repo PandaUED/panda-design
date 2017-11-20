@@ -12,12 +12,14 @@ const props = {
 
 const CellRight = ({ className, size = 13, color, right = 16, children, ...other }) => {
   const CellRight = styled.div`
-    position: absolute;
+    //position: absolute;
     display: flex;
     align-items: center;
     font-weight: normal;
     font-size: ${size}px;
-    right: ${right}px;
+    //right: ${right}px;
+    //margin: 0 16px;
+    margin-left: 10px;
     text-align: end;
     ${color ? `color: ${color};` : `color: ${style.color.textNormal};`};
     .xmjkIcon {

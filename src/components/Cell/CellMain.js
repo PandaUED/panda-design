@@ -24,7 +24,7 @@ const CellMain = ({
   marginLeft = 12,
   desc,
   descSize = 12,
-  descMargin = 8,
+  descMargin = 5,
   descRight = false,
   descBold = false,
   descColor,
@@ -39,8 +39,10 @@ const CellMain = ({
   const CellMainWrap = styled.div`
     display: flex;
     align-items: center;
+    line-height: 22px;
   `;
   const CellMain = styled.div`
+    flex: 1;
     font-size: ${size}px;
     margin-left: ${marginLeft}px;
     ${color ? `color: ${color};` : `color: ${style.color.textDark};`};
@@ -51,7 +53,7 @@ const CellMain = ({
   const CellMainDesc = styled.div`
     font-weight: normal;
     font-size: ${descSize}px;
-    line-height: ${descSize}px;
+    line-height: 18px;
     margin-top: ${descMargin}px;
     ${descColor ? `color: ${descColor};` : `color: ${style.color.textLight};`};
     div {
