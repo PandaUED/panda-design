@@ -10,13 +10,21 @@
 ## API
 
 ```js
+Toast.sharedInstance.showSuccess/showFail({
+    title,
+    desc,
+    button,
+    duration,
+    onClose,
+});
+
 Toast.sharedInstance.show({
     title,
     desc,
     button,
     duration,
     onClose,
-    icon,
+    icon, // 自定义icon
 });
 ```
 

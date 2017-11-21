@@ -1,6 +1,7 @@
 /**
  * Created by Liqi on 17/9/28.
  */
+import React from 'react';
 import styled from 'styled-components';
 import { default as Component } from '../utlis/Component';
 import { Modal } from '../Modal/index';

@@ -1,6 +1,7 @@
 /**
  * Created by lichenguang on 2017/9/21.
  */
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import ReactCarousel from './ReactCarousel';

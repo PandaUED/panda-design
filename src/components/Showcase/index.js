@@ -2,6 +2,7 @@
  * Created by lichenguang on 2017/9/15.
  */
 
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { rgba } from 'polished';
@@ -17,7 +18,7 @@ const props = {
   leftTitle: PropTypes.string,
   rightDesc: PropTypes.string,
   rightTitle: PropTypes.string,
-  button: PropTypes.string,
+  button: PropTypes.node,
   backgroundText: PropTypes.string,
 };
 
