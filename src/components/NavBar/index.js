@@ -33,6 +33,8 @@ class NavBar extends Component {
       display: flex;
       width: 100%;
       height: 44px;
+      position: fixed;
+      top: 0;
       line-height: 44px;
       z-index: 1;
     `;
