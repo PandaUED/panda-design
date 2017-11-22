@@ -94,7 +94,7 @@ class Password extends Component {
         ref={c => (this.refASPassword = c)}
         title="输入验证码"
         onClose={() => {
-          console.log('close 回调');
+          // console.log('close 回调');
           onClose(this.state.currValue);
           resetWhenClose && this.reset();
         }}
