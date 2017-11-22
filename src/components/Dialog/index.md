@@ -37,3 +37,4 @@ Dialog.sharedInstance.confirm({
 | theme | 对话主题 | classic／new | classic |
 | callback | 点击按钮回调，可选result参数 | func | null |
 | icon | 顶部icon(theme==='new' only) | node | null |
+| closable | 是否在蒙层显示关闭按钮	 | bool | false |

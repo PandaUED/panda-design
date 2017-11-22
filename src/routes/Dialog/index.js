@@ -67,6 +67,7 @@ class PageDialog extends React.Component {
                 console.log(`callback: ${result}`);
               },
               theme: 'new',
+              closable: true,
             });
           }}
         >

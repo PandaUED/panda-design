@@ -97,6 +97,7 @@ class Dialog extends Component {
     theme = DIALOG_THEME.CLASSIC,
     callback,
     icon = null,
+    closable = false,
   }) {
     this.setState({
       title,
@@ -107,6 +108,7 @@ class Dialog extends Component {
       icon,
       type: DIALOG_TYPE.ALERT,
       maskVisible: true,
+      closable,
     });
   }
 
@@ -185,10 +187,17 @@ class Dialog extends Component {
   }
 
   // eslint-disable-next-line
-    render({}, { title, message, theme, icon }) {
+    render({}, { title, message, theme, icon, closable }) {
     return (
       <DialogStyles.DWrapper>
-        <Modal childrenCls="DialogMask-content" visible={this.state.maskVisible}>
+        <Modal
+          childrenCls="DialogMask-content"
+          visible={this.state.maskVisible}
+          closable={closable}
+          onClose={() => {
+            this.setState({ maskVisible: false });
+          }}
+        >
           <DialogStyles.DialogContainer
             className="DialogContainer"
             style={icon && { paddingTop: '40px' }}
