@@ -39,9 +39,7 @@ const BADGE_STYLES = {
       if (props.double) {
         return 'padding: 0 7px; border-radius: 20px;';
       } else {
-        return `
-                width: 20px;
-                border-radius: 50%;`;
+        return 'width: 20px; border-radius: 50%;';
       }
     }};
   `,
