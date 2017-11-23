@@ -68,7 +68,7 @@ export default () => {
       <WhiteSpace />
       <Cell alone>
         <Cell.Left>账单说明</Cell.Left>
-        <Cell.Right size={14} color="#444">
+        <Cell.Right size={14} color="#444" right={16}>
           银行卡-转入-定存宝
         </Cell.Right>
       </Cell>

@@ -10,15 +10,17 @@ const props = {
   right: PropTypes.number,
 };
 
-const CellRight = ({ className, size = 13, color, right = 16, children, ...other }) => {
+const CellRight = ({ className, size = 13, color, right, children, ...other }) => {
   const CellRight = styled.div`
     display: flex;
     align-items: center;
     font-weight: normal;
     font-size: ${size}px;
-    margin-left: 10px;
     text-align: end;
     ${color ? `color: ${color};` : `color: ${style.color.textNormal};`};
+    ${right && `right: ${right}px`};
+    ${!right && 'margin-left: 10px'};
+    position: ${right ? 'absolute' : 'inherit'};
     .xmjkIcon {
       margin-left: 6px;
     }
