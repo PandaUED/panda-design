@@ -120,6 +120,7 @@ class Dialog extends Component {
     callback,
     theme = DIALOG_THEME.CLASSIC,
     icon = null,
+    closable = false,
   }) {
     this.setState({
       title,
@@ -131,6 +132,7 @@ class Dialog extends Component {
       icon,
       type: DIALOG_TYPE.CONFIRM,
       maskVisible: true,
+      closable,
     });
   }
 
