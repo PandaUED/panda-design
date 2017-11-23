@@ -52,6 +52,7 @@ class PageDialog extends React.Component {
               callback: result => {
                 console.log(`callback: ${result}`);
               },
+              closable: true,
             });
           }}
         >
