@@ -13,6 +13,52 @@ const BADGE_TYPE = {
   TEXT: 'text',
 };
 
+const BADGE_STYLES = {
+  BDot: styled.div`
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: ${props => props.bgColor};
+    border: ${props => (props.border ? '1px solid #fff' : null)};
+    border-radius: 50%;
+  `,
+  BNumber: styled.div`
+    display: inline-block;
+    text-align: center;
+    font-family: PingFangSC-Medium;
+    font-size: 14px;
+    color: #fff;
+    letter-spacing: 0.34px;
+    background: ${props => props.bgColor};
+    border: ${props => (props.border ? '1px solid #fff' : null)};
+    white-space: nowrap;
+    transform: ${props => `scale(${props.scale})`};
+    height: 20px;
+    line-height: 20px;
+    ${props => {
+      if (props.double) {
+        return 'padding: 0 7px; border-radius: 20px;';
+      } else {
+        return 'width: 20px; border-radius: 50%;';
+      }
+    }};
+  `,
+
+  BText: styled.div`
+    display: inline-block;
+    background: ${props => props.bgColor};
+    border: ${props => (props.border ? '1px solid #fff' : null)};
+    border-radius: 8px;
+    border-bottom-left-radius: 0;
+    font-family: PingFangSC-Medium;
+    font-size: 12px;
+    color: #fff;
+    letter-spacing: 0.34px;
+    padding: 2px 7px;
+    transform: scale(0.7);
+  `,
+};
+
 const BadgeProps = {
   type: PropTypes.string,
   children: PropTypes.node,
@@ -27,71 +73,34 @@ const Badge = ({
   overflowNum = 99,
   className = null,
   plusBefore = false,
-  border = true,
+  scale = 0.7,
+  border = false,
   bgColor = style.color.orange,
 }) => {
-  const BDot = styled.div`
-    display: inline-block;
-    width: 8px;
-    height: 8px;
-    background: ${bgColor};
-    border: ${border ? '1px solid #fff' : null};
-    border-radius: 50%;
-  `;
-  const BNumber = styled.div`
-    display: inline-block;
-    text-align: center;
-    font-family: PingFangSC-Medium;
-    font-size: 12px;
-    color: #fff;
-    letter-spacing: 0.34px;
-    background: ${bgColor};
-    border: ${border ? '1px solid #fff' : null};
-    line-height: 1;
-    white-space: nowrap;
-    transform: scale(0.9);
-  `;
-  const BNumberSingle = BNumber.extend`
-    height: 20px;
-    width: 20px;
-    line-height: 18px;
-    border-radius: 50%;
-  `;
-  const BNumberDouble = BNumber.extend`
-    padding: 3px 6px 2px;
-    border-radius: 20px;
-  `;
-
-  const BText = styled.div`
-    display: inline-block;
-    background: ${bgColor};
-    border: ${border ? '1px solid #fff' : null};
-    border-radius: 8px;
-    border-bottom-left-radius: 0;
-    font-family: PingFangSC-Medium;
-    font-size: 12px;
-    color: #fff;
-    letter-spacing: 0.34px;
-    padding: 2px 6px;
-    transform: scale(0.9);
-  `;
-
   switch (type) {
     case BADGE_TYPE.DOT:
-      return <BDot className={className} />;
+      return <BADGE_STYLES.BDot className={className} bgColor={bgColor} border={border} />;
     case BADGE_TYPE.NUMBER:
       const _num =
         overflowNum && parseInt(children, 10) > overflowNum ? `${overflowNum}+` : children;
-      return parseInt(children, 10) > 10 || plusBefore ? (
-        <BNumberDouble className={className}>
+      return (
+        <BADGE_STYLES.BNumber
+          className={className}
+          bgColor={bgColor}
+          border={border}
+          scale={scale}
+          double={parseInt(children, 10) > 10 || plusBefore}
+        >
           {plusBefore && '+'}
           {_num}
-        </BNumberDouble>
-      ) : (
-        <BNumberSingle className={className}>{_num}</BNumberSingle>
+        </BADGE_STYLES.BNumber>
       );
     case BADGE_TYPE.TEXT:
-      return <BText className={className}>{children}</BText>;
+      return (
+        <BADGE_STYLES.BText className={className} bgColor={bgColor} border={border}>
+          {children}
+        </BADGE_STYLES.BText>
+      );
     default:
       break;
   }
