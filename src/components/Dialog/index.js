@@ -88,6 +88,7 @@ class Dialog extends Component {
     callback: null,
     maskVisible: false,
     type: DIALOG_TYPE.ALERT,
+    closable: false,
   };
 
   alert({
@@ -99,6 +100,7 @@ class Dialog extends Component {
     icon = null,
     closable = false,
   }) {
+    console.log('alert' + closable);
     this.setState({
       title,
       message,
