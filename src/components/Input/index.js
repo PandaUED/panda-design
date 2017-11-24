@@ -29,7 +29,7 @@ const InputWrap = styled.div`
   display: flex;
   background-color: ${style.color.white};
   align-items: center;
-  padding: 19px 8px;
+  height: 72px;
 `;
 const InputView = styled.input`
   color: ${style.color.textDark};
@@ -55,9 +55,14 @@ const InputRight = styled.div`
 const InputClear = styled.div`margin-right: 16px;`;
 
 const LargeInput = InputView.extend`
-  font-size: 20px;
-  line-height: 20px;
+  font-size: 32px;
+  line-height: 32px;
+  font-family: SFUIDisplay-Medium;
   font-weight: bold;
+  &::placeholder {
+    font-weight: normal;
+    font-size: 20px;
+  }
 `;
 
 class Input extends React.Component {
