@@ -57,7 +57,7 @@ const InputClear = styled.div`margin-right: 16px;`;
 const LargeInput = InputView.extend`
   font-size: 32px;
   line-height: 32px;
-  font-family: SFUIDisplay-Medium;
+  font-family: SFUIDisplay-Medium, PingFangSC-Medium;
   font-weight: bold;
   &::placeholder {
     font-weight: normal;
