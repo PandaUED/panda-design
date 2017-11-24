@@ -9,7 +9,7 @@ const props = {
 
 const CardFooterStyle = styled.div`
   min-height: 44px;
-  ${props => !!props.split && style.split.top};
+  ${props => !!props.split && 'border-top: 1px solid #f3f3f3'};
 `;
 
 const CardFooter = ({ split = false, children, ...other }) => {
