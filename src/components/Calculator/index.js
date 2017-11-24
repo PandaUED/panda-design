@@ -38,6 +38,7 @@ class Calculator extends Component {
       currValue: '',
     };
     this.close = this.close.bind(this);
+    this.checkValue = this.checkValue.bind(this);
   }
 
   static propTypes = {
@@ -48,6 +49,7 @@ class Calculator extends Component {
     resetWhenClose: PropTypes.bool,
     content: PropTypes.node,
     notice: PropTypes.string,
+    maxAmount: PropTypes.number,
   };
 
   static defaultProps = {
@@ -58,6 +60,7 @@ class Calculator extends Component {
     resetWhenClose: false,
     content: null,
     notice: null,
+    maxAmount: null,
   };
 
   open() {
@@ -91,6 +94,11 @@ class Calculator extends Component {
       .replace('$#$', '.');
     // 只能输入两个小数
     result = result.replace(/^(-)*(\d+)\.(\d\d).*$/, '$1$2.$3');
+    if (this.props.maxAmount) {
+      if (parseFloat(result) > this.props.maxAmount) {
+        return this.props.maxAmount.toString();
+      }
+    }
     return result;
   }
 

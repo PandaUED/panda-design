@@ -26,7 +26,7 @@ const PageCalculator = () => {
           refCalculator.open();
         }}
       >
-        打开计算器
+        打开计算器，最大限额5000000(可不设置)
       </a>
       <Calculator
         // resetWhenClose
@@ -35,6 +35,7 @@ const PageCalculator = () => {
         onClose={() => console.log('Calculator close')}
         onConfirm={() => console.log('Calculator confirm')}
         notice="预期年化收益可能与累计单日收益出现几分钱的误差"
+        maxAmount={5000000}
       />
     </CalculatorDemo>
   );
