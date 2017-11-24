@@ -1,6 +1,7 @@
 /**
  * Created by Liqi on 17/9/28.
  */
+import React from 'react';
 import styled from 'styled-components';
 import { default as Component } from '../utlis/Component';
 import { Modal } from '../Modal/index';
@@ -87,6 +88,7 @@ class Dialog extends Component {
     callback: null,
     maskVisible: false,
     type: DIALOG_TYPE.ALERT,
+    closable: false,
   };
 
   alert({
@@ -96,7 +98,9 @@ class Dialog extends Component {
     theme = DIALOG_THEME.CLASSIC,
     callback,
     icon = null,
+    closable = false,
   }) {
+    console.log('alert' + closable);
     this.setState({
       title,
       message,
@@ -106,6 +110,7 @@ class Dialog extends Component {
       icon,
       type: DIALOG_TYPE.ALERT,
       maskVisible: true,
+      closable,
     });
   }
 
@@ -117,6 +122,7 @@ class Dialog extends Component {
     callback,
     theme = DIALOG_THEME.CLASSIC,
     icon = null,
+    closable = false,
   }) {
     this.setState({
       title,
@@ -128,6 +134,7 @@ class Dialog extends Component {
       icon,
       type: DIALOG_TYPE.CONFIRM,
       maskVisible: true,
+      closable,
     });
   }
 
@@ -184,10 +191,17 @@ class Dialog extends Component {
   }
 
   // eslint-disable-next-line
-    render({}, { title, message, theme, icon }) {
+    render({}, { title, message, theme, icon, closable }) {
     return (
       <DialogStyles.DWrapper>
-        <Modal childrenCls="DialogMask-content" visible={this.state.maskVisible}>
+        <Modal
+          childrenCls="DialogMask-content"
+          visible={this.state.maskVisible}
+          closable={closable}
+          onClose={() => {
+            this.setState({ maskVisible: false });
+          }}
+        >
           <DialogStyles.DialogContainer
             className="DialogContainer"
             style={icon && { paddingTop: '40px' }}

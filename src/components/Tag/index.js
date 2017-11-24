@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Icon } from '../Icon/index';
@@ -43,7 +44,9 @@ const Tag = ({
     color: ${style.color[textColor]};
   `;
   if (deg) {
-    Tag = Tag.extend`background: ${style.gradient[backgroundColor](deg)};`;
+    Tag = Tag.extend`
+      background: ${style.gradient[backgroundColor](deg)};
+    `;
   }
 
   if (type === TAG_TYPE.BIG) {
@@ -86,6 +89,7 @@ const Tag = ({
       font-size: 12px;
       height: 24px;
       border-radius: 2px;
+      line-height: 12px;
     `;
   } else if (type === TAG_TYPE.SMALL) {
     Tag = Tag.extend`

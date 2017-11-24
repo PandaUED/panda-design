@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { style } from '../style_index';
@@ -52,8 +53,7 @@ const Cell = ({
     ${large && 'min-height: 65px'};
     ${height && `height: ${height}px`};
     ${align === 'top' && 'align-items: flex-start;'};
-    ${padding ? `padding:${padding}px;` : 'padding:16px;'};
-    padding-right: 10px;
+    ${padding ? `padding:${padding}px;` : 'padding: 13px 16px;'};
   `;
 
   return (

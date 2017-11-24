@@ -1,7 +1,7 @@
 /**
  * Created by Liqi on 17/9/27.
  */
-import { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
@@ -59,7 +59,7 @@ const ToastStyles = {
   `,
 };
 
-class Toast extends Component {
+class Toast extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

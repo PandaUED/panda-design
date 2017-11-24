@@ -2,6 +2,7 @@
  * Created by Liqi on 17/9/27.
  */
 
+import React from 'react';
 import { default as Component } from '../utlis/Component';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';

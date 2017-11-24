@@ -2,6 +2,7 @@
  * Created by lichenguang on 2017/9/15.
  */
 
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { rgba } from 'polished';
@@ -56,7 +57,6 @@ const Showcase = ({
   const Title = styled.div`
     font-size: 36px;
     margin-top: 10px;
-    font-family: SFUIDisplay-Medium;
     color: ${titleColor ? style.color[titleColor] : bottomDesc ? '#56606F' : null};
   `;
   const Desc = styled.div`
@@ -88,7 +88,6 @@ const Showcase = ({
   `;
   const ShowcaseBackground = styled.span`
     opacity: 0.08;
-    font-family: SFUIDisplay-Black;
     font-size: 100px;
     float: right;
     margin-top: -62px;

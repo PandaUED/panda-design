@@ -1,3 +1,4 @@
+import React from 'react';
 import styled from 'styled-components';
 import CardBody from './CardBody';
 import CardFooter from './CardFooter';

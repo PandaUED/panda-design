@@ -1,7 +1,7 @@
 /**
  * Created by Liqi on 17/10/16.
  */
-
+import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { noop } from 'lodash';
@@ -103,7 +103,7 @@ class Calculator extends Component {
         ref={c => (this.refASCalculator = c)}
         title="计算器"
         onClose={() => {
-          console.log('close 回调');
+          // console.log('close 回调');
           onClose();
           resetWhenClose && this.reset();
         }}
@@ -134,11 +134,11 @@ class Calculator extends Component {
             this.setState({ currValue: r });
           }}
           onHide={() => {
-            console.log(`keyboard hide`);
+            // console.log(`keyboard hide`);
             this.close();
           }}
           onConfirm={() => {
-            console.log(`keyboard confirm`);
+            // console.log(`keyboard confirm`);
             onConfirm();
           }}
         />
