@@ -58,7 +58,7 @@ const HorizontalStepItem = ({ data, isFirst = false, isLast = false, ...other })
   const StepName = styled.div`
     font-size: 10px;
     line-height: 12px;
-    margin-top: 6px;
+    margin-top: 2px;
     ${(data.status === 'active' || data.status === 'finish') && `color: ${style.color.blue};`};
   `;
 
@@ -188,7 +188,7 @@ const ProgressStepItem = ({ data, color, isLast = false, ...other }) => {
   const StepName = styled.div`
     font-size: 10px;
     line-height: 12px;
-    margin-top: 6px;
+    margin-top: 2px;
     color: ${style.color.darkGrey};
     ${data.status === 'active' &&
       `${color ? `color: ${style.color[color]}` : `color: ${style.color.blue}`};`};
