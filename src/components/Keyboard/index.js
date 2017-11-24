@@ -26,7 +26,7 @@ const KBStyles = {
     line-height: 56px;
   `,
   KeyboardItem: styled.div`
-    font-family: SFUIDisplay-Regular;
+    font-family: SFUIDisplay-Regular, PingFang SC;
     font-size: 26px;
     color: #444;
     flex: 1;
