@@ -117,9 +117,9 @@ class Tabs extends React.Component {
   /**
      * 可视化动画，如果显示TabLinkBar则也会有动画
      * 使用不优雅的js写css方式实现，暂时不做改进
-     * @param {bool} [scrollInto=true] 设置是否加载时就滚动到可见状态
+     * @param {bool} [scrollInto=false] 设置是否加载时就滚动到可见状态,暂时弃用
      */
-  animation(scrollInto = true) {
+  animation(scrollInto) {
     if (this.tabsInner && this.linkBarBox) {
       const paddingLeft = this.getLeftPadding(this.tabsInner.parentNode);
       this.linkBarBox.style.paddingLeft = paddingLeft + 'px';
