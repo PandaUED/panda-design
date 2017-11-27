@@ -25,7 +25,6 @@ const ToastStyles = {
     color: #444;
     line-height: 16px;
     font-weight: bold;
-    margin-bottom: 9px;
     text-align: left;
   `,
   TDesc: styled.div`
@@ -34,6 +33,7 @@ const ToastStyles = {
     color: #999;
     line-height: 18px;
     text-align: justify;
+    margin-top: 9px;
   `,
   TBlank: styled.div`flex: 1 1 auto;`,
   TBtn: styled.div`
@@ -140,7 +140,7 @@ class Toast extends React.Component {
                 {icon && <ToastStyles.TIcon className="toast-icon">{icon}</ToastStyles.TIcon>}
                 <div className="toast-textarea">
                   <ToastStyles.TTitle className="toast-title">{title}</ToastStyles.TTitle>
-                  <ToastStyles.TDesc className="toast-desc">{desc}</ToastStyles.TDesc>
+                  {desc && <ToastStyles.TDesc className="toast-desc">{desc}</ToastStyles.TDesc>}
                 </div>
                 <ToastStyles.TBlank className="toast-blank" />
                 {button && (
