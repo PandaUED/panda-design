@@ -44,6 +44,7 @@ class Calculator extends Component {
   static propTypes = {
     calculateFunc: PropTypes.func,
     checkValue: PropTypes.func,
+    desc: PropTypes.string,
     onClose: PropTypes.func,
     onConfirm: PropTypes.func,
     resetWhenClose: PropTypes.bool,
@@ -61,6 +62,7 @@ class Calculator extends Component {
     content: null,
     notice: null,
     maxAmount: null,
+    desc: '预期收益',
   };
 
   open() {
@@ -103,7 +105,7 @@ class Calculator extends Component {
   }
 
   render(
-    { calculateFunc, checkValue, onClose, onConfirm, content, notice, resetWhenClose },
+    { calculateFunc, checkValue, onClose, onConfirm, content, desc, notice, resetWhenClose },
     { currValue, key }
   ) {
     return (
@@ -125,7 +127,7 @@ class Calculator extends Component {
           readOnly
         />
         <CalculatorStyles.Output>
-          <span style={{ color: '#666' }}>预期收益</span>
+          <span style={{ color: '#666' }}>{desc}</span>
           <em>
             <span>{calculateFunc ? calculateFunc(currValue) : currValue}</span>
           </em>
