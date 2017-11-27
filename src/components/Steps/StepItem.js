@@ -43,7 +43,9 @@ const HorizontalStepItem = ({ data, isFirst = false, isLast = false, ...other })
     ${(data.status === 'active' || data.status === 'finish') &&
       `background-color: ${style.color.blue};`};
   `;
-  const WhitePlaceHolder = PlaceHolder.extend`background-color: transparent;`;
+  const WhitePlaceHolder = PlaceHolder.extend`
+    background-color: transparent;
+  `;
   const StepIcon = styled.div`
     height: 24px;
     width: 24px;
@@ -117,6 +119,7 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
     line-height: 15px;
     margin-left: 16px;
     ${data.status === 'active' && `color: ${style.color.blue};`};
+    ${data.status === 'finish' && isLast && `color: ${style.color.blue};`};
   `;
   const StepDesc = styled.div`
     margin-top: 3px;
@@ -125,7 +128,9 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
     line-height: 12px;
     margin-left: 16px;
   `;
-  const StepContent = styled.div`${isFirst ? 'margin-top: 0;' : 'margin-top: 16px;'};`;
+  const StepContent = styled.div`
+    ${isFirst ? 'margin-top: 0;' : 'margin-top: 16px;'};
+  `;
 
   return (
     <StepItem {...other}>

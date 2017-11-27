@@ -48,13 +48,13 @@ const BADGE_STYLES = {
     display: inline-block;
     background: ${props => props.bgColor};
     border: ${props => (props.border ? '1px solid #fff' : null)};
-    border-radius: 8px;
+    border-radius: 20px;
     border-bottom-left-radius: 0;
     font-family: PingFangSC-Medium;
     font-size: 12px;
     color: #fff;
     letter-spacing: 0.34px;
-    padding: 2px 7px;
+    padding: 1px 7px;
     transform: scale(0.7);
   `,
 };
