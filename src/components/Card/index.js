@@ -7,20 +7,20 @@ import './_card.scss';
 
 const props = {};
 
-const CardStyle = styled.div`background: #fff;`;
+const CardStyle = styled.div`
+  background: #fff;
+  ${props =>
+    !!props.noMarginTop &&
+    `&::before{
+        display: none !important;
+      }`};
+`;
 
-// styledComponent很恶心，如果不这样写，外层组件state更新就会触发styledComponent组件的重新渲染，内部state状态就失踪了
-// TODO：貌似还有其他解决办法，如ThemeProvider
 const Card = ({ children = 'example', className = '', noMarginTop = false, ...other }) => {
-  let CardStyleExtend = CardStyle;
-  if (noMarginTop) {
-    CardStyleExtend = CardStyle.extend`margin-top: 0 !important;`;
-  }
-
   return (
-    <CardStyleExtend className={`${className} xm-card`} {...other}>
+    <CardStyle noMarginTop={noMarginTop} className={`${className} xm-card`} {...other}>
       {children}
-    </CardStyleExtend>
+    </CardStyle>
   );
 };
 
