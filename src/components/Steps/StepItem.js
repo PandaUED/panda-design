@@ -129,6 +129,7 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
     margin-left: 16px;
   `;
   const StepContent = styled.div`
+    display: inline;
     ${isFirst ? 'margin-top: 0;' : 'margin-top: 16px;'};
   `;
 
