@@ -1,5 +1,10 @@
 :global {
   .xm-card + .xm-card {
-    margin-top: 10px;
+    &::before {
+      display: block;
+      content: '';
+      height: 10px;
+      background: #f8f8f8;
+    }
   }
 }
