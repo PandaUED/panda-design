@@ -5,7 +5,10 @@
 	"files": [
 		"src/components"
 	],
-	"repository": "git@git.coding.net:canisminor1990/panda-design.git",
+	"repository": [
+		"git@git.coding.net:canisminor1990/panda-design.git",
+		"git@github.com:PandaUED/panda-design.git"
+	],
 	"license": "MIT",
 	"scripts": {
 		"root": "yarn && yarn build:dll && yarn link",
