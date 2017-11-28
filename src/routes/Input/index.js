@@ -18,6 +18,9 @@ class PageInput extends React.Component {
             this.setState({ phoneNumber: e.target.value });
             console.log(e.target.value);
           }}
+          onClear={() => {
+            this.setState({ phoneNumber: '' });
+          }}
           showClear
         />
         <Input

@@ -80,10 +80,12 @@ class Input extends React.Component {
     readOnly: PropTypes.bool,
     showClear: PropTypes.bool,
     padding: PropTypes.number,
+    onClear: PropTypes.func,
   };
   static defaultProps = {
     onChange: noop,
     onClick: noop,
+    onClear: noop,
     readOnly: false,
     showClear: false,
   };
@@ -143,6 +145,7 @@ class Input extends React.Component {
     this.setState({
       clear: false,
     });
+    this.props.onClear();
   }
 
   render() {
