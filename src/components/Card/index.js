@@ -11,11 +11,9 @@ const CardStyle = styled.div`
   background: #fff;
   ${props =>
     !!props.noMarginTop &&
-    `
-  &::before{
-display: none !important;
-}
-`};
+    `&::before{
+        display: none !important;
+      }`};
 `;
 
 const Card = ({ children = 'example', className = '', noMarginTop = false, ...other }) => {
