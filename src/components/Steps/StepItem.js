@@ -86,7 +86,7 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
     color: ${style.color.placeholder};
     display: flex;
     div {
-      display: flex;
+      // display: flex;
       flex-direction: column;
     }
   `;
@@ -129,7 +129,7 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
     margin-left: 16px;
   `;
   const StepContent = styled.div`
-    display: inline;
+    display: inline !important;
     ${isFirst ? 'margin-top: 0;' : 'margin-top: 16px;'};
   `;
 
