@@ -92,7 +92,7 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
   `;
   const PlaceHolder = styled.div`
     width: 1px;
-    height: 16px;
+    height: 17px;
     margin-left: 11px;
     background-color: ${style.color.bgPage};
     ${data.status === 'finish' && `background-color: ${style.color.blue};`};
