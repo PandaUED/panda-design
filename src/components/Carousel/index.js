@@ -4,7 +4,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
 import ReactCarousel from './ReactCarousel';
 import { style } from '../style_index';
 
@@ -22,7 +21,6 @@ const Carousel = ({
   dots = false,
   autoplay = false,
   infinite = false,
-  className = '',
   ...other
 }) => {
   let Carousel = styled(ReactCarousel)`
@@ -36,15 +34,7 @@ const Carousel = ({
     Carousel = Carousel.extend`background: ${style.gradient[color](deg)};`;
   }
 
-  return (
-    <Carousel
-      className={classNames('xm-carousel', className)}
-      {...other}
-      dots={dots}
-      autoplay={autoplay}
-      wrapAround={infinite}
-    />
-  );
+  return <Carousel {...other} dots={dots} autoplay={autoplay} wrapAround={infinite} />;
 };
 
 Carousel.propTypes = props;
