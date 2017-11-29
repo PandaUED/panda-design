@@ -122,8 +122,8 @@ class Tabs extends React.Component {
   animation(scrollInto) {
     if (this.tabsInner && this.linkBarBox) {
       const paddingLeft = this.getLeftPadding(this.tabsInner.parentNode);
-      this.linkBarBox.style.paddingLeft = paddingLeft + 'px';
-      this.linkBarBox.style.paddingRight = paddingLeft + 'px';
+      // this.linkBarBox.style.paddingLeft = paddingLeft + 'px';
+      // this.linkBarBox.style.paddingRight = paddingLeft + 'px';
       // eslint-disable-next-line
       const container = this.tabsInner.parentNode;
       const activeTab = container.querySelector(`a:nth-child(${this.state.activeIndex + 1})`);
