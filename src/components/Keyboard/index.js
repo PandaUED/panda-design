@@ -12,6 +12,7 @@ const KEYBOARD_TYPE = {
   PASSWORD: 'password',
   CALCULATOR: 'calculator',
   VERIFYCODE: 'verifyCode',
+  NEWCALC: 'newCalculator',
 };
 
 const KBStyles = {
@@ -100,7 +101,7 @@ class Keyboard extends Component {
     const { numLimit } = this.props;
     let _value = currValue + value.toString();
 
-    if (this.props.type === 'calculator') {
+    if (this.props.type === 'calculator' || this.props.type === 'newCalculator') {
       if (currValue.length === 1 && currValue[0] === '0') {
         if (value === 0 || value === '0') {
           return;
@@ -245,12 +246,26 @@ class Keyboard extends Component {
     );
   }
 
+  renderKbNewCalculator() {
+    return (
+      <div>
+        {this.renderKbNum()}
+        <KBStyles.KeyboardRow>
+          <KBStyles.KeyboardItem>{this.props.icon}</KBStyles.KeyboardItem>
+          {this.renderSingleNum(0)}
+          <KBStyles.KeyboardItem>{this.renderDelBtn()}</KBStyles.KeyboardItem>
+        </KBStyles.KeyboardRow>
+      </div>
+    );
+  }
+
   render({ type, keyboardCls }) {
     return (
       <KBStyles.KbContainer className={keyboardCls}>
         {type === KEYBOARD_TYPE.PASSWORD && this.renderKbPassword()}
         {type === KEYBOARD_TYPE.CALCULATOR && this.renderKbCalculator()}
         {type === KEYBOARD_TYPE.VERIFYCODE && this.renderKbVerifyCode()}
+        {type === KEYBOARD_TYPE.NEWCALC && this.renderKbNewCalculator()}
       </KBStyles.KbContainer>
     );
   }
