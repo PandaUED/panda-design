@@ -65,6 +65,7 @@ const Showcase = ({
     color: ${backgroundColor === 'white' ? '#666D78' : null};
   `;
   const Subtitle = Title.extend`
+    font-family: PingFangSC-Medium;
     font-size: 16px;
     margin-top: 6px;
     color: ${backgroundColor === 'white' ? '#444' : null};
