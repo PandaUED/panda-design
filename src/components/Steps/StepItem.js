@@ -84,13 +84,13 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
     color: ${style.color.placeholder};
     display: flex;
     div {
-      display: flex;
+      // display: flex;
       flex-direction: column;
     }
   `;
   const PlaceHolder = styled.div`
     width: 1px;
-    height: 16px;
+    height: 17px;
     margin-left: 11px;
     background-color: ${style.color.bgPage};
     ${data.status === 'finish' && `background-color: ${style.color.blue};`};
@@ -126,8 +126,10 @@ const VerticalStepItem = ({ data, isFirst = false, isLast = false, ...other }) =
     line-height: 12px;
     margin-left: 16px;
   `;
-  const StepContent = styled.div`${isFirst ? 'margin-top: 0;' : 'margin-top: 16px;'};`;
-
+  const StepContent = styled.div`
+    display: inline !important;
+    ${isFirst ? 'margin-top: 0;' : 'margin-top: 16px;'};
+  `;
   return (
     <StepItem {...other}>
       <div>

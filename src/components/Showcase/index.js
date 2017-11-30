@@ -93,6 +93,7 @@ const Showcase = ({
     margin-top: -62px;
     margin-right: -46px;
     color: ${style.color.white};
+    font-weight: bold;
   `;
 
   return (
