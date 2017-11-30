@@ -137,7 +137,7 @@ class Calculator extends Component {
           {notice}
         </NoticeBar>
         <Keyboard
-          type="calculator"
+          type="newCalculator"
           key={key}
           checkValue={checkValue || this.checkValue}
           onChange={r => {
