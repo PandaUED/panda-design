@@ -19,7 +19,7 @@ const props = {
   type: PropTypes.oneOf(Object.keys(TAG_TYPE)),
   children: PropTypes.node,
   img: PropTypes.string,
-  color: PropTypes.oneOf(Object.keys(style.color)),
+  color: PropTypes.oneOfType([PropTypes.oneOf(Object.keys(style.color)), PropTypes.string]),
 };
 
 const Tag = ({
@@ -44,9 +44,7 @@ const Tag = ({
     color: ${style.color[textColor]};
   `;
   if (deg) {
-    Tag = Tag.extend`
-      background: ${style.gradient[backgroundColor](deg)};
-    `;
+    Tag = Tag.extend`background: ${style.gradient[backgroundColor](deg)};`;
   }
 
   if (type === TAG_TYPE.BIG) {
