@@ -35,17 +35,19 @@ const gradientColorFn = (color, deg) => style.gradient[color](deg);
 // 组件正文
 const Button = ({
   color = 'primary',
+  textColor = '#fff',
+  textActiveColor = 'rgba(255, 255, 255, 0.7)',
   children,
   onClick,
   deg = null,
   size = 'default',
-  round = false,
+  round = true,
   ghost = false,
   border = true,
   shadow = false,
   highlight = false,
   disabled = false,
-  onTouchTap,
+  // onTouchTap,
   ...other
 }) => {
   // 线框样式
@@ -62,11 +64,11 @@ const Button = ({
   // 背景渐变样式
   const degStyleSheet = css`
     background: ${gradientColorFn(color, deg)};
-    color: #fff;
+    color: ${textColor};
     &:active {
       background: 'linear-gradient(rgba(0,0,0,.08) 0%,rgba(0,0,0,.08) 100%)',
         ${gradientColorFn(color, deg)};
-      color: rgba(255, 255, 255, 0.7);
+      color: ${textActiveColor};
     }
   `;
   // 阴影样式
@@ -106,14 +108,14 @@ const Button = ({
     overflow: hidden;
     -webkit-appearance: none;
     // common
-    color: #fff;
+    color: ${textColor};
     font-size: ${fontSizeFn(size)}px;
     background: ${singleColorFn(color)};
     border-radius: ${borderRadiusSizeFn(round, size)}px;
     cursor: pointer;
     &:active {
       background: ${darken(0.05, singleColorFn(color))};
-      color: rgba(255, 255, 255, 0.7);
+      color: ${textActiveColor};
     }
     ${style.text.ellipsis};
     // 线框
