@@ -192,6 +192,7 @@ const ProgressStepItem = ({ data, color, isLast = false, ...other }) => {
     font-size: 10px;
     line-height: 12px;
     margin-top: 2px;
+    letter-spacing: -0.5px;
     color: ${style.color.darkGrey};
     ${data.status === 'active' &&
       `${color ? `color: ${style.color[color]}` : `color: ${style.color.blue}`};`};
