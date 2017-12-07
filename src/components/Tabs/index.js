@@ -60,8 +60,8 @@ const TabContainer = styled.div`
   .tab-link-bar-box {
     width: 100%;
     height: 2px;
-    position: absolute;
-    bottom: 0;
+    //position: absolute;
+    //bottom: 0;
   }
 `;
 
