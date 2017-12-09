@@ -32,11 +32,11 @@ const ModalStyles = {
   ModalContent: styled.div`display: inline-block;`,
 
   CloseBtn: styled.div`
-    height: 48px;
-    width: 48px;
+    height: 44px;
+    width: 44px;
     border-radius: 50%;
-    background: #999;
-    color: #fff;
+    border: 2px solid rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
     line-height: 48px;
     font-size: 24px;
     ${style.mixins.xmFlexCenter('column')};
