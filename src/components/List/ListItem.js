@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components';
 import TouchFeedback from 'rmc-feedback';
 import PropTypes from 'prop-types';
 import { style } from '../style_index';
+import React from 'react';
 
 const props = {
   className: PropTypes.string,

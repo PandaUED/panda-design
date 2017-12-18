@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import PropTypes from 'prop-types';
 import { style } from '../style_index';
+import React from 'react';
 
 const props = {
   children: PropTypes.string,
