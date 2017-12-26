@@ -22,7 +22,7 @@ const ModalStyles = {
     bottom: 0;
     overflow: auto;
     background: rgba(0, 0, 0, 0.4);
-    ${props => props.contentFlexCenter && style.mixins.xmFlexCenter('column')};
+    ${props => props.contentFlexCenter && style.mixins.xmFlexCenter()};
   `,
   ModalBg: styled.div`
     position: absolute;
