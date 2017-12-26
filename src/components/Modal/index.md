@@ -12,6 +12,7 @@
 | closable | 是否显示关闭按钮	 | bool | false |
 | maskClosable | 点击蒙层是否允许关闭 | bool | false |
 | animation | 动画效果 | bool | true |
+| contentFlexCenter | 内容居中 | bool | false |
 | **OTHER** ||||
 | maskCls | 外层包裹类 | string | null |
 | maskBgCls | 背景类 | string | null |

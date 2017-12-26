@@ -22,6 +22,7 @@ const ModalStyles = {
     bottom: 0;
     overflow: auto;
     background: rgba(0, 0, 0, 0.4);
+    ${props => props.contentFlexCenter && style.mixins.xmFlexCenter('column')};
   `,
   ModalBg: styled.div`
     position: absolute;
@@ -58,6 +59,7 @@ class Modal extends Component {
     maskBgCls: PropTypes.string,
     childrenCls: PropTypes.string,
     children: PropTypes.node,
+    contentFlexCenter: PropTypes.bool,
   };
   static defaultProps = {
     visible: false,
@@ -69,6 +71,7 @@ class Modal extends Component {
     maskBgCls: null,
     childrenCls: null,
     children: null,
+    contentFlexCenter: false,
   };
 
   render({
@@ -81,9 +84,13 @@ class Modal extends Component {
     maskClosable,
     closable,
     animation,
+    contentFlexCenter,
   }) {
     const ModalBase = (
-      <ModalStyles.ModalStyled className={classnames('xm-mask', maskCls)}>
+      <ModalStyles.ModalStyled
+        className={classnames('xm-mask', maskCls)}
+        {...{ contentFlexCenter }}
+      >
         <ModalStyles.ModalBg
           className={classnames('xm-mask-bg', maskBgCls)}
           onClick={() => {

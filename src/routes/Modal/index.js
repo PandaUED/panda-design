@@ -78,7 +78,10 @@ class PageModal extends React.Component {
           }}
           closable
           maskClosable={false}
-        />
+          contentFlexCenter
+        >
+          contentFlexCenter
+        </Modal>
 
         <a
           href="javascript:;"
