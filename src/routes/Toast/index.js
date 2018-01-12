@@ -43,6 +43,15 @@ const ToastDemo = () => {
       </a>
       <a
         onClick={() => {
+          Toast.sharedInstance.showWarning({
+            desc: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
+          });
+        }}
+      >
+        Show Warning
+      </a>
+      <a
+        onClick={() => {
           Toast.sharedInstance.show({
             desc: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
             button: 'OK',
