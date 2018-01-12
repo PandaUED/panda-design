@@ -20,11 +20,13 @@ class PageBgIcon extends React.Component {
     return (
       <BgIconDemo>
         <WhiteSpace>直接传入，带默认值</WhiteSpace>
-        <a href="">
-          <BgIcon type="Bell" double />
+        <a>
+          <BgIcon bgColor={style.gradient.blue()} type="Yes" marginRight={16} />
+          <BgIcon bgColor={style.gradient.redbag()} type="Close" marginRight={16} />
+          <BgIcon bgColor={style.gradient.orange()} type="Note" marginRight={16} />
         </a>
-        <WhiteSpace>直接传入，填入所有参数</WhiteSpace>
-        <a href="">
+        <WhiteSpace>直接传入，列举出所有参数</WhiteSpace>
+        <a>
           <BgIcon
             bgSize={40}
             bgColor={style.gradient.red()}
@@ -36,7 +38,7 @@ class PageBgIcon extends React.Component {
           />
         </a>
         <WhiteSpace>以children形式传入Icon</WhiteSpace>
-        <a href="">
+        <a>
           <BgIcon>
             <Icon type="Bell" double size={24} />
           </BgIcon>
