@@ -3,7 +3,7 @@
  */
 import React from 'react';
 import styled from 'styled-components';
-import { Modal, style, WhiteSpace, BgIcon, Icon } from 'pand';
+import { style, WhiteSpace, BgIcon, Icon } from 'pand';
 
 const BgIconDemo = styled.div`
   > a {

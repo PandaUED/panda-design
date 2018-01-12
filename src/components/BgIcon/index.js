@@ -2,7 +2,6 @@
  * Created by Liqi on 18/1/12.
  */
 import React from 'react';
-import classnames from 'classnames';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import { Icon } from '../Icon/index';
