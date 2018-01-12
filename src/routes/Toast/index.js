@@ -55,7 +55,7 @@ const ToastDemo = () => {
           Toast.sharedInstance.show({
             desc: '内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容内容',
             button: 'OK',
-            icon: <IconTest />,
+            icon: Toast.STATUS_ICON.WARNING,
           });
         }}
       >

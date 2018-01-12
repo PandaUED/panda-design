@@ -133,6 +133,8 @@ class Toast extends React.Component {
   }
 }
 
+Toast.STATUS_ICON = STATUS_ICON;
+
 function ToastSharedInstance() {
   return (
     <Toast
