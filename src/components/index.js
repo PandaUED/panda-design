@@ -13,6 +13,7 @@ export { default as Steps } from './Steps';
 
 // Data Entry
 export { Icon } from './Icon';
+export { BgIcon } from './BgIcon';
 export { Button } from './Button';
 export { default as Card } from './Card';
 export { default as Avatar } from './Avatar';

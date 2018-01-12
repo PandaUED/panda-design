@@ -5,7 +5,7 @@ export default {
   Variable: ['style'],
   Layout: ['View', 'WhiteSpace', 'WingBlank', 'Grid'],
   Navigation: ['NavBar', 'Tabs', 'TabFrame', 'Steps'],
-  DataEntry: ['Icon', 'Button', 'Card', 'Avatar', 'Input', 'Switch', 'CheckBox', 'Radio'],
+  DataEntry: ['Icon', 'BgIcon', 'Button', 'Card', 'Avatar', 'Input', 'Switch', 'CheckBox', 'Radio'],
   DataDisplay: ['Showcase', 'Carousel', 'List', 'Cell', 'Badge', 'Tag', 'NoticeBar'],
   Feedback: ['Modal', 'Dialog', 'Toast', 'ActionSheet', 'Keyboard'],
   Combination: ['Calculator', 'Password'],
