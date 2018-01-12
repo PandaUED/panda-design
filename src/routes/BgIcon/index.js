@@ -13,6 +13,10 @@ const BgIconDemo = styled.div`
     color: #444;
     ${style.split.bottom};
   }
+  .split {
+    width: 16px;
+    display: inline-block;
+  }
 `;
 
 class PageBgIcon extends React.Component {
@@ -21,9 +25,11 @@ class PageBgIcon extends React.Component {
       <BgIconDemo>
         <WhiteSpace>直接传入，带默认值</WhiteSpace>
         <a>
-          <BgIcon bgColor={style.gradient.blue()} type="Yes" marginRight={16} />
-          <BgIcon bgColor={style.gradient.redbag()} type="Close" marginRight={16} />
-          <BgIcon bgColor={style.gradient.orange()} type="Note" marginRight={16} />
+          <BgIcon bgColor={style.gradient.blue()} type="Yes" />
+          <span className="split" />
+          <BgIcon bgColor={style.gradient.redbag()} type="Close" />
+          <span className="split" />
+          <BgIcon bgColor={style.gradient.orange()} type="Note" />
         </a>
         <WhiteSpace>直接传入，列举出所有参数</WhiteSpace>
         <a>

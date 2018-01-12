@@ -5,8 +5,8 @@ import React from 'react';
 import styled from 'styled-components';
 import { CSSTransition } from 'react-transition-group';
 import classNames from 'classnames';
-import { Icon } from '../Icon/index';
 import { style } from '../style_index';
+import { BgIcon } from '../BgIcon/index';
 import './_toast.scss';
 
 const ToastStyles = {
@@ -43,20 +43,12 @@ const ToastStyles = {
     color: #5891ef;
     line-height: 14px;
   `,
-  SuccessIcon: styled.div`
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    background: ${style.gradient.blue()};
-    ${style.mixins.xmFlexCenter};
-  `,
-  FailIcon: styled.div`
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
-    background: ${style.gradient.redbag()};
-    ${style.mixins.xmFlexCenter};
-  `,
+};
+
+const STATUS_ICON = {
+  SUCCESS: <BgIcon bgColor={style.gradient.blue()} type="Yes" />,
+  FAIL: <BgIcon bgColor={style.gradient.redbag()} type="Close" />,
+  WARNING: <BgIcon bgColor={style.gradient.orange()} type="Note" />,
 };
 
 class Toast extends React.Component {
@@ -86,38 +78,16 @@ class Toast extends React.Component {
     setTimeout(this.hide, _duration);
   }
 
-  showSuccess({ title, desc, button, onClose, duration, hasFooterBar }) {
-    const icon = (
-      <ToastStyles.SuccessIcon>
-        <Icon size={24} type="Yes" color="white" />
-      </ToastStyles.SuccessIcon>
-    );
-    this.show({
-      title,
-      desc,
-      icon,
-      button,
-      onClose,
-      duration,
-      hasFooterBar,
-    });
+  showSuccess(args) {
+    this.show(Object.assign(args, { icon: STATUS_ICON.SUCCESS }));
   }
 
-  showFail({ title, desc, button, onClose, duration, hasFooterBar }) {
-    const icon = (
-      <ToastStyles.FailIcon>
-        <Icon size={24} type="Close" color="white" />
-      </ToastStyles.FailIcon>
-    );
-    this.show({
-      title,
-      desc,
-      icon,
-      button,
-      onClose,
-      duration,
-      hasFooterBar,
-    });
+  showFail(args) {
+    this.show(Object.assign(args, { icon: STATUS_ICON.FAIL }));
+  }
+
+  showWarning(args) {
+    this.show(Object.assign(args, { icon: STATUS_ICON.WARNING }));
   }
 
   hide() {

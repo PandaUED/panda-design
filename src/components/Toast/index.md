@@ -10,7 +10,7 @@
 ## API
 
 ```js
-Toast.sharedInstance.showSuccess/showFail({
+Toast.sharedInstance.showSuccess/showFail/showWaring({
     title,
     desc,
     button,
