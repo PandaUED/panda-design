@@ -12,8 +12,8 @@ const ProgressBarWrapper = styled.div`
   ${props => {
     return `
       height: ${props.height}px;
-        background: ${props.bgColor};
-      `;
+      background: ${props.bgColor};
+    `;
   }};
 `;
 
@@ -23,10 +23,10 @@ const ProgressBarContent = styled.div`
   height: 100%;
   ${props => {
     return `
-    display: ${props.progress ? 'block' : 'none'};
-                        width: ${props.progress}%;
+      display: ${props.progress ? 'block' : 'none'};
+      width: ${props.progress}%;
       background: ${props.color};
-    border: ${props.border};
+      border: ${props.border};
     `;
   }};
 `;
