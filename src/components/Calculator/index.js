@@ -51,6 +51,7 @@ class Calculator extends Component {
     content: PropTypes.node,
     notice: PropTypes.string,
     maxAmount: PropTypes.number,
+    fixedValue: PropTypes.number,
   };
 
   static defaultProps = {
@@ -63,6 +64,7 @@ class Calculator extends Component {
     notice: null,
     maxAmount: null,
     desc: '预期收益',
+    fixedValue: 0,
   };
 
   open() {
@@ -105,7 +107,17 @@ class Calculator extends Component {
   }
 
   render(
-    { calculateFunc, checkValue, onClose, onConfirm, content, desc, notice, resetWhenClose },
+    {
+      calculateFunc,
+      checkValue,
+      onClose,
+      onConfirm,
+      content,
+      desc,
+      notice,
+      resetWhenClose,
+      fixedValue,
+    },
     { currValue, key }
   ) {
     return (
@@ -123,13 +135,13 @@ class Calculator extends Component {
           type="money"
           size="large"
           left={<Icon color="#666" size={24} type="Money" />}
-          value={currValue}
+          value={fixedValue || currValue}
           readOnly
         />
         <CalculatorStyles.Output>
           <span style={{ color: '#666' }}>{desc}</span>
           <em>
-            <span>{calculateFunc ? calculateFunc(currValue) : currValue}</span>
+            <span>{calculateFunc ? calculateFunc(fixedValue || currValue) : currValue}</span>
           </em>
         </CalculatorStyles.Output>
         {content}
@@ -141,7 +153,9 @@ class Calculator extends Component {
           key={key}
           checkValue={checkValue || this.checkValue}
           onChange={r => {
-            this.setState({ currValue: r });
+            if (!fixedValue) {
+              this.setState({ currValue: r });
+            }
           }}
           onHide={() => {
             // console.log(`keyboard hide`);
