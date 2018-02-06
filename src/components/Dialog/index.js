@@ -100,7 +100,6 @@ class Dialog extends Component {
     icon = null,
     closable = false,
   }) {
-    console.log('alert' + closable);
     this.setState({
       title,
       message,

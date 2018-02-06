@@ -18,6 +18,7 @@ Calculator.close();
 | 属性   | 说明      |   类型   |   默认值   |
 | :-------- | ------ | :----: | :-----: |
 | calculateFunc | 计算函数 | func | null |
+| fixedValue | 固定输入值，不可更改 | number | 0 |
 | checkValue | 输入过滤函数 | func | 过滤两位小数 |
 | onClose | 关闭弹窗回调 | func | null |
 | onConfirm | 点击确认按钮回调 | func | null |
